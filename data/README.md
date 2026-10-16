@@ -32,8 +32,23 @@ uv run python scripts/kaynaklar.py kontrol   # elimizdeki revizyonlar hâlâ yü
 - Akademik takvimin PDF'i yok. Sayfadaki tablo `akademik-takvim-2026-2027.tsv`
   olarak saklanır, çünkü ham HTML her istekte farklı geliyor
   ([K-011](../docs/kararlar.md)).
-- `processed/` (temizlenmiş metin ve parçalar) koddan yeniden üretilir ve
-  depoya girmez.
+- `processed/` koddan yeniden üretilir ve depoya girmez:
+  `uv run python scripts/onisle.py` → `processed/parcalar_madde.jsonl`.
+
+## Parçalar: `processed/parcalar_madde.jsonl`
+
+Satır başına bir parça ([K-014](../docs/kararlar.md)):
+
+| alan | anlamı |
+|---|---|
+| `id` | `lisans-yonetmelik/m23`, `/g1` geçici, `/p2` paragraf, `/r40` takvim satırı, `/giris` |
+| `belge_id` | kaynaklar.csv'deki kimlik |
+| `tur` | `madde`, `gecici`, `paragraf`, `takvim`, `giris` |
+| `madde` | `"23"`, `"geçici 1"`; madde olmayan parçada `null` |
+| `baslik` | madde başlığı ("Devam durumu"); yoksa boş |
+| `bolum` | "ÜÇÜNCÜ BÖLÜM Sınavlar, …"; takvimde bölüm satırı |
+| `sayfa_bas`, `sayfa_son` | maddenin başladığı ("MADDE N"nin olduğu) ve bittiği sayfa |
+| `metin` | temizlenmiş metin; tablo hücreleri sekmeyle ayrılır |
 
 ## Test seti: `testset/`
 
@@ -45,7 +60,7 @@ JSONL, satır başına bir soru:
   "soru": "Devamsızlık sınırı nedir?",
   "tur": "tek",
   "referans_cevap": "...",
-  "dayanak": [{"belge_id": "lisans-yonetmelik", "madde": "21", "fikra": "1", "sayfa": 9}],
+  "dayanak": ["lisans-yonetmelik/m23"],
   "etiketler": ["sayi"],
   "yazan": "...",
   "bolum": "dev"
@@ -53,7 +68,9 @@ JSONL, satır başına bir soru:
 ```
 
 - `tur`: `tek` (tek madde), `cok` (birden fazla madde veya belge), `cevapsiz`.
-- `cevapsiz` sorularda `dayanak` boş liste, `referans_cevap` boş.
+- `dayanak`: parça kimlikleri ([K-014](../docs/kararlar.md)). `tek` için
+  bir, `cok` için en az iki, `cevapsiz` için boş liste; `referans_cevap`
+  da boş.
 - `etiketler`: hata analizinde soru türüne göre kırılım için. Örnek:
   `tarih`, `istisna`, `sayi`, `kosul`, `tanim`.
 - `bolum`: `dev` veya `test` ([K-007](../docs/kararlar.md), öneri).

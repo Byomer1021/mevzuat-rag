@@ -209,14 +209,38 @@ sha256'sı değişikliği gösteremiyor ([olcumler §2](olcumler.md)). `kaynakla
 indir`, sayfadaki tabloyu `data/raw/akademik-takvim-2026-2027.tsv`'ye
 çıkarıyor ve özeti bu dosyadan alıyor. Ham HTML saklanmıyor.
 
-## K-012: Sayfa başlığı temizliği her konfigürasyonda yapılır, öneri
+## K-012: Sayfa başlığı temizliği her konfigürasyonda yapılır; temizlik geçerli, etki ölçümü öneri (2026-10-16)
 
 Kalite formu başlığı metnin %6-10'u ve maddelerin ortasına giriyor
 ([olcumler §3](olcumler.md)). Temizlik bir deney değişkeni olarak değil,
 bütün konfigürasyonlarda uygulanan bir ön işlem olarak ele alınıyor.
-Etkisi taban sistemde **bir kez** ölçülür (temizlikli ve temizliksiz
-Recall@k). Ucuz bir ölçüm ve raporda "ön işlem neden gerekli" sorusunu
-cevaplar.
+**Uygulandı** ([olcumler §4](olcumler.md)).
+
+**Öneri:** etkisi taban sistemde **bir kez** ölçülsün (temizlikli ve
+temizliksiz Recall@k). Ucuz bir ölçüm ve raporda "ön işlem neden gerekli"
+sorusunu cevaplar.
+
+## K-014: Satır düzeyinde çıkarma; parça kimliği test setinin dayanağı, geçerli (2026-10-16)
+
+- PDF metni satır düzeyinde çıkarılıyor ve satırlar kendi konumlarına göre
+  sıralanıyor. Blok kutusu metinden geniş olabildiği için blok düzeyinde bir
+  tablo yanlış maddeye düşüyordu ([olcumler §4](olcumler.md)).
+- Her parçanın kalıcı bir kimliği var: `<belge_id>/m<N>` (madde),
+  `/g<N>` (geçici madde), `/p<N>` (paragraf), `/r<N>` (takvim satırı).
+  Test setindeki `dayanak` alanı bu kimliklere işaret ediyor; Recall@k
+  bu kimliklerle hesaplanacak.
+- **Sınır:** sabit uzunluklu parçalamada parçalar madde sınırına uymaz.
+  Orada bir parçanın "doğru" sayılması için, dayanak maddenin metniyle
+  örtüşmesi gerekiyor. Ölçüt hafta 3'te, ilk Recall@k hesaplanmadan önce
+  yazılacak.
+
+## K-015: Sabit parçalama boyutu madde uzunluğuna göre seçilir, öneri
+
+Sabit ve madde bazlı parçalamanın karşılaştırması adil olsun diye sabit
+parça boyutu, madde uzunluğunun medyanı (365 karakter) etrafında seçilsin.
+Tek bir keyfi değer (ör. 1000) yerine iki üç değer denensin: medyan ve p90
+(1396) gibi. Aksi halde "madde bazlı daha iyi" sonucu "daha uzun parça daha
+iyi" sonucundan ayrılamaz.
 
 ## K-013: BM25'e Türkçe kök bulma varyantı, öneri
 

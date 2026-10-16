@@ -27,15 +27,18 @@ sayı ölçüldüğü anda girer. Ölçülmemiş sayı yazılmaz.
   gerekmiyor.
 - Madde başlıkları beş farklı biçimde yazılmış. Tanıyıcı, madde yapısı olan
   12 belgenin 12'sinde 1..N'i eksiksiz buluyor (227 asıl, 2 geçici madde).
-- Her sayfadaki kalite formu başlığı metnin %6-10'u ve maddelerin ortasına
-  giriyor.
+- Her sayfadaki kalite formu başlığı metnin %7.7'si ve maddelerin ortasına
+  giriyordu. Temizlendi; temiz metinde iz kalmadı.
+- Bilgi tabanı 384 parçaya bölündü: 229 madde, 150 takvim satırı ve
+  maddesiz belge için 4 paragraf. Parçalar temiz metni 13/13 belgede
+  kayıpsız örtüyor, sayfa aralıkları 234/234 doğru.
 
-Ayrıntılar: [olcumler §2-3](docs/olcumler.md).
+Ayrıntılar: [olcumler §2-4](docs/olcumler.md).
 
 | aşama | hafta | durum |
 |---|---|---|
 | 0. ortam, repo, dokümantasyon; belge toplama, metin katmanı | 0 | **tamam** |
-| 1. başlık temizliği, madde parçalayıcı, 50 dev sorusu, dil modeli pilotu | 1-2 | sırada |
+| 1. başlık temizliği, madde parçalayıcı, 50 dev sorusu, dil modeli pilotu | 1-2 | temizlik ve parçalayıcı **tamam**; sorular ve pilot sırada |
 | 2. en basit çalışan RAG (taban sistem, ilk sonuçlar) | 3-4 | |
 | 3. BM25 / kök bulma / madde / hibrit / reranker, test seti 150 | 5-6 | |
 | 4. test setinde değerlendirme, elle puanlama | 7 | |
@@ -110,9 +113,12 @@ results/             ölçümlerin ham çıktısı (JSON/CSV)
 scripts/
   kaynaklar.py       dizin, indirme, güncellik kontrolü
   metin_katmani.py   PDF metin katmanı ölçümü (olcumler §3)
+  onisle.py          temizlik + parçalama + denetim (olcumler §4)
   ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)
 src/mevzuat_rag/
   madde.py           madde başlığı tanıyıcı (beş biçim)
+  onisleme.py        PDF'ten temiz sayfa metni, kalite formu başlığı atılır
+  parcalama.py       madde bazlı, paragraf, sabit uzunluklu, takvim
 tests/
 ```
 

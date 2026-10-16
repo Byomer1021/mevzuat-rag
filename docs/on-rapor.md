@@ -121,7 +121,8 @@ Tanımdaki "1. belge işleme" adımı bir deney ekseni olmaktan çıktı: iki PD
 |---|---|---|---|
 | PDF'ler taranmış görüntü | metin bozulur | metin katmanı ölçüldü | **kapandı**: 13/13 metinli, bozuk karakter 0 |
 | madde başlıkları metinden çıkmaz | madde bazlı parçalama çalışmaz | tanıyıcı 12 belgede 1..N'i eksiksiz buluyor | **kapandı**, YÖ-0087 hariç (yedek strateji) |
-| sayfa başlığı maddelerin ortasına girer | parçalara gürültü | ön işlemde temizlik (K-012) | açık, hafta 1-2 |
+| sayfa başlığı maddelerin ortasına girer | parçalara gürültü | ön işlemde temizlik (K-012) | **kapandı**: temiz metinde iz yok ([olcumler §4](olcumler.md)) |
+| uzun maddeler gömme modelinin sınırını aşar | maddenin sonu aramada görünmez | 11 madde 2000 karakterin üstünde; model seçilirken token sayısı ölçülür | hafta 3 |
 | test seti küçük kalır | sonuçlar güvenilmez | 200 soru, türler dengeli | |
 | test setine göre ayar yapılır | sonuçlar şişer | dev/test ayrımı (K-007) | öneri |
 | ikinci etiketçi bulunamaz | Kappa raporlanamaz | bir sınıf arkadaşından 40-50 soru | açık |
