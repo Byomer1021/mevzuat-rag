@@ -25,8 +25,16 @@ import pymupdf
 BASLIK_IZLERI = ("Doküman No", "Revizyon No")
 # Tablonun son satırındaki "Sayfa" hücresi: satır kutuları birbirine değmediği
 # için üstteki satırlardan yayılarak bulunamıyor, kendisi de tohum olmalı.
+# Yalnız başına geçerli değil: başka biçimde bir belgede altlıktaki "Sayfa"
+# satırı, üstündeki bütün sayfayı başlık sandırırdı.
 BASLIK_HUCRELERI = ("Sayfa",)
 ALTLIK_IZI = "Form No:"
+# Başlık ve altlık yalnızca bu bölgelerde aranır (sayfa yüksekliğine oranla).
+# 13 belgede başlık tohumları en fazla %16'ya, altlık en az %91'e iniyor
+# (olcumler §5); bölgeler pay bırakıyor. Bölge dışında kalan "Form No:" veya
+# "Sayfa" gövde metnidir, dokunulmaz.
+BASLIK_BOLGESI = 0.25
+ALTLIK_BOLGESI = 0.85
 SATIR_TOLERANS = 2.0  # pt; aynı yükseklikteki satırlar (tablo hücreleri) tek satır
 # Satır arası boşluk dağılımı iki tepeli: 0-3 pt'de 1907 aralık (paragraf
 # içi), 10-15 pt'de 263 (paragraf arası), 5-9 pt'de yalnızca 19 (olcumler §4).
@@ -61,26 +69,30 @@ def _satirlar(sayfa: pymupdf.Page) -> list[_Satir]:
 
 def sayfayi_temizle(sayfa: pymupdf.Page) -> Sayfa:
     satirlar = _satirlar(sayfa)
+    baslik_siniri = sayfa.rect.height * BASLIK_BOLGESI
+    altlik_siniri = sayfa.rect.height * ALTLIK_BOLGESI
     atilan: set[int] = set()
 
-    altlik = [i for i, s in enumerate(satirlar) if s.metin.startswith(ALTLIK_IZI)]
+    altlik = [i for i, s in enumerate(satirlar)
+              if s.metin.startswith(ALTLIK_IZI) and s.y0 >= altlik_siniri]
     if altlik:
         ust = min(satirlar[i].y0 for i in altlik)
         atilan |= {i for i, s in enumerate(satirlar) if s.y0 >= ust}
 
-    tohum = [i for i, s in enumerate(satirlar)
-             if i not in atilan and (any(iz in s.metin for iz in BASLIK_IZLERI)
-                                     or s.metin in BASLIK_HUCRELERI)]
+    ust_bolge = [i for i, s in enumerate(satirlar) if i not in atilan and s.y0 < baslik_siniri]
+    izler = [i for i in ust_bolge if any(iz in satirlar[i].metin for iz in BASLIK_IZLERI)]
+    tohum = izler + ([i for i in ust_bolge if satirlar[i].metin in BASLIK_HUCRELERI]
+                     if izler else [])
     if tohum:
         alt = max(satirlar[i].y1 for i in tohum)
         atilan |= set(tohum)
         degisti = True
-        while degisti:  # başlığa değen satırlar başlığın parçası
+        while degisti:  # başlığa değen satırlar başlığın parçası; bölge dışına taşmaz
             degisti = False
-            for i, s in enumerate(satirlar):
-                if i not in atilan and s.y0 < alt:
+            for i in ust_bolge:
+                if i not in atilan and satirlar[i].y0 < alt:
                     atilan.add(i)
-                    alt = max(alt, s.y1)
+                    alt = max(alt, satirlar[i].y1)
                     degisti = True
 
     kalan = sorted((s for i, s in enumerate(satirlar) if i not in atilan),

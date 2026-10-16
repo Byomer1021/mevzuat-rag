@@ -220,6 +220,18 @@ bütün konfigürasyonlarda uygulanan bir ön işlem olarak ele alınıyor.
 temizliksiz Recall@k). Ucuz bir ölçüm ve raporda "ön işlem neden gerekli"
 sorusunu cevaplar.
 
+## K-013: BM25'e Türkçe kök bulma varyantı, öneri
+
+Türkçe eklemeli bir dil. "yönetmeliğin", "yönetmelikte", "yönetmeliğe" ham
+tokenlarla BM25'te üç ayrı terim; soru ile madde aynı kökü farklı eklerle
+kullandığında eşleşme kaçar. NLP dersi açısından projenin en doğrudan
+Türkçe'ye özgü sorusu bu.
+
+Önerilen deney: BM25'i ham tokenlarla ve kök bulma sonrası ayrı ayrı
+çalıştırmak. Yalnızca arama metrikleriyle ölçülür, dil modeli gerektirmez,
+bu yüzden ucuz. Aday araçlar `snowballstemmer` (Türkçe kök bulucu) ve
+`zeyrek` (Zemberek tabanlı lemmatizer); ikisi de henüz kurulup denenmedi.
+
 ## K-014: Satır düzeyinde çıkarma; parça kimliği test setinin dayanağı, geçerli (2026-10-16)
 
 - PDF metni satır düzeyinde çıkarılıyor ve satırlar kendi konumlarına göre
@@ -242,14 +254,25 @@ Tek bir keyfi değer (ör. 1000) yerine iki üç değer denensin: medyan ve p90
 (1396) gibi. Aksi halde "madde bazlı daha iyi" sonucu "daha uzun parça daha
 iyi" sonucundan ayrılamaz.
 
-## K-013: BM25'e Türkçe kök bulma varyantı, öneri
+## K-016: Bilgi tabanı 1 Kasım'da dondurulur, öneri
 
-Türkçe eklemeli bir dil. "yönetmeliğin", "yönetmelikte", "yönetmeliğe" ham
-tokenlarla BM25'te üç ayrı terim; soru ile madde aynı kökü farklı eklerle
-kullandığında eşleşme kaçar. NLP dersi açısından projenin en doğrudan
-Türkçe'ye özgü sorusu bu.
+Belge eklemek teknik olarak kolay ([data/README.md](../data/README.md)),
+ama ölçümleri etkiliyor:
 
-Önerilen deney: BM25'i ham tokenlarla ve kök bulma sonrası ayrı ayrı
-çalıştırmak. Yalnızca arama metrikleriyle ölçülür, dil modeli gerektirmez,
-bu yüzden ucuz. Aday araçlar `snowballstemmer` (Türkçe kök bulucu) ve
-`zeyrek` (Zemberek tabanlı lemmatizer); ikisi de henüz kurulup denenmedi.
+- **Cevapsız sorular cevaplı hale gelebilir.** Örneğin Erasmus yönergesi
+  eklenirse "Erasmus'ta kaç ders saydırabilirim?" artık cevapsız değildir.
+  Etiketler bilgi tabanına göre konuyor.
+- **Arama metrikleri değişir.** Her yeni belge yeni çeldiriciler demek; önceki
+  ve sonraki Recall@k aynı tabloya konamaz.
+
+Öneri:
+
+- Eklenecek belgeler **dev soruları yazılmadan önce**, en geç hafta 2
+  sonunda (1 Kasım) eklenir ve bilgi tabanı o gün dondurulur.
+- Dondurmadan sonra eklenen belge yeni bir bilgi tabanı sürümüdür: bütün
+  konfigürasyonlar yeniden çalıştırılır, cevapsız sorular yeniden kontrol
+  edilir.
+- Her ölçüm `bilgi_tabani_surumu`'nu taşır; şu anki sürüm `adf8b2efb4e1`
+  (13 PDF + takvim). Farklı sürümlerle alınmış sonuçlar aynı tabloya konmaz.
+- Tanımın üst sınırı 15 belge, şu an 14. Aşmak mümkün; gerekçesi buraya
+  yazılır.

@@ -35,6 +35,31 @@ uv run python scripts/kaynaklar.py kontrol   # elimizdeki revizyonlar hâlâ yü
 - `processed/` koddan yeniden üretilir ve depoya girmez:
   `uv run python scripts/onisle.py` → `processed/parcalar_madde.jsonl`.
 
+## Yeni belge ekleme
+
+Önce [K-016](../docs/kararlar.md)'ya bak: belge eklemenin test setine ve
+önceki sonuçlara etkisi var.
+
+1. **Satırı ekle.** GTÜ dizinindeyse önce `kaynaklar.py dizin` ile dizini
+   tazele, `raw/dizin/*.tsv`'den kod, ad, revizyon, tarih ve URL'yi
+   `kaynaklar.csv`'ye yeni bir satır olarak ekle; `sha256` boş kalsın.
+   Dizinde değilse (ör. bir YÖK yönetmeliği) `kod` ve `revizyon` `-`.
+2. `uv run python scripts/kaynaklar.py indir`: belge iner, sha256 yazılır.
+3. `uv run python scripts/metin_katmani.py`: metin katmanı var mı, madde
+   başlıkları 1..N eksiksiz bulunuyor mu?
+4. `uv run python scripts/onisle.py`: `sorunlar` boş olmalı.
+   `atilan_blok_kaliplari`'nda yeni kalıp varsa bak; gövde metni
+   olmamalı. `bilgi_tabani_surumu` değişir.
+5. Yeni belgenin madde başlıklarına göz at.
+6. Test setindeki **cevapsız soruları yeniden kontrol et**: yeni belge
+   birinin cevabını içerebilir.
+7. [olcumler.md](../docs/olcumler.md)'ye kısa bir bölüm,
+   [kararlar.md](../docs/kararlar.md)'ye gerekçe.
+
+Temizlik kuralları GTÜ kalite formuna göre yazıldı. Kalite formu olmayan bir
+belgede hiçbir şey atılmaz, ki istenen de bu. Biçimi farklı bir başlığı
+olan belgede ise başlık metinde kalır; bunu 4. adım gösterir.
+
 ## Parçalar: `processed/parcalar_madde.jsonl`
 
 Satır başına bir parça ([K-014](../docs/kararlar.md)):

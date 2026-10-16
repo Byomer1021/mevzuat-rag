@@ -5,6 +5,7 @@ sonucu denetler. Sonuç: results/onisleme.json, olcumler §4.
 """
 
 import csv
+import hashlib
 import json
 import re
 import statistics
@@ -21,6 +22,15 @@ RAW = KOK / "data" / "raw"
 CIKTI = KOK / "data" / "processed" / "parcalar_madde.jsonl"
 RAPOR = KOK / "results" / "onisleme.json"
 IZLER = ["Doküman No", "Form No", "Revizyon No", "Yayın Tarihi", "Revizyon Tarihi"]
+ATILAN_SAYFA_MAX = 400  # boşluksuz karakter
+
+
+def bilgi_tabani_surumu(kaynaklar: list[dict]) -> str:
+    """Kaynakların (kimlik, sha256) çiftlerinden kısa özet. Belge eklenir,
+    çıkarılır ya da değişirse özet değişir; her ölçüm bunu taşır ki farklı
+    bilgi tabanlarıyla alınmış sonuçlar karşılaştırılmasın (K-016)."""
+    ozet = "\n".join(sorted(f"{s['belge_id']}:{s['sha256']}" for s in kaynaklar))
+    return hashlib.sha256(ozet.encode()).hexdigest()[:12]
 
 
 def bosluksuz(metin: str) -> str:
@@ -64,8 +74,14 @@ def main():
         for sy in sayfalar:
             # sayıları maskeleyerek grupla: "Sayfa 7-3" ile "Sayfa 7-4" aynı kalıp
             atilan_say.update(re.sub(r"\d", "#", a) for a in sy.atilan)
-            atilan_kar += sum(len(bosluksuz(a)) for a in sy.atilan)
-            kalan_kar += len(bosluksuz(sy.metin))
+            a, k = sum(len(bosluksuz(x)) for x in sy.atilan), len(bosluksuz(sy.metin))
+            atilan_kar, kalan_kar = atilan_kar + a, kalan_kar + k
+            # Kapsama denetimi temizlenmiş metne bakar; temizliğin gövdeyi
+            # silmesini göremez. Başlık+altlık boyutu sabit: 52 sayfada
+            # 174-259 karakter (olcumler §5). Oran değil mutlak sayı, çünkü kısa
+            # son sayfalarda başlık metnin yarısı olabiliyor (%48).
+            if a > ATILAN_SAYFA_MAX:
+                sorunlar.append(f"{s['belge_id']} s{sy.no}: {a} karakter atıldı")
             for iz in IZLER:
                 if iz in sy.metin:
                     sorunlar.append(f"{s['belge_id']} s{sy.no}: temiz metinde '{iz}' kaldı")
@@ -103,6 +119,8 @@ def main():
     maddeler = [p for p in parcalar if p.tur in ("madde", "gecici")]
     q = statistics.quantiles(uzunluklar, n=10)
     rapor = {
+        "bilgi_tabani_surumu": bilgi_tabani_surumu(kaynaklar),
+        "belge_sayisi": len(kaynaklar),
         "atilan_karakter_orani": round(atilan_kar / (atilan_kar + kalan_kar), 4),
         "atilan_blok_kaliplari": dict(atilan_say.most_common()),
         "parca_turleri": dict(Counter(p.tur for p in parcalar)),

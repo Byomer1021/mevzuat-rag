@@ -285,3 +285,41 @@ yakalanıyor.
   ölçülmedi; model seçilirken (hafta 3) bakılacak.
 - Belgelerin sonundaki onay tabloları ("Yönergenin Görüşüldüğü Senato
   Kararı") son maddenin parçasına giriyor.
+
+---
+
+## 5. Başka biçimde bir belge eklenirse temizlik ne yapar (2026-10-16)
+
+**Neden.** Bilgi tabanına sonradan belge eklenebilir
+([K-016](kararlar.md)). Temizlik kuralları ise yalnızca GTÜ kalite formuna
+göre yazılmıştı.
+
+**Bulunan risk.** "Sayfa" hücresi ve "Form No:" satırı, sayfanın neresinde
+olursa olsun başlık/altlık tohumu sayılıyordu. Mevcut 13 belgede ikisi de
+yalnızca tabloda geçtiği için zararsızdı (§4: her biri tam 52 kez atıldı).
+Başka biçimde bir belgede, altlıkta tek başına duran bir "Sayfa" satırı
+üstündeki bütün sayfayı başlık sandırırdı. Kapsama denetimi bunu göremez,
+çünkü parçaları temizlenmiş metinle karşılaştırıyor.
+
+**Ölçüm ve önlem.** 52 sayfanın hepsi 842 pt. Başlık tohumlarının en alt
+kenarı y=133'te (%16), altlığın en üst kenarı y=762.7'de (%91). Bu yüzden:
+
+- başlık yalnızca sayfanın üst %25'inde, altlık yalnızca alt %15'inde
+  aranıyor;
+- "Sayfa" hücresi ancak aynı sayfada "Doküman No" veya "Revizyon No" varsa
+  tohum sayılıyor.
+
+Değişiklikten sonra 13 belgenin çıktısı byte düzeyinde aynı. Yeni bir test,
+kalite formu olmayan bir sayfada gövdedeki "Form No:" satırının ve
+altlıktaki "Sayfa"nın hiçbir şey sildirmediğini kontrol ediyor. İki bölge
+sınırı ayrı ayrı kaldırılınca test kırılıyor.
+
+**Denetime eklenen: sayfa başına atılan karakter.** 52 sayfada 174-259
+arası (medyan 196). Önce oran kullanmayı düşündüm ve "sayfa başına en çok
+~%20 atılıyor" diye tahmin ettim. Ölçünce en yüksek oran %48 çıktı: YÖ-0013'ün
+son sayfasında yalnızca 218 karakter gövde var. Başlık ve altlığın boyutu
+sabit olduğu için eşik mutlak bir sayı: 400 karakter.
+
+**Bilgi tabanı sürümü.** Bütün kaynakların sha256'larından tek bir özet;
+`results/onisleme.json`'da duruyor. Şu an `adf8b2efb4e1`; belge eklenince
+ya da değişince değişir.

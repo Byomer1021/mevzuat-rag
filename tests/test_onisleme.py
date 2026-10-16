@@ -54,6 +54,30 @@ def test_buyuk_dikey_bosluk_paragraf_siniri(sayfa):
     assert "F4\nKapsam" in metin  # 200 -> 213: aynı paragraf
 
 
+@pytest.fixture
+def baska_bicim():
+    """Kalite formu başlığı olmayan bir belge: "Sayfa" ve "Form No:" gövdede
+    ve altlıkta geçiyor. Eskiden "Sayfa" satırının üstündeki her şey
+    başlık sanılıp siliniyordu."""
+    d = pymupdf.open()
+    s = d.new_page(width=595, height=842)
+    for y, t in [(100, "MADDE 1- (1) Basvuru formu doldurulur."),
+                 (300, "Sayfa"),  # gövdede tek başına
+                 (320, "Form No: FR-0001 numarali form kullanilir."),
+                 (500, "MADDE 2- (1) Sonuclar ilan edilir."),
+                 (820, "Sayfa")]:  # altlıkta
+        s.insert_text((60, y), t, fontsize=10)
+    yield s
+    d.close()
+
+
+def test_baska_bicimde_govde_silinmez(baska_bicim):
+    sonuc = sayfayi_temizle(baska_bicim)
+    for t in ["MADDE 1- (1) Basvuru", "Form No: FR-0001", "MADDE 2- (1) Sonuclar"]:
+        assert t in sonuc.metin
+    assert sonuc.atilan == []
+
+
 def test_atilanlar_denetim_icin_kaydedilir(sayfa):
     atilan = sayfayi_temizle(sayfa).atilan
     assert "Doküman No" in atilan and any(a.startswith("Form No:") for a in atilan)
