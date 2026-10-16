@@ -1,0 +1,61 @@
+[project]
+name = "mevzuat-rag"
+version = "0.1.0"
+description = "Üniversite mevzuatı için kaynak gösteren Türkçe RAG soru-cevap sistemi"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # 1. belge isleme
+    "pymupdf>=1.24",
+    "pdfplumber>=0.11",
+    # 3-4. gomme ve arama
+    "torch>=2.5,<2.8",
+    "sentence-transformers>=3.0",
+    "faiss-cpu>=1.8",
+    "rank-bm25>=0.2.2",
+    # veri, deney, degerlendirme
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.38"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "ipykernel>=6.29",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mevzuat_rag"]
+
+# GTX 1080 (Pascal, sm_61) ve 526.47 surucusu en fazla CUDA 12.0 destekliyor.
+# cu12x derlemeleri ya Pascal'i birakti ya daha yeni surucu istiyor; cu118
+# ikisini de karsiliyor. Ayrinti: docs/kararlar.md, K-002.
+[tool.uv]
+environments = ["sys_platform == 'win32'", "sys_platform == 'linux'"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu118" }
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src"]

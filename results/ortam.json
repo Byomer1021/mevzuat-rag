@@ -1,0 +1,41 @@
+{
+  "zaman": "2026-10-16 21:41:26",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "hf_home": "D:/.cache/huggingface",
+  "paketler": {
+    "torch": "2.7.1+cu118",
+    "sentence-transformers": "6.1.0",
+    "transformers": "5.20.1",
+    "faiss-cpu": "1.15.1",
+    "rank-bm25": "0.2.2",
+    "pymupdf": "1.28.2",
+    "pdfplumber": "0.11.10",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "streamlit": "1.66.0"
+  },
+  "gpu": {
+    "torch_cuda_derlemesi": "11.8",
+    "cuda_gorunuyor": true,
+    "gpu": "NVIDIA GeForce GTX 1080",
+    "compute_capability": "sm_61",
+    "derlemedeki_mimariler": [
+      "sm_37",
+      "sm_50",
+      "sm_60",
+      "sm_61",
+      "sm_70",
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "compute_37"
+    ],
+    "vram_gb": 8.0,
+    "matmul_2048_ms": 2.83,
+    "cpu_ile_max_fark": 0.000518798828125,
+    "kernel_calisti": true
+  }
+}

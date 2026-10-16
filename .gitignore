@@ -1,0 +1,28 @@
+# Ortam
+.venv/
+.env
+.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Yeniden uretilebilen ara ciktilar: ham PDF'ten ve kod'dan tekrar elde edilir.
+# Ham PDF'ler (data/raw) ve test seti (data/testset) depoya girer.
+data/processed/
+indexes/
+
+# Model agirliklari HF onbelleginde durur, depoya girmez
+*.safetensors
+*.bin
+*.gguf
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
