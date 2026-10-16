@@ -305,3 +305,58 @@ araştırma sorusu tam olarak bunu ölçüyor.
 
 **Bilinçli olarak eklenmeyenler** aynen geçerli: lisansüstü mevzuat ve
 İngilizce çeviriler.
+
+## K-018: Site taramasının kapsamı ve yöntemi, geçerli (2026-10-16)
+
+**Kapsam: lisans öğrencisini ilgilendiren 40 birim** (liste
+`scripts/tara.py`'de): Öğrenci İşleri, Sağlık Kültür ve Spor (burs,
+yemek, kısmi zamanlı çalışma), Uluslararası İlişkiler (Erasmus),
+Uluslararası Öğrenciler, Kariyer Merkezi, Engelsiz GTÜ, Öğrenci
+Toplulukları, Öğrenci Başarı ve Destek, Kütüphane, Yabancı Diller, Beden
+Eğitimi, 5 fakülte, MYO ve 23 bölüm.
+
+**Dışarıda:** araştırma enstitüleri ve merkezleri, idari birimler (personel,
+strateji, hukuk…), Lisansüstü Eğitim Enstitüsü.
+
+**Yöntem.**
+
+- Birimin ana sayfasından gömülü menü ve "Duyurular → Tümü" bağlantısı
+  okunuyor; menüdeki her site içi sayfa ve duyuru listesi çekiliyor.
+- Duyuruların detay sayfaları yalnızca kimliği 25500'den büyük olanlar için,
+  yani kabaca Eylül 2025'ten bu yana olanlar çekiliyor. Daha eskiler zaten
+  güncelliğini yitirmiş.
+- robots.txt yok; istekler arası 0.5 s. Sayfalar `.cache/tarama/`'da
+  tutuluyor, yeniden çalıştırınca siteye gidilmiyor; başarısız istek
+  önbelleğe yazılmıyor.
+- Belge indirilmiyor; yalnızca envanter ([olcumler §7](olcumler.md)).
+- Envanter (`results/tarama/`) sitedeki herkese açık duyuru ve dosya
+  başlıklarını içeriyor; bazılarında kişi adı var ("Thesis Presentation of
+  …"). Dosya içerikleri yok. Repo private. Public yapılmadan önce bu dosyalar
+  gözden geçirilir (K-004 ile birlikte).
+
+## K-019: Taramadan bilgi tabanına ne girer, açık
+
+Karar Ömer Can'ın. Önerim:
+
+| tür | dosya | öneri | neden |
+|---|---|---|---|
+| sınav / ders programı | 840 | **girmez** | dönemlik tablolar; birkaç haftada eskiyor, tarih soruları akademik takvimden |
+| ilan / sonuç | 389 | **girmez** | süreli; sonuç ve kabul listeleri öğrenci adı ve numarası içeriyor |
+| form | 900 | **girmez** | çoğu boş şablon; bilgi taşımıyor |
+| ders materyali, diğer | 725 | **girmez** | deney föyleri, posterler, faaliyet raporları, öğrenci sayıları |
+| mevzuat, rehber | 136 | **seçilerek girer** | bölüm esasları, intibak ve sınav kuralları, af uygulama ilkeleri, staj rehberleri, Düzensiz Öğrenci Rehberi; yalnızca güncel sürüm, lisans kapsamı |
+| öğretim planı | 263 | **ayrı karar** | "3. dönemde hangi dersler var" türü sorular için değerli; ama ağır tablo, bölüm başına yıllık sürümler. Alınacaksa her bölümün yalnızca güncel planı, PDF tablo çıkarımı ölçüldükten sonra |
+
+Alınacak her belge için:
+
+1. Envanterden elle seçilir; tür sınıflandırması yalnızca ön eleme,
+   isabeti %78.
+2. İndirildikten sonra metin katmanı ölçülür ve **kişisel veri taraması**
+   yapılır (öğrenci no ve TC kimlik no örüntüleri). Başlıktan kişisel veri
+   tespiti iki listeyi kaçırdı.
+3. `kaynaklar.csv`'ye notunda "site taraması" ve bulunduğu sayfa ile girer.
+4. K-016'ya tabi: 1 Kasım'dan sonra eklenen belge yeni bir bilgi tabanı
+   sürümüdür.
+
+**Ayrıca açık:** duyuru metinleri ve SSS gibi HTML sayfalar. Bunlar
+taranmadı, yalnızca dosyalar envanterde.

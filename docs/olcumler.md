@@ -375,3 +375,74 @@ birleştirilmiş metin).
 - Endüstriyel Uygulamalar (18 madde) ve GTU 110'un (5/6 madde) maddelerinde
   başlık yok. Örneklenen maddelerde bu doğrulandı: madde doğrudan "MADDE 2-
   (1)…" diye başlıyor.
+
+---
+
+## 7. Site taraması: birimlerin sayfaları ve duyuruları (2026-10-16)
+
+**Neden.** Ömer Can: bölüm, fakülte ve Öğrenci İşleri sayfalarının
+duyurularında da belgeler var. Bilgi tabanına aday olanların neler olduğunu
+görmek gerekiyordu.
+
+**Nasıl.** [scripts/tara.py](../scripts/tara.py) 40 birimi tarıyor
+([K-018](kararlar.md)). Her birim için ana sayfa, gömülü menüdeki bütün
+site içi sayfalar ve duyuru listesi çekiliyor; Eylül 2025'ten yeni
+duyuruların detay sayfaları da ekleri için. robots.txt yok (404); istekler
+arasında 0.5 s bekleniyor. Belge indirilmiyor, yalnızca envanter
+çıkarılıyor. [scripts/envanter.py](../scripts/envanter.py) dosyaları
+tekilleştirip türlerine ayırıyor. Ham çıktı:
+[results/tarama/](../results/tarama/).
+
+**Sonuç.**
+
+| | değer |
+|---|---|
+| birim | 40; bir sayfa (`kategori/9600`) iki çalıştırmada da HTTP 500 verdi, taranamadı |
+| duyuru | 4824 |
+| dosya bağlantısı | 4476 → 3253 tekil dosya |
+| tekrarlanabilirlik | ikinci çalıştırma (önbellekten) sayıları birebir verdi |
+| türler | form 900, sınav/ders programı 840, diğer 623, ilan/sonuç 389, öğretim planı 263, ders materyali 102, mevzuat 90, rehber 46 |
+| yıl | 2025 ve sonrası 1105, öncesi 607, yıl yok 1541 |
+| kişisel veri riski (başlıktan) | 297 |
+| bilgi tabanında zaten olan | 7 |
+| yönergelerin eski revizyonu | 12 |
+
+**Sitede eski yönergelere bağlantı var.** 12 bağlantı, yürürlükten kalkmış
+revizyonlara gidiyor: Yan Dal Yönergesi R2 (yürürlükte R6), ÇAP R2 (R3),
+Yatay Geçiş R3 (R4), Muafiyet ve İntibak R1 (R2), Bilgisayar Müh. Staj
+Esasları R0 (R1), Öğrenci Toplulukları R3 ve R4 (R6) ve diğerleri. Bölüm
+sayfasından yönergeye ulaşan bir öğrenci eski kuralları okuyor. Bunlar
+bilgi tabanına alınmaz; raporda kayda değer bir bulgu.
+
+**Sınıflandırma ne kadar doğru.** Kurallar başlık ve dosya adına bakıyor.
+İsabeti iki örneklemde, kuralın verdiği türü kendi etiketimle karşılaştırarak
+ölçtüm. Etiketler benim; bağımsız bir etiketçi değil.
+
+| örneklem (60 dosya) | uyum |
+|---|---|
+| A (tohum 42), kurallar düzeltilmeden önce | 50/60 (%83) |
+| B (tohum 7), A'ya bakılarak düzeltilmiş kurallarla | **47/60 (%78)** |
+
+Doğru sayı B: kurallar A'ya bakılarak düzeltildi, A üzerinde yeniden ölçmek
+şişirirdi. A'daki hatalar kalıplıydı ve düzeltildi:
+
+- sonuç listeleri "sınav" kelimesi yüzünden sınav programı sayılıyordu;
+- "vize", "re**vize**"nin içinde eşleşiyordu;
+- URL'den gelen dosya adlarında "İ" ayrışmış (I + U+0307) olabiliyor;
+- büyük harfli ASCII "ILANI" Türkçe küçültmeyle "ılanı" oluyordu;
+- kişisel veri kalıbındaki "asil", "nas**ıl**"ın içinde eşleşiyordu (bunu
+  bir test yakaladı).
+
+B'deki hataların çoğu belirsiz durumlar: sunum saatleri ders programı mı,
+staj hibe sözleşmesi form mu.
+
+**Ciddi olan: başlıktan kişisel veri tespiti güvenilmez.** B'deki iki
+"Devamsızlıktan Kalanlar" listesi işaretlenmedi. Sonuç: hiçbir dosya
+yalnızca türüne bakılarak bilgi tabanına alınmaz. İndirilen her belgenin
+içeriği öğrenci numarası ve TC kimlik numarası örüntülerine karşı ayrıca
+taranır ([K-019](kararlar.md)).
+
+**Ne göstermiyor.** Yalnızca dosyalar envantere girdi. Duyuruların kendi
+metinleri ve SSS gibi HTML sayfaları taranmadı. Eylül 2025'ten eski
+duyuruların detay sayfalarındaki ekler de çekilmedi; listeden doğrudan
+dosyaya bağlananlar ise envanterde.
