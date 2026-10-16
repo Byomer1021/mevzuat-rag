@@ -14,28 +14,43 @@ choices behind it.*
 
 ## Durum
 
-**Hafta 0: ortam kuruldu, henüz sonuç yok.** Bu sayfaya her sayı ölçüldüğü
-anda girer. Ölçülmemiş sayı yazılmaz.
+GTÜ'de NLP dersi projesi; 19 Ekim - 20 Aralık 2026.
+
+**Hafta 0: bilgi tabanı toplandı, RAG sonucu henüz yok.** Bu sayfaya her
+sayı ölçüldüğü anda girer. Ölçülmemiş sayı yazılmaz.
+
+Şu ana kadar ölçülen:
+
+- 13 GTÜ yönetmelik/yönergesi ve akademik takvim; hepsi Kalite Ofisi
+  dizinindeki yürürlükteki revizyonuyla, sha256'larıyla.
+- 52 sayfanın hepsinde metin katmanı var, bozuk Türkçe karakter 0: OCR
+  gerekmiyor.
+- Madde başlıkları beş farklı biçimde yazılmış. Tanıyıcı, madde yapısı olan
+  12 belgenin 12'sinde 1..N'i eksiksiz buluyor (227 asıl, 2 geçici madde).
+- Her sayfadaki kalite formu başlığı metnin %6-10'u ve maddelerin ortasına
+  giriyor.
+
+Ayrıntılar: [olcumler §2-3](docs/olcumler.md).
 
 | aşama | hafta | durum |
 |---|---|---|
-| 0. ortam, repo, dokümantasyon düzeni | — | **tamam** |
-| 1. belgeleri toplama, ilk 50 soruluk test seti | 1-2 | sırada |
+| 0. ortam, repo, dokümantasyon; belge toplama, metin katmanı | 0 | **tamam** |
+| 1. başlık temizliği, madde parçalayıcı, 50 dev sorusu, dil modeli pilotu | 1-2 | sırada |
 | 2. en basit çalışan RAG (taban sistem, ilk sonuçlar) | 3-4 | |
-| 3. parçalama / arama / reranker varyantları, test seti 150+ | 5-6 | |
-| 4. tüm konfigürasyonları değerlendirme, elle puanlama, hata analizi | 7-8 | |
-| 5. arayüz ve demo | 9 | |
-| 6. rapor ve sunum | 10 | |
+| 3. BM25 / kök bulma / madde / hibrit / reranker, test seti 150 | 5-6 | |
+| 4. test setinde değerlendirme, elle puanlama | 7 | |
+| 5. hata analizi, arayüz ve demo | 8 | |
+| 6. rapor ve sunum | 9 | |
 
 ## Araştırma sorusu
 
 > Türkçe mevzuat metinlerinde hangi parçalama ve arama stratejisi, doğru ve
 > kaynağa dayalı cevap oranını en çok artırır?
 
-Karşılaştırılacak konfigürasyonlar:
+Karşılaştırılacak konfigürasyonlar ([on-rapor §5](docs/on-rapor.md)):
 
-1. Arama yok, yalnızca dil modeli (taban sistem)
-2. BM25 + dil modeli
+1. Arama yok, yalnızca dil modeli (taban çizgisi)
+2. BM25 + dil modeli; Türkçe kök bulmalı ve kök bulmasız
 3. Vektör arama + dil modeli
 4. Hibrit arama (+ reranker) + dil modeli
 5. Sabit uzunlukta parçalama ile madde bazlı parçalamanın karşılaştırması
@@ -85,13 +100,19 @@ kadar destekleyen sürücüyle çalışan seçenek bu. Gerekçesi
 
 ```
 data/
-  kaynaklar.csv      bilgi tabanındaki her belge: URL, sürüm tarihi, sha256
-  raw/               indirilen PDF'ler (depoda)
-  processed/         PDF'ten çıkan metin ve parçalar (yeniden üretilir, depoda değil)
+  kaynaklar.csv      bilgi tabanındaki her belge: kod, revizyon, URL, sha256
+  raw/               indirilen PDF'ler ve takvim TSV'si (depoda)
+  raw/dizin/         GTÜ Kalite Ofisi dizininin çekildiği günkü hali
+  processed/         temizlenmiş metin ve parçalar (yeniden üretilir, depoda değil)
   testset/           etiketli soru-cevap seti (depoda)
 docs/                rapor, ölçüm, karar ve günlük kayıtları
-scripts/             tek seferlik ve deney betikleri
-src/mevzuat_rag/     paket: belge işleme, parçalama, arama, üretim, değerlendirme
+results/             ölçümlerin ham çıktısı (JSON/CSV)
+scripts/
+  kaynaklar.py       dizin, indirme, güncellik kontrolü
+  metin_katmani.py   PDF metin katmanı ölçümü (olcumler §3)
+  ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)
+src/mevzuat_rag/
+  madde.py           madde başlığı tanıyıcı (beş biçim)
 tests/
 ```
 

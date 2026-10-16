@@ -2,24 +2,38 @@
 
 ## Bilgi tabanı: `raw/` ve `kaynaklar.csv`
 
-İndirilen her PDF `raw/` altına girer ve `kaynaklar.csv`'ye bir satır olarak
-yazılır. Gerekçe: [K-004](../docs/kararlar.md).
+Bilgi tabanındaki her belge `kaynaklar.csv`'de bir satır, dosyası `raw/`
+altında. Hangi belgelerin neden seçildiği: [K-009](../docs/kararlar.md).
+Neden depoda oldukları: [K-004](../docs/kararlar.md).
+
+```powershell
+uv run python scripts/kaynaklar.py dizin     # GTÜ Kalite Ofisi dizinini raw/dizin/'e kaydet
+uv run python scripts/kaynaklar.py indir     # eksik belgeleri indir, sha256 yaz
+uv run python scripts/kaynaklar.py kontrol   # elimizdeki revizyonlar hâlâ yürürlükte mi
+```
 
 | sütun | anlamı |
 |---|---|
 | `belge_id` | kısa, kalıcı kimlik: `lisans-yonetmelik`, `yatay-gecis`, ... |
-| `baslik` | belgenin resmî adı |
-| `tur` | `yonetmelik`, `yonerge`, `takvim`, `diger` |
+| `kod` | GTÜ doküman kodu: `YN-0001`, `YÖ-0013`; dizinde olmayan için `-` |
+| `baslik` | dizindeki resmî ad |
+| `tur` | `yonetmelik`, `yonerge`, `esaslar`, `takvim` |
+| `revizyon` | dizindeki revizyon no: `R7` |
+| `surum_tarihi` | dizindeki revizyon tarihi; R0 ise ilk yayın tarihi |
 | `url` | indirildiği adres |
-| `surum_tarihi` | belgenin üzerindeki son değişiklik / kabul tarihi |
 | `indirme_tarihi` | YYYY-MM-DD |
-| `dosya` | `raw/` altındaki dosya adı |
-| `sha256` | dosyanın özeti; sonuçlar bu sürüme bağlıdır |
-| `metin_katmani` | `var`, `yok` (taranmış, OCR gerekir), `kismi` |
+| `dosya` | `raw/` altındaki dosya: `<belge_id>_<revizyon>.pdf` |
+| `sha256` | dosyanın özeti; sonuçlar bu sürüme bağlı |
+| `metin_katmani` | boş; ölçüm sonucu [results/metin_katmani.csv](../results/metin_katmani.csv)'de |
 | `notlar` | |
 
-`processed/` (PDF'ten çıkan metin ve parçalar) koddan yeniden üretilir ve
-depoya girmez.
+- `raw/dizin/` GTÜ dizininin çekildiği günkü hali; hangi revizyonun yürürlükte
+  olduğunun kanıtı.
+- Akademik takvimin PDF'i yok. Sayfadaki tablo `akademik-takvim-2026-2027.tsv`
+  olarak saklanır, çünkü ham HTML her istekte farklı geliyor
+  ([K-011](../docs/kararlar.md)).
+- `processed/` (temizlenmiş metin ve parçalar) koddan yeniden üretilir ve
+  depoya girmez.
 
 ## Test seti: `testset/`
 

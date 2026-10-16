@@ -1,5 +1,7 @@
 # Depoda her metin dosyasi LF; Windows'ta calisma kopyasi autocrlf'e gore.
 * text=auto
 
-# Ham yonetmelik PDF'leri: sha256'si kaynaklar.csv'de, byte'i degismemeli.
+# Ham veri: sha256'si kaynaklar.csv'de, byte'i degismemeli. Takvim TSV'si
+# autocrlf ile CRLF'e cevrilirse diskteki ozet kayitla tutmaz.
 *.pdf binary
+data/raw/** -text
