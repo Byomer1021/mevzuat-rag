@@ -21,19 +21,20 @@ sayı ölçüldüğü anda girer. Ölçülmemiş sayı yazılmaz.
 
 Şu ana kadar ölçülen:
 
-- 13 GTÜ yönetmelik/yönergesi ve akademik takvim; hepsi Kalite Ofisi
-  dizinindeki yürürlükteki revizyonuyla, sha256'larıyla.
-- 52 sayfanın hepsinde metin katmanı var, bozuk Türkçe karakter 0: OCR
+- 20 GTÜ yönetmelik/yönergesi, YÖK geçiş yönetmeliği ve akademik takvim,
+  toplam 22 kaynak. GTÜ belgeleri Kalite Ofisi dizinindeki yürürlükteki
+  revizyonlarıyla alındı ve sha256'ları kayıtlı.
+- Bütün sayfalarda metin katmanı var, bozuk Türkçe karakter 0: OCR
   gerekmiyor.
-- Madde başlıkları beş farklı biçimde yazılmış. Tanıyıcı, madde yapısı olan
-  12 belgenin 12'sinde 1..N'i eksiksiz buluyor (227 asıl, 2 geçici madde).
-- Her sayfadaki kalite formu başlığı metnin %7.7'si ve maddelerin ortasına
-  giriyordu. Temizlendi; temiz metinde iz kalmadı.
-- Bilgi tabanı 384 parçaya bölündü: 229 madde, 150 takvim satırı ve
-  maddesiz belge için 4 paragraf. Parçalar temiz metni 13/13 belgede
-  kayıpsız örtüyor, sayfa aralıkları 234/234 doğru.
+- Madde başlıkları altı farklı biçimde yazılmış (ek ve geçici maddeler
+  dahil). Tanıyıcı, madde yapısı olan 20 belgenin 20'sinde 1..N'i eksiksiz
+  buluyor: 366 asıl, 5 geçici, 3 ek madde.
+- Her sayfadaki kalite formu başlığı maddelerin ortasına giriyordu.
+  Temizlendi; temiz metinde iz kalmadı.
+- Bilgi tabanı 532 parçaya bölündü: 374 madde, 150 takvim satırı, 8 diğer.
+  Kapsama ve sayfa aralıkları denetimden geçti.
 
-Ayrıntılar: [olcumler §2-4](docs/olcumler.md).
+Ayrıntılar: [olcumler §2-6](docs/olcumler.md).
 
 | aşama | hafta | durum |
 |---|---|---|

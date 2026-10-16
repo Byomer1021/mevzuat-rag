@@ -21,6 +21,7 @@ KOK = Path(__file__).resolve().parents[1]
 RAW = KOK / "data" / "raw"
 CIKTI = KOK / "data" / "processed" / "parcalar_madde.jsonl"
 RAPOR = KOK / "results" / "onisleme.json"
+MADDE_TURLERI = ("madde", "gecici", "ek")
 IZLER = ["Doküman No", "Form No", "Revizyon No", "Yayın Tarihi", "Revizyon Tarihi"]
 ATILAN_SAYFA_MAX = 400  # boşluksuz karakter
 
@@ -44,7 +45,7 @@ def aralik_dogru(p, sayfa_metni: dict[int, str]) -> bool:
     Madde parçalarında kontrol "MADDE N"den başlar: başlık satırı önceki
     sayfada kalabilir, sayfa_bas ise maddenin kendisinin sayfasıdır."""
     metin = p.metin
-    if p.tur in ("madde", "gecici"):
+    if p.tur in MADDE_TURLERI:
         metin = metin[madde_basliklari(metin)[0].konum:]
     metin = bosluksuz(metin)
 
@@ -90,7 +91,7 @@ def main():
 
     madde_parcalari = {b: madde_parcala(b, sy) for b, sy in temiz.items()}
     uzunluklar = [len(p.metin) for ps in madde_parcalari.values() for p in ps
-                  if p.tur in ("madde", "gecici")]
+                  if p.tur in MADDE_TURLERI]
     hedef = int(statistics.median(uzunluklar))
 
     for b, ps in madde_parcalari.items():
@@ -116,7 +117,7 @@ def main():
         for p in parcalar:
             f.write(json.dumps(p.sozluk(), ensure_ascii=False) + "\n")
 
-    maddeler = [p for p in parcalar if p.tur in ("madde", "gecici")]
+    maddeler = [p for p in parcalar if p.tur in MADDE_TURLERI]
     q = statistics.quantiles(uzunluklar, n=10)
     rapor = {
         "bilgi_tabani_surumu": bilgi_tabani_surumu(kaynaklar),

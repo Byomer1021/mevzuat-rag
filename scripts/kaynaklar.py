@@ -58,8 +58,12 @@ def dizin_satirlari(sayfa: bytes):
         metin = [hucre_metni(h) for h in re.findall(r"<td[^>]*>(.*?)</td>", satir, re.DOTALL)]
         if len(metin) < 9 or not re.match(r"^Y[NÖ]-\d{4}$", metin[0]):
             continue
-        link = re.search(r'href="([^"]+)"', satir)
-        yield dict(zip(DIZIN_SUTUNLARI, metin[:8] + [html.unescape(link.group(1)) if link else ""]))
+        # Bazı satırlarda belgeden önce bir form sayfasına bağlantı var
+        # ("FR-0638 için tıklayınız", YÖ-0048/YÖ-0093); dosya bağlantısı tercih edilir.
+        linkler = [html.unescape(h) for h in re.findall(r'href="([^"]+)"', satir)]
+        dosya = [h for h in linkler if re.search(r"\.(pdf|docx?)$", h, re.IGNORECASE)]
+        link = (dosya or linkler or [""])[0]
+        yield dict(zip(DIZIN_SUTUNLARI, [*metin[:8], link]))
 
 
 def takvim_tsv(sayfa: bytes) -> str:
@@ -137,12 +141,32 @@ def cmd_indir(args):
     kaynaklari_yaz(satirlar)
 
 
+def metin_ozeti(veri: bytes, sonek: str) -> str:
+    """Belgenin içeriğinin özeti. mevzuat.gov.tr PDF'i ve takvim sayfası her
+    istekte farklı byte'larla geliyor (olcumler §2, §6); dizinde revizyonu
+    olmayan belgelerde değişiklik ancak metinden anlaşılır."""
+    if sonek == ".pdf":
+        import pymupdf  # yalnızca burada gerekiyor
+
+        with pymupdf.open(stream=veri, filetype="pdf") as d:
+            veri = "".join("".join(s.get_text().split()) for s in d).encode("utf-8")
+    return sha256(veri)
+
+
 def cmd_kontrol(_):
     yururlukte = {d["kod"]: d for ad in dizin_cek().values() for d in ad if d["dil"] == "Türkçe"}
     eski = 0
     for s in kaynaklari_oku():
         if s["kod"] == "-":
-            print(f"  ?       {s['belge_id']}: dizinde değil, elle kontrol")
+            sonek = Path(s["dosya"]).suffix
+            yeni = getir(s["url"])
+            if sonek == ".tsv":
+                yeni = takvim_tsv(yeni).encode("utf-8")
+            if metin_ozeti(yeni, sonek) == metin_ozeti((RAW / s["dosya"]).read_bytes(), sonek):
+                print(f"  güncel  {s['belge_id']} (dizinde değil; metin aynı)")
+            else:
+                print(f"  DEĞİŞMİŞ {s['belge_id']}: kaynaktaki metin elimizdekinden farklı")
+                eski += 1
             continue
         d = yururlukte.get(s["kod"])
         if d is None:

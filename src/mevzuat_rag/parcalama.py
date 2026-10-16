@@ -27,10 +27,10 @@ GERI_MAX = 6  # maddenin önünde en fazla bu kadar satır geriye bakılır
 
 @dataclass
 class Parca:
-    id: str  # "yatay-gecis/m5", "lisans-yonetmelik/g1", "staj-bilgisayar/p2", "x/s3"
+    id: str  # "yatay-gecis/m5", "/g1" geçici, "/e1" ek, "/p2" paragraf, "/s3" sabit
     belge_id: str
-    tur: str  # madde | gecici | giris | paragraf | sabit
-    madde: str | None  # "5", "geçici 1", "geçici"
+    tur: str  # madde | gecici | ek | giris | paragraf | sabit | takvim
+    madde: str | None  # "5", "geçici 1", "geçici", "ek 1"
     baslik: str
     bolum: str
     sayfa_bas: int
@@ -151,16 +151,15 @@ def madde_parcala(belge_id: str, sayfalar: list[Sayfa]) -> list[Parca]:
         s1, s2 = m.araligi(0, baslangiclar[0])
         parcalar.append(Parca(f"{belge_id}/giris", belge_id, "giris", None, "", "", s1, s2, giris))
 
-    gecici_sira = 0
+    on_ek = {"madde": ("m", ""), "gecici": ("g", "geçici"), "ek": ("e", "ek")}
+    sira: dict[str, int] = {}
     for i, (b, bolum, baslik) in enumerate(bilgiler):
         bas = baslangiclar[i]
         son = baslangiclar[i + 1] if i + 1 < len(baslangiclar) else len(m.metin)
-        if b.gecici:
-            gecici_sira += 1
-            pid, tur = f"{belge_id}/g{b.no or gecici_sira}", "gecici"
-            madde = f"geçici {b.no}" if b.no else "geçici"
-        else:
-            pid, tur, madde = f"{belge_id}/m{b.no}", "madde", str(b.no)
+        sira[b.tur] = sira.get(b.tur, 0) + 1
+        harf, ad = on_ek[b.tur]
+        pid, tur = f"{belge_id}/{harf}{b.no or sira[b.tur]}", b.tur
+        madde = " ".join(x for x in (ad, str(b.no) if b.no else "") if x)
         # Başlangıç sayfası "MADDE N"nin olduğu sayfa: başlık ("Öğretim
         # planları") bazen önceki sayfanın son satırında kalıyor (YN-0001 m13).
         s1, s2 = m.sayfa(b.konum), m.araligi(bas, son)[1]

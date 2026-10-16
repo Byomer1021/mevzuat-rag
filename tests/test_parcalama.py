@@ -70,6 +70,19 @@ def test_parcalar_metni_kayipsiz_ortuyor(sayfalar, parcalar):
     assert bosluksuz(hepsi) == bosluksuz("\n".join(s.metin for s in sayfalar))
 
 
+def test_ek_madde_kendi_parcasi():
+    # YÖK geçiş yönetmeliği: "Ek Madde-1 ile yatay geçiş" ayrı bir madde
+    s = [Sayfa(1, "Yürürlükten kaldırılan yönetmelik\nMADDE 25 – (1) Kaldırılmıştır.\n"
+                  "Merkezi yerleştirme puanıyla yatay geçiş\n"
+                  "EK MADDE 1 – (Ek:RG-21/9/2013-28772)\n(1) Öğrencinin puanı...\n"
+                  "Yürürlük\nMADDE 26 – (1) Yürürlüğe girer.")]
+    ps = {p.id: p for p in madde_parcala("yok", s)}
+    assert list(ps) == ["yok/m25", "yok/e1", "yok/m26"]
+    e1 = ps["yok/e1"]
+    assert (e1.tur, e1.madde, e1.baslik) == ("ek", "ek 1", "Merkezi yerleştirme puanıyla yatay geçiş")
+    assert "Kaldırılmıştır" in ps["yok/m25"].metin and "EK MADDE" not in ps["yok/m25"].metin
+
+
 def test_madde_yoksa_bos_doner():
     assert madde_parcala("x", [Sayfa(1, "Bu belge madde içermez.")]) == []
 

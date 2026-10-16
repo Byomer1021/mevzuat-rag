@@ -272,7 +272,36 @@ ama ölçümleri etkiliyor:
 - Dondurmadan sonra eklenen belge yeni bir bilgi tabanı sürümüdür: bütün
   konfigürasyonlar yeniden çalıştırılır, cevapsız sorular yeniden kontrol
   edilir.
-- Her ölçüm `bilgi_tabani_surumu`'nu taşır; şu anki sürüm `adf8b2efb4e1`
-  (13 PDF + takvim). Farklı sürümlerle alınmış sonuçlar aynı tabloya konmaz.
-- Tanımın üst sınırı 15 belge, şu an 14. Aşmak mümkün; gerekçesi buraya
-  yazılır.
+- Her ölçüm `bilgi_tabani_surumu`'nu taşır; şu anki sürüm `b86309a098a2`
+  (21 PDF + takvim, K-017). Farklı sürümlerle alınmış sonuçlar aynı tabloya
+  konmaz.
+- Tanımın üst sınırı 15 belge; K-017 ile 22'ye çıktı, gerekçesi orada.
+
+## K-017: Sekiz belge eklendi, 22 kaynak, geçerli (2026-10-16)
+
+Ömer Can'ın kararıyla K-009'un dışarıda bıraktığı belgelerden şunlar
+eklendi: YN-0009 (2017 öncesi girişliler), YÖ-0042 Erasmus, YÖ-0044 Engelli
+Öğrenciler, YÖ-0093 Endüstriyel Uygulamalar, YÖ-0094 GTU 101, YÖ-0100 GTU
+110, YÖ-0116 Program Dışı Öğrenme ve YÖK geçiş/çift anadal/yan dal
+yönetmeliği ([olcumler §6](olcumler.md)).
+
+**Neden tanımın 15 belge sınırının üstüne çıkıldı.** Tanımdaki sınır bir
+iş yükü tahmini. Eklenen belgeler öğrencinin gerçekten soracağı konular.
+Daha geniş bir bilgi tabanı arama için daha fazla çeldirici demek, ki
+araştırma sorusu tam olarak bunu ölçüyor.
+
+**Dikkat gerektirenler.**
+
+- **YN-0009**, 2017 öncesi girişliler için eski kuralları içeriyor ve
+  YN-0001 ile aynı konularda farklı hükümler veriyor. Soru 2017 sonrası bir
+  öğrenci için sorulmuşsa ondan cevap vermek yanlış olur. Bu, "sürüm
+  çatışması" diye ayrı bir hata türü; test setinde birkaç soru bunu
+  ölçmeli.
+- **YÖK yönetmeliği** üst mevzuat: GTÜ yönergeleri ona atıf yapıyor. "Ek
+  Madde-1 ile yatay geçiş" orada. Metinde Danıştay'ın 2026'da yürütmesini
+  durdurduğu bir fıkra var (m13); güncellik açısından hassas.
+- İlk eklemede rehberin bir cevapsız örneği cevaplı hale geldi (Erasmus).
+  K-016'daki dondurma gerekçesi bu.
+
+**Bilinçli olarak eklenmeyenler** aynen geçerli: lisansüstü mevzuat ve
+İngilizce çeviriler.

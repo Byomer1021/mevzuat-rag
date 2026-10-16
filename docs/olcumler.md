@@ -323,3 +323,55 @@ sabit olduğu için eşik mutlak bir sayı: 400 karakter.
 **Bilgi tabanı sürümü.** Bütün kaynakların sha256'larından tek bir özet;
 `results/onisleme.json`'da duruyor. Şu an `adf8b2efb4e1`; belge eklenince
 ya da değişince değişir.
+
+---
+
+## 6. Sekiz belge eklendi: 22 kaynak (2026-10-16)
+
+**Ne eklendi** ([K-017](kararlar.md)): YN-0009 (2017 öncesi girişliler),
+YÖ-0042 Erasmus, YÖ-0044 Engelli Öğrenciler, YÖ-0093 Endüstriyel
+Uygulamalar, YÖ-0094 GTU 101, YÖ-0100 GTU 110, YÖ-0116 Program Dışı Öğrenme
+ve YÖK'ün geçiş/çift anadal/yan dal yönetmeliği (mevzuat.gov.tr'den güncel,
+birleştirilmiş metin).
+
+**Yol üstünde bulunanlar.**
+
+- **Dizin ayrıştırıcısı yanlış bağlantı alıyordu.** YÖ-0048 ve YÖ-0093
+  satırlarında belgeden önce bir form sayfasının bağlantısı var ("FR-0638
+  için tıklayınız"); ayrıştırıcı ilk bağlantıyı alıyordu. Artık dosya
+  bağlantısını tercih ediyor. Eski ve yeni dizin karşılaştırıldı: önceki 13
+  belgenin hiçbirinin bağlantısı değişmedi.
+- **EK MADDE tanınmıyordu.** YÖK yönetmeliğinin üç ek maddesi var ve
+  bunlardan biri öğrencilerin en çok sorduğu "Ek Madde-1 ile yatay geçiş".
+  Sayım denetimi bunu göremezdi, çünkü ek maddelerin kendi numaralandırması
+  var ve asıl maddelerde boşluk bırakmıyorlar. Metinde "EK/GEÇİCİ MADDE"
+  aranınca bulundu. Tanıyıcı artık `ek` türünü (`/e1`) de tanıyor.
+- **mevzuat.gov.tr'nin PDF'i de her istekte farklı:** üç indirmede üç ayrı
+  sha256. `kaynaklar.py kontrol`, dizinde olmayan belgeleri artık çıkarılan
+  metnin özetiyle karşılaştırıyor. Byte'ları her seferinde değişen YÖK
+  PDF'i için sonuç "metin aynı"; yöntem işe yarıyor.
+
+**Sonuç.**
+
+| | değer |
+|---|---|
+| kaynak | 21 PDF + takvim = 22 |
+| yeni 8 belgede metin katmanı | 8/8 var, bozuk karakter 0 |
+| madde başlıkları | 21 PDF'in 20'sinde 1..N eksiksiz; YÖ-0087'de madde yapısı yok |
+| madde | 366 asıl + 5 geçici + 3 ek |
+| başlık izleri | 84'er kez atıldı: 84 kalite formlu sayfanın her birinde bir. Formu olmayan YÖK belgesinden hiçbir şey atılmadı |
+| parça | 532: 374 madde, 150 takvim satırı, 4 paragraf, 4 giriş |
+| kapsama / sayfa aralığı / kalıntı | sorun yok |
+| madde uzunluğu | medyan 395, p90 1683, max 8685 karakter; 2000'in üstünde 27 madde |
+| `kontrol` | 22/22 güncel |
+| bilgi tabanı sürümü | `b86309a098a2` |
+
+**Bilinen sınırlar.**
+
+- Erasmus yönergesi birkaç uzun maddeden oluşuyor (m6: 8685 karakter, 6.1,
+  6.2 diye giden alt maddeler). Madde bazlı parçalamada bu parça tek bir
+  gömme vektörüne sığmayabilir. Alt madde/fıkra düzeyinde bölme 3. haftada
+  bir seçenek olarak değerlendirilecek.
+- Endüstriyel Uygulamalar (18 madde) ve GTU 110'un (5/6 madde) maddelerinde
+  başlık yok. Örneklenen maddelerde bu doğrulandı: madde doğrudan "MADDE 2-
+  (1)…" diye başlıyor.

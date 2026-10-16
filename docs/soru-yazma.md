@@ -37,13 +37,19 @@ alır, hem de sonuçta cevabı yine bir dil modeli verecek.
 | cevapsız | belgelerde cevabı yok ("Kütüphane kaçta kapanıyor?", "Burs başvurusu ne zaman?") | 8-10 (%15-20) |
 
 Cevapsız sorular halüsinasyonu en doğrudan ölçen sorular. En değerlileri
-konusu belgelere **yakın** olanlar. "Erasmus'ta kaç ders saydırabilirim?":
-YN-0001 m20 değişim programlarından söz ediyor ama sayı vermiyor, Senato
-esaslarına bırakıyor. "Burs başvurusu ne zaman?" ve "Kütüphane kaçta
-kapanıyor?": danışmanlık m6 "danışman burslar ve kütüphane hakkında bilgi
-verir" diyor, ama tarih ya da saat yok. Arama bu maddeyi getirecek ve model
-oradan bir cevap uydurmaya yönelecek; ölçmek istediğimiz an tam olarak bu.
-Konusu bambaşka olan bir soru ("Kantinde ne var?") ise kolay bir soru.
+konusu belgelere **yakın** olanlar. "Erasmus hibesi ayda ne kadar?":
+Erasmus yönergesi iki maddede hibeden söz ediyor ama tutar vermiyor. "Burs
+başvurusu ne zaman?" ve "Kütüphane kaçta kapanıyor?": danışmanlık m6
+"danışman burslar ve kütüphane hakkında bilgi verir" diyor, "burs" başka üç
+maddede daha geçiyor, ama hiçbirinde tarih ya da saat yok. Arama bu
+maddeleri getirecek ve model oradan bir cevap uydurmaya yönelecek; ölçmek
+istediğimiz an tam olarak bu. Konusu bambaşka olan bir soru ("Kantinde ne
+var?") ise kolay bir soru.
+
+Bu örneklerin ömrü bilgi tabanına bağlı. Rehberin ilk sürümündeki "Erasmus'ta
+kaç ders saydırabilirim?" örneği, Erasmus yönergesi eklenince cevapsız
+olmaktan çıktı (m6: "bir dönemde 30 AKTS … tavsiye edilir"). Bilgi tabanı
+bu yüzden sorulardan önce donduruluyor ([K-016](kararlar.md)).
 
 Bir soruyu cevapsız diye işaretlemeden önce aracın arama kutusunda anahtar
 kelimelerini dene. Cevap bir yerde çıkarsa soru cevapsız değildir.

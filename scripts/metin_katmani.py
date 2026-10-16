@@ -54,8 +54,9 @@ def olc(sayfalar: list[str]) -> dict:
     harf = sum(c.isalpha() for c in metin)
     ozel = sum(0xE000 <= ord(c) <= 0xF8FF for c in metin)  # özel kullanım alanı: font eşlemesi yok
     basliklar = madde_basliklari(metin)
-    asil = sorted({b.no for b in basliklar if not b.gecici})
-    gecici = [b for b in basliklar if b.gecici]
+    asil = sorted({b.no for b in basliklar if b.tur == "madde"})
+    gecici = [b for b in basliklar if b.tur == "gecici"]
+    ek = [b for b in basliklar if b.tur == "ek"]
     eksik = sorted(set(range(1, max(asil) + 1)) - set(asil)) if asil else []
     return {
         "sayfa": len(sayfalar),
@@ -68,6 +69,7 @@ def olc(sayfalar: list[str]) -> dict:
         "madde_max": max(asil) if asil else 0,
         "madde_eksik": " ".join(map(str, eksik)),
         "gecici_madde": len(gecici),
+        "ek_madde": len(ek),
     }
 
 
@@ -95,7 +97,7 @@ def main():
     basliklar = ["belge_id", "cikarici", "sayfa", "karakter", "az_metinli_sayfa",
                  "turkce_harf_orani", "bozuk_karakter", "tekrar_eden_oran",
                  "madde_baslik", "madde_max",
-                 "madde_eksik", "gecici_madde", "sure_s"]
+                 "madde_eksik", "gecici_madde", "ek_madde", "sure_s"]
     print("\t".join(basliklar))
     for r in satirlar:
         print("\t".join(str(r[b]) for b in basliklar))
