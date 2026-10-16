@@ -77,6 +77,7 @@ Proje adım adım kayıt altında tutuluyor. Nasıl tutulduğu:
 | [on-rapor.md](docs/on-rapor.md) | tanımın gerçek kısıtlara oturtulmuş hali, kapsam, açık sorular |
 | [olcumler.md](docs/olcumler.md) | numaralı ölçüm günlüğü; her sayının kaynağı burada |
 | [kararlar.md](docs/kararlar.md) | tasarım kararları ve gerekçeleri |
+| [soru-yazma.md](docs/soru-yazma.md) | test seti sorularını yazma kuralları ve aracı |
 | [gunluk/](docs/gunluk/) | gün gün ne yapıldı, ne çıktı, sırada ne var |
 
 ## Kurulum
@@ -101,7 +102,15 @@ kadar destekleyen sürücüyle çalışan seçenek bu. Gerekçesi
 
 ## Dizin yapısı
 
+Test seti sorusu yazma aracı ([rehber](docs/soru-yazma.md)):
+
+```powershell
+uv run streamlit run app/soru_yaz.py
 ```
+
+```
+app/
+  soru_yaz.py        test seti sorusu yazma aracı (Streamlit)
 data/
   kaynaklar.csv      bilgi tabanındaki her belge: kod, revizyon, URL, sha256
   raw/               indirilen PDF'ler ve takvim TSV'si (depoda)
@@ -115,10 +124,12 @@ scripts/
   metin_katmani.py   PDF metin katmanı ölçümü (olcumler §3)
   onisle.py          temizlik + parçalama + denetim (olcumler §4)
   ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)
+  testset_kontrol.py test setinin şema denetimi ve dağılımı
 src/mevzuat_rag/
   madde.py           madde başlığı tanıyıcı (beş biçim)
   onisleme.py        PDF'ten temiz sayfa metni, kalite formu başlığı atılır
   parcalama.py       madde bazlı, paragraf, sabit uzunluklu, takvim
+  testset.py         test seti şeması, denetim, dağılım
 tests/
 ```
 
