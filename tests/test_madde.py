@@ -16,11 +16,23 @@ from mevzuat_rag.madde import madde_basliklari
         ("GEÇİCİ MADDE 2- (Ek:RG-16/7/2023-32250)", 2, "gecici"),
         ("GEÇİCİ MADDE – Bu yönergenin", None, "gecici"),
         ("EK MADDE 1 – (Ek:RG-21/9/2013-28772) (Değişik:RG-2/5/2014-28988)", 1, "ek"),
+        ("Madde 11 Engelsiz GTÜ Birimi", 11, "madde"),  # ayraçsız (YÖ-0001)
+        ("Madde 9. 20 (yirmi) iş günü", 9, "madde"),  # noktadan sonra rakam (YÖ-0084)
     ],
 )
 def test_belgelerde_gorulen_bicimler(satir, no, tur):
     [b] = madde_basliklari("Önceki satır\n" + satir + "\nSonraki satır")
     assert (b.no, b.tur) == (no, tur)
+
+
+@pytest.mark.parametrize("satir, etiket", [
+    ("MADDE 12a: Mimarlık Bölümü Staj Esasları", "12a"),  # YÖ-0018
+    ("MADDE 5/A – (1) Mükerrer madde", "5a"),
+    ("MADDE 12: Bölümlerin staj esasları", "12"),
+])
+def test_harfli_alt_madde(satir, etiket):
+    [b] = madde_basliklari(satir)
+    assert b.etiket == etiket
 
 
 @pytest.mark.parametrize(
@@ -31,6 +43,7 @@ def test_belgelerde_gorulen_bicimler(satir, no, tur):
         "bu madde 5 kapsamında",  # küçük harf, satır başı değil
         "Ek-1 MADDE 5'te belirtilen",  # satır başında değil
         "ek madde 1 kapsamında başvuru",  # metin içi atıf
+        "Madde 4a. kapsamında tanımlanan staj yerleri",  # satır başına düşmüş atıf (YÖ-0018)
     ],
 )
 def test_metin_ici_atiflar_baslik_sayilmaz(metin):

@@ -84,6 +84,32 @@ def takvim_tsv(sayfa: bytes) -> str:
     return "\n".join(satirlar) + "\n"
 
 
+def form_tsv(sayfa: bytes) -> str:
+    """Kalite Ofisi form listesini (kategori/2382) TSV'ye çevirir; yalnızca
+    Türkçe formlar. Liste gruplanmamış: sayfada formun birimi yazmıyor."""
+    t = sayfa.decode("utf-8", errors="replace")
+    satirlar, gorulen = [], set()
+    for adres, metin in re.findall(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', t, re.DOTALL):
+        adres = html.unescape(adres)
+        yol = urllib.parse.unquote(adres)
+        if "/Formlar-Türkçe/" not in yol:
+            continue
+        m = re.match(r"(FR-\d{3,4})\s*(.*)", hucre_metni(metin))
+        if not m or (m.group(1), m.group(2)) in gorulen:
+            continue
+        gorulen.add((m.group(1), m.group(2)))
+        r = re.search(r"[ _-]R(\d+)\.\w+$", yol)
+        satirlar.append([m.group(1), m.group(2), f"R{r.group(1)}" if r else "",
+                         SITE + adres if adres.startswith("/") else adres])
+    satirlar.sort()
+    return "\n".join(["kod\tad\trevizyon\turl"] + ["\t".join(s) for s in satirlar]) + "\n"
+
+
+# Bazı kaynaklar sayfa; içerik bu dönüştürücülerle TSV'ye çevrilir ve özeti
+# TSV'den alınır, çünkü sayfanın HTML'i her istekte farklı geliyor (K-011).
+DONUSTURUCULER = {"akademik-takvim-2026-2027.tsv": takvim_tsv, "form-katalogu.tsv": form_tsv}
+
+
 def dizin_cek() -> dict[str, list[dict]]:
     return {ad: list(dizin_satirlari(getir(yol))) for ad, yol in DIZIN_SAYFALARI.items()}
 
@@ -124,9 +150,15 @@ def cmd_indir(args):
         if hedef.exists() and s["sha256"] and sha256(hedef.read_bytes()) == s["sha256"]:
             print(f"  var     {s['belge_id']}")
             continue
+        if not s["url"].startswith("http"):  # yerel koleksiyon (data/raw/web/), betikle üretilir
+            if hedef.exists():  # özeti bilgi tabanı sürümüne girsin
+                s["sha256"] = sha256(hedef.read_bytes())
+                s["indirme_tarihi"] = s["indirme_tarihi"] or time.strftime("%Y-%m-%d")
+            print(f"  yerel   {s['belge_id']}  {s['sha256'][:12] or 'dosya yok'}")
+            continue
         veri = getir(s["url"])
-        if hedef.suffix == ".tsv":
-            veri = takvim_tsv(veri).encode("utf-8")
+        if s["dosya"] in DONUSTURUCULER:
+            veri = DONUSTURUCULER[s["dosya"]](veri).encode("utf-8")
         elif hedef.suffix == ".pdf" and not veri.startswith(b"%PDF"):
             sys.exit(f"HATA {s['belge_id']}: PDF değil, ilk baytlar {veri[:20]!r}")
         ozet = sha256(veri)
@@ -158,10 +190,13 @@ def cmd_kontrol(_):
     eski = 0
     for s in kaynaklari_oku():
         if s["kod"] == "-":
+            if not s["url"].startswith("http"):
+                print(f"  yerel   {s['belge_id']}: kaynağı site taraması, kontrol tara.py ile")
+                continue
             sonek = Path(s["dosya"]).suffix
             yeni = getir(s["url"])
-            if sonek == ".tsv":
-                yeni = takvim_tsv(yeni).encode("utf-8")
+            if s["dosya"] in DONUSTURUCULER:
+                yeni = DONUSTURUCULER[s["dosya"]](yeni).encode("utf-8")
             if metin_ozeti(yeni, sonek) == metin_ozeti((RAW / s["dosya"]).read_bytes(), sonek):
                 print(f"  güncel  {s['belge_id']} (dizinde değil; metin aynı)")
             else:

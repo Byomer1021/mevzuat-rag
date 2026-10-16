@@ -14,6 +14,7 @@ from pathlib import Path
 import pdfplumber
 import pymupdf
 
+from mevzuat_rag import kisisel
 from mevzuat_rag.madde import madde_basliklari
 
 KOK = Path(__file__).resolve().parents[1]
@@ -63,13 +64,18 @@ def olc(sayfalar: list[str]) -> dict:
         "karakter": len(metin),
         "az_metinli_sayfa": sum(len(s.strip()) < AZ_METIN for s in sayfalar),
         "turkce_harf_orani": round(sum(c in TURKCE for c in metin) / harf, 4) if harf else 0,
-        "bozuk_karakter": sum(c in BOZUK for c in metin) + ozel,
+        # Ayrı sayılır: özel kullanım alanı çoğunlukla Symbol/Wingdings madde imi
+        # (U+F0B7 vb.), bozulma değil (olcumler §8). Bozulma: cp1254→latin-1 izi.
+        "bozuk_karakter": sum(c in BOZUK for c in metin),
+        "ozel_simge": ozel,
         "tekrar_eden_oran": tekrar_eden_oran(sayfalar),
         "madde_baslik": len(basliklar),
         "madde_max": max(asil) if asil else 0,
         "madde_eksik": " ".join(map(str, eksik)),
         "gecici_madde": len(gecici),
         "ek_madde": len(ek),
+        **{f"kv_{k}": v for k, v in vars(kisisel.tara(metin)).items()},
+        "kv_riskli": kisisel.tara(metin).riskli,
     }
 
 
@@ -95,9 +101,9 @@ def main():
         w.writerows(satirlar)
 
     basliklar = ["belge_id", "cikarici", "sayfa", "karakter", "az_metinli_sayfa",
-                 "turkce_harf_orani", "bozuk_karakter", "tekrar_eden_oran",
+                 "turkce_harf_orani", "bozuk_karakter", "ozel_simge", "tekrar_eden_oran",
                  "madde_baslik", "madde_max",
-                 "madde_eksik", "gecici_madde", "ek_madde", "sure_s"]
+                 "madde_eksik", "gecici_madde", "ek_madde", "kv_tc", "kv_numara", "kv_riskli", "sure_s"]
     print("\t".join(basliklar))
     for r in satirlar:
         print("\t".join(str(r[b]) for b in basliklar))

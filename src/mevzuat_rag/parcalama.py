@@ -12,8 +12,10 @@ Her parça başladığı ve bittiği sayfayı taşır; cevapta kaynak göstermek
 import bisect
 import itertools
 import re
+from collections import Counter
 from dataclasses import asdict, dataclass
 
+from mevzuat_rag.formlar import ogrenci_formu
 from mevzuat_rag.madde import madde_basliklari
 from mevzuat_rag.onisleme import Sayfa
 
@@ -36,6 +38,9 @@ class Parca:
     sayfa_bas: int
     sayfa_son: int
     metin: str
+    # Web içeriğinde sayfa numarası yok; kaynak göstermek için adres ve tarih
+    url: str = ""
+    tarih: str = ""
 
     def sozluk(self) -> dict:
         return asdict(self)
@@ -158,8 +163,8 @@ def madde_parcala(belge_id: str, sayfalar: list[Sayfa]) -> list[Parca]:
         son = baslangiclar[i + 1] if i + 1 < len(baslangiclar) else len(m.metin)
         sira[b.tur] = sira.get(b.tur, 0) + 1
         harf, ad = on_ek[b.tur]
-        pid, tur = f"{belge_id}/{harf}{b.no or sira[b.tur]}", b.tur
-        madde = " ".join(x for x in (ad, str(b.no) if b.no else "") if x)
+        pid, tur = f"{belge_id}/{harf}{b.etiket or sira[b.tur]}", b.tur
+        madde = " ".join(x for x in (ad, b.etiket) if x)
         # Başlangıç sayfası "MADDE N"nin olduğu sayfa: başlık ("Öğretim
         # planları") bazen önceki sayfanın son satırında kalıyor (YN-0001 m13).
         s1, s2 = m.sayfa(b.konum), m.araligi(bas, son)[1]
@@ -206,6 +211,42 @@ def takvim_parcala(belge_id: str, tsv: str) -> list[Parca]:
         ] if x)
         out.append(Parca(f"{belge_id}/r{len(out) + 1}", belge_id, "takvim", None, "", bolum,
                          1, 1, metin))
+    return out
+
+
+def web_parcala(belge_id: str, oge: dict, hedef: int) -> list[Parca]:
+    """Web koleksiyonu öğesi (SSS, konu sayfası, duyuru). Paragraflar hedef
+    uzunluğa kadar birleşir; soru işaretiyle biten paragraf yeni parça başlatır,
+    böylece SSS'de her soru cevabıyla kalır."""
+    paragraflar = [p.strip() for p in re.split(r"\n\s*\n", oge["metin"]) if p.strip()]
+    gruplar: list[list[str]] = []
+    for p in paragraflar:
+        if p.endswith("?"):  # soru yeni parça başlatır
+            gruplar.append([p])
+        elif gruplar and len(gruplar[-1]) == 1 and gruplar[-1][0].endswith("?"):
+            gruplar[-1].append(p)  # cevap, uzunluğu ne olursa olsun sorusuyla kalır
+        elif gruplar and len("\n\n".join([*gruplar[-1], p])) <= hedef:
+            gruplar[-1].append(p)
+        else:
+            gruplar.append([p])
+    return [Parca(f"{belge_id}/{oge['id']}-{k}", belge_id, "web", None, oge["baslik"],
+                  oge["birim"], 1, 1, "\n\n".join(g), oge["url"], oge.get("tarih", ""))
+            for k, g in enumerate(gruplar, 1)]
+
+
+def katalog_parcala(belge_id: str, tsv: str) -> list[Parca]:
+    """Form kataloğu: her öğrenci formu bir parça (K-020). Formun içeriği değil
+    kimliği: "hangi formu doldurmalıyım" sorusunun cevabı ve bağlantısı."""
+    out, gorulen = [], Counter()
+    for satir in tsv.splitlines()[1:]:
+        kod, ad, rev, url = (satir.split("\t") + ["", "", ""])[:4]
+        if not ogrenci_formu(ad):
+            continue
+        gorulen[kod] += 1  # aynı kod iki dilde listelenebiliyor (FR-0284)
+        pid = f"{belge_id}/{kod}" + (f"-{gorulen[kod]}" if gorulen[kod] > 1 else "")
+        rev_metni = f", revizyon {rev}" if rev else ""
+        metin = f"{kod} {ad}\nGTÜ Kalite Ofisi form listesindeki form{rev_metni}.\nBağlantı: {url}"
+        out.append(Parca(pid, belge_id, "form", None, ad, "", 1, 1, metin))
     return out
 
 

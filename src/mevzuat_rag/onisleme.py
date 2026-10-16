@@ -17,10 +17,13 @@ kenarından başlıyor görünüyor ve bloklara göre sıralayınca tablo m6'nı
 arkasına düşüyordu (olcumler §4). Satırların kutusu kendi metnini sarıyor.
 """
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
 import pymupdf
+
+_SIMGE = re.compile("[-]")
 
 BASLIK_IZLERI = ("Doküman No", "Revizyon No")
 # Tablonun son satırındaki "Sayfa" hücresi: satır kutuları birbirine değmediği
@@ -35,6 +38,10 @@ ALTLIK_IZI = "Form No:"
 # "Sayfa" gövde metnidir, dokunulmaz.
 BASLIK_BOLGESI = 0.25
 ALTLIK_BOLGESI = 0.85
+# Eklerdeki formların kendi altlığı sayfanın ortasında kalabiliyor (YÖ-0046
+# s7: "Form No: FR-0458 Yayın Tarihi:08.10.2018 Değ.No:0"). Kalıbın tamamı
+# gövde metninde geçmez; yalnızca o satır atılır, altındakiler değil.
+ALTLIK_KALIBI = re.compile(r"^Form No:\s*FR-\d{3,4}\b.*Yay.n Tarihi", re.IGNORECASE)
 SATIR_TOLERANS = 2.0  # pt; aynı yükseklikteki satırlar (tablo hücreleri) tek satır
 # Satır arası boşluk dağılımı iki tepeli: 0-3 pt'de 1907 aralık (paragraf
 # içi), 10-15 pt'de 263 (paragraf arası), 5-9 pt'de yalnızca 19 (olcumler §4).
@@ -60,7 +67,8 @@ def _satirlar(sayfa: pymupdf.Page) -> list[_Satir]:
     out = []
     for blok in sayfa.get_text("dict")["blocks"]:
         for satir in blok.get("lines", []):
-            metin = "".join(s["text"] for s in satir["spans"])
+            # Symbol/Wingdings madde imleri özel kullanım alanında (U+F0B7, U+F076…)
+            metin = _SIMGE.sub("•", "".join(s["text"] for s in satir["spans"]))
             if metin.strip():
                 x0, y0, _, y1 = satir["bbox"]
                 out.append(_Satir(x0, y0, y1, " ".join(metin.split())))
@@ -78,6 +86,7 @@ def sayfayi_temizle(sayfa: pymupdf.Page) -> Sayfa:
     if altlik:
         ust = min(satirlar[i].y0 for i in altlik)
         atilan |= {i for i, s in enumerate(satirlar) if s.y0 >= ust}
+    atilan |= {i for i, s in enumerate(satirlar) if ALTLIK_KALIBI.match(s.metin)}
 
     ust_bolge = [i for i, s in enumerate(satirlar) if i not in atilan and s.y0 < baslik_siniri]
     izler = [i for i in ust_bolge if any(iz in satirlar[i].metin for iz in BASLIK_IZLERI)]

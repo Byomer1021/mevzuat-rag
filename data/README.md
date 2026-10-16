@@ -17,7 +17,7 @@ uv run python scripts/kaynaklar.py kontrol   # elimizdeki revizyonlar hâlâ yü
 | `belge_id` | kısa, kalıcı kimlik: `lisans-yonetmelik`, `yatay-gecis`, ... |
 | `kod` | GTÜ doküman kodu: `YN-0001`, `YÖ-0013`; dizinde olmayan için `-` |
 | `baslik` | dizindeki resmî ad |
-| `tur` | `yonetmelik`, `yonerge`, `esaslar`, `takvim` |
+| `tur` | `yonetmelik`, `yonerge`, `esaslar`, `mevzuat`, `rehber`, `sss`, `ogretim-plani`, `takvim`, `katalog` (form listesi), `koleksiyon` (web içerik) |
 | `revizyon` | dizindeki revizyon no: `R7` |
 | `surum_tarihi` | dizindeki revizyon tarihi; R0 ise ilk yayın tarihi |
 | `url` | indirildiği adres |
@@ -29,6 +29,15 @@ uv run python scripts/kaynaklar.py kontrol   # elimizdeki revizyonlar hâlâ yü
 
 - `raw/dizin/` GTÜ dizininin çekildiği günkü hali; hangi revizyonun yürürlükte
   olduğunun kanıtı.
+- Kaynakların dördü gruba ayrılıyor: Kalite dizini belgeleri (`kod` dolu),
+  site taramasından seçilenler (`notlar`'da hangi birimin hangi sayfası),
+  form kataloğu (`form-katalogu.tsv`) ve web koleksiyonları
+  (`raw/web/*.jsonl`). Seçimin gerekçesi:
+  [K-020](../docs/kararlar.md), [K-021](../docs/kararlar.md).
+- Web koleksiyonları siteden indirilmez, taramadan üretilir:
+  `uv run python scripts/tara.py` (önbellekten) sonra
+  `uv run python scripts/web_secim.py`. `kaynaklar.csv`'de `url`'leri
+  "yerel:" ile başlar.
 - Akademik takvimin PDF'i yok. Sayfadaki tablo `akademik-takvim-2026-2027.tsv`
   olarak saklanır, çünkü ham HTML her istekte farklı geliyor
   ([K-011](../docs/kararlar.md)).
@@ -66,14 +75,16 @@ Satır başına bir parça ([K-014](../docs/kararlar.md)):
 
 | alan | anlamı |
 |---|---|
-| `id` | `lisans-yonetmelik/m23`, `/g1` geçici, `/p2` paragraf, `/r40` takvim satırı, `/giris` |
+| `id` | `lisans-yonetmelik/m23`, `/m12a` alt madde, `/g1` geçici, `/e1` ek, `/p2` paragraf, `/r40` takvim satırı, `form-katalogu/FR-0853`, `web-sss/k1957-3`, `web-duyurular/d31441-1`, `/giris` |
 | `belge_id` | kaynaklar.csv'deki kimlik |
-| `tur` | `madde`, `gecici`, `paragraf`, `takvim`, `giris` |
-| `madde` | `"23"`, `"geçici 1"`; madde olmayan parçada `null` |
-| `baslik` | madde başlığı ("Devam durumu"); yoksa boş |
-| `bolum` | "ÜÇÜNCÜ BÖLÜM Sınavlar, …"; takvimde bölüm satırı |
-| `sayfa_bas`, `sayfa_son` | maddenin başladığı ("MADDE N"nin olduğu) ve bittiği sayfa |
+| `tur` | `madde`, `gecici`, `ek`, `paragraf`, `takvim`, `form`, `web`, `giris` |
+| `madde` | `"23"`, `"12a"`, `"geçici 1"`, `"ek 1"`; madde olmayan parçada `null` |
+| `baslik` | madde başlığı ("Devam durumu"), form adı ya da web sayfasının başlığı; yoksa boş |
+| `bolum` | "ÜÇÜNCÜ BÖLÜM Sınavlar, …"; takvimde bölüm satırı; web parçasında birim |
+| `sayfa_bas`, `sayfa_son` | maddenin başladığı ("MADDE N"nin olduğu) ve bittiği sayfa; web ve formda 1 |
 | `metin` | temizlenmiş metin; tablo hücreleri sekmeyle ayrılır |
+| `url` | kaynağın adresi; web parçasında sayfanın kendi adresi |
+| `tarih` | duyuru tarihi ("8 Ekim 2026"); diğerlerinde boş |
 
 ## Test seti: `testset/`
 

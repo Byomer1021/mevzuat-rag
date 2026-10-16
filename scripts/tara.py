@@ -27,6 +27,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+from mevzuat_rag import web
+
 KOK = Path(__file__).resolve().parents[1]
 ONBELLEK = KOK / ".cache" / "tarama"
 CIKTI = KOK / "results" / "tarama"
@@ -171,7 +173,8 @@ def detay_tarihi(sayfa: str) -> str:
     return " ".join(m.groups()) if m else ""
 
 
-def birim_tara(kimlik: int, ad: str, belgeler: list, duyurular: list, gorulen: set) -> None:
+def birim_tara(kimlik: int, ad: str, belgeler: list, duyurular: list, gorulen: set,
+               metinler: list) -> None:
     ana = getir(f"{SITE}/kategori/{kimlik}/3/display.aspx")
     if not ana:
         return
@@ -193,8 +196,12 @@ def birim_tara(kimlik: int, ad: str, belgeler: list, duyurular: list, gorulen: s
         if DOSYA.search(adres.split("?")[0]):
             kaydet(adres, baslik, "menu", f"{SITE}/kategori/{kimlik}/3/display.aspx")
             continue
-        for a, m in baglantilar(getir(adres)):
+        sayfa = getir(adres)
+        for a, m in baglantilar(sayfa):
             kaydet(a, m, "menu-sayfasi", adres)
+        if "/kategori/" in adres and (metin := web.zengin_metin(sayfa)):
+            metinler.append({"birim_id": kimlik, "birim": ad, "tur": "sayfa", "duyuru_id": "",
+                             "tarih": "", "baslik": baslik, "url": adres, "metin": metin})
 
     liste_adresi = duyuru_listesi_adresi(ana)
     if not liste_adresi:
@@ -214,6 +221,11 @@ def birim_tara(kimlik: int, ad: str, belgeler: list, duyurular: list, gorulen: s
                 ek = len(ekler)
                 for a, mt in ekler:
                     kaydet(a, mt, "duyuru-detay", adres, tarih, did)
+                d_baslik, d_metin, _ = web.duyuru(detay)
+                if d_metin:
+                    metinler.append({"birim_id": kimlik, "birim": ad, "tur": "duyuru",
+                                     "duyuru_id": did, "tarih": tarih,
+                                     "baslik": d_baslik or baslik, "url": adres, "metin": d_metin})
             duyurular.append({"birim_id": kimlik, "birim": ad, "duyuru_id": did, "tarih": tarih,
                               "baslik": baslik, "url": adres, "ek_sayisi": ek})
         else:  # başka bir sayfaya bağlantı; sayım listeyle tutsun diye kaydediliyor
@@ -237,12 +249,18 @@ def main():
     args = ap.parse_args()
     secim = {k: v for k, v in BIRIMLER.items() if not args.birim or k in args.birim}
 
-    belgeler, duyurular, gorulen = [], [], set()
+    belgeler, duyurular, gorulen, metinler = [], [], set(), []
     for kimlik, ad in secim.items():
-        birim_tara(kimlik, ad, belgeler, duyurular, gorulen)
+        birim_tara(kimlik, ad, belgeler, duyurular, gorulen, metinler)
     sonek = "" if not args.birim else "_" + "_".join(map(str, args.birim))
     yaz(CIKTI / f"belgeler{sonek}.csv", belgeler)
     yaz(CIKTI / f"duyurular{sonek}.csv", duyurular)
+    # Sayfa ve duyuru metinleri: önbellekten yeniden üretilir, depoya girmez
+    # (.gitignore). Bilgi tabanına seçilenler data/raw/web/'e yazılır (K-020).
+    tekil = list({m["url"]: m for m in metinler}.values())
+    with (CIKTI / f"web_metinleri{sonek}.jsonl").open("w", encoding="utf-8", newline="\n") as f:
+        for m in tekil:
+            f.write(json.dumps(m, ensure_ascii=False) + "\n")
     tekil = len({b["url"] for b in belgeler})
     print(f"{len(secim)} birim, {len(duyurular)} duyuru, {len(belgeler)} bağlantı ({tekil} tekil dosya)")
 

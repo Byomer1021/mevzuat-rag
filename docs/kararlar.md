@@ -272,10 +272,11 @@ ama ölçümleri etkiliyor:
 - Dondurmadan sonra eklenen belge yeni bir bilgi tabanı sürümüdür: bütün
   konfigürasyonlar yeniden çalıştırılır, cevapsız sorular yeniden kontrol
   edilir.
-- Her ölçüm `bilgi_tabani_surumu`'nu taşır; şu anki sürüm `b86309a098a2`
-  (21 PDF + takvim, K-017). Farklı sürümlerle alınmış sonuçlar aynı tabloya
-  konmaz.
-- Tanımın üst sınırı 15 belge; K-017 ile 22'ye çıktı, gerekçesi orada.
+- Her ölçüm `bilgi_tabani_surumu`'nu taşır; şu anki sürüm `b3c7d85cce08`
+  (114 kaynak, K-020 ve K-021). Farklı sürümlerle alınmış sonuçlar aynı
+  tabloya konmaz.
+- Tanımın üst sınırı 15 belge; K-017 ile 22'ye, K-020 ile 114'e çıktı,
+  gerekçeleri orada.
 
 ## K-017: Sekiz belge eklendi, 22 kaynak, geçerli (2026-10-16)
 
@@ -334,9 +335,12 @@ strateji, hukuk…), Lisansüstü Eğitim Enstitüsü.
   …"). Dosya içerikleri yok. Repo private. Public yapılmadan önce bu dosyalar
   gözden geçirilir (K-004 ile birlikte).
 
-## K-019: Taramadan bilgi tabanına ne girer, açık
+## K-019: Taramadan bilgi tabanına ne girer, ~~açık~~ kararlaştı (2026-10-17) → K-020, K-021
 
-Karar Ömer Can'ın. Önerim:
+Ömer Can: mevzuat/rehber seçimi, öğretim planları ve HTML içerik, üçü de
+yapılsın. Formlar "bot hangi formu doldurmalıyım sorusunu zaten
+cevaplayabiliyorsa girmesin, gerekiyorsa ona göre ayarla" → ölçüldü, katalog
+olarak girdi (K-020). Aşağıdaki tablo öneri hâliyle duruyor.
 
 | tür | dosya | öneri | neden |
 |---|---|---|---|
@@ -360,3 +364,63 @@ Alınacak her belge için:
 
 **Ayrıca açık:** duyuru metinleri ve SSS gibi HTML sayfalar. Bunlar
 taranmadı, yalnızca dosyalar envanterde.
+
+## K-020: Kaynak genişletme, 114 kaynak, geçerli (2026-10-17)
+
+**Formlar: içerik değil katalog.** Mevzuat "hangi formu doldurmalıyım?"
+sorusunu cevaplamıyor: 532 parçanın 6'sında bir FR- kodu geçiyordu, kayıt
+dondurma maddesi hiçbir form adlandırmıyor ([olcumler §8](olcumler.md)). Boş
+bir formun alanları bilgi taşımadığı için içerik alınmadı. Kalite Ofisi form
+listesinden 141 öğrenci formu, her biri kod, ad ve bağlantıyla bir parça.
+Süzgeç `src/mevzuat_rag/formlar.py`'de ve 22 testle sabit.
+
+**Kalite dizininden 36 belge.** Lisans öğrencisini doğrudan ilgilendirenler:
+fakülte ve bölüm staj esasları, dikey geçiş, diploma, dereceye giren
+mezunlar, Türkçe hazırlık, yurt, kütüphane, spor tesisleri, diş hekimliği,
+Engelsiz GTÜ, psikolojik danışmanlık, psikolojik taciz ve ayrımcılıkla
+mücadele, öğrenci toplulukları, konsey ve proje takımları, dumansız hava
+sahası, bisiklet, güvenlik ve trafik, bilişim politikaları, Mimari Tasarım
+dersleri, SGM 216, Öğrenci Başarı ve Destek.
+
+Dışarıda: araştırma merkezleri, personel, lisansüstü ve idari yönergeler.
+YÖ-0011'in R7'si dizinde bağlantısız; eski revizyon alınmadı.
+
+**Taramadan 31 belge.** Envanterden elle, yalnızca güncel sürüm ve lisans
+kapsamı. Seçimden sonra her belgede lisansüstü terim ağırlığı ölçüldü; bir
+yanlış seçim (Lisansüstü Öğretim Süresi Esasları) bununla çıkarıldı.
+Dizinde resmî sürümü olan belgelerin bölüm sayfasındaki kopyaları
+alınmadı.
+
+**Öğretim planları: 21 program.** Kaynak, Öğrenci İşleri'nin her programın
+güncel planını listeleyen sayfası; bölüm sayfalarındaki yıllık sürümler
+değil. Mühendislik tamamlama programları dışarıda. Uçak Mühendisliği planı
+görüntü, OCR yok, dışarıda. Planlar paragraf bazlı bölünür.
+
+**Her kaynak için zorunlu:** metin katmanı ölçümü ve kişisel veri taraması
+(`kisisel.py`; TC sağlamalı, ≥3 öğrenci no, Adı Soyadı). Ön işlem denetimi
+taramayı her kaynak için yeniden yapıyor.
+
+**Değişirse:** OCR kurulursa Uçak planı ve taranmış PDF'ler yeniden
+değerlendirilir.
+
+## K-021: Web içeriği: SSS, konu sayfaları ve bu yılın duyuruları, geçerli (2026-10-17)
+
+Kurallar `scripts/web_secim.py`'de; çıktı `data/raw/web/` altında üç
+koleksiyon.
+
+- **SSS:** başlığı SSS olan bütün sayfalar (31). Gerçek öğrenci soruları ve
+  birimlerin resmî cevapları.
+- **Konu sayfaları:** başlıkta öğrenci konusu (staj, ÇAP, yatay geçiş, burs,
+  Erasmus, kayıt, mezuniyet…), en az 200 karakter. Hakkında, kadro,
+  laboratuvar, akreditasyon, etkinlik ve lisansüstü sayfaları dışarıda (127).
+- **Duyurular:** yalnızca 1 Ağustos 2026 ve sonrası (43). Eski duyurular
+  tarihleri ve süreleri geçtiği için yanıltır; sistem bir duyuruya
+  dayandığında tarihini de vermeli (parçada `tarih` alanı var).
+- Kişisel veri izi taşıyan metin hiçbir koleksiyona girmez (1 sayfa).
+
+**Test seti için uyarı.** SSS soruları artık bilgi tabanında. Test sorusu
+SSS'den aynen alınırsa arama, sorunun kendisini bulur ve olduğundan iyi
+görünür ([soru-yazma.md](soru-yazma.md)).
+
+**Yenileme.** Duyurular hızla eskiyor. Bilgi tabanı dondurulduğunda (K-016)
+koleksiyonlar o günkü taramadan üretilir ve tarih kayda geçer.

@@ -446,3 +446,148 @@ taranır ([K-019](kararlar.md)).
 metinleri ve SSS gibi HTML sayfaları taranmadı. Eylül 2025'ten eski
 duyuruların detay sayfalarındaki ekler de çekilmedi; listeden doğrudan
 dosyaya bağlananlar ise envanterde.
+
+---
+
+## 8. Bilgi tabanı genişledi: formlar, yönergeler, öğretim planları, web içerik (2026-10-17)
+
+Ömer Can'ın kararıyla ([K-020](kararlar.md), [K-021](kararlar.md)) üç iş
+birden: taramadan mevzuat/rehber seçimi, güncel öğretim planları, SSS ve
+duyuru metinleri. Formlar ise ölçüme bağlandı.
+
+### Formlar: mevzuat "hangi formu doldurmalıyım?" sorusunu cevaplamıyor
+
+Önceki 532 parçanın yalnızca **6'sında** bir FR- form kodu geçiyor; 16 kodun
+çoğu Endüstriyel Uygulamalar ve GTU 101/110'a ait. Kayıt dondurmayı
+düzenleyen YN-0001 m19 hiçbir form adlandırmıyor. Oysa "FR-0853 Kayıt
+Dondurma Başvuru Formu" var. Formların içeriği değil kataloğu gerekiyor: kod,
+ad, bağlantı.
+
+Kaynak, Kalite Ofisi'nin form listesi (`kategori/2382`): 683 Türkçe form,
+birime göre gruplanmamış. Öğrenci formu süzgeci
+([formlar.py](../src/mevzuat_rag/formlar.py)) adına bakıyor:
+
+| sürüm | seçilen | gözle kontrol |
+|---|---|---|
+| ilk kurallar | 178 | ~35'i personel formu ("dilekçe" ve "ders" yüzünden: Doğum Dilekçesi, Profesör Atama, Ders Devam Çizelgesi…) |
+| dışlama genişletildi | 132 | dışlananlarda 7 gerçek öğrenci formu: "Tek Ders Sınav Dilekçesi" ("ek ders" kalıbı "t**ek ders**"in içinde eşleşiyordu), Lisans/Lisansüstü İlişik Kesme, staj anketleri, topluluk tutanakları |
+| istisnalar eklendi | **141** | dışarıda kalanlardan rastgele 25'inin 24'ü doğru dışlanmış (kaçan: Psikolojik Taciz başvurusu, eklendi) |
+
+Prosedürler dizini (`kategori/2943`) de incelendi: 18 prosedürün hepsi kalite,
+enerji ve satın alma süreçleri; öğrenciyle ilgisi yok.
+
+### Kaynaklar: 22'den 114'e
+
+| grup | belge | nereden |
+|---|---|---|
+| Kalite dizini, lisans öğrencisini ilgilendiren | 36 | fakülte ve bölüm staj esasları, dikey geçiş, diploma, yurt, kütüphane, topluluklar, psikolojik danışmanlık, ayrımcılıkla mücadele… |
+| taramadan mevzuat ve rehber | 31 | 7592 sayılı af ve uygulama ilkeleri, 7 intibak kuralı, sınav ve mazeret esasları, bitirme kuralları ve kılavuzları, staj rehberleri ve SSS'leri, mezuniyet süreç rehberi, hazırlık öğrenci el kitabı, Düzensiz Öğrenci Rehberi… |
+| öğretim planları | 21 | Öğrenci İşleri'nin "Lisans Bölümlerinin Öğretim Planları" sayfası (her programın güncel planı tek yerde) |
+| form kataloğu | 1 | 141 öğrenci formu |
+| web koleksiyonları | 3 | 31 SSS sayfası, 127 konu sayfası, 43 duyuru (§ aşağıda) |
+
+**Düşenler, nedenleriyle.**
+
+- **YÖ-0011** (Uluslararası Öğrenci Kabul, R7): dizinde bağlantısı boş, tahmin
+  edilen adresler 404. Eski revizyon alınmadı.
+- **Uçak Mühendisliği öğretim planı:** tamamen görüntü, 0 karakter. OCR
+  kurulu değil.
+- **"Öğrenim Süresi ve İlişik Kesme Esasları":** başlığa bakıp seçtim; ilk
+  satırı "Lisansüstü Öğretim Süresi…". Yanlış seçim, çıkarıldı. Bunun
+  üzerine taramadan seçilen 31 belgenin hepsinde lisansüstü terim ağırlığı
+  sayıldı. İşaretlenen iki belge (İKT490, KİM 492) lisans dersi; "tez"
+  orada bitirme tezi anlamında.
+
+**Metin katmanı ve kişisel veri, 109 PDF.**
+
+| | değer |
+|---|---|
+| metinsiz belge | 1 (Uçak planı, düştü) |
+| gerçek kodlama bozulması (ý þ ð) | 0 |
+| Symbol/Wingdings madde imi (özel kullanım alanı) | 12 belgede; ön işlemde "•" olur |
+| kişisel veri izi (TC sağlamalı, ≥3 öğrenci no, Adı Soyadı) | 0 |
+
+Ölçüm "bozuk karakter" sayacında madde imleriyle gerçek bozulmayı birlikte
+sayıyordu; ilk 21 belgede ikisi de sıfır olduğu için fark görünmemişti.
+Ayrıldı.
+
+**Çelişki bulgusu.** Malzeme Bilimi'nin sayfasındaki staj esaslarının dosya
+adı "04032026" (4 Mart 2026); dizindeki YÖ-0088'in revizyon tarihi 4 Mart
+2024. Dizindeki resmî sürüm alındı.
+
+### Web içerik: SSS, konu sayfaları, duyurular
+
+Sayfa içeriği iki yerde ([web.py](../src/mevzuat_rag/web.py)): duyurularda
+gömülü veride bir `"content"` alanında HTML, kategori sayfalarında sunucunun
+ürettiği `<div class="rich-text-content">` içinde. İlk denemede başlık
+"Sayfa bulunamadı" çıktı: gömülü veride 404 şablonunun h1'i de var; gövdeye
+en yakın h1 alınıyor.
+
+| | değer |
+|---|---|
+| çıkarılan metin | 1452: 1003 kategori sayfası, 449 duyuru |
+| SSS sayfası | **31** (Öğrenci İşleri 70 bin karakter, SKS 19 bin, Uluslararası İlişkiler 27 bin, MYO, Yabancı Diller ve bölümler) |
+| seçilen konu sayfası | 127 (başlıkta öğrenci konusu, ≥200 karakter; hakkında/kadro/lab/lisansüstü hariç) |
+| seçilen duyuru | 43 (1 Ağustos 2026 ve sonrası; 376 eski duyuru dışarıda) |
+| birden çok birimde yayımlanan, birleştirilen | 5 |
+| kişisel veri yüzünden dışarıda | 1 sayfa |
+
+Duyuru kimlik eşiği (25500) tarihleri kabaca tutturdu; dışarıda kalan en eski
+tarih Nisan 2025. Bir duyuruda "Nisan 2027" yazıyor, sayfadaki bir yazım
+hatası.
+
+---
+
+## 9. Genişlemenin ön işlemde ortaya çıkardıkları (2026-10-17)
+
+114 kaynakla ilk çalıştırmada denetim yalnızca 3 kalıntı bildirdi. Asıl
+hatalar en uzun parçalara ve madde numarası boşluklarına bakınca çıktı.
+
+1. **Yeni madde biçimleri.** Tanıyıcı genişledi; her biri testle sabit:
+   - "MADDE 12a:" harfli alt madde (YÖ-0018): 12a ve 12b, 12'ye yığılıp
+     17 bin karakterlik bir parça yapıyordu;
+   - "Madde 11 Engelsiz GTÜ Birimi" ayraçsız (YÖ-0001);
+   - "Madde 9. 20 (yirmi) iş günü" noktadan sonra rakam (YÖ-0084);
+   - "EK MADDE 1 –" (§6).
+2. **Satır başına düşmüş atıf başlık sanıldı.** "Madde 4a. kapsamında…" 12a'yı
+   ikiye bölüp aynı kimliği iki kez üretti; kimlik çakışması denetimi
+   yakaladı. Noktalı biçimde noktadan sonra "(", büyük harf ya da rakam
+   şartı kondu.
+3. **Başıboş başlıklar.** Kimya Mühendisliği'nin öğretim planında geçen tek bir
+   "Geçici Madde", bütün ders tablolarını 12 bin karakterlik bir maddeye
+   yığıyordu. Belge ancak en az 3 asıl madde başlığı varsa madde bazlı
+   bölünüyor; öğretim planları her zaman paragraf bazlı.
+4. **Ekteki formların altlığı** sayfanın ortasında kalabiliyor (YÖ-0046 s7).
+   Kalite altlığının tam kalıbı, bölgeden bağımsız tek satır olarak atılıyor.
+5. **Denetimin yanlış alarmı.** "Revizyon Tarihi", Kimya'nın CHEM 492
+   esaslarında belgenin kendi notu olarak geçiyor. Denetim artık yalnızca
+   başlık tablosuna özgü izlere ("Doküman No", "Revizyon No", altlık
+   kalıbı) bakıyor.
+
+Ayraçsız biçim eklenirken her belgenin başlık sayısı önceki ölçümle
+karşılaştırıldı: yalnızca beklenen iki belge ve lisansüstü esaslar değişti.
+Sonuncusu yukarıdaki yanlış seçimi ortaya çıkardı.
+
+**Sonuç.**
+
+| | değer |
+|---|---|
+| kaynak | 114: 109 PDF, takvim, form kataloğu, 3 web koleksiyonu |
+| madde yapısında belge | 52; madde numarası boşluğu 0 (7592 alıntısı hariç, madde moduna girmiyor) |
+| parça | **4759**: 914 madde (901 asıl, 8 geçici, 5 ek), 1631 paragraf, 1914 web, 150 takvim, 141 form, 9 giriş |
+| kapsama / sayfa aralığı / kimlik çakışması / kalıntı / kişisel veri | sorun yok |
+| aynı metni taşıyan iki kaynak | yok |
+| madde uzunluğu | medyan 395, p90 1580, max 9289; 2000'in üstünde 57 |
+| testler | 121 |
+| bilgi tabanı sürümü | `b3c7d85cce08` |
+
+**Bilinen sınırlar.**
+
+- **Öğretim planları güz ve bahar dönemini yan yana iki sütunda veriyor.**
+  Satır satır okununca iki dönemin dersi aynı satıra düşüyor ("CSE 241 …
+  CSE 222 …"). Başlık satırı parçada, ama "CSE 222 hangi dönem?" türü
+  sorular için bir hata kaynağı.
+- **Kimya CHEM 492 esasları taranmış ve OCR'lanmış bir PDF:** "eğitim-öğreüm",
+  "2O24" gibi hatalar ve sondaki imzadan gelen anlamsız karakterler var.
+- 207 madde başlıksız; yeni belgelerde örneklenenlerin önünde gerçekten
+  başlık yok (Endüstriyel Uygulamalar, GTU 110 gibi).

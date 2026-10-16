@@ -78,6 +78,19 @@ def test_baska_bicimde_govde_silinmez(baska_bicim):
     assert sonuc.atilan == []
 
 
+def test_ekteki_formun_altligi_sayfa_ortasinda_da_atilir():
+    d = pymupdf.open()
+    s = d.new_page(width=595, height=842)
+    for y, t in [(100, "EK-1 Bisiklet Teslim Formu"),
+                 (400, "Form No: FR-0458 Yayın Tarihi:08.10.2018 Değ.No:0"),  # YÖ-0046 s7
+                 (420, "Imza:")]:
+        s.insert_text((60, y), t, fontsize=10)
+    sonuc = sayfayi_temizle(s)
+    d.close()
+    assert "FR-0458" not in sonuc.metin
+    assert "EK-1 Bisiklet" in sonuc.metin and "Imza:" in sonuc.metin
+
+
 def test_atilanlar_denetim_icin_kaydedilir(sayfa):
     atilan = sayfayi_temizle(sayfa).atilan
     assert "Doküman No" in atilan and any(a.startswith("Form No:") for a in atilan)

@@ -25,6 +25,11 @@ kapatabilmesi.
 İyi kaynaklar: kendi başına gelenler, arkadaşlarının sorduğu, öğrenci
 gruplarında dönen sorular.
 
+**SSS sayfalarından soru alma.** Birimlerin 31 SSS sayfası bilgi tabanında
+([K-021](kararlar.md)). Bir SSS sorusunu aynen test setine koyarsan arama,
+sorunun kendisini bulur ve sonuç olduğundan iyi görünür. SSS'leri hangi
+konuların sorulduğunu görmek için oku, ama soruyu kendi cümlenle yaz.
+
 Aynı nedenle soruları dil modeline yazdırmıyoruz: hem kelimeleri belgeden
 alır, hem de sonuçta cevabı yine bir dil modeli verecek.
 

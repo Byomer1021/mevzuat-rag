@@ -21,20 +21,24 @@ sayı ölçüldüğü anda girer. Ölçülmemiş sayı yazılmaz.
 
 Şu ana kadar ölçülen:
 
-- 20 GTÜ yönetmelik/yönergesi, YÖK geçiş yönetmeliği ve akademik takvim,
-  toplam 22 kaynak. GTÜ belgeleri Kalite Ofisi dizinindeki yürürlükteki
-  revizyonlarıyla alındı ve sha256'ları kayıtlı.
-- Bütün sayfalarda metin katmanı var, bozuk Türkçe karakter 0: OCR
-  gerekmiyor.
-- Madde başlıkları altı farklı biçimde yazılmış (ek ve geçici maddeler
-  dahil). Tanıyıcı, madde yapısı olan 20 belgenin 20'sinde 1..N'i eksiksiz
-  buluyor: 366 asıl, 5 geçici, 3 ek madde.
-- Her sayfadaki kalite formu başlığı maddelerin ortasına giriyordu.
-  Temizlendi; temiz metinde iz kalmadı.
-- Bilgi tabanı 532 parçaya bölündü: 374 madde, 150 takvim satırı, 8 diğer.
-  Kapsama ve sayfa aralıkları denetimden geçti.
+- **114 kaynak:** 56 GTÜ yönetmelik/yönergesi (Kalite Ofisi dizininden,
+  yürürlükteki revizyon), YÖK geçiş yönetmeliği, site taramasından seçilen 31
+  esas/rehber/SSS belgesi, 21 programın güncel öğretim planı, akademik
+  takvim, 141 öğrenci formunun kataloğu ve web içeriği (31 SSS sayfası, 127
+  konu sayfası, bu yılın 43 duyurusu).
+- 40 birimin sitesi tarandı: 4824 duyuru, 3253 dosya envantere girdi
+  ([olcumler §7](docs/olcumler.md)). Sitede yönergelerin eski
+  revizyonlarına 12 bağlantı var.
+- 109 PDF'te kodlama bozulması 0, kişisel veri izi 0. Taranmış tek belge
+  (Uçak Müh. planı) dışarıda.
+- Madde başlıkları belgeden belgeye farklı yazılmış: tireli, noktalı,
+  ayraçsız, harfli alt madde ("12a"), ek ve geçici madde. Madde yapısındaki
+  52 belgede numara boşluğu yok.
+- Bilgi tabanı 4759 parçaya bölündü: 914 madde, 1631 paragraf, 1914 web,
+  150 takvim, 141 form. Kapsama, sayfa aralığı, kimlik çakışması ve
+  kişisel veri denetimi temiz.
 
-Ayrıntılar: [olcumler §2-6](docs/olcumler.md).
+Ayrıntılar: [olcumler §2-9](docs/olcumler.md).
 
 | aşama | hafta | durum |
 |---|---|---|

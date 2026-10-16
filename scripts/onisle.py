@@ -1,7 +1,11 @@
-"""Ön işlem: PDF'leri temizler, maddelere böler, data/processed/'e yazar ve
-sonucu denetler. Sonuç: results/onisleme.json, olcumler §4.
+"""Ön işlem: bütün kaynakları parçalara böler, data/processed/'e yazar ve
+sonucu denetler. Sonuç: results/onisleme.json, olcumler §4, §9.
 
     uv run python scripts/onisle.py
+
+PDF'ler temizlenir ve maddelere (madde yoksa paragraflara) bölünür; takvim
+satır satır, form kataloğu form form, web koleksiyonları öğe öğe parçalanır.
+Her kaynağın metni kişisel veri için ayrıca taranır.
 """
 
 import csv
@@ -13,16 +17,30 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from mevzuat_rag import kisisel
 from mevzuat_rag.madde import madde_basliklari
 from mevzuat_rag.onisleme import pdf_sayfalari
-from mevzuat_rag.parcalama import madde_parcala, paragraf_parcala, takvim_parcala
+from mevzuat_rag.parcalama import (
+    katalog_parcala,
+    madde_parcala,
+    paragraf_parcala,
+    takvim_parcala,
+    web_parcala,
+)
 
 KOK = Path(__file__).resolve().parents[1]
 RAW = KOK / "data" / "raw"
 CIKTI = KOK / "data" / "processed" / "parcalar_madde.jsonl"
 RAPOR = KOK / "results" / "onisleme.json"
 MADDE_TURLERI = ("madde", "gecici", "ek")
-IZLER = ["Doküman No", "Form No", "Revizyon No", "Yayın Tarihi", "Revizyon Tarihi"]
+# Yalnızca başlık tablosuna özgü izler. "Yayın Tarihi", "Revizyon Tarihi" gövdede
+# de geçiyor (CHEM 492 esaslarının sonundaki not), yanlış alarm veriyordu.
+IZLER = ["Doküman No", "Revizyon No"]
+ALTLIK_IZI = re.compile(r"Form No:\s*FR-\d{3,4}.*Yayın Tarihi")
+# Bundan az asıl madde başlığı varsa belge madde yapısında sayılmaz: öğretim
+# planında geçen tek bir "Geçici Madde" bütün tabloları o maddeye yığıyordu.
+MADDE_MIN = 3
+MADDESIZ_TURLER = ("ogretim-plani",)
 ATILAN_SAYFA_MAX = 400  # boşluksuz karakter
 
 
@@ -86,31 +104,62 @@ def main():
             for iz in IZLER:
                 if iz in sy.metin:
                     sorunlar.append(f"{s['belge_id']} s{sy.no}: temiz metinde '{iz}' kaldı")
+            if ALTLIK_IZI.search(sy.metin):
+                sorunlar.append(f"{s['belge_id']} s{sy.no}: temiz metinde form altlığı kaldı")
             if re.search(r"Sayfa\s+\d+\s*-\s*\d+", sy.metin):
                 sorunlar.append(f"{s['belge_id']} s{sy.no}: temiz metinde 'Sayfa N-M' kaldı")
 
-    madde_parcalari = {b: madde_parcala(b, sy) for b, sy in temiz.items()}
+    tur = {s["belge_id"]: s["tur"] for s in kaynaklar}
+    madde_parcalari = {}
+    for b, sy in temiz.items():
+        ps = [] if tur[b] in MADDESIZ_TURLER else madde_parcala(b, sy)
+        if sum(p.tur == "madde" for p in ps) < MADDE_MIN:
+            ps = []  # madde yapısında değil; aşağıda paragraflara bölünür
+        madde_parcalari[b] = ps
     uzunluklar = [len(p.metin) for ps in madde_parcalari.values() for p in ps
                   if p.tur in MADDE_TURLERI]
     hedef = int(statistics.median(uzunluklar))
 
+    adres = {s["belge_id"]: s["url"] for s in kaynaklar}
+    ozetler: dict[str, list[str]] = {}
     for b, ps in madde_parcalari.items():
-        if not ps:  # madde yapısı yok (YÖ-0087)
+        if not ps:  # madde yapısı yok (YÖ-0087, rehberler, öğretim planları)
             ps = paragraf_parcala(b, temiz[b], hedef)
             madde_parcalari[b] = ps
+        tam = "\n".join(x.metin for x in temiz[b])
         # kapsama: parçalar temiz metnin tamamını kayıpsız ve tekrarsız örtmeli
-        if bosluksuz("".join(p.metin for p in ps)) != bosluksuz("\n".join(x.metin for x in temiz[b])):
+        if bosluksuz("".join(p.metin for p in ps)) != bosluksuz(tam):
             sorunlar.append(f"{b}: parçalar temiz metni birebir örtmüyor")
+        if (bulgu := kisisel.tara(tam)).riskli:
+            sorunlar.append(f"{b}: kişisel veri izi {bulgu}")
+        ozetler.setdefault(hashlib.sha256(bosluksuz(tam).encode()).hexdigest(), []).append(b)
         sayfa_metni = {x.no: bosluksuz(x.metin) for x in temiz[b]}
         for p in ps:
+            p.url = adres[b]
             if not aralik_dogru(p, sayfa_metni):
                 sorunlar.append(f"{p.id}: sayfa aralığı {p.sayfa_bas}-{p.sayfa_son} tutmuyor")
         parcalar += ps
 
-    takvim = next(s for s in kaynaklar if s["belge_id"] == "akademik-takvim")
-    takvim_parcalari = takvim_parcala("akademik-takvim",
-                                      (RAW / takvim["dosya"]).read_text(encoding="utf-8"))
-    parcalar += takvim_parcalari
+    web_ogesi = 0
+    for s in kaynaklar:
+        yol = RAW / s["dosya"]
+        if s["tur"] == "takvim":
+            parcalar += takvim_parcala(s["belge_id"], yol.read_text(encoding="utf-8"))
+        elif s["tur"] == "katalog":
+            parcalar += katalog_parcala(s["belge_id"], yol.read_text(encoding="utf-8"))
+        elif s["tur"] == "koleksiyon":
+            for satir in yol.read_text(encoding="utf-8").splitlines():
+                oge = json.loads(satir)
+                web_ogesi += 1
+                ps = web_parcala(s["belge_id"], oge, hedef)
+                if bosluksuz("".join(p.metin for p in ps)) != bosluksuz(oge["metin"]):
+                    sorunlar.append(f"{s['belge_id']}/{oge['id']}: parçalar metni örtmüyor")
+                if (bulgu := kisisel.tara(oge["metin"])).riskli:
+                    sorunlar.append(f"{s['belge_id']}/{oge['id']}: kişisel veri izi {bulgu}")
+                parcalar += ps
+
+    kimlikler = Counter(p.id for p in parcalar)
+    sorunlar += [f"{i}: parça kimliği {n} kez" for i, n in kimlikler.items() if n > 1]
 
     CIKTI.parent.mkdir(parents=True, exist_ok=True)
     with CIKTI.open("w", encoding="utf-8", newline="\n") as f:
@@ -131,6 +180,10 @@ def main():
                           "p90": int(q[-1]), "max": max(uzunluklar),
                           "2000_ustu": sum(x > 2000 for x in uzunluklar)},
         "paragraf_hedefi": hedef,
+        "kaynak_turleri": dict(Counter(s["tur"] for s in kaynaklar)),
+        "web_ogesi": web_ogesi,
+        # aynı metni taşıyan farklı kaynaklar (aynı belge iki adreste olabilir)
+        "ayni_metinli_kaynaklar": [v for v in ozetler.values() if len(v) > 1],
         "sorunlar": sorunlar,
     }
     RAPOR.parent.mkdir(exist_ok=True)

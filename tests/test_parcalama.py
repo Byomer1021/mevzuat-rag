@@ -1,7 +1,14 @@
 import pytest
 
 from mevzuat_rag.onisleme import Sayfa
-from mevzuat_rag.parcalama import madde_parcala, paragraf_parcala, sabit_parcala, takvim_parcala
+from mevzuat_rag.parcalama import (
+    katalog_parcala,
+    madde_parcala,
+    paragraf_parcala,
+    sabit_parcala,
+    takvim_parcala,
+    web_parcala,
+)
 
 
 def bosluksuz(s):
@@ -107,6 +114,32 @@ def test_sabit_parcala_boyut_ve_ortusme():
 def test_sabit_parcala_gecersiz_ortusme():
     with pytest.raises(ValueError):
         sabit_parcala("x", [Sayfa(1, "a b c")], boyut=10, ortusme=10)
+
+
+def test_web_soru_cevabiyla_kalir():
+    uzun_cevap = "Cevap " * 100  # hedefin üstünde; yine de sorusundan ayrılmaz
+    oge = {"id": "k1957", "birim": "Bilgisayar Mühendisliği", "baslik": "SSS", "url": "https://x",
+           "metin": f"Giriş paragrafı.\n\n1. Staj kaç gün?\n\n{uzun_cevap}\n\n"
+                    "2. Yaz okulunda staj yapılır mı?\n\nEvet.\n\nEk not."}
+    ps = web_parcala("web-sss", oge, hedef=60)
+    assert [p.metin.split("\n\n")[0] for p in ps] == [
+        "Giriş paragrafı.", "1. Staj kaç gün?", "2. Yaz okulunda staj yapılır mı?"]
+    assert ps[1].metin.endswith(uzun_cevap.strip())
+    assert ps[2].metin == "2. Yaz okulunda staj yapılır mı?\n\nEvet.\n\nEk not."
+    assert ps[0].id == "web-sss/k1957-1" and ps[0].url == "https://x" and ps[0].bolum == oge["birim"]
+
+
+def test_katalog_yalniz_ogrenci_formlari_ve_tekil_kimlik():
+    tsv = ("kod\tad\trevizyon\turl\n"
+           "FR-0853\tKayıt Dondurma Başvuru Formu\tR0\thttps://x/FR-0853.docx\n"
+           "FR-0127\tDoğum Dilekçe\tR1\thttps://x/FR-0127.docx\n"
+           "FR-0284\tMimarlık Staj Dilekçe Sicil Fişi (Türkçe)\tR0\thttps://x/a.docx\n"
+           "FR-0284\tMimarlık Staj Dilekçe Sicil Fişi - İngilizce\tR0\thttps://x/b.docx\n")
+    ps = katalog_parcala("form-katalogu", tsv)
+    assert [p.id for p in ps] == ["form-katalogu/FR-0853", "form-katalogu/FR-0284",
+                                  "form-katalogu/FR-0284-2"]
+    assert ps[0].tur == "form" and ps[0].baslik == "Kayıt Dondurma Başvuru Formu"
+    assert "https://x/FR-0853.docx" in ps[0].metin
 
 
 def test_takvim_satirlari():
