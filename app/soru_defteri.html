@@ -369,7 +369,7 @@ legend { padding: 0; margin-bottom: 6px; width: 100%; }
     if (!kalip(k).test(p.metin)) return ["kotu", "Kanıt bu parçanın metninde birebir yok."];
     // Uzun kanıt sabit pencerelerin sınırına daha sık denk gelir; deneyi kanıtın uzunluğu etkilemesin
     if (/[.;]\s+[(A-ZÇĞİÖŞÜ]/.test(k) || k.length > KANIT_UZUN)
-      return ["dikkat", "Bulundu, ama birden fazla cümle ya da çok uzun: yalnız cevabı taşıyan cümleyi bırak (madde numarasız)."];
+      return ["dikkat", "Bulundu. Birden fazla cümle ya da uzun: cevap için gerekmeyen cümleyi ve madde numarasını çıkar; ikisi de gerekiyorsa böyle kalabilir."];
     return ["iyi", "Kanıt metinde bulundu."];
   }
 
