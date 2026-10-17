@@ -67,7 +67,14 @@ alır, hem de sonuçta cevabı yine bir dil modeli verecek.
 |---|---|---|
 | tek | cevap tek bir maddede ("Bir dersten en fazla kaç saat devamsızlık yapabilirim?") | ~28 |
 | çok | iki veya daha fazla madde gerekir; mümkünse farklı belgelerden ("Çift anadal yaparken stajı iki bölümde de yapmam gerekir mi?") | ~13 |
-| cevapsız | belgelerde cevabı yok ("Kütüphane kaçta kapanıyor?", "Burs başvurusu ne zaman?") | 8-10 (%15-20) |
+| cevapsız | belgelerde cevabı yok; arama kutusunda denenmiş olmalı (aşağıya bak) | 8-10 (%15-20) |
+
+**2026-10-18 uyarısı.** Aşağıdaki örnekler bilgi tabanı 22 kaynakken
+yazıldı. 114 kaynakla (SSS ve web sayfaları dahil) basit bir aramada
+kütüphane saati, Erasmus hibe tutarı, burs başvurusu, yurt ve harç ücreti
+için web/SSS parçaları çıkıyor; artık cevaplı olabilirler (tek tek
+doğrulanmadı). Önkoşul sorusu da Madde 15'te cevaplı çıktı. Cevapsız
+işaretlemeden önce arama şart.
 
 Cevapsız sorular halüsinasyonu en doğrudan ölçen sorular. En değerlileri
 konusu belgelere **yakın** olanlar. "Erasmus hibesi ayda ne kadar?":
