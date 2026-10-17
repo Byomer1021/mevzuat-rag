@@ -33,6 +33,14 @@ sürücünün en fazla CUDA 12.0 desteklediğini söylüyor.
 
 **Değişirse:** sürücü güncellenirse veya proje bulut GPU'ya taşınırsa.
 
+**2026-10-17: GPU kullanılmıyor.** e5 gömme kodlaması GPU'da `CUDA error:
+unknown error` ile düştü ve ekran gitti; Ömer Can kartın arızalı olduğunu
+söyledi. Model çalıştıran betikler GPU'yu torch yüklenmeden gizliyor
+(`CUDA_VISIBLE_DEVICES=""`), yoğun arama varsayılan olarak CPU'da
+(`arama.YogunDizin(cihaz="cpu")`, `deney.py --cihaz`). Kurulu torch
+cu118 derlemesi olarak kalıyor; CPU'da da çalışıyor. GPU gerekirse bulut,
+önce sorulur.
+
 ## K-003: Önbellekler D'de, global ortam değişkeni yok, geçerli (2026-10-16)
 
 - uv önbelleği: `D:\.cache\uv`. Komutla verilir: `$env:UV_CACHE_DIR = "D:\.cache\uv"`.
@@ -121,6 +129,13 @@ Sonnet. Karar Ömer Can'ın; pilotun maliyeti onaydan önce ölçülüp yazılı
 
 **Açık soru:** dersin hocası açık kaynak model şartı koyuyor mu? Koyuyorsa
 tablo tersine döner.
+
+**2026-10-17:** ders programında ve öneri şablonunda böyle bir şart yok.
+Şablonun uygulanabilirlik ölçütü "compute that fits a free GPU or a small
+API budget"; küçük bir API bütçesi açıkça kabul ediliyor. Şablonun
+örneklerinde açık modeller geçiyor, şart olarak değil. Hocaya ayrıca
+sorulmadı. Dil modeli artık araştırma sorusunun dışında, yalnız demo
+için (K-022).
 
 ## K-006: RAG çerçevesi (LangChain/LlamaIndex) kullanılmıyor, geçerli (2026-10-16)
 
@@ -539,3 +554,32 @@ teslim tarihini ve "tek kişi" varsayımını değiştiriyor.
 - **Yapay zekâ araçları** serbest, raporda kısa beyan zorunlu; öneri formunun
   9. kutusu soruyor. Beyan edilmemiş kullanım akademik dürüstlük ihlali.
 - Plan 17 Aralık'a göre: [on-rapor §8](on-rapor.md).
+
+## K-024: Ekip soruları tarayıcıdaki Soru Defteri'nde yazar, sunucusuz, geçerli (2026-10-17)
+
+Dört kişi soru yazacak; Streamlit aracı repo ve torch kurulumu (~2.7 GB)
+istiyor. Ömer Can'ın seçimi: tarayıcıda çalışan bir sayfa
+([soru-yazma.md](soru-yazma.md)).
+
+**Neden sunucusuz.** Sayfanın ortak veri deposu (`db`) yalnız sayfa
+sahibinin claude.ai organizasyonu içinde çalışıyor ve öyle bir sayfa
+herkese açık paylaşılamıyor. Ekip arkadaşlarının o organizasyonda olduğu
+bilinmiyor. Bu yüzden sorular yazanın tarayıcısında (localStorage) durur,
+"Dışa aktar" ile metin olarak Ömer Can'a gelir, `scripts/soru_al.py` ile
+denetlenip `sorular.jsonl`'a girer.
+
+- Her soru tarayıcıda bir `yerel_id` alır; `data/testset/defter.json`
+  yerel_id → q-kimliği eşlemesini tutar. Aynı satırın iki kez gelmesi
+  güvenli, düzenlenen soru yerinde güncellenir.
+- Denetim iki yerde aynı: sayfa kanıt cümlesini aynı kuralla arar (boşluk
+  farkı gözetmeden, birebir), içeri alma `testset.dogrula` ile yeniden
+  denetler.
+- Sayfa bilgi tabanının bir anlık görüntüsünü taşır (`parcalar.json`,
+  sürüm `b3c7d85cce08`, parça sürümü `2b5af885972a`,
+  `scripts/soru_defteri_veri.py`). Bilgi tabanı ya da parçalama değişirse
+  veri yeniden üretilip sayfa yeniden yayımlanır; yazılmış soruların
+  dayanakları `testset_kontrol.py` ile yeniden denetlenir.
+
+**Risk.** Tarayıcı verisi silinirse dışa aktarılmamış sorular gider; sayfa
+bunu her oturum sonunda dışa aktarmayı söyleyerek ve aktarılmamış soru
+sayısını göstererek azaltıyor, önlemiyor.

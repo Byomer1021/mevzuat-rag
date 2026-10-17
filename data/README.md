@@ -122,3 +122,6 @@ JSONL, satır başına bir soru:
 - `bolum`: `dev` veya `test` ([K-007](../docs/kararlar.md), öneri).
 - İkinci etiketçinin bağımsız işaretlemesi ayrı dosyada tutulur; uyum
   (Cohen's Kappa) [olcumler.md](../docs/olcumler.md)'ye yazılır.
+- `defter.json`: Soru Defteri'nden gelen soruların tarayıcıdaki `yerel_id`'si
+  → test setindeki kimlik. `scripts/soru_al.py` yazar; elle düzenlenmez
+  ([K-024](../docs/kararlar.md)).

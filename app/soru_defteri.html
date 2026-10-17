@@ -1,0 +1,576 @@
+<title>Mevzuat Soru Defteri</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a working desk. Sources on the left, the question form on the right, the writer's own list underneath. */
+:root {
+  --bg: #EDF0F3;
+  --surface: #FFFFFF;
+  --ink: #18212B;
+  --muted: #556070;
+  --line: #D2D8E0;
+  --accent: #0D6A61;
+  --accent-ink: #FFFFFF;
+  --soft: #DDEDEA;
+  --warn: #A3302A;
+  --warn-soft: #F8E2DF;
+  --mark: #FCEFA8;
+  --mark-ink: #18212B;
+  --font-ui: "Atkinson Hyperlegible", Verdana, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11161C; --surface: #1A2129; --ink: #E5E9EE; --muted: #9AA5B2; --line: #2D3742;
+    --accent: #52B5A9; --accent-ink: #0A1917; --soft: #1B302D; --warn: #F08C80; --warn-soft: #3A201D;
+    --mark: #5B5222; --mark-ink: #F4EFD8; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11161C; --surface: #1A2129; --ink: #E5E9EE; --muted: #9AA5B2; --line: #2D3742;
+  --accent: #52B5A9; --accent-ink: #0A1917; --soft: #1B302D; --warn: #F08C80; --warn-soft: #3A201D;
+  --mark: #5B5222; --mark-ink: #F4EFD8; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-ui); font-size: 16px; line-height: 1.5; }
+.sayfa { max-width: 1440px; margin: 0 auto; padding-block: 20px 40px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 16px; }
+h1 { font-size: 26px; line-height: 1.2; margin: 0; letter-spacing: -0.2px; }
+h2 { font-size: 18px; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.mono { font-family: var(--font-mono); font-size: 13.5px; }
+.ince { color: var(--muted); font-size: 14px; }
+.ust { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: end; justify-content: space-between; }
+.ust .alt { color: var(--muted); font-size: 14px; margin-top: 2px; }
+.ust-sag { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+label, .etiket, legend { font-weight: 700; font-size: 14px; }
+select, input, textarea { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; max-width: 100%; }
+textarea { width: 100%; resize: vertical; }
+select:focus-visible, input:focus-visible, textarea:focus-visible, button:focus-visible, summary:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+button { font: inherit; font-weight: 700; font-size: 14px; border-radius: 6px; padding: 8px 14px; cursor: pointer; border: 1px solid var(--accent); }
+button.birincil { background: var(--accent); color: var(--accent-ink); }
+button.ikincil { background: transparent; color: var(--accent); }
+button.sade { background: transparent; color: var(--muted); border-color: var(--line); padding: 5px 10px; font-weight: 400; }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+.rozet { display: inline-block; min-width: 22px; padding: 0 6px; margin-left: 6px; border-radius: 11px; background: var(--warn); color: var(--surface); font-size: 12px; line-height: 20px; text-align: center; }
+.uyari { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); border-radius: 8px; padding: 10px 14px; font-weight: 700; }
+.kurallar { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 16px; }
+.kurallar summary { cursor: pointer; font-weight: 700; }
+.kurallar ol { margin: 10px 0 4px; padding-left: 22px; display: grid; gap: 6px; max-width: 900px; }
+.izgara { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 980px) { .izgara { grid-template-columns: minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.filtre { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 10px; align-items: center; }
+.filtre select, .filtre input { width: 100%; }
+.sonuclar { list-style: none; margin: 0; padding: 0; max-height: 300px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+.sonuclar li + li { border-top: 1px solid var(--line); }
+.sonuclar button { width: 100%; text-align: left; background: transparent; border: 0; border-radius: 0; padding: 8px 12px; color: var(--ink); font-weight: 400; display: flex; flex-direction: column; gap: 2px; }
+.sonuclar button:hover, .sonuclar button[aria-current="true"] { background: var(--soft); }
+.sonuclar .kimlik { color: var(--accent); }
+.parca { border-top: 2px solid var(--ink); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.parca-ust { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; }
+.parca-metin { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 420px; overflow: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px; font-size: 15px; line-height: 1.55; }
+.parca-metin mark { background: var(--mark); color: var(--mark-ink); padding: 1px 0; }
+.dugmeler { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+form { display: flex; flex-direction: column; gap: 12px; }
+fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+legend { padding: 0; margin-bottom: 6px; width: 100%; }
+.secenek { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; font-size: 15px; }
+.satir-bas { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; justify-content: space-between; }
+.dayanaklar { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.dayanaklar li { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+.kanit-durum { font-size: 13.5px; }
+.kanit-durum.iyi { color: var(--accent); }
+.kanit-durum.kotu { color: var(--warn); }
+.cipler { display: flex; flex-wrap: wrap; gap: 6px; }
+.cip { border: 1px solid var(--line); background: transparent; color: var(--ink); font-weight: 400; padding: 4px 10px; border-radius: 14px; }
+.cip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.hatalar { margin: 0; padding: 10px 14px 10px 30px; background: var(--warn-soft); color: var(--warn); border-radius: 8px; display: grid; gap: 4px; }
+.durum { min-height: 1.5em; color: var(--accent); font-weight: 700; }
+.soru-liste { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.soru-liste li { border-top: 1px solid var(--line); padding: 12px 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 16px; }
+.soru-liste .soru-metin { font-weight: 700; }
+.hap { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 10px; border: 1px solid var(--line); color: var(--muted); margin-right: 6px; }
+.hap.bekliyor { border-color: var(--warn); color: var(--warn); }
+.bos { color: var(--muted); }
+.alt-bilgi { color: var(--muted); font-size: 13.5px; }
+@media (max-width: 560px) { .soru-liste li { grid-template-columns: minmax(0, 1fr); } }
+</style>
+
+<div class="sayfa">
+  <header class="ust">
+    <div>
+      <h1>Mevzuat Soru Defteri</h1>
+      <p class="alt">GTÜ mevzuatı RAG projesi, test seti · bilgi tabanı <span id="surum" class="mono">…</span></p>
+    </div>
+    <div class="ust-sag">
+      <label for="yazan">Yazan</label>
+      <select id="yazan">
+        <option value="">Adını seç</option>
+        <option value="ahmet-eren">Ahmet Eren İncir</option>
+        <option value="muhammed">Muhammed Korkmaz</option>
+        <option value="omer">Ömer Can Atlı</option>
+        <option value="veysel">Veysel Cemaloğlu</option>
+      </select>
+      <button type="button" id="disa-ac" class="ikincil">Dışa aktar<span id="bekleyen" class="rozet" hidden></span></button>
+    </div>
+  </header>
+
+  <div id="depo-uyari" class="uyari" hidden>Bu tarayıcı soruları saklayamıyor (gizli pencere ya da kapalı site verisi). Sayfayı kapatmadan önce dışa aktar.</div>
+
+  <details class="kurallar" id="kurallar" open>
+    <summary>Nasıl yazılır</summary>
+    <ol>
+      <li><b>Önce soru, sonra madde.</b> Soruyu bir öğrencinin soracağı gibi yaz (“devamsızlıktan kalır mıyım?”), maddeyi sonra ara. Maddeye bakarak yazılan soru onun kelimelerini tekrar eder ve aramayı olduğundan iyi gösterir.</li>
+      <li><b>SSS’den aynen alma.</b> SSS sayfaları bilgi tabanında; aynı soru aramada kendini bulur. Konu bulmak için oku, kendi cümlenle yaz. Soruları yapay zekâya da yazdırma.</li>
+      <li><b>Kanıt:</b> cevabın geçtiği cümle, parçanın metninden birebir, en az 20 karakter. Soldaki metinde cümleyi fareyle seç, “Seçili metni kanıt yap”a bas. Bütün maddeyi değil, cevabı taşıyan cümleyi al.</li>
+      <li><b>Tür.</b> Tek madde: cevap tek parçada. Çok maddeli: iki ya da daha fazla parça gerekiyor, her birine ayrı kanıt. Cevapsız: konusu belgelere yakın ama cevabı yok (“Erasmus hibesi ayda ne kadar?”). Cevapsız demeden önce anahtar kelimeleri aramada dene.</li>
+      <li><b>Hedef:</b> dev bölümünde dördümüz toplam 50 soru, 1 Kasım’a kadar; kabaca yarısı tek, dörtte biri çok maddeli, beşte biri cevapsız. Farklı belgelere yay.</li>
+      <li><b>Sorular yalnız bu tarayıcıda durur.</b> Her oturumun sonunda “Dışa aktar” ile kopyalayıp Ömer Can’a gönder. Aynı soruyu iki kez göndermek sorun değil.</li>
+    </ol>
+  </details>
+
+  <main class="izgara">
+    <section class="panel" aria-labelledby="kaynak-baslik">
+      <h2 id="kaynak-baslik">Kaynaklar</h2>
+      <div class="filtre">
+        <label for="belge">Belge</label>
+        <select id="belge"><option value="">Bütün belgeler</option></select>
+        <label for="ara">Ara</label>
+        <input id="ara" type="search" placeholder="ör. devam, kayıt dondurma, staj süresi" autocomplete="off">
+      </div>
+      <p id="sonuc-sayisi" class="ince" role="status">Parçalar yükleniyor…</p>
+      <ul id="sonuclar" class="sonuclar"></ul>
+      <article id="parca" class="parca" hidden>
+        <div class="parca-ust">
+          <span id="parca-kimlik" class="mono"></span>
+          <span id="parca-yer" class="ince"></span>
+        </div>
+        <h2 id="parca-baslik"></h2>
+        <p id="parca-belge" class="ince"></p>
+        <div id="parca-metin" class="parca-metin"></div>
+        <div class="dugmeler">
+          <button type="button" id="dayanak-ekle" class="ikincil">Dayanaklara ekle</button>
+          <button type="button" id="kanit-yap" class="birincil" disabled>Seçili metni kanıt yap</button>
+          <a id="parca-kaynak" class="ince" href="#" target="_blank" rel="noopener">Kaynağı aç</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel" aria-labelledby="form-baslik">
+      <h2 id="form-baslik">Yeni soru</h2>
+      <form id="form" novalidate>
+        <div>
+          <label for="soru">Soru</label>
+          <textarea id="soru" rows="3" placeholder="Bir öğrencinin soracağı gibi yaz."></textarea>
+        </div>
+        <fieldset>
+          <legend>Tür</legend>
+          <label class="secenek"><input type="radio" name="tur" id="tur-tek" value="tek" checked> Tek madde</label>
+          <label class="secenek"><input type="radio" name="tur" id="tur-cok" value="cok"> Çok maddeli</label>
+          <label class="secenek"><input type="radio" name="tur" id="tur-cevapsiz" value="cevapsiz"> Cevapsız</label>
+        </fieldset>
+        <div id="cevap-blok">
+          <label for="cevap">Referans cevap</label>
+          <textarea id="cevap" rows="2" placeholder="Kısa ve olgusal. Sayı, süre ya da koşul varsa aynen yaz."></textarea>
+        </div>
+        <div id="dayanak-blok" class="dayanak-blok">
+          <div class="satir-bas">
+            <span class="etiket">Dayanak ve kanıt</span>
+            <span class="ince">Soldan parçayı aç, “Dayanaklara ekle”, sonra cevap cümlesini seç.</span>
+          </div>
+          <ol id="dayanaklar" class="dayanaklar"></ol>
+          <p id="dayanak-bos" class="bos">Henüz dayanak yok.</p>
+        </div>
+        <fieldset>
+          <legend>Etiketler <span class="ince">(isteğe bağlı, hata analizi için)</span></legend>
+          <div id="etiketler" class="cipler"></div>
+          <input id="etiket-yeni" placeholder="başka etiket, Enter" aria-label="Yeni etiket">
+        </fieldset>
+        <fieldset>
+          <legend>Bölüm</legend>
+          <label class="secenek"><input type="radio" name="bolum" id="bolum-dev" value="dev" checked> dev</label>
+          <label class="secenek"><input type="radio" name="bolum" id="bolum-test" value="test"> test</label>
+        </fieldset>
+        <ul id="hatalar" class="hatalar" hidden></ul>
+        <div class="dugmeler">
+          <button type="submit" id="kaydet" class="birincil">Kaydet</button>
+          <button type="button" id="temizle" class="ikincil">Formu temizle</button>
+        </div>
+        <p id="durum" class="durum" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <section id="disa" class="panel" aria-labelledby="disa-baslik" hidden>
+    <h2 id="disa-baslik">Dışa aktar</h2>
+    <p>Aşağıdaki satırları kopyalayıp Ömer Can’a gönder. Her satır bir soru; aynı soruyu iki kez göndermek sorun değil, içeri alırken tekrarlar ayıklanıyor.</p>
+    <textarea id="disa-metin" class="mono" rows="7" readonly aria-label="Dışa aktarılan sorular"></textarea>
+    <div class="dugmeler">
+      <button type="button" id="kopyala" class="birincil">Kopyala</button>
+      <button type="button" id="disa-kapat" class="ikincil">Kapat</button>
+    </div>
+    <p id="kopya-durum" class="durum" role="status"></p>
+  </section>
+
+  <section class="panel" aria-labelledby="liste-baslik">
+    <div class="satir-bas">
+      <h2 id="liste-baslik">Bu tarayıcıda yazılanlar</h2>
+      <p id="ozet" class="ince"></p>
+    </div>
+    <ol id="liste" class="soru-liste"></ol>
+    <p id="liste-bos" class="bos">Henüz soru yok. Formdan ilk soruyu yaz; burada görünür, düzenleyip silebilirsin.</p>
+  </section>
+
+  <p class="alt-bilgi">Parça kimlikleri bilgi tabanının bu sürümüne bağlı. Sorular hiçbir sunucuya gitmez; yalnız bu tarayıcıda ve senin dışa aktardığın metinde durur.</p>
+</div>
+
+<script>
+(() => {
+  "use strict";
+  const ADLAR = { "ahmet-eren": "Ahmet Eren İncir", muhammed: "Muhammed Korkmaz", omer: "Ömer Can Atlı", veysel: "Veysel Cemaloğlu" };
+  const TURLER = { tek: "tek madde", cok: "çok maddeli", cevapsiz: "cevapsız" };
+  const ETIKETLER = ["tarih", "sure", "sayi", "not", "istisna", "kosul", "tanim", "basvuru"];
+  const BELGE_TURLERI = [["yonetmelik", "Yönetmelikler"], ["mevzuat", "Üst mevzuat"], ["yonerge", "Yönergeler"],
+    ["esaslar", "Usul ve esaslar"], ["rehber", "Rehberler"], ["sss", "SSS belgeleri"], ["ogretim-plani", "Öğretim planları"],
+    ["takvim", "Akademik takvim"], ["katalog", "Form kataloğu"], ["koleksiyon", "Web sayfaları"]];
+  const SAYFALI = new Set(["madde", "gecici", "ek", "giris", "paragraf"]);
+  const KANIT_MIN = 20, LISTE_MAX = 60;
+  const GOSTERIM = "derslere devam zorunluluğu yüzde kaç";
+  const K_SORU = "msd.sorular.v1", K_YAZAN = "msd.yazan.v1";
+  const $ = (id) => document.getElementById(id);
+
+  let depoYok = false;
+  function oku(k, varsayilan) {
+    try { const s = localStorage.getItem(k); return s === null ? varsayilan : JSON.parse(s); }
+    catch (e) { depoYok = true; return varsayilan; }
+  }
+  function yaz(k, v) {
+    try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { depoYok = true; }
+    $("depo-uyari").hidden = !depoYok;
+  }
+  function el(tag, oz, ...cocuklar) {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(oz || {})) {
+      if (k === "class") e.className = v;
+      else if (k === "text") e.textContent = v;
+      else if (k.startsWith("on")) e.addEventListener(k.slice(2), v);
+      else if (v !== false && v != null) e.setAttribute(k, v === true ? "" : v);
+    }
+    for (const c of cocuklar) if (c != null && c !== false) e.append(c);
+    return e;
+  }
+  const kucuk = (s) => s.toLocaleLowerCase("tr");
+  function kalip(alinti) {
+    const t = alinti.trim().split(/\s+/).filter(Boolean).map((x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    return t.length ? new RegExp(t.join("\\s+")) : null;
+  }
+
+  let parcalar = [], parca = new Map(), belgeler = {};
+  let sorular = oku(K_SORU, []);
+  if (!Array.isArray(sorular)) sorular = [];
+  let secili = null, seciliMetin = "", duzenlenen = null;
+  let dayanaklar = [], etiketler = new Set();
+
+  // ---- kaynaklar ----
+  function belgeAdi(b) { return (belgeler[b] && belgeler[b].ad) || b; }
+  function parcaAdi(p) { return p.baslik || p.metin.split("\n")[0].slice(0, 80); }
+
+  function ara() {
+    const b = $("belge").value;
+    const kelimeler = kucuk($("ara").value.trim()).split(/\s+/).filter(Boolean);
+    const liste = $("sonuclar");
+    liste.replaceChildren();
+    if (!parcalar.length) return;
+    let toplam = 0;
+    for (const p of parcalar) {
+      if (b && p.belge !== b) continue;
+      if (kelimeler.length && !kelimeler.every((w) => p.aranan.includes(w))) continue;
+      toplam++;
+      if (toplam > LISTE_MAX) continue;
+      liste.append(el("li", null, el("button", { type: "button", "aria-current": p.id === secili ? "true" : "false", onclick: () => goster(p.id) },
+        el("span", { class: "mono kimlik", text: p.id }),
+        el("span", { text: parcaAdi(p) }),
+        b ? null : el("span", { class: "ince", text: belgeAdi(p.belge) }))));
+    }
+    $("sonuc-sayisi").textContent = toplam === 0 ? "Eşleşen parça yok. Başka bir kelime dene." :
+      toplam > LISTE_MAX ? `${toplam} parça; ilk ${LISTE_MAX} gösteriliyor, aramayı daralt.` : `${toplam} parça`;
+  }
+
+  function goster(id) {
+    const p = parca.get(id);
+    if (!p) return;
+    secili = id;
+    $("parca").hidden = false;
+    $("parca-kimlik").textContent = p.id;
+    const yer = [];
+    if (SAYFALI.has(p.tur)) yer.push(p.s1 === p.s2 ? `sayfa ${p.s1}` : `sayfa ${p.s1}–${p.s2}`);
+    if (p.bolum) yer.push(p.bolum);
+    if (p.tarih) yer.push(p.tarih);
+    $("parca-yer").textContent = yer.join(" · ");
+    $("parca-baslik").textContent = parcaAdi(p);
+    $("parca-belge").textContent = belgeAdi(p.belge);
+    const adres = p.url || (belgeler[p.belge] && belgeler[p.belge].url) || "";
+    $("parca-kaynak").hidden = !adres;
+    if (adres) $("parca-kaynak").href = adres;
+    metniCiz();
+    dugmeleriGuncelle();
+    for (const b of $("sonuclar").querySelectorAll("button")) b.setAttribute("aria-current", b.firstChild.textContent === id ? "true" : "false");
+  }
+
+  function metniCiz() {
+    const p = parca.get(secili), kutu = $("parca-metin");
+    kutu.replaceChildren();
+    if (!p) return;
+    const d = dayanaklar.find((x) => x.id === p.id);
+    const k = d && d.kanit.trim().length >= KANIT_MIN ? kalip(d.kanit) : null;
+    const m = k ? k.exec(p.metin) : null;
+    if (!m) { kutu.textContent = p.metin; return; }
+    kutu.append(p.metin.slice(0, m.index), el("mark", { text: m[0] }), p.metin.slice(m.index + m[0].length));
+  }
+
+  function dugmeleriGuncelle() {
+    const var_ = dayanaklar.some((d) => d.id === secili);
+    $("dayanak-ekle").textContent = var_ ? "Dayanaklardan çıkar" : "Dayanaklara ekle";
+    $("kanit-yap").disabled = !secili || seciliMetin.trim().length === 0;
+  }
+
+  document.addEventListener("selectionchange", () => {
+    const s = window.getSelection(), kutu = $("parca-metin");
+    seciliMetin = s && s.rangeCount && kutu.contains(s.anchorNode) && kutu.contains(s.focusNode) ? s.toString() : "";
+    dugmeleriGuncelle();
+  });
+  // Düğmeye basmak seçimi silmesin
+  $("kanit-yap").addEventListener("mousedown", (e) => e.preventDefault());
+  $("kanit-yap").addEventListener("click", () => {
+    if (!secili || !seciliMetin.trim()) return;
+    let d = dayanaklar.find((x) => x.id === secili);
+    if (!d) { d = { id: secili, kanit: "" }; dayanaklar.push(d); }
+    d.kanit = seciliMetin.trim();
+    window.getSelection().removeAllRanges();
+    seciliMetin = "";
+    dayanaklariCiz(); metniCiz(); dugmeleriGuncelle();
+  });
+  $("dayanak-ekle").addEventListener("click", () => {
+    if (!secili) return;
+    const i = dayanaklar.findIndex((x) => x.id === secili);
+    if (i >= 0) dayanaklar.splice(i, 1); else dayanaklar.push({ id: secili, kanit: "" });
+    dayanaklariCiz(); metniCiz(); dugmeleriGuncelle();
+  });
+
+  // ---- form ----
+  function kanitDurumu(d) {
+    const p = parca.get(d.id), k = d.kanit.trim();
+    if (!p) return ["kotu", "Bu parça bilgi tabanında yok."];
+    if (!k) return ["kotu", "Kanıt yok: metinde cevap cümlesini seç."];
+    if (k.length < KANIT_MIN) return ["kotu", `Kanıt en az ${KANIT_MIN} karakter olmalı; cümlenin kendisi.`];
+    return kalip(k).test(p.metin) ? ["iyi", "Kanıt metinde bulundu."] : ["kotu", "Kanıt bu parçanın metninde birebir yok."];
+  }
+
+  function dayanaklariCiz() {
+    const ol = $("dayanaklar");
+    ol.replaceChildren();
+    $("dayanak-bos").hidden = dayanaklar.length > 0;
+    dayanaklar.forEach((d, i) => {
+      const p = parca.get(d.id);
+      const [sinif, yazi] = kanitDurumu(d);
+      const durum = el("p", { class: `kanit-durum ${sinif}`, text: yazi });
+      const alan = el("textarea", { id: `kanit-${i}`, rows: "3", "aria-label": `${d.id} için kanıt`, placeholder: "Cevabı taşıyan cümle, metinden birebir." });
+      alan.value = d.kanit;
+      alan.addEventListener("input", () => {
+        d.kanit = alan.value;
+        const [s, y] = kanitDurumu(d);
+        durum.className = `kanit-durum ${s}`; durum.textContent = y;
+        if (d.id === secili) metniCiz();
+      });
+      ol.append(el("li", null,
+        el("div", { class: "satir-bas" },
+          el("span", null, el("span", { class: "mono", text: d.id }), " ", el("span", { class: "ince", text: p ? `${parcaAdi(p)} · ${belgeAdi(p.belge)}` : "" })),
+          el("span", { class: "dugmeler" },
+            el("button", { type: "button", class: "sade", onclick: () => goster(d.id), text: "Göster" }),
+            el("button", { type: "button", class: "sade", text: "Çıkar", onclick: () => { dayanaklar.splice(i, 1); dayanaklariCiz(); metniCiz(); dugmeleriGuncelle(); } }))),
+        alan, durum));
+    });
+  }
+
+  function etiketleriCiz() {
+    const kutu = $("etiketler");
+    kutu.replaceChildren();
+    for (const e of [...new Set([...ETIKETLER, ...etiketler])]) {
+      kutu.append(el("button", { type: "button", class: "cip", "aria-pressed": etiketler.has(e) ? "true" : "false", text: e,
+        onclick: () => { etiketler.has(e) ? etiketler.delete(e) : etiketler.add(e); etiketleriCiz(); } }));
+    }
+  }
+  $("etiket-yeni").addEventListener("keydown", (ev) => {
+    if (ev.key !== "Enter") return;
+    ev.preventDefault();
+    const v = kucuk(ev.target.value.trim());
+    if (v) { etiketler.add(v); ev.target.value = ""; etiketleriCiz(); }
+  });
+
+  const tur = () => document.querySelector('input[name="tur"]:checked').value;
+  const bolum = () => document.querySelector('input[name="bolum"]:checked').value;
+  function turGorunumu() {
+    const cevapsiz = tur() === "cevapsiz";
+    $("cevap-blok").hidden = cevapsiz;
+    $("dayanak-blok").hidden = cevapsiz;
+  }
+  for (const r of document.querySelectorAll('input[name="tur"]')) r.addEventListener("change", turGorunumu);
+
+  function dogrula(s) {
+    const h = [];
+    if (!s.yazan) h.push("Sağ üstten adını seç.");
+    if (!s.soru) h.push("Soru boş.");
+    if (s.tur === "cevapsiz") {
+      if (s.dayanak.length) h.push("Cevapsız soruda dayanak olmaz; dayanakları çıkar ya da türü değiştir.");
+      if (s.referans_cevap) h.push("Cevapsız soruda referans cevap boş kalır.");
+      return h;
+    }
+    if (!s.referans_cevap) h.push("Referans cevap boş.");
+    if (s.tur === "tek" && s.dayanak.length !== 1) h.push("Tek maddeli soruda tam bir dayanak olmalı.");
+    if (s.tur === "cok" && s.dayanak.length < 2) h.push("Çok maddeli soruda en az iki dayanak olmalı.");
+    if (new Set(s.dayanak).size !== s.dayanak.length) h.push("Aynı dayanak iki kez seçilmiş.");
+    dayanaklar.forEach((d) => { const [sinif, yazi] = kanitDurumu(d); if (sinif === "kotu") h.push(`${d.id}: ${yazi}`); });
+    if (s.bolum === "test" && kucuk(s.soru).includes(GOSTERIM)) h.push("Bu soru öneride örnek olarak kullanıldı; yalnız dev bölümüne girebilir.");
+    return h;
+  }
+
+  function formuTemizle(mesaj) {
+    duzenlenen = null; dayanaklar = []; etiketler = new Set();
+    $("soru").value = ""; $("cevap").value = ""; $("tur-tek").checked = true;
+    $("hatalar").hidden = true; $("form-baslik").textContent = "Yeni soru"; $("kaydet").textContent = "Kaydet";
+    $("durum").textContent = mesaj || "";
+    turGorunumu(); dayanaklariCiz(); etiketleriCiz(); metniCiz(); dugmeleriGuncelle();
+  }
+  $("temizle").addEventListener("click", () => formuTemizle(""));
+
+  $("form").addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    if (!parcalar.length) { $("durum").textContent = ""; hatalariGoster(["Parçalar henüz yüklenmedi; biraz bekle."]); return; }
+    const t = tur(), cevapsiz = t === "cevapsiz";
+    const simdi = new Date().toISOString();
+    const yazan = $("yazan").value;
+    const eski = duzenlenen ? sorular.find((s) => s.yerel_id === duzenlenen) : null;
+    const kayit = {
+      yerel_id: eski ? eski.yerel_id : `${yazan || "x"}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 6)}`,
+      soru: $("soru").value.trim(), tur: t,
+      referans_cevap: cevapsiz ? "" : $("cevap").value.trim(),
+      dayanak: cevapsiz ? [] : dayanaklar.map((d) => d.id),
+      kanit: cevapsiz ? [] : dayanaklar.map((d) => d.kanit.trim()),
+      etiketler: [...etiketler], yazan, bolum: bolum(),
+      olusturma: eski ? eski.olusturma : simdi, guncelleme: simdi, aktarildi: false,
+    };
+    const hatalar = dogrula(kayit);
+    if (hatalar.length) { $("durum").textContent = ""; hatalariGoster(hatalar); return; }
+    if (eski) sorular[sorular.indexOf(eski)] = kayit; else sorular.push(kayit);
+    yaz(K_SORU, sorular);
+    listeyiCiz();
+    formuTemizle(eski ? "Güncellendi." : `Kaydedildi. Bu tarayıcıda ${sorular.length} soru var.`);
+  });
+  function hatalariGoster(h) {
+    const ul = $("hatalar");
+    ul.replaceChildren(...h.map((x) => el("li", { text: x })));
+    ul.hidden = false;
+  }
+
+  // ---- liste ----
+  function duzenle(s) {
+    duzenlenen = s.yerel_id;
+    $("soru").value = s.soru; $("cevap").value = s.referans_cevap;
+    $(`tur-${s.tur}`).checked = true; $(`bolum-${s.bolum}`).checked = true;
+    dayanaklar = s.dayanak.map((id, i) => ({ id, kanit: s.kanit[i] || "" }));
+    etiketler = new Set(s.etiketler);
+    $("form-baslik").textContent = "Soruyu düzenle"; $("kaydet").textContent = "Değişikliği kaydet";
+    $("hatalar").hidden = true; $("durum").textContent = "";
+    turGorunumu(); dayanaklariCiz(); etiketleriCiz();
+    if (s.dayanak[0]) goster(s.dayanak[0]); else { metniCiz(); dugmeleriGuncelle(); }
+    $("form-baslik").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function listeyiCiz() {
+    const ol = $("liste");
+    ol.replaceChildren();
+    $("liste-bos").hidden = sorular.length > 0;
+    const sirali = [...sorular].sort((a, b) => (b.guncelleme || "").localeCompare(a.guncelleme || ""));
+    for (const s of sirali) {
+      let silOnay = null;
+      const sil = el("button", { type: "button", class: "sade", text: "Sil" });
+      sil.addEventListener("click", () => {
+        if (!silOnay) { sil.textContent = "Silmek için tekrar bas"; silOnay = setTimeout(() => { sil.textContent = "Sil"; silOnay = null; }, 4000); return; }
+        clearTimeout(silOnay);
+        sorular = sorular.filter((x) => x.yerel_id !== s.yerel_id);
+        yaz(K_SORU, sorular);
+        if (duzenlenen === s.yerel_id) formuTemizle("Silindi.");
+        listeyiCiz();
+      });
+      ol.append(el("li", null,
+        el("div", null,
+          el("p", null,
+            el("span", { class: "hap", text: TURLER[s.tur] || s.tur }),
+            el("span", { class: "hap", text: s.bolum }),
+            s.aktarildi ? null : el("span", { class: "hap bekliyor", text: "dışa aktarılmadı" }),
+            el("span", { class: "ince", text: ADLAR[s.yazan] || s.yazan })),
+          el("p", { class: "soru-metin", text: s.soru }),
+          s.dayanak.length ? el("p", { class: "mono ince", text: s.dayanak.join(", ") }) : null),
+        el("div", { class: "dugmeler" },
+          el("button", { type: "button", class: "sade", text: "Düzenle", onclick: () => duzenle(s) }), sil)));
+    }
+    const say = (f) => sorular.filter(f).length;
+    $("ozet").textContent = sorular.length
+      ? `${sorular.length} soru · dev ${say((s) => s.bolum === "dev")}, test ${say((s) => s.bolum === "test")} · tek ${say((s) => s.tur === "tek")}, çok ${say((s) => s.tur === "cok")}, cevapsız ${say((s) => s.tur === "cevapsiz")}`
+      : "";
+    const bekleyen = say((s) => !s.aktarildi);
+    $("bekleyen").hidden = bekleyen === 0;
+    $("bekleyen").textContent = String(bekleyen);
+  }
+
+  // ---- dışa aktarma ----
+  function disaMetni() {
+    return sorular.map(({ aktarildi, ...s }) => JSON.stringify(s)).join("\n");
+  }
+  $("disa-ac").addEventListener("click", () => {
+    $("disa").hidden = false;
+    $("disa-metin").value = disaMetni();
+    $("kopya-durum").textContent = sorular.length ? "" : "Dışa aktarılacak soru yok.";
+    $("disa").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  $("disa-kapat").addEventListener("click", () => { $("disa").hidden = true; });
+  $("kopyala").addEventListener("click", () => {
+    const metin = disaMetni();
+    $("disa-metin").value = metin;
+    if (!metin) return;
+    const isaretle = (mesaj) => {
+      sorular = sorular.map((s) => ({ ...s, aktarildi: true }));
+      yaz(K_SORU, sorular); listeyiCiz();
+      $("kopya-durum").textContent = mesaj;
+    };
+    const elle = () => { $("disa-metin").focus(); $("disa-metin").select(); isaretle("Tarayıcı kopyalamaya izin vermedi; metin seçili, Ctrl+C ile kopyala."); };
+    try {
+      navigator.clipboard.writeText(metin).then(() => isaretle(`${sorular.length} soru kopyalandı. Ömer Can’a gönder.`), elle);
+    } catch (e) { elle(); }
+  });
+
+  // ---- başlangıç ----
+  $("yazan").value = oku(K_YAZAN, "") || "";
+  $("yazan").addEventListener("change", () => yaz(K_YAZAN, $("yazan").value));
+  $("belge").addEventListener("change", ara);
+  $("ara").addEventListener("input", ara);
+  $("depo-uyari").hidden = !depoYok;
+  turGorunumu(); etiketleriCiz(); dayanaklariCiz(); listeyiCiz();
+
+  fetch("parcalar.json").then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); }).then((v) => {
+    belgeler = v.belgeler;
+    parcalar = v.parcalar.map((a) => ({ id: a[0], belge: a[1], tur: a[2], baslik: a[3], bolum: a[4], s1: a[5], s2: a[6], metin: a[7], url: a[8], tarih: a[9],
+      aranan: kucuk(`${a[0]} ${a[3]} ${a[7]}`) }));
+    parca = new Map(parcalar.map((p) => [p.id, p]));
+    $("surum").textContent = v.surum;
+    const varOlan = new Set(parcalar.map((p) => p.belge));
+    for (const [t, ad] of BELGE_TURLERI) {
+      const ids = Object.keys(belgeler).filter((b) => belgeler[b].tur === t && varOlan.has(b)).sort((a, b) => belgeAdi(a).localeCompare(belgeAdi(b), "tr"));
+      if (!ids.length) continue;
+      $("belge").append(el("optgroup", { label: ad }, ...ids.map((b) => el("option", { value: b, text: belgeAdi(b) }))));
+    }
+    ara(); dayanaklariCiz(); listeyiCiz();
+  }).catch(() => { $("sonuc-sayisi").textContent = "Parçalar yüklenemedi. Sayfayı yenile; düzelmezse Ömer Can’a haber ver."; });
+})();
+</script>

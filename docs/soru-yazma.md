@@ -1,6 +1,28 @@
 # Soru Yazma Rehberi
 
-Test setinin sorularını yazan herkes için. Araç:
+Test setinin sorularını yazan herkes için.
+
+## Ekip: Soru Defteri (tarayıcıda, kurulum yok)
+
+https://claude.ai/artifact/5weJKDRsC19fpv1ivUkVLT, kaynağı
+[app/soru_defteri.html](../app/soru_defteri.html). Ömer Can sayfanın Share
+menüsünden paylaşmadan başkası açamaz.
+
+1. Sağ üstten adını seç. Soruyu yaz, soldan maddeyi bul, "Dayanaklara ekle",
+   cevap cümlesini fareyle seç, "Seçili metni kanıt yap". Kurallar aşağıda
+   ve sayfanın üstünde aynı.
+2. Sorular **yalnız o tarayıcıda** durur; sunucuya gitmez
+   ([K-024](kararlar.md)). Her oturumun sonunda "Dışa aktar", "Kopyala",
+   metni Ömer Can'a gönder.
+3. Ömer Can gelen metni bir dosyaya kaydedip içeri alır:
+   `uv run python scripts/soru_al.py gelen/veysel.txt`. Şemaya uymayan soru
+   nedeniyle raporlanır, alınmaz. Aynı soruyu iki kez göndermek sorun değil;
+   defterde düzenlenen soru test setinde yerinde güncellenir (eşleme
+   `data/testset/defter.json`).
+
+## Ömer Can: Streamlit aracı
+
+Repo kurulu bilgisayarda aynı iş:
 
 ```powershell
 uv run streamlit run app/soru_yaz.py

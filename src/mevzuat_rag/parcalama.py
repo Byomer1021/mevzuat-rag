@@ -185,13 +185,27 @@ def madde_parcala(belge_id: str, sayfalar: list[Sayfa]) -> list[Parca]:
     return parcalar
 
 
+UZUN_PARAGRAF = 2  # hedefin bu katından uzun boşluksuz blok satırlarına bölünür
+
+
 def paragraf_parcala(belge_id: str, sayfalar: list[Sayfa], hedef: int) -> list[Parca]:
     m = _Metin(sayfalar)
     sinirlar = [0] + [x.end() for x in re.finditer(r"\n\s*\n", m.metin)] + [len(m.metin)]
     paragraflar = [(a, b) for a, b in itertools.pairwise(sinirlar) if m.metin[a:b].strip()]
 
-    gruplar: list[tuple[int, int]] = []
+    # Öğretim planı tablosunda boş satır yok: bütün plan tek "paragraf" olup
+    # 13 bin karakterlik bir parça oluyordu, yoğun aramanın 512 token
+    # sınırının yedi katı (olcumler §11). Böyle bir blokta birim satırdır.
+    birimler: list[tuple[int, int]] = []
     for a, b in paragraflar:
+        if b - a <= UZUN_PARAGRAF * hedef:
+            birimler.append((a, b))
+            continue
+        kesimler = sorted({a, b, *(a + x.end() for x in re.finditer(r"\n", m.metin[a:b]))})
+        birimler += [(x, y) for x, y in itertools.pairwise(kesimler) if m.metin[x:y].strip()]
+
+    gruplar: list[tuple[int, int]] = []
+    for a, b in birimler:
         if gruplar and b - gruplar[-1][0] <= hedef:
             gruplar[-1] = (gruplar[-1][0], b)
         else:

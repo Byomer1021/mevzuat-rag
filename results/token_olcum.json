@@ -1,0 +1,43 @@
+{
+ "model": "intfloat/multilingual-e5-base",
+ "sinir": 512,
+ "kosullar": {
+  "madde": {
+   "parca": 3332,
+   "token": {
+    "medyan": 104,
+    "p95": 276,
+    "max": 2106
+   },
+   "sinir_asan": 43,
+   "sinir_asan_madde": 43,
+   "kirpilan_karakter_orani": 0.03,
+   "en_uzun": [
+    "yo-0018/m12b",
+    "erasmus/m6",
+    "yo-0018/m12a",
+    "yok-gecis-yonetmeligi/m4",
+    "yok-gecis-yonetmeligi/m14",
+    "staj-muhendislik/m12",
+    "yok-gecis-yonetmeligi/m17",
+    "yo-0071/m19",
+    "staj-muhendislik/m18",
+    "yo-0001/m9"
+   ],
+   "karakter_token_orani": 4.02
+  },
+  "sabit": {
+   "parca": 3331,
+   "token": {
+    "medyan": 116,
+    "p95": 197,
+    "max": 287
+   },
+   "sinir_asan": 0,
+   "sinir_asan_madde": 0,
+   "kirpilan_karakter_orani": 0.0,
+   "en_uzun": [],
+   "karakter_token_orani": 4.02
+  }
+ }
+}

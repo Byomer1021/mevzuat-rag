@@ -103,6 +103,53 @@ def ekle(yol: Path, soru: dict) -> None:
         f.write(json.dumps({a: soru[a] for a in ALANLAR}, ensure_ascii=False) + "\n")
 
 
+def hepsini_yaz(yol: Path, sorular: list[dict]) -> None:
+    yol.parent.mkdir(parents=True, exist_ok=True)
+    with yol.open("w", encoding="utf-8", newline="\n") as f:
+        for s in sorular:
+            f.write(json.dumps({a: s[a] for a in ALANLAR}, ensure_ascii=False) + "\n")
+
+
+def iceri_al(mevcut: list[dict], gelenler: list[dict], parcalar: dict[str, str],
+             defter: dict[str, str]) -> tuple[list[dict], dict[str, str], list[str]]:
+    """Soru defterinden (app/soru_defteri.html) dışa aktarılan soruları katar.
+
+    Defterde her soru tarayıcıda yazıldığı anki `yerel_id`'yi taşır; `defter`
+    yerel_id → test setindeki kimlik eşlemesidir. Aynı satır iki kez gelirse
+    atlanır, defterde sonradan düzenlenmişse test setindeki soru yerinde
+    güncellenir (kimliği değişmez). Şemaya uymayan soru alınmaz ve raporda
+    nedeniyle yazılır. Döner: (yeni liste, yeni defter, rapor satırları).
+    """
+    sorular = [dict(s) for s in mevcut]
+    defter = dict(defter)
+    konum = {s["id"]: i for i, s in enumerate(sorular)}
+    rapor = []
+    for g in gelenler:
+        yid = g.get("yerel_id")
+        if not yid:
+            rapor.append(f"atlandı, yerel_id yok: {str(g.get('soru', ''))[:50]}")
+            continue
+        qid = defter.get(yid)
+        aday = {a: g.get(a) for a in ALANLAR if a != "id"}
+        aday["id"] = qid or yeni_id(sorular)
+        diger = {s["id"] for s in sorular} - {aday["id"]}
+        if hatalar := dogrula(aday, parcalar, diger):
+            rapor.append(f"alınmadı ({g.get('yazan', '?')}): {aday['soru'][:60]!r}: "
+                         + "; ".join(hatalar))
+            continue
+        if qid is None:
+            sorular.append({a: aday[a] for a in ALANLAR})
+            konum[aday["id"]] = len(sorular) - 1
+            defter[yid] = aday["id"]
+            rapor.append(f"{aday['id']} eklendi ({aday['yazan']})")
+        elif {a: aday[a] for a in ALANLAR} == {a: sorular[konum[qid]][a] for a in ALANLAR}:
+            rapor.append(f"{qid} zaten var, aynı")
+        else:
+            sorular[konum[qid]] = {a: aday[a] for a in ALANLAR}
+            rapor.append(f"{qid} güncellendi ({aday['yazan']})")
+    return sorular, defter, rapor
+
+
 def ozet(sorular: list[dict]) -> dict:
     belgeler = Counter(d.split("/")[0] for s in sorular for d in set(s["dayanak"]))
     return {

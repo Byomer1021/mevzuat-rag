@@ -656,3 +656,55 @@ arama kök bulmasız; kök bulma ayrı bir ölçüm.
 maddeden birebir kopyalanmış cevap cümlesi; boşluk farkı gözetilmeden
 aranıyor, bulunamazsa kayıt reddediliyor. `degerlendirme.py`: kanıt kapsamı,
 Recall@k, MRR, eşleştirilmiş bootstrap, kesin McNemar. 145 test.
+
+*Not (§11):* paragraf düzeltmesinden sonra dizin 3332 parça ve gösterim
+sorusunda madde **3.** sırada; yapısal oranlar (%60.1, %61.8) değişmedi.
+
+---
+
+## 11. Yoğun aramanın girdi sınırı ve öğretim planı tabloları (2026-10-17)
+
+**Neden.** Öneri formunun ikinci riski "uzun maddeler 512 tokeni aşabilir,
+ölçülmedi" diyordu. Türk kanunlarındaki karşılaştırmada bütün maddenin
+pencerelere kaybetmesinin bir nedeni buydu (K-022).
+
+**Nasıl.** `scripts/token_olcum.py`: parça, dizine girdiği biçimiyle
+("passage: " + belge adı + metin) `intfloat/multilingual-e5-base`'in kendi
+tokenizer'ıyla sayılır; 512'yi aşan parça ve sınırın ötesinde kalan
+karakter. Yalnız deney dizini (PDF). → `results/token_olcum.json`.
+
+**İlk ölçüm bir parçalama hatası buldu.** Madde koşulunda 95 parça
+sınırı aşıyordu, 52'si iki koşulda ortak paragraf parçasıydı; en uzunu
+3753 token. Öğretim planı tablolarında boş satır yok; paragraf bölücü
+yalnız boş satırda kestiği için bir plan 13.877 karakterlik tek parça
+oluyordu. Düzeltme: hedefin (madde medyanı, 395) iki katından uzun
+boşluksuz blok satırlarına bölünüp satırlar hedefe kadar birleştiriliyor
+(`parcalama.UZUN_PARAGRAF`, iki testle sabit). Paragraf parçası 1631'den
+2409'a, toplam 4759'dan 5537'ye çıktı; denetim temiz.
+
+Kaynak dosyalar değişmediği için bilgi tabanı sürümü `b3c7d85cce08` aynı
+kaldı ama paragraf kimlikleri değişti. Bunu yakalamak için ön işlem raporu
+artık ayrıca **parça sürümü** taşıyor (kimlik + metin özeti):
+`2b5af885972a`. Deney sonuçları ve Soru Defteri bunu da yazıyor. Henüz
+soru yazılmamıştı; kimse etkilenmedi.
+
+**Sonuç (düzeltmeden sonra).**
+
+| | madde koşulu | sabit koşulu |
+|---|---|---|
+| deney dizini | 3332 parça | 3331 parça |
+| token medyanı / en uzun | 104 / 2106 | 116 / 287 |
+| 512'yi aşan parça | **43, hepsi madde** | **0** |
+| sınırın ötesinde kalan metin | %3.0 | %0 |
+| karakter / token | 4.03 | 4.03 |
+
+914 maddenin 43'ünün (%4.7) sonu yoğun arama modeline hiç ulaşmıyor; sabit
+pencerelerde bu yok. Yoğun aramada madde koşulunun bilinen bir dezavantajı
+bu; dayanağı sınırın ötesinde olan test soruları ayrı raporlanacak.
+
+**Gösterim sorusu, BM25** (`scripts/deney.py`, tek soru, duman testi):
+madde koşulunda kanıt 3. sırada (MRR 0.333), sabit koşulda 10. sırada
+(0.100). Dizin kurulması iki koşul için 0.7 s.
+
+**GPU.** e5 kodlaması GPU'da `CUDA error: unknown error` ile düştü ve
+ekran gitti; kart arızalı (K-002). Yoğun arama artık CPU'da.

@@ -62,7 +62,7 @@ Retrievers: BM25 (rank-bm25, Turkish-aware lowercasing, no stemming) and multili
 
 In the 49 article-structured documents, fixed windows of equal count **cut 60.1% of the 914 articles** into two or more pieces, and **61.8% of the 922 windows mix text from two or more articles**.
 
-One dev query, BM25: "Derslere devam zorunluluğu yüzde kaç?" With article chunks the gold article ranks **4th**; rank 1 is the English-preparatory attendance rule (85%), a plausible answer for the wrong programme. With fixed windows, the window that contains the whole gold article ranks **10th**.
+One dev query, BM25: "Derslere devam zorunluluğu yüzde kaç?" With article chunks the gold article ranks **3rd**; rank 1 is the English-preparatory attendance rule (85%), a plausible answer for the wrong programme. With fixed windows, the window that contains the whole gold article ranks **10th**.
 
 *Shows:* the two conditions differ in most of the text, not at the margins, and one case where a window dilutes a 298-character article with its neighbours. *Does not show:* any average difference. It is one query, chosen by us, from the dev split; no test question has been run.
 
@@ -74,7 +74,7 @@ One dev query, BM25: "Derslere devam zorunluluğu yüzde kaç?" With article chu
 
 ## 8
 
-**The test set.** Questions written while reading an article reuse its words, which favours BM25 and may favour article chunks. Mitigation: write each question from the student's side first (FAQ topics, forms, the academic calendar), then look up the article; all four of us write, so no single style dominates, and two of us label the same 40 questions independently to report agreement. **Fallback:** if fewer than 150 test questions exist on 22 Nov, run on what exists and report the wider interval; question and metric stay the same. **Second risk:** 57 articles exceed 2,000 characters and may exceed the dense model's 512-token limit (not yet measured); there the article condition loses text the windows keep, as in box 2. We will count the test questions affected and report them separately.
+**The test set.** Questions written while reading an article reuse its words, which favours BM25 and may favour article chunks. Mitigation: write each question from the student's side first (FAQ topics, forms, the academic calendar), then look up the article; all four of us write, so no single style dominates, and two of us label the same 40 questions independently to report agreement. **Fallback:** if fewer than 150 test questions exist on 22 Nov, run on what exists and report the wider interval; question and metric stay the same. **Second risk:** 43 of the 914 articles exceed the dense model's 512-token input (counted with its tokenizer; no window does), so there the article condition loses text the windows keep, as in box 2. Test questions whose evidence lies past the limit are reported separately.
 
 ## 9
 

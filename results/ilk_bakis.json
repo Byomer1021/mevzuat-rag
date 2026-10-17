@@ -6,8 +6,8 @@
     "madde_kosulu_parca": 923,
     "sabit_kosulu_parca": 922,
     "toplam_parca": {
-      "madde": 4759,
-      "sabit": 4758
+      "madde": 5537,
+      "sabit": 5536
     }
   },
   "madde_sayisi": 914,
@@ -28,10 +28,10 @@
   "birden_cok_maddeye_degen_sabit_parca": 570,
   "birden_cok_maddeye_degen_oran": 0.618,
   "dizin_parca": {
-    "madde": 2554,
-    "sabit": 2553
+    "madde": 3332,
+    "sabit": 3331
   },
-  "dizin_kurma_s": 0.7,
+  "dizin_kurma_s": 0.8,
   "gosterim": {
     "soru": "Derslere devam zorunluluğu yüzde kaç?",
     "dayanak": "lisans-yonetmelik/m23",
@@ -40,11 +40,11 @@
       "lisans-yonetmelik/s23"
     ],
     "madde": {
-      "sure_ms": 4.5,
+      "sure_ms": 6.3,
       "ilk3": [
         {
           "id": "hazirlik/m9",
-          "skor": 13.56,
+          "skor": 13.13,
           "metin": "Devam Durumu Madde 9. (1) Yabancı Diller Bölümü İngilizce Hazırlık Programında her bir dönem için %85 devam zorunluluğu bulunmaktadır. Mazeret durumuna bakılmak"
         },
         {
@@ -53,31 +53,31 @@
           "metin": "Mazeret Sınavı MADDE 13 - (1) Devam zorunluluğu olmayan ve sınava girme hakkı verilen derslerin ek sınavları veya sınırsız sınav hakları için mazeret sınavı düz"
         },
         {
-          "id": "yaz-ogretimi/m8",
-          "skor": 11.17,
-          "metin": "Eğitim-öğretim faaliyeti MADDE 8 – (1) Yaz öğretiminde eğitim-öğretim faaliyetinin yürütülmesi 21/11/2023 tarihli ve 32376 sayılı Resmî Gazete’de yayımlanan Geb"
+          "id": "lisans-yonetmelik/m23",
+          "skor": 11.05,
+          "metin": "Devam durumu MADDE 23– (1) Teorik derslerde en az %70, laboratuvar ve uygulamalı derslerde en az %80 devam zorunluluğu aranır. Tekrar edilen derslerin devam dur"
         }
       ],
       "dayanagi_kesen_parcalarin_sirasi": {
-        "lisans-yonetmelik/m23": 4
+        "lisans-yonetmelik/m23": 3
       }
     },
     "sabit": {
-      "sure_ms": 4.7,
+      "sure_ms": 7.2,
       "ilk3": [
         {
           "id": "hazirlik/s8",
-          "skor": 12.26,
+          "skor": 11.76,
           "metin": "ÖLİYS’ye girmeye hak kazanır. ÖLİYS’de 100 tam puan üzerinden en az 60 (CC) alan öğrenciler, kayıt oldukları programlarda İngilizce eğitimi ve öğretimi takip ed"
         },
         {
           "id": "lisans-yonetmelik/s24",
-          "skor": 12.16,
+          "skor": 11.63,
           "metin": "çalışmaların dönem sonu notuna etkilerinin yüzdesel oranı belirtilir. (3) Belirlenen yüzdesel oranlar üzerinden değerlendirme, dersi veren öğretim elemanı taraf"
         },
         {
           "id": "azami-sure/s10",
-          "skor": 11.22,
+          "skor": 10.55,
           "metin": "öğrencilere dört yarıyıl ek süre verilir. Ek süre verilen öğrenciler, açılacak derslere kayıt yaptırarak, akademik takvimde yer alan tarihlerde yarıyıl sonu sın"
         }
       ],

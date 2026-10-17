@@ -1,5 +1,6 @@
 {
   "bilgi_tabani_surumu": "b3c7d85cce08",
+  "parca_surumu": "2b5af885972a",
   "belge_sayisi": 114,
   "atilan_karakter_orani": 0.042,
   "atilan_blok_kaliplari": {
@@ -109,7 +110,7 @@
   "parca_turleri": {
     "madde": 901,
     "gecici": 8,
-    "paragraf": 1631,
+    "paragraf": 2409,
     "giris": 9,
     "ek": 5,
     "takvim": 150,
@@ -341,8 +342,8 @@
     "madde_kosulu_parca": 923,
     "sabit_kosulu_parca": 922,
     "toplam_parca": {
-      "madde": 4759,
-      "sabit": 4758
+      "madde": 5537,
+      "sabit": 5536
     }
   },
   "kaynak_turleri": {

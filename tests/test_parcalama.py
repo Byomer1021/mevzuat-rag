@@ -118,6 +118,21 @@ def test_paragraf_parcala_hedefe_kadar_birlestirir():
     assert (ps[1].sayfa_bas, ps[1].sayfa_son) == (1, 2)
 
 
+def test_paragraf_parcala_bosluksuz_uzun_blogu_satirlara_boler():
+    # öğretim planı tablosu: boş satır yok, satırlar sekmeli
+    tablo = "\n".join(f"CSE {100 + i}\tDers {i}\t3\t0\t0\t3\t5" for i in range(40))
+    s = [Sayfa(1, "Kısa giriş paragrafı.\n\n" + tablo)]
+    ps = paragraf_parcala("x", s, hedef=120)
+    assert len(ps) > 5 and all(len(p.metin) <= 120 for p in ps)
+    assert bosluksuz("".join(p.metin for p in ps)) == bosluksuz(s[0].metin)
+    assert all(p.metin.startswith(("Kısa", "CSE ")) for p in ps)  # satır ortasından kesilmez
+
+
+def test_paragraf_parcala_kisa_paragraf_satirlarina_bolunmez():
+    s = [Sayfa(1, "satır bir\nsatır iki\nsatır üç")]
+    assert [p.metin for p in paragraf_parcala("x", s, hedef=20)] == ["satır bir\nsatır iki\nsatır üç"]
+
+
 def test_sabit_parcala_boyut_ve_ortusme():
     kelimeler = [f"k{i}" for i in range(200)]
     s = [Sayfa(1, " ".join(kelimeler[:100])), Sayfa(2, " ".join(kelimeler[100:]))]

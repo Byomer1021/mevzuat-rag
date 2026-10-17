@@ -1,6 +1,15 @@
 import pytest
 
-from mevzuat_rag.testset import dogrula, ekle, kanitlari_ayir, oku, ozet, yeni_id
+from mevzuat_rag.testset import (
+    dogrula,
+    ekle,
+    hepsini_yaz,
+    iceri_al,
+    kanitlari_ayir,
+    oku,
+    ozet,
+    yeni_id,
+)
 
 PARCALAR = {
     "a/m1": "Devam\nMADDE 1- (1) Teorik derslerde en az %70\ndevam zorunluluğu aranır.",
@@ -79,3 +88,45 @@ def test_ekle_oku_yeni_id(tmp_path):
     assert yeni_id(sorular) == "q003"
     oz = ozet(sorular)
     assert oz["tur"] == {"tek": 1, "cok": 1} and oz["belge"] == {"a": 2, "b": 1}
+
+
+def defter_satiri(yerel_id, **kw):
+    # defterin dışa aktardığı biçim: id yok, yerel_id ve tarihler var
+    s = {k: v for k, v in soru(**kw).items() if k != "id"}
+    return {**s, "yerel_id": yerel_id, "olusturma": "2026-10-18T10:00:00Z"}
+
+
+def test_iceri_al_ekler_atlar_gunceller():
+    mevcut = [soru()]  # q001 Streamlit'ten
+    gelen = [defter_satiri("veysel-a", yazan="veysel"),
+             defter_satiri("veysel-b", yazan="veysel", soru="Staj kaç gün?",
+                           dayanak=["b/m1"], kanit=["Staj süresi yirmi iş günüdür."])]
+    sorular, defter, rapor = iceri_al(mevcut, gelen, PARCALAR, {})
+    assert rapor == ["q002 eklendi (veysel)", "q003 eklendi (veysel)"]
+    assert [s["id"] for s in sorular] == ["q001", "q002", "q003"]
+    assert defter == {"veysel-a": "q002", "veysel-b": "q003"}
+    assert "yerel_id" not in sorular[1] and sorular[2]["yazan"] == "veysel"
+
+    # aynı dışa aktarım ikinci kez: değişiklik yok
+    tekrar, defter2, rapor2 = iceri_al(sorular, gelen, PARCALAR, defter)
+    assert tekrar == sorular and defter2 == defter and all("aynı" in r for r in rapor2)
+
+    # defterde düzenlenen soru yerinde güncellenir, kimliği değişmez
+    gelen[1]["referans_cevap"] = "Yirmi iş günü."
+    son, _, rapor3 = iceri_al(tekrar, gelen[1:], PARCALAR, defter)
+    assert son[2]["id"] == "q003" and son[2]["referans_cevap"] == "Yirmi iş günü."
+    assert len(son) == 3 and "güncellendi" in rapor3[0]
+
+
+def test_iceri_al_hatali_soruyu_almaz():
+    gelen = [defter_satiri("x-1", kanit=["burada olmayan bir cümle, uzun"]),
+             {k: v for k, v in defter_satiri("x-2").items() if k != "yerel_id"}]
+    sorular, defter, rapor = iceri_al([], gelen, PARCALAR, {})
+    assert sorular == [] and defter == {}
+    assert "birebir yok" in rapor[0] and "yerel_id yok" in rapor[1]
+
+
+def test_hepsini_yaz_sirayi_ve_alanlari_korur(tmp_path):
+    yol = tmp_path / "s.jsonl"
+    hepsini_yaz(yol, [soru(), {**soru(id="q002"), "fazla": 1}])
+    assert [s["id"] for s in oku(yol)] == ["q001", "q002"] and "fazla" not in oku(yol)[1]

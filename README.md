@@ -36,9 +36,12 @@ henüz soru seti yok, arama başarısı ölçülmedi.** Bu sayfaya her sayı
 - Madde başlıkları belgeden belgeye farklı yazılmış: tireli, noktalı,
   ayraçsız, harfli alt madde ("12a"), ek ve geçici madde. Madde yapısındaki
   52 belgede numara boşluğu yok.
-- Bilgi tabanı 4759 parçaya bölündü: 914 madde, 1631 paragraf, 1914 web,
+- Bilgi tabanı 5537 parçaya bölündü: 914 madde, 2409 paragraf, 1914 web,
   150 takvim, 141 form. Kapsama, sayfa aralığı, kimlik çakışması ve
   kişisel veri denetimi temiz.
+- Yoğun arama modelinin (multilingual-e5-base) 512 token girdisini madde
+  koşulunda 43 madde aşıyor, sabit koşulda hiçbir parça
+  ([olcumler §11](docs/olcumler.md)).
 - Aynı sayıda sabit uzunluklu parçayla (721 karakter, 922'ye karşı 923)
   maddelerin %60.1'i bölünüyor, sabit parçaların %61.8'i birden çok maddeye
   değiyor ([olcumler §10](docs/olcumler.md)).
@@ -108,6 +111,7 @@ uv run streamlit run app/soru_yaz.py
 ```
 app/
   soru_yaz.py        test seti sorusu yazma aracı (Streamlit)
+  soru_defteri.html  ekip için aynı araç, tarayıcıda, kurulumsuz (K-024)
 data/
   kaynaklar.csv      bilgi tabanındaki her belge: kod, revizyon, URL, sha256
   raw/               indirilen PDF'ler ve takvim TSV'si (depoda)
@@ -121,6 +125,10 @@ scripts/
   metin_katmani.py   PDF metin katmanı ölçümü (olcumler §3)
   onisle.py          temizlik + parçalama + denetim; madde ve sabit kümesi (olcumler §4, §10)
   ilk_bakis.py       iki koşulun yapısal farkı ve gösterim sorusu (olcumler §10)
+  deney.py           araştırma sorusunun deneyi: iki koşul, BM25 / e5, bootstrap (K-022)
+  token_olcum.py     yoğun arama modelinin 512 token sınırını aşan parçalar (olcumler §11)
+  soru_al.py         Soru Defteri'nden gelen soruları denetleyip test setine katar
+  soru_defteri_veri.py  Soru Defteri sayfasının parça verisi
   oneri_docx.py      docs/oneri.md'yi dersin öneri formuna (docx) yazar
   ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)
   testset_kontrol.py test setinin şema denetimi ve dağılımı
@@ -129,7 +137,8 @@ src/mevzuat_rag/
   madde.py           madde başlığı tanıyıcı (11 biçim)
   onisleme.py        PDF'ten temiz sayfa metni, kalite formu başlığı atılır
   parcalama.py       madde bazlı, paragraf, sabit uzunluklu, takvim, web, form
-  arama.py           BM25: Türkçe küçük harf, belge adı öneki, isteğe bağlı kök
+  arama.py           BM25 (Türkçe küçük harf, isteğe bağlı kök) ve e5 yoğun arama; belge adı öneki
+  deney.py           deneyin dizini, soru kümeleri, iki koşulun karşılaştırması
   degerlendirme.py   kanıt kapsamı, Recall@k, MRR, eşleştirilmiş bootstrap, McNemar
   testset.py         test seti şeması (kanıt alıntısı dahil), denetim, dağılım
   kisisel.py, formlar.py, web.py       kişisel veri taraması, form süzgeci, web metni

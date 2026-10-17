@@ -1,0 +1,232 @@
+{
+ "bilgi_tabani_surumu": "b3c7d85cce08",
+ "parca_surumu": "2b5af885972a",
+ "sabit_boyut": 721,
+ "konfigurasyon": {
+  "arama": "bm25",
+  "model": null,
+  "cihaz": null,
+  "kok": false,
+  "belge_adi_oneki": true,
+  "bolum": "dev",
+  "sorular": "C:\\Users\\OmerCan\\AppData\\Local\\Temp\\claude\\C--Users-OmerCan\\3633c5a9-2e57-481f-b662-18a236c15c15\\scratchpad\\duman\\sorular.jsonl"
+ },
+ "zaman": "2026-10-17T04:02:45",
+ "sure_s": {
+  "dizin": 0.7,
+  "sorgular": 0.0
+ },
+ "soru_sayisi": {
+  "bolumde": 1,
+  "birincil": 1,
+  "tum_pdf": 1
+ },
+ "sonuclar": {
+  "birincil": {
+   "n": 1,
+   "k": [
+    1,
+    5,
+    10
+   ],
+   "ozet": {
+    "madde": {
+     "R@1": 0.0,
+     "R@5": 1.0,
+     "R@10": 1.0,
+     "MRR@10": 0.3333
+    },
+    "sabit": {
+     "R@1": 0.0,
+     "R@5": 0.0,
+     "R@10": 1.0,
+     "MRR@10": 0.1
+    }
+   },
+   "fark": {
+    "R@1": {
+     "fark": 0.0,
+     "alt": 0.0,
+     "ust": 0.0,
+     "n": 1
+    },
+    "R@5": {
+     "fark": 1.0,
+     "alt": 1.0,
+     "ust": 1.0,
+     "n": 1
+    },
+    "R@10": {
+     "fark": 0.0,
+     "alt": 0.0,
+     "ust": 0.0,
+     "n": 1
+    },
+    "MRR@10": {
+     "fark": 0.2333333333333333,
+     "alt": 0.2333333333333333,
+     "ust": 0.2333333333333333,
+     "n": 1
+    }
+   },
+   "sorular": [
+    {
+     "id": "q001",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m23"
+     ],
+     "madde": {
+      "getirilen": [
+       "hazirlik/m9",
+       "azami-sure/m13",
+       "lisans-yonetmelik/m23",
+       "yaz-ogretimi/m8",
+       "staj-sss-muhendislik/p138",
+       "hazirlik-ogrenci-el-kitabi/p55",
+       "yo-0086/p30",
+       "yo-0079/p6",
+       "yo-0082/p7",
+       "yo-0080/p17"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 3
+     },
+     "sabit": {
+      "getirilen": [
+       "hazirlik/s8",
+       "lisans-yonetmelik/s24",
+       "azami-sure/s10",
+       "azami-sure/s12",
+       "staj-sss-muhendislik/p138",
+       "yaz-ogretimi/s4",
+       "hazirlik-ogrenci-el-kitabi/p55",
+       "lisans-yonetmelik-2017-oncesi/s27",
+       "yo-0086/p30",
+       "lisans-yonetmelik/s23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 1.0
+      },
+      "sira": 10
+     }
+    }
+   ],
+   "mcnemar_R@5": {
+    "yalniz_a": 1,
+    "yalniz_b": 0,
+    "p": 1.0
+   },
+   "karsilastirma": "madde - sabit"
+  },
+  "tum_pdf": {
+   "n": 1,
+   "k": [
+    1,
+    5,
+    10
+   ],
+   "ozet": {
+    "madde": {
+     "R@1": 0.0,
+     "R@5": 1.0,
+     "R@10": 1.0,
+     "MRR@10": 0.3333
+    },
+    "sabit": {
+     "R@1": 0.0,
+     "R@5": 0.0,
+     "R@10": 1.0,
+     "MRR@10": 0.1
+    }
+   },
+   "fark": {
+    "R@1": {
+     "fark": 0.0,
+     "alt": 0.0,
+     "ust": 0.0,
+     "n": 1
+    },
+    "R@5": {
+     "fark": 1.0,
+     "alt": 1.0,
+     "ust": 1.0,
+     "n": 1
+    },
+    "R@10": {
+     "fark": 0.0,
+     "alt": 0.0,
+     "ust": 0.0,
+     "n": 1
+    },
+    "MRR@10": {
+     "fark": 0.2333333333333333,
+     "alt": 0.2333333333333333,
+     "ust": 0.2333333333333333,
+     "n": 1
+    }
+   },
+   "sorular": [
+    {
+     "id": "q001",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m23"
+     ],
+     "madde": {
+      "getirilen": [
+       "hazirlik/m9",
+       "azami-sure/m13",
+       "lisans-yonetmelik/m23",
+       "yaz-ogretimi/m8",
+       "staj-sss-muhendislik/p138",
+       "hazirlik-ogrenci-el-kitabi/p55",
+       "yo-0086/p30",
+       "yo-0079/p6",
+       "yo-0082/p7",
+       "yo-0080/p17"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 3
+     },
+     "sabit": {
+      "getirilen": [
+       "hazirlik/s8",
+       "lisans-yonetmelik/s24",
+       "azami-sure/s10",
+       "azami-sure/s12",
+       "staj-sss-muhendislik/p138",
+       "yaz-ogretimi/s4",
+       "hazirlik-ogrenci-el-kitabi/p55",
+       "lisans-yonetmelik-2017-oncesi/s27",
+       "yo-0086/p30",
+       "lisans-yonetmelik/s23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 1.0
+      },
+      "sira": 10
+     }
+    }
+   ],
+   "mcnemar_R@5": {
+    "yalniz_a": 1,
+    "yalniz_b": 0,
+    "p": 1.0
+   },
+   "karsilastirma": "madde - sabit"
+  }
+ }
+}

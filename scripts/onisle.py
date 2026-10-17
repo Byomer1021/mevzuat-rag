@@ -205,6 +205,10 @@ def main():
     q = statistics.quantiles(uzunluklar, n=10)
     rapor = {
         "bilgi_tabani_surumu": bilgi_tabani_surumu(kaynaklar),
+        # Kaynaklar aynı kalıp parçalama değişince kimlikler değişir (paragraf
+        # düzeltmesi, olcumler §11); sorular ve sonuçlar bu ikinci sürümü de taşır.
+        "parca_surumu": hashlib.sha256("\n".join(
+            f"{p.id}\x00{p.metin}" for p in parcalar).encode()).hexdigest()[:12],
         "belge_sayisi": len(kaynaklar),
         "atilan_karakter_orani": round(atilan_kar / (atilan_kar + kalan_kar), 4),
         "atilan_blok_kaliplari": dict(atilan_say.most_common()),
