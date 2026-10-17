@@ -12,7 +12,13 @@ teslim edilmez.
 
 ## members
 
-Ömer Can Atlı, [student number], CSE 484. [Other members, if assigned.]
+Ömer Can Atlı, [student number], CSE 484
+
+[Member 2], [student number], [course code]
+
+[Member 3], [student number], [course code]
+
+[Member 4], [student number], [course code]
 
 ## type
 
@@ -66,13 +72,13 @@ No graduate member.
 
 ## 8
 
-**The test set.** Writing 200 questions with evidence quotes is the slowest part, and questions written while reading an article reuse its words, which favours BM25 and may favour article chunks. Mitigation: write each question from the student's side first (FAQ topics, forms, the academic calendar), then look up the article. **Fallback:** if fewer than 150 test questions exist on 22 Nov, run on what exists and report the wider interval; question and metric stay the same. **Second risk:** 57 articles exceed 2,000 characters and may exceed the dense model's 512-token limit (not yet measured); there the article condition loses text the windows keep, as in (1). We will count the test questions affected and report them separately.
+**The test set.** Questions written while reading an article reuse its words, which favours BM25 and may favour article chunks. Mitigation: write each question from the student's side first (FAQ topics, forms, the academic calendar), then look up the article; all four of us write, so no single style dominates, and two of us label the same 40 questions independently to report agreement. **Fallback:** if fewer than 150 test questions exist on 22 Nov, run on what exists and report the wider interval; question and metric stay the same. **Second risk:** 57 articles exceed 2,000 characters and may exceed the dense model's 512-token limit (not yet measured); there the article condition loses text the windows keep, as in (1). We will count the test questions affected and report them separately.
 
 ## 9
 
 **Mid-project (5 Nov):** BM25 Recall@1/5/10 and MRR for both conditions on the 50 dev questions, with intervals; dense results if ready. Then: test questions (22 Nov), dense runs (29 Nov), single test run and error analysis (6–10 Dec), report and code (17 Dec).
 
-**Roles:** [Ömer Can Atlı: data, modelling, evaluation and demo.]
+**Roles:** Ömer Can Atlı: chunking and retrieval. [Member 2]: data, questions and evidence sentences. [Member 3]: evaluation, metrics, bootstrap and error analysis. [Member 4]: demo, answers that cite the article. All four write questions.
 
 **AI tools:** Claude (Anthropic), through Claude Code, wrote and tested code, ran the measurements in boxes 3 and 6, and drafted this text. All numbers come from scripts in the repository; [the author checked them].
 

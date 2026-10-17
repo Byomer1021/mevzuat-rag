@@ -526,8 +526,11 @@ teslim tarihini ve "tek kişi" varsayımını değiştiriyor.
 
 - **Takım:** dört kişi; önerilen bileşim 1 CSE 654 + 3 CSE 484. Takımlar 1
   Ekim'e kadar Teams kanalına kaydedilir; "Students not on a team by then
-  are assigned to one." Ömer Can'ın durumu **bilinmiyor**. Öneri taslağı
-  tek kişi varsayımıyla; takım numarası, üyeler ve roller boş bırakıldı.
+  are assigned to one." **2026-10-17:** Ömer Can dört kişilik bir takımda;
+  projeyi o başlattı, görev dağılımı yapılmadı. Öneri ve sunumdaki roller
+  geçici (parçalama ve arama: Ömer Can; veri, değerlendirme, demo: diğer
+  üç üye). İsimler, öğrenci numaraları, takım numarası ve CSE 654 üyesi
+  olup olmadığı henüz bilinmiyor; 7. kutu buna bağlı.
 - **Yapay zekâ araçları** serbest, raporda kısa beyan zorunlu; öneri formunun
   9. kutusu soruyor. Beyan edilmemiş kullanım akademik dürüstlük ihlali.
 - Plan 17 Aralık'a göre: [on-rapor §8](on-rapor.md).
