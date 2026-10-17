@@ -55,7 +55,8 @@ kalıyor; cevap üretimi demo.
 | GPU sürücüsü | 526.47, en fazla CUDA 12.0 | torch cu118'e ve 2.7.x'e sabit ([K-002](kararlar.md)) |
 | disk | C'de 13 GB, D'de ~580 GB | proje ve önbellekler D'de ([K-003](kararlar.md)) |
 | OCR | **gerekmiyor**: 13 PDF'in hepsinde metin katmanı var, bozuk karakter 0 ([olcumler §3](olcumler.md)) | Tesseract kurulmayacak |
-| dil modeli | seçilmedi | hafta 2 pilotu, 2 Kasım'dan önce karar ([K-005](kararlar.md)) |
+| yerel GPU | **arızalı** (2026-10-17): yük altında düşüp ekranı götürüyor | arama CPU'da; dil modeli Colab'da ([K-002](kararlar.md)) |
+| dil modeli | açık model (Qwen3), Colab'ın ücretsiz GPU'sunda; aday seçimi dev pilotuyla ([K-005](kararlar.md)) | yalnız demo; araştırma sorusunun dışında |
 
 ---
 

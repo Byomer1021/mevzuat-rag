@@ -137,6 +137,34 @@ API budget"; küçük bir API bütçesi açıkça kabul ediliyor. Şablonun
 sorulmadı. Dil modeli artık araştırma sorusunun dışında, yalnız demo
 için (K-022).
 
+**Kararlaştı (2026-10-17, Ömer Can): açık model, Colab'ın ücretsiz
+GPU'sunda.** Yerel GPU arızalı (K-002); 7-8B bir modeli CPU'da çalıştırmak
+soru başına dakikalar sürer (ölçülmedi). Akış:
+
+1. Arama bilgisayarda (CPU), her soru için istem paketi:
+   `scripts/istem_paketi.py` → `results/istem/<ad>.jsonl`.
+2. Model Colab'da: `notebooks/cevap_uret.ipynb`, açgözlü üretim (sıcaklık
+   0), model adı, revizyonu ve kütüphane sürümleri cevap dosyasında.
+3. Ölçüm bilgisayarda: `scripts/cevap_ozet.py` (cevapsızda "bilmiyorum"
+   oranı, atıfların kanıtı kapsaması, elle doğruluk puanlama tablosu).
+
+Gizli anahtar gerekmesin diye kapısız, Apache-2.0 modeller. Hugging Face'te
+2026-10-17'de doğrulanan adaylar: `Qwen/Qwen3-4B-Instruct-2507` (T4'e 16
+bit sığar) ve `Qwen/Qwen3-8B` (4 bit, düşünme modu kapalı). Gemma 3 ve
+Llama 3.1 kapılı (token gerektirir), dışarıda. Seçim dev setinde ~20
+soruluk pilotla: cevapsızda "bilmiyorum" oranı, atıf doğruluğu, elle
+doğruluk, Colab'da süre.
+
+**Bilinen sınırlar.** Colab'ın ücretsiz GPU'su garanti değil, oturum
+süresi sınırlı (doğrulanmadı). Canlı demo için Colab kırılgan; demo
+soruları için cevaplar önceden üretilir, canlı kısım arama olur. Bu ayrı
+karar.
+
+**Not:** bütün bilgi tabanında arandığında gösterim sorusunun ilk 5'i SSS
+ve web parçası; yönetmelik maddesi giremiyor. Cevap doğru olur ama künye
+"madde, sayfa" değil "SSS" olur. Kaynak türüne göre sıralama ya da
+yönetmeliği ayrıca getirme, demo için açık soru.
+
 ## K-006: RAG çerçevesi (LangChain/LlamaIndex) kullanılmıyor, geçerli (2026-10-16)
 
 Parçalama ve arama doğrudan kütüphanelerle yazılıyor (PyMuPDF, rank-bm25,

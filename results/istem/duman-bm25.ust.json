@@ -1,0 +1,13 @@
+{
+ "ad": "duman-bm25",
+ "zaman": "2026-10-17T04:17:20",
+ "bilgi_tabani_surumu": "b3c7d85cce08",
+ "parca_surumu": "2b5af885972a",
+ "arama": "bm25",
+ "model": null,
+ "kosul": "madde",
+ "dizin": "tum",
+ "k": 5,
+ "bolum": "dev",
+ "soru": 1
+}

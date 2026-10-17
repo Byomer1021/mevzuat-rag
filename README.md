@@ -128,6 +128,8 @@ scripts/
   deney.py           araştırma sorusunun deneyi: iki koşul, BM25 / e5, bootstrap (K-022)
   token_olcum.py     yoğun arama modelinin 512 token sınırını aşan parçalar (olcumler §11)
   soru_al.py         Soru Defteri'nden gelen soruları denetleyip test setine katar
+  istem_paketi.py    cevap üretimi için Colab'a gidecek istem paketi (K-005)
+  cevap_ozet.py      Colab'dan dönen cevapları ölçer, elle puanlama tablosu çıkarır
   soru_defteri_veri.py  Soru Defteri sayfasının parça verisi
   oneri_docx.py      docs/oneri.md'yi dersin öneri formuna (docx) yazar
   ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)
@@ -139,6 +141,10 @@ src/mevzuat_rag/
   parcalama.py       madde bazlı, paragraf, sabit uzunluklu, takvim, web, form
   arama.py           BM25 (Türkçe küçük harf, isteğe bağlı kök) ve e5 yoğun arama; belge adı öneki
   deney.py           deneyin dizini, soru kümeleri, iki koşulun karşılaştırması
+  uretim.py          cevap istemi, kaynak künyesi, cevaptan atıf ve "bilmiyorum" ayrıştırma
+  cevap.py           üretilen cevapların ölçümü
+notebooks/
+  cevap_uret.ipynb   Colab'da açık modelle cevap üretimi
   degerlendirme.py   kanıt kapsamı, Recall@k, MRR, eşleştirilmiş bootstrap, McNemar
   testset.py         test seti şeması (kanıt alıntısı dahil), denetim, dağılım
   kisisel.py, formlar.py, web.py       kişisel veri taraması, form süzgeci, web metni
