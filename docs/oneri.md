@@ -34,13 +34,13 @@ On at least 150 hand-written student questions about Gebze Technical University'
 
 Turkish universities publish their rules as regulations and directives written in numbered articles (MADDE), and students ask about them daily. Anyone building question answering over them must choose how to cut the text: article-aware cutting needs a custom parser (ours handles 11 header formats), fixed windows are free.
 
-**Closest work.** (1) *turkish-legal-retrieval* (GitHub, Aug 2026) compares whole articles, fixed windows and structural cuts on 907 Turkish laws. With a dense retriever, whole articles lost to 400-token windows (570 vs 669 of 5,010 found at R@10, McNemar p < 0.001), partly because 8.1% of articles exceed the 512-token model limit; structural cuts were no better than windows. Its queries are citing passages built from cross-references, not questions. (2) LegalBench-RAG (Pipitone & Alami, 2024) labels the relevant text of each legal query as character spans within documents, independent of any chunking; we label evidence the same way. (3) Element-based chunking beat fixed windows on financial reports (Jimeno Yepes et al., 2024); more in box 7.
+**Closest work.** (1) *turkish-legal-retrieval* (GitHub, Aug 2026) compares whole articles, fixed windows and structural cuts on 907 Turkish laws. With a dense retriever, whole articles lost to 400-token windows (570 vs 669 of 5,010 found at R@10, McNemar p < 0.001), partly because 8.1% of articles exceed the 512-token model limit; structural cuts were no better than windows. Its queries are citing passages built from cross-references, not questions. (2) LegalBench-RAG (Pipitone & Alami, 2024) labels the relevant text of each legal query as character spans within documents, independent of any chunking; we label evidence the same way. More in box 7.
 
 **Left open:** whether article boundaries matter for real user questions over short, uniformly structured regulations (median article 395 characters).
 
 ## 3
 
-**Knowledge base** (built, versioned, sha256 per file): GTÜ regulations, directives and guides in Turkish, from kalite.gtu.edu.tr and unit pages; 109 PDFs, 49 of them article-structured (914 articles). FAQ and other web pages are in the system but not in this experiment. **Licence:** officially published regulations are free to reproduce and use (Law No. 5846 on Intellectual and Artistic Works, Art. 31); for directives and web pages this is not explicit, so the public repository will hold code, questions and chunk IDs, and a download script instead of the files.
+**Knowledge base** (built, versioned, sha256 per file): GTÜ regulations, directives and guides in Turkish, from kalite.gtu.edu.tr and unit pages; 109 PDFs, 49 of them article-structured (914 articles). FAQ and other web pages are in the system but not in this experiment. **Licence:** officially published regulations are free to reproduce and use (Law No. 5846 on Intellectual and Artistic Works, Art. 31); for directives and web pages it is not explicit, so a public repository will hold code, questions and chunk IDs, and a download script instead of files.
 
 **Questions** (none written yet; no training data): 50 dev by 1 Nov, at least 150 test by 22 Nov, written by hand before any test run. Each has a type (single article, several articles, unanswerable), gold chunk IDs, a reference answer, and an evidence quote copied verbatim from each gold article; a validator rejects quotes not found in that article.
 
@@ -50,7 +50,7 @@ Turkish universities publish their rules as regulations and directives written i
 
 Nothing is trained. Two indexes over the same 109 PDFs differ only in how the 49 article-structured documents are cut. **Baseline:** fixed windows of 721 characters, no overlap, cut at a word boundary; the size makes both indexes hold the same number of chunks (922 vs 923), hence the same mean chunk length. **Method:** one chunk per article, with its heading. The other 60 documents are cut into paragraphs identically in both. Every chunk carries its document title in both conditions.
 
-Retrievers: BM25 (rank-bm25, Turkish-aware lowercasing, no stemming) and multilingual-e5-base (planned, not yet run). Compute: one GTX 1080 (8 GB); both BM25 indexes build in under a second. Answer generation with citations is the demo, outside the comparison. **Fair** because only chunk boundaries change: same documents, text, chunk count, title prefix, queries and scoring.
+Retrievers: BM25 (rank-bm25, Turkish-aware lowercasing, no stemming) and multilingual-e5-base. Compute: a laptop CPU, as our local GPU is faulty; both BM25 indexes build in under a second, and e5 encodes both once in about 16 minutes, then from cache. Answer generation with citations, by an open Qwen3 model on a free Colab GPU, is the demo, outside the comparison. **Fair** because only chunk boundaries change: same documents, text, chunk count, title prefix, queries and scoring.
 
 ## 5
 
@@ -64,7 +64,7 @@ In the 49 article-structured documents, fixed windows of equal count **cut 60.1%
 
 One dev query, BM25: "Derslere devam zorunluluğu yüzde kaç?" With article chunks the gold article ranks **3rd**; rank 1 is the English-preparatory attendance rule (85%), a plausible answer for the wrong programme. With fixed windows, the window that contains the whole gold article ranks **10th**.
 
-*Shows:* the two conditions differ in most of the text, not at the margins, and one case where a window dilutes a 298-character article with its neighbours. *Does not show:* any average difference. It is one query, chosen by us, from the dev split; no test question has been run.
+*Shows:* the conditions differ in most of the text, and one window diluting a 298-character article with its neighbours. *Does not show:* any average difference; one query, chosen by us, from dev; no test question run.
 
 ## 7
 

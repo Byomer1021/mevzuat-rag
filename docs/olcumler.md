@@ -708,3 +708,9 @@ madde koşulunda kanıt 3. sırada (MRR 0.333), sabit koşulda 10. sırada
 
 **GPU.** e5 kodlaması GPU'da `CUDA error: unknown error` ile düştü ve
 ekran gitti; kart arızalı (K-002). Yoğun arama artık CPU'da.
+
+**e5, CPU'da** (i7-8750H, 6 çekirdek; tek çalıştırma, aynı anda test takımı
+da çalıştı): iki dizinin (3332 + 3331 parça) kodlanması **988 s**, sonra
+`.cache/gomme/`'den anında. Sorgu 0.3 s. Gösterim sorusunda e5 kanıtı iki
+koşulda da **1.** sıraya koydu (BM25: 3. ve 10.). Tek soru; yalnız boru
+hattının çalıştığını gösterir.
