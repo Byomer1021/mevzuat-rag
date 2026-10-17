@@ -12,13 +12,13 @@ teslim edilmez.
 
 ## members
 
+Ahmet Eren İncir, [student number], CSE 654 (**research lead**)
+
 Ömer Can Atlı, [student number], CSE 484
 
-[Member 2], [student number], [course code]
+Veysel Cemaloğlu, [student number], CSE 484
 
-[Member 3], [student number], [course code]
-
-[Member 4], [student number], [course code]
+Muhammed Korkmaz, [student number], CSE 484
 
 ## type
 
@@ -34,7 +34,7 @@ On at least 150 hand-written student questions about Gebze Technical University'
 
 Turkish universities publish their rules as regulations and directives written in numbered articles (MADDE), and students ask about them daily. Anyone building question answering over them must choose how to cut the text: article-aware cutting needs a custom parser (ours handles 11 header formats), fixed windows are free.
 
-**Closest work.** (1) *turkish-legal-retrieval* (GitHub, Aug 2026) compares whole articles, fixed windows and structural cuts on 907 Turkish laws. With a dense retriever, whole articles lost to 400-token windows (570 vs 669 of 5,010 found at R@10, McNemar p < 0.001), partly because 8.1% of articles exceed the 512-token model limit; structural cuts were no better than windows. Its queries are citing passages built from cross-references, not questions. (2) LegalBench-RAG (Pipitone & Alami, 2024) labels the relevant text of each legal query as character spans within documents, independent of any chunking; we label evidence the same way. (3) Element-based chunking beat fixed windows on financial reports (Jimeno Yepes et al., 2024), while fixed windows matched semantic chunking on general benchmarks (Qu et al., NAACL Findings 2025).
+**Closest work.** (1) *turkish-legal-retrieval* (GitHub, Aug 2026) compares whole articles, fixed windows and structural cuts on 907 Turkish laws. With a dense retriever, whole articles lost to 400-token windows (570 vs 669 of 5,010 found at R@10, McNemar p < 0.001), partly because 8.1% of articles exceed the 512-token model limit; structural cuts were no better than windows. Its queries are citing passages built from cross-references, not questions. (2) LegalBench-RAG (Pipitone & Alami, 2024) labels the relevant text of each legal query as character spans within documents, independent of any chunking; we label evidence the same way. (3) Element-based chunking beat fixed windows on financial reports (Jimeno Yepes et al., 2024); more in box 7.
 
 **Left open:** whether article boundaries matter for real user questions over short, uniformly structured regulations (median article 395 characters).
 
@@ -50,7 +50,7 @@ Turkish universities publish their rules as regulations and directives written i
 
 Nothing is trained. Two indexes over the same 109 PDFs differ only in how the 49 article-structured documents are cut. **Baseline:** fixed windows of 721 characters, no overlap, cut at a word boundary; the size makes both indexes hold the same number of chunks (922 vs 923), hence the same mean chunk length. **Method:** one chunk per article, with its heading. The other 60 documents are cut into paragraphs identically in both. Every chunk carries its document title in both conditions.
 
-Retrievers: BM25 (rank-bm25, Turkish-aware lowercasing, no stemming) and multilingual-e5-base (planned, not yet run). Compute: one GTX 1080 (8 GB); both BM25 indexes build in under a second. Answer generation with citations and "I don't know" is the demo; its language model is fixed and is not part of the comparison. **Fair** because only chunk boundaries change: same documents, text, chunk count, title prefix, queries and scoring.
+Retrievers: BM25 (rank-bm25, Turkish-aware lowercasing, no stemming) and multilingual-e5-base (planned, not yet run). Compute: one GTX 1080 (8 GB); both BM25 indexes build in under a second. Answer generation with citations is the demo, outside the comparison. **Fair** because only chunk boundaries change: same documents, text, chunk count, title prefix, queries and scoring.
 
 ## 5
 
@@ -68,19 +68,21 @@ One dev query, BM25: "Derslere devam zorunluluğu yüzde kaç?" With article chu
 
 ## 7
 
-No graduate member.
+**Ahmet Eren İncir.** [Draft; Ahmet Eren revises and owns this box.] (1) Qu, Tu & Bao (Findings of NAACL 2025) find semantic chunking not worth its cost over fixed-size chunks for document and evidence retrieval. Their alternative to fixed windows is cutting by sentence similarity, not boundaries the document itself declares; ours is the article structure the author wrote. (2) Reuter et al. (arXiv 2510.06999, 2025) show that legal retrievers often return text from the wrong one of many similar documents, and reduce it by prepending a document summary to every chunk. They vary the context added to chunks; we hold it fixed (the document title) and vary only where chunks begin and end.
+
+**Ablation:** drop the title prefix in both conditions. If article chunks win only with it, the gain comes from identifying the document, not from the boundaries.
 
 ## 8
 
-**The test set.** Questions written while reading an article reuse its words, which favours BM25 and may favour article chunks. Mitigation: write each question from the student's side first (FAQ topics, forms, the academic calendar), then look up the article; all four of us write, so no single style dominates, and two of us label the same 40 questions independently to report agreement. **Fallback:** if fewer than 150 test questions exist on 22 Nov, run on what exists and report the wider interval; question and metric stay the same. **Second risk:** 57 articles exceed 2,000 characters and may exceed the dense model's 512-token limit (not yet measured); there the article condition loses text the windows keep, as in (1). We will count the test questions affected and report them separately.
+**The test set.** Questions written while reading an article reuse its words, which favours BM25 and may favour article chunks. Mitigation: write each question from the student's side first (FAQ topics, forms, the academic calendar), then look up the article; all four of us write, so no single style dominates, and two of us label the same 40 questions independently to report agreement. **Fallback:** if fewer than 150 test questions exist on 22 Nov, run on what exists and report the wider interval; question and metric stay the same. **Second risk:** 57 articles exceed 2,000 characters and may exceed the dense model's 512-token limit (not yet measured); there the article condition loses text the windows keep, as in box 2. We will count the test questions affected and report them separately.
 
 ## 9
 
 **Mid-project (5 Nov):** BM25 Recall@1/5/10 and MRR for both conditions on the 50 dev questions, with intervals; dense results if ready. Then: test questions (22 Nov), dense runs (29 Nov), single test run and error analysis (6–10 Dec), report and code (17 Dec).
 
-**Roles:** Ömer Can Atlı: chunking and retrieval. [Member 2]: data, questions and evidence sentences. [Member 3]: evaluation, metrics, bootstrap and error analysis. [Member 4]: demo, answers that cite the article. All four write questions.
+**Roles:** Ahmet Eren İncir: research lead, related work, experimental design and the ablation in box 7. Ömer Can Atlı: modelling (chunking and retrieval). Veysel Cemaloğlu: data (questions and evidence sentences). Muhammed Korkmaz: evaluation and demo. All four write questions.
 
-**AI tools:** Claude (Anthropic), through Claude Code, wrote and tested code, ran the measurements in boxes 3 and 6, and drafted this text. All numbers come from scripts in the repository; [the author checked them].
+**AI tools:** Claude (Anthropic), through Claude Code, wrote and tested code, ran the measurements in boxes 3 and 6, and drafted this text. All numbers come from scripts in the repository; [we checked them].
 
 ## 10
 

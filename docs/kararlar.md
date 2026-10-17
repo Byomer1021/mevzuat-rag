@@ -507,8 +507,12 @@ kesin McNemar. Soruların ~%20'sinde koşullar ayrışırsa (varsayım, dev'de
 **Ek ölçümler, soru değil:** kök bulma (K-013), belge adı öneki, başlık
 temizliği (K-012), cevap üretimi (K-005).
 
-**Değişirse:** takıma bir CSE 654 üyesi gelirse kutu 7'de ablasyon veya
-yayınlanmış taban karşılaştırması eklenir; soru aynı kalır.
+**Ablasyon (CSE 654, 2026-10-17):** takımın araştırma lideri Ahmet Eren
+İncir. Öneri: belge adı öneki iki koşulda da kaldırılır. Madde parçaları
+yalnız önekle kazanıyorsa kazanç sınırlardan değil belgeyi tanımaktan
+gelir. Kutu 7 taslağı Qu, Tu & Bao (Findings of NAACL 2025) ve Reuter vd.
+(arXiv 2510.06999, 2025) üzerine; Ahmet Eren'in kendi kutusu, o düzeltip
+sahiplenecek.
 
 ## K-023: Dersin takvimi ve takım kuralı, geçerli (2026-10-17)
 
@@ -526,11 +530,12 @@ teslim tarihini ve "tek kişi" varsayımını değiştiriyor.
 
 - **Takım:** dört kişi; önerilen bileşim 1 CSE 654 + 3 CSE 484. Takımlar 1
   Ekim'e kadar Teams kanalına kaydedilir; "Students not on a team by then
-  are assigned to one." **2026-10-17:** Ömer Can dört kişilik bir takımda;
-  projeyi o başlattı, görev dağılımı yapılmadı. Öneri ve sunumdaki roller
-  geçici (parçalama ve arama: Ömer Can; veri, değerlendirme, demo: diğer
-  üç üye). İsimler, öğrenci numaraları, takım numarası ve CSE 654 üyesi
-  olup olmadığı henüz bilinmiyor; 7. kutu buna bağlı.
+  are assigned to one." **2026-10-17:** takım Ahmet Eren İncir (CSE 654,
+  araştırma lideri), Ömer Can Atlı, Veysel Cemaloğlu, Muhammed Korkmaz
+  (CSE 484). Projeyi Ömer Can başlattı; görev dağılımı yapılmamıştı, öneri
+  ve sunumdaki roller geçici: araştırma lideri Ahmet Eren, modelleme
+  (parçalama ve arama) Ömer Can, veri Veysel, değerlendirme ve demo
+  Muhammed. Takım numarası ve öğrenci numaraları bilinmiyor.
 - **Yapay zekâ araçları** serbest, raporda kısa beyan zorunlu; öneri formunun
   9. kutusu soruyor. Beyan edilmemiş kullanım akademik dürüstlük ihlali.
 - Plan 17 Aralık'a göre: [on-rapor §8](on-rapor.md).
