@@ -1,17 +1,21 @@
 # Ön Rapor
 ## Üniversite Mevzuatı için RAG Tabanlı Soru-Cevap Sistemi
 
-**Durum:** taslak, hafta 0 (16 Ekim 2026). Kapsam soruları cevaplandı; dil
-modeli (§7) seçilince ve kapsam hocaya onaylatılınca kesinleşir. Ondan sonra
-değişmez; kapsam değişiklikleri [kararlar.md](kararlar.md)'ye girer.
+**Durum:** taslak, hafta 0. 17 Ekim'de dersin programına ve öneri
+şablonuna göre güncellendi ([K-023](kararlar.md)): araştırma sorusu tek bir
+karşılaştırmaya indi ([K-022](kararlar.md)), takvim 17 Aralık'a çekildi.
+Hocaya giden metin [oneri.md](oneri.md); bu belge projenin iç planı.
+Kapsam değişiklikleri [kararlar.md](kararlar.md)'ye girer.
 
 ---
 
 ## 1. Bu belge neyi yapıyor
 
 [Proje tanımı](proje-tanimi.md) genel bir plan: 4 kişilik grup, 10 hafta,
-herhangi bir üniversite. Bu proje ise **GTÜ'de, tek kişilik bir NLP dersi
-projesi** ve yaklaşık 9 haftası var. Bu belge tanımı bu kısıtlara oturtuyor
+herhangi bir üniversite. Bu proje ise **GTÜ'de bir NLP dersi projesi**;
+final 17 Aralık, 19 Ekim'den itibaren 8.5 hafta. Ders de 4 kişilik takım
+öngörüyor; Ömer Can'ın takım durumu henüz belli değil ([K-023](kararlar.md)),
+plan tek kişi varsayımıyla. Bu belge tanımı bu kısıtlara oturtuyor
 ve neyin neden değiştiğini kayda geçiriyor. Kapsam daralacaksa sessizce
 değil, açıkça ve gerekçesiyle daralır.
 
@@ -28,8 +32,16 @@ göstererek cevap veren, cevap belgelerde yoksa "bilmiyorum" diyen bir sistem.
 | etiketli test seti | 200 soru (50 dev + 150 test), ~%15-20 cevapsız, her soruda dayanak madde |
 | değerlendirme raporu | konfigürasyonların karşılaştırması, ≥50 soruda elle puanlama, hata analizi |
 
-**Araştırma sorusu:** Türkçe mevzuat metinlerinde hangi parçalama ve arama
-stratejisi, doğru ve kaynağa dayalı cevap oranını en çok artırır?
+**Araştırma sorusu** ([K-022](kararlar.md)): ≥150 elle yazılmış test
+sorusunda, mevzuatı madde sınırından bölmek, aynı sayıda sabit uzunluklu
+parçaya göre cevabın geçtiği cümleyi ilk 5 sonuçta daha sık getiriyor mu?
+BM25 ve yoğun arama için ayrı ayrı; ölçüt kanıt Recall@5. **Hayır:** farkın
+%95 eşleştirilmiş bootstrap aralığı sıfırı içeriyorsa.
+
+İlk hâli ("hangi parçalama ve arama stratejisi doğru ve kaynağa dayalı cevap
+oranını en çok artırır?") dersin şablonuna göre fazla geniş: tek, kontrollü
+bir karşılaştırma isteniyor. §5'teki diğer konfigürasyonlar ek ölçüm olarak
+kalıyor; cevap üretimi demo.
 
 ---
 
@@ -37,8 +49,8 @@ stratejisi, doğru ve kaynağa dayalı cevap oranını en çok artırır?
 
 | kısıt | durum | etkisi |
 |---|---|---|
-| ekip | tek kişi ([K-008](kararlar.md)) | dört rol birleşiyor; Kappa için ikinci etiketçi dışarıdan gerekiyor |
-| süre | 19 Ekim - 20 Aralık, 9 hafta | §8 |
+| ekip | şimdilik tek kişi; ders 4 kişilik takım öngörüyor, durum belirsiz ([K-023](kararlar.md)) | dört rol birleşiyor; Kappa için ikinci etiketçi dışarıdan gerekiyor |
+| süre | 19 Ekim - 17 Aralık; öneri 21 Ekim, ara rapor 5 Kasım ([K-023](kararlar.md)) | §8 |
 | yerel GPU | GTX 1080, 8 GB, sm_61; torch 2.7.1+cu118 ile **kernel çalışıyor** ([olcumler §1](olcumler.md)) | gömme ve reranker yerelde çalışabilir; uzun yükte kararlılık ölçülmedi |
 | GPU sürücüsü | 526.47, en fazla CUDA 12.0 | torch cu118'e ve 2.7.x'e sabit ([K-002](kararlar.md)) |
 | disk | C'de 13 GB, D'de ~580 GB | proje ve önbellekler D'de ([K-003](kararlar.md)) |
@@ -85,6 +97,12 @@ kaynaklar (duyurular, forumlar).
 3. Bunun yanında, arama yapmayan "yalnız dil modeli" taban çizgisi.
 4. Değişiklikler **teker teker** eklenir ve her birinin etkisi ayrı ölçülür.
 
+**Ana karşılaştırma** ([K-022](kararlar.md)): aynı arama ile madde ve
+eşit sayıda sabit parça (721 karakter): yoğun aramada K1 ile K3, BM25'te K2
+ile onun madde bazlı karşılığı.
+Taban sistem sabit parça + BM25. Aşağıdaki tablo ek ölçümlerin haritası;
+öneride yalnız ana karşılaştırma var.
+
 | konfigürasyon | parçalama | arama |
 |---|---|---|
 | K0 | yok | yok, yalnız dil modeli |
@@ -122,7 +140,7 @@ Tanımdaki "1. belge işleme" adımı bir deney ekseni olmaktan çıktı: iki PD
 | PDF'ler taranmış görüntü | metin bozulur | metin katmanı ölçüldü | **kapandı**: 13/13 metinli, bozuk karakter 0 |
 | madde başlıkları metinden çıkmaz | madde bazlı parçalama çalışmaz | tanıyıcı 12 belgede 1..N'i eksiksiz buluyor | **kapandı**, YÖ-0087 hariç (yedek strateji) |
 | sayfa başlığı maddelerin ortasına girer | parçalara gürültü | ön işlemde temizlik (K-012) | **kapandı**: temiz metinde iz yok ([olcumler §4](olcumler.md)) |
-| uzun maddeler gömme modelinin sınırını aşar | maddenin sonu aramada görünmez | 11 madde 2000 karakterin üstünde; model seçilirken token sayısı ölçülür | hafta 3 |
+| uzun maddeler gömme modelinin sınırını aşar | maddenin sonu aramada görünmez | 57 madde 2000 karakterin üstünde; model seçilirken token sayısı ölçülür, etkilenen test soruları ayrı raporlanır | hafta 1 |
 | test seti küçük kalır | sonuçlar güvenilmez | 200 soru, türler dengeli | |
 | test setine göre ayar yapılır | sonuçlar şişer | dev/test ayrımı (K-007) | öneri |
 | ikinci etiketçi bulunamaz | Kappa raporlanamaz | bir sınıf arkadaşından 40-50 soru | açık |
@@ -136,13 +154,16 @@ Tanımdaki "1. belge işleme" adımı bir deney ekseni olmaktan çıktı: iki PD
 
 ## 7. Açık sorular
 
-Cevaplananlar (2026-10-16): üniversite GTÜ; tek kişi; NLP dersi projesi;
-teslim yaklaşık 20-25 Aralık ([K-008](kararlar.md)).
+Cevaplananlar: üniversite GTÜ; NLP dersi projesi (2026-10-16,
+[K-008](kararlar.md)); final 17 Aralık, öneri 21 Ekim (2026-10-17, ders
+programı, [K-023](kararlar.md)).
 
 Açık kalanlar:
 
+0. **Takım:** Ömer Can bir takımda mı, takım numarası ve üyeler kim? Öneri
+   formunun ilk satırları ve rolleri buna bağlı ([K-023](kararlar.md)).
 1. **Dil modeli:** API mı, yerel mi, bütçe ne? Hafta 2 pilotuyla karar
-   ([K-005](kararlar.md)).
+   ([K-005](kararlar.md)). Artık araştırma sorusunun dışında; yalnız demo.
 2. **Hocanın şartları:** açık kaynak model şartı var mı? Kapsamın (bu
    belgede) onaylatılması.
 3. **İkinci etiketçi:** Kappa için 40-50 soruyu bağımsız etiketleyecek biri.
@@ -152,18 +173,19 @@ Açık kalanlar:
 
 ## 8. Takvim
 
-Hafta 1, 19 Ekim 2026 Pazartesi başlıyor. Plan, teslim aralığının en erken
-günü olan 20 Aralık'a göre yapıldı.
+Hafta 1, 19 Ekim 2026 Pazartesi başlıyor. Plan dersin takvimine göre
+([K-023](kararlar.md)); kalın satırlar dersin teslimleri.
 
 | hafta | tarih | iş | bitti sayılır, eğer... |
 |---|---|---|---|
-| 0 | 16 Eki | ortam, repo, dokümantasyon; belgeler toplandı, metin katmanı ölçüldü | ✓ |
-| 1-2 | 19 Eki - 1 Kas | başlık temizliği, madde parçalayıcı, 50 dev sorusu, dil modeli pilotu | 50 soru şemaya uygun; K-005 kararlaştı |
-| 3-4 | 2-15 Kas | taban sistem (K0, K1) | dev setinde ilk Recall@k ve doğruluk sayıları |
-| 5-6 | 16-29 Kas | BM25, kök bulma, madde, hibrit, reranker; test seti 150 soruya | bütün konfigürasyonlar dev setinde çalışıyor |
-| 7 | 30 Kas - 6 Ara | test setinde değerlendirme, elle puanlama | sonuç tablosu |
-| 8 | 7-13 Ara | hata analizi, arayüz, demo | hata kırılımı, çalışan demo |
-| 9 | 14-20 Ara | rapor, sunum, README | teslim |
+| 0 | 16-18 Eki | ortam, bilgi tabanı (114 kaynak), ön işlem, BM25, değerlendirme kodu, öneri taslağı | ✓ (öneri onaylanınca) |
+| 1 | 19-25 Eki | **öneri 21 Eki 23:59, sunum 22 Eki**; dev soruları başlar; gömme modelinin token ölçümü | öneri teslim edildi |
+| 2 | 26 Eki - 1 Kas | 50 dev sorusu; bilgi tabanı dondurulur (K-016) | 50 soru denetimden geçiyor |
+| 3 | 2-8 Kas | **ara rapor 5 Kas:** dev setinde iki koşul BM25, güven aralıklı | ara sunum |
+| 4-5 | 9-22 Kas | test soruları (≥150), ikinci etiketçi; yoğun arama kurulur; ara sınav 19 Kas | test seti donar (22 Kas) |
+| 6 | 23-29 Kas | yoğun arama dev'de; dil modeli seçimi ve demo | iki arama dev'de çalışıyor |
+| 7 | 30 Kas - 10 Ara | test seti bir kez (6-10 Ara), hata analizi, ek ölçümler | sonuç tablosu |
+| 8 | 11-17 Ara | rapor, kod, sunum; **final 17 Ara**, sunumlar 17 ve 24 Ara | teslim |
 
-Belge toplama ve metin katmanı ölçümü 1-2. haftanın işiydi, hafta 0'da
-bitti. Bu kazanılan zaman, 9 haftaya sıkışan takvime tampon oluyor.
+Belge toplama, ön işlem ve arama tabanı hafta 0'da bitti. Bu yüzden ara
+rapora dev setinde gerçek sayılarla gidilebilir; en dar boğaz soru yazımı.

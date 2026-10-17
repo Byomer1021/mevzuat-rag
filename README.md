@@ -14,10 +14,12 @@ choices behind it.*
 
 ## Durum
 
-GTÜ'de NLP dersi projesi; 19 Ekim - 20 Aralık 2026.
+GTÜ'de NLP dersi projesi (CSE 484); 19 Ekim - 17 Aralık 2026. Öneri 21
+Ekim, ara rapor 5 Kasım.
 
-**Hafta 0: bilgi tabanı toplandı, RAG sonucu henüz yok.** Bu sayfaya her
-sayı ölçüldüğü anda girer. Ölçülmemiş sayı yazılmaz.
+**Hafta 0: bilgi tabanı toplandı, arama tabanı ve değerlendirme kodu hazır;
+henüz soru seti yok, arama başarısı ölçülmedi.** Bu sayfaya her sayı
+ölçüldüğü anda girer. Ölçülmemiş sayı yazılmaz.
 
 Şu ana kadar ölçülen:
 
@@ -37,39 +39,28 @@ sayı ölçüldüğü anda girer. Ölçülmemiş sayı yazılmaz.
 - Bilgi tabanı 4759 parçaya bölündü: 914 madde, 1631 paragraf, 1914 web,
   150 takvim, 141 form. Kapsama, sayfa aralığı, kimlik çakışması ve
   kişisel veri denetimi temiz.
+- Aynı sayıda sabit uzunluklu parçayla (721 karakter, 922'ye karşı 923)
+  maddelerin %60.1'i bölünüyor, sabit parçaların %61.8'i birden çok maddeye
+  değiyor ([olcumler §10](docs/olcumler.md)).
 
-Ayrıntılar: [olcumler §2-9](docs/olcumler.md).
-
-| aşama | hafta | durum |
-|---|---|---|
-| 0. ortam, repo, dokümantasyon; belge toplama, metin katmanı | 0 | **tamam** |
-| 1. başlık temizliği, madde parçalayıcı, 50 dev sorusu, dil modeli pilotu | 1-2 | temizlik ve parçalayıcı **tamam**; sorular ve pilot sırada |
-| 2. en basit çalışan RAG (taban sistem, ilk sonuçlar) | 3-4 | |
-| 3. BM25 / kök bulma / madde / hibrit / reranker, test seti 150 | 5-6 | |
-| 4. test setinde değerlendirme, elle puanlama | 7 | |
-| 5. hata analizi, arayüz ve demo | 8 | |
-| 6. rapor ve sunum | 9 | |
+Ayrıntılar: [olcumler §2-10](docs/olcumler.md). Takvim:
+[on-rapor §8](docs/on-rapor.md).
 
 ## Araştırma sorusu
 
-> Türkçe mevzuat metinlerinde hangi parçalama ve arama stratejisi, doğru ve
-> kaynağa dayalı cevap oranını en çok artırır?
+> ≥150 elle yazılmış öğrenci sorusunda, mevzuatı madde sınırından bölmek,
+> aynı sayıda sabit uzunluklu parçaya göre, cevabın geçtiği cümleyi ilk 5
+> sonuçta daha sık getiriyor mu? BM25 ve yoğun arama için ayrı ayrı.
+> **Hayır:** farkın %95 eşleştirilmiş bootstrap aralığı sıfırı içeriyorsa.
 
-Karşılaştırılacak konfigürasyonlar ([on-rapor §5](docs/on-rapor.md)):
+Değişen tek şey parça sınırları: aynı belgeler, aynı parça sayısı, aynı
+belge adı öneki, aynı sorular. "Bulundu" ölçütü parçalamadan bağımsız: her
+soruda maddeden birebir alınmış kanıt cümlesi, getirilen parçaların içinde
+tamamen var mı ([K-022](docs/kararlar.md)). Öneri metni:
+[docs/oneri.md](docs/oneri.md).
 
-1. Arama yok, yalnızca dil modeli (taban çizgisi)
-2. BM25 + dil modeli; Türkçe kök bulmalı ve kök bulmasız
-3. Vektör arama + dil modeli
-4. Hibrit arama (+ reranker) + dil modeli
-5. Sabit uzunlukta parçalama ile madde bazlı parçalamanın karşılaştırması
-
-| ölçülen | metrik |
-|---|---|
-| doğru parçayı bulma | Recall@k, MRR |
-| cevap doğruluğu | doğru / kısmen / yanlış (elle) |
-| kaynağa sadakat | cevaptaki her iddia getirilen metinde var mı (halüsinasyon oranı) |
-| cevaplamama başarısı | cevapsız sorularda "bilmiyorum" deme oranı |
-| alıntı doğruluğu | gösterilen madde numarası doğru mu |
+Sistemin kendisi (kaynak gösteren cevap, "bilmiyorum") demo; kök bulma,
+hibrit arama ve cevap kalitesi ek ölçümler ([on-rapor §5](docs/on-rapor.md)).
 
 ## Dokümantasyon
 
@@ -79,7 +70,8 @@ Proje adım adım kayıt altında tutuluyor. Nasıl tutulduğu:
 | belge | ne var |
 |---|---|
 | [proje-tanimi.md](docs/proje-tanimi.md) | başlangıçta verilen tanım: hedef, veri, yöntem, plan |
-| [on-rapor.md](docs/on-rapor.md) | tanımın gerçek kısıtlara oturtulmuş hali, kapsam, açık sorular |
+| [on-rapor.md](docs/on-rapor.md) | tanımın gerçek kısıtlara oturtulmuş hali, kapsam, açık sorular, takvim |
+| [oneri.md](docs/oneri.md) | dersin öneri formuna giden metin (İngilizce) |
 | [olcumler.md](docs/olcumler.md) | numaralı ölçüm günlüğü; her sayının kaynağı burada |
 | [kararlar.md](docs/kararlar.md) | tasarım kararları ve gerekçeleri |
 | [soru-yazma.md](docs/soru-yazma.md) | test seti sorularını yazma kuralları ve aracı |
@@ -127,14 +119,20 @@ results/             ölçümlerin ham çıktısı (JSON/CSV)
 scripts/
   kaynaklar.py       dizin, indirme, güncellik kontrolü
   metin_katmani.py   PDF metin katmanı ölçümü (olcumler §3)
-  onisle.py          temizlik + parçalama + denetim (olcumler §4)
+  onisle.py          temizlik + parçalama + denetim; madde ve sabit kümesi (olcumler §4, §10)
+  ilk_bakis.py       iki koşulun yapısal farkı ve gösterim sorusu (olcumler §10)
+  oneri_docx.py      docs/oneri.md'yi dersin öneri formuna (docx) yazar
   ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)
   testset_kontrol.py test setinin şema denetimi ve dağılımı
+  tara.py, envanter.py, web_secim.py   site taraması ve web içeriği (olcumler §7-8)
 src/mevzuat_rag/
-  madde.py           madde başlığı tanıyıcı (beş biçim)
+  madde.py           madde başlığı tanıyıcı (11 biçim)
   onisleme.py        PDF'ten temiz sayfa metni, kalite formu başlığı atılır
-  parcalama.py       madde bazlı, paragraf, sabit uzunluklu, takvim
-  testset.py         test seti şeması, denetim, dağılım
+  parcalama.py       madde bazlı, paragraf, sabit uzunluklu, takvim, web, form
+  arama.py           BM25: Türkçe küçük harf, belge adı öneki, isteğe bağlı kök
+  degerlendirme.py   kanıt kapsamı, Recall@k, MRR, eşleştirilmiş bootstrap, McNemar
+  testset.py         test seti şeması (kanıt alıntısı dahil), denetim, dağılım
+  kisisel.py, formlar.py, web.py       kişisel veri taraması, form süzgeci, web metni
 tests/
 ```
 

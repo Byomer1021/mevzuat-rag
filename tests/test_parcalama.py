@@ -1,3 +1,5 @@
+import itertools
+
 import pytest
 
 from mevzuat_rag.onisleme import Sayfa
@@ -75,6 +77,21 @@ def test_sayfa_araligi(parcalar):
 def test_parcalar_metni_kayipsiz_ortuyor(sayfalar, parcalar):
     hepsi = "".join(p.metin for p in parcalar.values())
     assert bosluksuz(hepsi) == bosluksuz("\n".join(s.metin for s in sayfalar))
+
+
+@pytest.mark.parametrize("parcala", [
+    lambda s: madde_parcala("b", s),
+    lambda s: paragraf_parcala("b", s, hedef=40),
+    lambda s: sabit_parcala("b", s, boyut=50, ortusme=0),
+])
+def test_konum_belge_metnindeki_aralik(sayfalar, parcala):
+    # degerlendirme.py kanıtın kapsanmasını bu aralıklarla hesaplıyor
+    belge = "\n".join(s.metin for s in sayfalar)
+    ps = parcala(sayfalar)
+    assert all(p.metin == belge[p.bas:p.son] for p in ps)
+    ardisik = list(itertools.pairwise(ps))
+    assert all(a.son <= b.bas for a, b in ardisik)  # sıralı, örtüşmesiz
+    assert all(not belge[a.son:b.bas].strip() for a, b in ardisik)  # arada yalnız boşluk
 
 
 def test_ek_madde_kendi_parcasi():

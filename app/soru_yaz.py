@@ -2,8 +2,9 @@
 
     uv run streamlit run app/soru_yaz.py
 
-Solda maddeleri ara ve oku, sağda soruyu yaz, dayanak maddeleri seç. Her
-kayıt şemaya göre denetlenip data/testset/sorular.jsonl'a eklenir.
+Solda maddeleri ara ve oku, sağda soruyu yaz, dayanak maddeleri seç ve her
+birinden cevabı taşıyan cümleyi kanıt olarak kopyala. Her kayıt şemaya göre
+denetlenip data/testset/sorular.jsonl'a eklenir.
 """
 
 import os
@@ -18,6 +19,7 @@ from mevzuat_rag.testset import (
     TURLER,
     dogrula,
     ekle,
+    kanitlari_ayir,
     oku,
     ozet,
     parcalari_oku,
@@ -40,7 +42,8 @@ def etiket(p: dict) -> str:
     return f"{p['id']} · {ad}" if ad else p["id"]
 
 
-FORM_VARSAYILAN = {"f_soru": "", "f_cevap": "", "f_dayanak": [], "f_etiketler": []}
+FORM_VARSAYILAN = {"f_soru": "", "f_cevap": "", "f_dayanak": [], "f_kanit": "",
+                   "f_etiketler": []}
 
 st.set_page_config(page_title="Soru yaz", layout="wide")
 # Başarılı kayıttan sonra form boşaltılır; hatada yazılanlar korunur. Widget
@@ -85,6 +88,10 @@ with sag:
         cevap = st.text_area("Referans cevap", key="f_cevap", help="Cevapsız soruda boş bırak.")
         dayanak = st.multiselect("Dayanak parçalar", list(parca), key="f_dayanak",
                                  format_func=lambda i: etiket(parca[i]))
+        kanit = st.text_area(
+            "Kanıt", key="f_kanit",
+            help="Cevabı taşıyan cümle, soldaki metinden birebir kopyala. Birden çok dayanak "
+                 "varsa dayanak sırasıyla, aralarına boş satır koy. Cevapsız soruda boş bırak.")
         etiketler = st.multiselect("Etiketler", ETIKET_ONERILERI, key="f_etiketler",
                                    accept_new_options=True)
         c1, c2 = st.columns(2)
@@ -95,8 +102,10 @@ with sag:
     if kaydet:
         kayit = {"id": yeni_id(sorular), "soru": soru.strip(), "tur": tur,
                  "referans_cevap": cevap.strip(), "dayanak": dayanak,
-                 "etiketler": etiketler, "yazan": yazan.strip(), "bolum": bolum}
-        hatalar = dogrula(kayit, set(parca), {s["id"] for s in sorular})
+                 "kanit": kanitlari_ayir(kanit), "etiketler": etiketler,
+                 "yazan": yazan.strip(), "bolum": bolum}
+        hatalar = dogrula(kayit, {i: p["metin"] for i, p in parca.items()},
+                          {s["id"] for s in sorular})
         if hatalar:
             for h in hatalar:
                 st.error(h)

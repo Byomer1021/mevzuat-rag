@@ -591,3 +591,68 @@ Sonuncusu yukarıdaki yanlış seçimi ortaya çıkardı.
   "2O24" gibi hatalar ve sondaki imzadan gelen anlamsız karakterler var.
 - 207 madde başlıksız; yeni belgelerde örneklenenlerin önünde gerçekten
   başlık yok (Endüstriyel Uygulamalar, GTU 110 gibi).
+
+---
+
+## 10. Araştırma sorusunun iki koşulu ve ilk bakış (2026-10-17)
+
+**Neden.** Dersin öneri formu (21 Ekim) tek ve kontrollü bir karşılaştırma,
+adı konmuş bir taban sistem ve kendi verimizden bir "ilk bakış" sayısı
+istiyor ([K-022](kararlar.md), [oneri.md](oneri.md)). Soru seti henüz yok;
+bu bölüm arama başarısını **ölçmüyor**, iki koşulun ne kadar farklı olduğunu
+ve aramanın çalıştığını gösteriyor.
+
+**Nasıl.** `scripts/onisle.py` artık iki küme yazıyor: `parcalar_madde.jsonl`
+ve `parcalar_sabit.jsonl`. İkincisinde yalnız madde parçasına bölünen 49
+belge sabit uzunlukta, örtüşmesiz kesiliyor; geri kalan her parça aynı. (§9'daki
+52, en az bir madde başlığı geçen belge sayısıydı: 7592 alıntısı, Kimya
+intibak esasları ve Kimya öğretim planında üçten az asıl madde var,
+paragraf bazlı bölünüyorlar.) Her parça artık belgenin birleşik metnindeki
+aralığını (`bas`, `son`) taşıyor; `metin == belge[bas:son]` testle sabit.
+`scripts/ilk_bakis.py` → `results/ilk_bakis.json`.
+
+**Sabit boyut, parça sayısı eşit olacak şekilde.** Bu 49 belgede toplam
+karakter / parça sayısı = 694. Bu boyutla 959 parça çıktı, çünkü kesim kelime
+sınırına çekilince parçalar kısalıyor. Sayı eşitlenene kadar büyütüldü:
+**721 karakterde 922 parça** (madde koşulu 923).
+
+**Sonuç: koşullar metnin çoğunda ayrışıyor.**
+
+| | değer |
+|---|---|
+| madde (49 belge) | 914 |
+| tek bir sabit parçanın içinde kalan madde | 365 |
+| 2 / 3 / 4 / 5 / 6+ parçaya bölünen | 368 / 111 / 35 / 25 / 10 |
+| **bölünen madde oranı** | **%60.1** |
+| birden çok maddeye değen sabit parça | **570 / 922 (%61.8)** |
+| deney dizini (yalnız PDF) | 2554 madde koşulunda, 2553 sabit |
+| iki BM25 dizininin kurulması | 0.7 s; sorgu ~5 ms |
+
+**Gösterim sorusu: "Derslere devam zorunluluğu yüzde kaç?"** (dayanak
+`lisans-yonetmelik/m23`, 298 karakter, tamamı tek sabit parçada, `s23`).
+BM25, belge adı önekli, kök bulmasız.
+
+- **Bütün bilgi tabanı (web dahil):** iki koşulda da ilk üç aynı; ikisi SSS
+  cevabı ("Teorik derslere devam zorunluluğu … en az %70"), biri Yabancı
+  Diller Bölümü'nün hazırlık programı sayfası (%85). Cevap doğru ama dayanak değil. Web parçaları iki
+  koşulda aynı olduğu için karşılaştırmaya bilgi katmıyor, yalnız mutlak
+  sayıları bozuyor. **Bu yüzden deneyin dizini yalnız PDF'ler** (K-022).
+- **Yalnız PDF:** madde koşulunda m23 **4.**; ilk sırada hazırlık
+  yönergesinin %85 devam maddesi (yanlış program için makul bir cevap). Sabit
+  koşulda m23'ü bütünüyle içeren s23 **10.**
+
+**Ne anlama gelmiyor.** Tek soru, bizim seçtiğimiz, dev bölümünde sayılıyor;
+ortalama bir fark hakkında hiçbir şey söylemiyor. Hazırlık maddesinin öne
+çıkması ayrıca bir hata türü: soru programı belirtmiyor.
+
+**Kök bulucu** (`snowballstemmer` 3.1.1, Türkçe; K-013). "yönetmeliğin",
+"yönetmelikte" → "yönetmelik"; "derslere" → "ders"; "sınavları" → "sınav".
+Ama "devam" → "deva" ve "kanun" → "kan" (agirgol'un Türk kanunlarında
+bulduğu hatanın aynısı) ve "devamsızlık" "devam"a inmiyor. Varsayılan
+arama kök bulmasız; kök bulma ayrı bir ölçüm.
+
+**Kanıt alıntısı ve değerlendirme kodu.** Test setine `kanit` alanı eklendi
+(henüz soru yazılmadığı için şema değişikliği ücretsiz): her dayanağa
+maddeden birebir kopyalanmış cevap cümlesi; boşluk farkı gözetilmeden
+aranıyor, bulunamazsa kayıt reddediliyor. `degerlendirme.py`: kanıt kapsamı,
+Recall@k, MRR, eşleştirilmiş bootstrap, kesin McNemar. 145 test.

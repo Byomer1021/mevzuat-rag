@@ -15,11 +15,12 @@ KOK = Path(__file__).resolve().parents[1]
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     yol = Path(sys.argv[1]) if len(sys.argv) > 1 else KOK / "data" / "testset" / "sorular.jsonl"
-    parca_idleri = {p["id"] for p in parcalari_oku(KOK / "data" / "processed" / "parcalar_madde.jsonl")}
+    parcalar = {p["id"]: p["metin"]
+                for p in parcalari_oku(KOK / "data" / "processed" / "parcalar_madde.jsonl")}
     sorular = oku(yol)
     hatali, gorulen = 0, set()
     for s in sorular:
-        hatalar = dogrula(s, parca_idleri, gorulen)
+        hatalar = dogrula(s, parcalar, gorulen)
         gorulen.add(s.get("id"))
         for h in hatalar:
             print(f"{s.get('id', '?')}: {h}")

@@ -335,6 +335,16 @@
     "2000_ustu": 57
   },
   "paragraf_hedefi": 395,
+  "sabit_karsilastirma": {
+    "belge": 49,
+    "boyut": 721,
+    "madde_kosulu_parca": 923,
+    "sabit_kosulu_parca": 922,
+    "toplam_parca": {
+      "madde": 4759,
+      "sabit": 4758
+    }
+  },
   "kaynak_turleri": {
     "yonetmelik": 4,
     "yonerge": 48,

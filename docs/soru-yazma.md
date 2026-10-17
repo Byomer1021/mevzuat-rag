@@ -7,7 +7,8 @@ uv run streamlit run app/soru_yaz.py
 ```
 
 Solda maddeleri arayıp okursun, sağda soruyu yazıp dayanak maddeleri
-seçersin. Her kayıt şemaya göre denetlenir ve `data/testset/sorular.jsonl`
+seçersin ve her dayanaktan cevabı taşıyan cümleyi **kanıt** olarak
+kopyalarsın. Her kayıt şemaya göre denetlenir ve `data/testset/sorular.jsonl`
 dosyasına eklenir. Dosyayı elle düzenlersen denetim için:
 `uv run python scripts/testset_kontrol.py`.
 
@@ -32,6 +33,11 @@ konuların sorulduğunu görmek için oku, ama soruyu kendi cümlenle yaz.
 
 Aynı nedenle soruları dil modeline yazdırmıyoruz: hem kelimeleri belgeden
 alır, hem de sonuçta cevabı yine bir dil modeli verecek.
+
+**Gösterim sorusu.** "Derslere devam zorunluluğu yüzde kaç?" öneri raporunda
+örnek olarak kullanıldı ve aramanın çıktısına bakıldı
+([olcumler §10](olcumler.md)). Bu soru yalnız `dev` bölümüne girebilir,
+`test`'e hiç girmez.
 
 ## Türler ve hedef dağılım (dev bölümü, 50 soru)
 
@@ -65,6 +71,13 @@ kelimelerini dene. Cevap bir yerde çıkarsa soru cevapsız değildir.
   yaz. Cevapsız soruda boş bırak.
 - **Dayanak:** cevabın dayandığı bütün parçalar. Cevap bir istisnaya
   bağlıysa istisnanın olduğu madde de dayanaktır.
+- **Kanıt:** her dayanaktan, cevabı taşıyan cümle; soldaki metinden
+  **birebir** kopyala (satır sonları sorun değil). Birden çok dayanak varsa
+  dayanak sırasıyla, aralarına boş satır koy. En az 20 karakter: "%70" değil,
+  "Teorik derslerde en az %70, laboratuvar ve uygulamalı derslerde en az %80
+  devam zorunluluğu aranır." Bütün maddeyi değil, cevabın geçtiği cümleyi
+  al; araştırma sorusu tam olarak bu cümlenin bulunup bulunmadığını ölçüyor
+  ([K-022](kararlar.md)). Cevapsız soruda boş.
 - **Etiketler:** hata analizinde kırılım için. `tarih`, `sure`, `sayi`,
   `not`, `istisna`, `kosul`, `tanim`, `basvuru`; gerekirse yenisini yaz.
 - **Bölüm:** ilk 50 soru `dev`. `test` sorularını sonra, dev setiyle ayar

@@ -41,6 +41,11 @@ class Parca:
     # Web içeriğinde sayfa numarası yok; kaynak göstermek için adres ve tarih
     url: str = ""
     tarih: str = ""
+    # Belgenin birleşik temiz metnindeki karakter aralığı [bas, son); PDF'ten
+    # gelen parçalarda dolu. Sabit ve madde parçalarının aynı kanıt cümlesini
+    # kapsayıp kapsamadığı bununla ölçülür (degerlendirme.py). Diğerlerinde -1.
+    bas: int = -1
+    son: int = -1
 
     def sozluk(self) -> dict:
         return asdict(self)
@@ -61,13 +66,17 @@ class _Metin:
     def sayfa(self, konum: int) -> int:
         return self.nolar[bisect.bisect_right(self.baslar, konum) - 1]
 
-    def araligi(self, bas: int, son: int) -> tuple[int, int]:
-        # son: dışlayıcı; baştaki ve sondaki boşluklar (sayfa sınırındaki "\n"
-        # dahil) sayfa hesabına katılmaz
+    def kirp(self, bas: int, son: int) -> tuple[int, int]:
+        """Baştaki ve sondaki boşluklar (sayfa sınırındaki "\\n" dahil) dışarıda:
+        metin[bas:son] == metin[bas_eski:son_eski].strip()."""
         while bas < son and self.metin[bas].isspace():
             bas += 1
         while son > bas and self.metin[son - 1].isspace():
             son -= 1
+        return bas, son
+
+    def araligi(self, bas: int, son: int) -> tuple[int, int]:
+        bas, son = self.kirp(bas, son)  # son: dışlayıcı
         return self.sayfa(bas), self.sayfa(max(bas, son - 1))
 
 
@@ -154,7 +163,9 @@ def madde_parcala(belge_id: str, sayfalar: list[Sayfa]) -> list[Parca]:
     giris = m.metin[: baslangiclar[0]].strip()
     if giris:
         s1, s2 = m.araligi(0, baslangiclar[0])
-        parcalar.append(Parca(f"{belge_id}/giris", belge_id, "giris", None, "", "", s1, s2, giris))
+        a, b = m.kirp(0, baslangiclar[0])
+        parcalar.append(Parca(f"{belge_id}/giris", belge_id, "giris", None, "", "", s1, s2, giris,
+                              bas=a, son=b))
 
     on_ek = {"madde": ("m", ""), "gecici": ("g", "geçici"), "ek": ("e", "ek")}
     sira: dict[str, int] = {}
@@ -168,8 +179,9 @@ def madde_parcala(belge_id: str, sayfalar: list[Sayfa]) -> list[Parca]:
         # Başlangıç sayfası "MADDE N"nin olduğu sayfa: başlık ("Öğretim
         # planları") bazen önceki sayfanın son satırında kalıyor (YN-0001 m13).
         s1, s2 = m.sayfa(b.konum), m.araligi(bas, son)[1]
+        bas, son = m.kirp(bas, son)
         parcalar.append(Parca(pid, belge_id, tur, madde, baslik, bolum, s1, s2,
-                              m.metin[bas:son].strip()))
+                              m.metin[bas:son], bas=bas, son=son))
     return parcalar
 
 
@@ -188,8 +200,9 @@ def paragraf_parcala(belge_id: str, sayfalar: list[Sayfa], hedef: int) -> list[P
     out = []
     for k, (a, b) in enumerate(gruplar, 1):
         s1, s2 = m.araligi(a, b)
+        a, b = m.kirp(a, b)
         out.append(Parca(f"{belge_id}/p{k}", belge_id, "paragraf", None, "", "", s1, s2,
-                         m.metin[a:b].strip()))
+                         m.metin[a:b], bas=a, son=b))
     return out
 
 
@@ -263,8 +276,9 @@ def sabit_parcala(belge_id: str, sayfalar: list[Sayfa], boyut: int, ortusme: int
             son = bosluk if bosluk > 0 else son
         k += 1
         s1, s2 = m.araligi(bas, son)
+        a, b = m.kirp(bas, son)
         out.append(Parca(f"{belge_id}/s{k}", belge_id, "sabit", None, "", "", s1, s2,
-                         metin[bas:son].strip()))
+                         metin[a:b], bas=a, son=b))
         if son >= len(metin):
             break
         yeni = son - ortusme

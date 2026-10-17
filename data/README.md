@@ -85,6 +85,11 @@ Satır başına bir parça ([K-014](../docs/kararlar.md)):
 | `metin` | temizlenmiş metin; tablo hücreleri sekmeyle ayrılır |
 | `url` | kaynağın adresi; web parçasında sayfanın kendi adresi |
 | `tarih` | duyuru tarihi ("8 Ekim 2026"); diğerlerinde boş |
+| `bas`, `son` | PDF'ten gelen parçada belgenin birleşik temiz metnindeki aralık, `metin == belge[bas:son]`; diğerlerinde -1 |
+
+`processed/parcalar_sabit.jsonl` aynı şemada, araştırma sorusunun sabit
+koşulu: madde yapılı 49 belge örtüşmesiz sabit parçalara (`/s<N>`, tür
+`sabit`) bölünmüş, geri kalanı aynı ([K-022](../docs/kararlar.md)).
 
 ## Test seti: `testset/`
 
@@ -97,6 +102,7 @@ JSONL, satır başına bir soru:
   "tur": "tek",
   "referans_cevap": "...",
   "dayanak": ["lisans-yonetmelik/m23"],
+  "kanit": ["Teorik derslerde en az %70, laboratuvar ve uygulamalı derslerde en az %80 devam zorunluluğu aranır."],
   "etiketler": ["sayi"],
   "yazan": "...",
   "bolum": "dev"
@@ -107,6 +113,10 @@ JSONL, satır başına bir soru:
 - `dayanak`: parça kimlikleri ([K-014](../docs/kararlar.md)). `tek` için
   bir, `cok` için en az iki, `cevapsiz` için boş liste; `referans_cevap`
   da boş.
+- `kanit`: `dayanak` ile aynı sırada, her parçadan cevabı taşıyan cümle,
+  birebir (boşluk farkı gözetilmez), en az 20 karakter; cevapsızda boş.
+  Arama başarısı kimlikle değil bununla ölçülür, böylece sabit uzunluklu
+  parçalar da aynı ölçütle puanlanır ([K-022](../docs/kararlar.md)).
 - `etiketler`: hata analizinde soru türüne göre kırılım için. Örnek:
   `tarih`, `istisna`, `sayi`, `kosul`, `tanim`.
 - `bolum`: `dev` veya `test` ([K-007](../docs/kararlar.md), öneri).

@@ -47,13 +47,17 @@ def test_gecerli_soru_kaydedilir_ve_form_bosalir(uygulama):
     at.text_area(key="f_soru").input("Derslere devam zorunlu mu?")
     at.text_area(key="f_cevap").input("Evet, ders bilgi formundaki oranda.")
     at.multiselect(key="f_dayanak").set_value(["lisans-yonetmelik/m23"])
+    # metinde satır sonuyla bölünmüş cümle, kopyalanırken satır sonu korunmuş
+    kanit = "Teorik derslerde en az %70, laboratuvar ve uygulamalı derslerde en az %80\ndevam"
+    at.text_area(key="f_kanit").input(kanit)
     kaydet(at)
     assert not at.exception and not at.error
     satirlar = [json.loads(s) for s in dosya.read_text(encoding="utf-8").splitlines()]
     assert satirlar == [{
         "id": "q001", "soru": "Derslere devam zorunlu mu?", "tur": "tek",
         "referans_cevap": "Evet, ders bilgi formundaki oranda.",
-        "dayanak": ["lisans-yonetmelik/m23"], "etiketler": [], "yazan": "omer", "bolum": "dev",
+        "dayanak": ["lisans-yonetmelik/m23"], "kanit": [kanit], "etiketler": [],
+        "yazan": "omer", "bolum": "dev",
     }]
     assert at.text_area(key="f_soru").value == ""
     assert any("q001 kaydedildi" in s.value for s in at.success)

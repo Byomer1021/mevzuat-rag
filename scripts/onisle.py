@@ -6,6 +6,10 @@ sonucu denetler. Sonuç: results/onisleme.json, olcumler §4, §9.
 PDF'ler temizlenir ve maddelere (madde yoksa paragraflara) bölünür; takvim
 satır satır, form kataloğu form form, web koleksiyonları öğe öğe parçalanır.
 Her kaynağın metni kişisel veri için ayrıca taranır.
+
+İkinci çıktı parcalar_sabit.jsonl: araştırma sorusunun sabit koşulu (K-022).
+Madde yapılı belgeler eşit sayıda, örtüşmesiz sabit parçaya bölünür; geri
+kalan her parça aynı.
 """
 
 import csv
@@ -24,6 +28,7 @@ from mevzuat_rag.parcalama import (
     katalog_parcala,
     madde_parcala,
     paragraf_parcala,
+    sabit_parcala,
     takvim_parcala,
     web_parcala,
 )
@@ -31,6 +36,7 @@ from mevzuat_rag.parcalama import (
 KOK = Path(__file__).resolve().parents[1]
 RAW = KOK / "data" / "raw"
 CIKTI = KOK / "data" / "processed" / "parcalar_madde.jsonl"
+CIKTI_SABIT = KOK / "data" / "processed" / "parcalar_sabit.jsonl"
 RAPOR = KOK / "results" / "onisleme.json"
 MADDE_TURLERI = ("madde", "gecici", "ek")
 # Yalnızca başlık tablosuna özgü izler. "Yayın Tarihi", "Revizyon Tarihi" gövdede
@@ -119,6 +125,18 @@ def main():
     uzunluklar = [len(p.metin) for ps in madde_parcalari.values() for p in ps
                   if p.tur in MADDE_TURLERI]
     hedef = int(statistics.median(uzunluklar))
+    # Karşılaştırma koşulu (K-022): yalnızca madde yapısındaki belgeler sabit
+    # uzunlukta kesilir, geri kalan her şey aynı. Boyut, bu belgelerde parça
+    # sayısı eşit olacak şekilde: toplam karakter / madde parçası sayısı. Böylece
+    # iki dizin aynı büyüklükte ve ilk k sonuç ortalamada aynı miktarda metin.
+    madde_belgeleri = [b for b, ps in madde_parcalari.items() if ps]
+    mb_parcalari = [p for b in madde_belgeleri for p in madde_parcalari[b]]
+    sabit_boyut = round(sum(len(p.metin) for p in mb_parcalari) / len(mb_parcalari))
+    # Kesim kelime sınırına çekildiği için parçalar boyuttan kısa kalıyor ve
+    # sayıları artıyor (694'te 959'a 923); sayı eşitlenene kadar büyütülür.
+    while (sum(len(sabit_parcala(b, temiz[b], sabit_boyut, 0)) for b in madde_belgeleri)
+           > len(mb_parcalari)):
+        sabit_boyut += 1
 
     adres = {s["belge_id"]: s["url"] for s in kaynaklar}
     ozetler: dict[str, list[str]] = {}
@@ -161,10 +179,27 @@ def main():
     kimlikler = Counter(p.id for p in parcalar)
     sorunlar += [f"{i}: parça kimliği {n} kez" for i, n in kimlikler.items() if n > 1]
 
+    sabit_parcalari = {}
+    for b in madde_belgeleri:
+        ps = sabit_parcala(b, temiz[b], sabit_boyut, 0)
+        if bosluksuz("".join(p.metin for p in ps)) != bosluksuz("\n".join(x.metin for x in temiz[b])):
+            sorunlar.append(f"{b}: sabit parçalar temiz metni birebir örtmüyor")
+        for p in ps:
+            p.url = adres[b]
+        sabit_parcalari[b] = ps
+    sabit_kume, eklenen = [], set()
+    for p in parcalar:  # aynı sıra; madde belgesinin yerine sabit parçaları
+        if p.belge_id not in sabit_parcalari:
+            sabit_kume.append(p)
+        elif p.belge_id not in eklenen:
+            sabit_kume += sabit_parcalari[p.belge_id]
+            eklenen.add(p.belge_id)
+
     CIKTI.parent.mkdir(parents=True, exist_ok=True)
-    with CIKTI.open("w", encoding="utf-8", newline="\n") as f:
-        for p in parcalar:
-            f.write(json.dumps(p.sozluk(), ensure_ascii=False) + "\n")
+    for yol, kume in ((CIKTI, parcalar), (CIKTI_SABIT, sabit_kume)):
+        with yol.open("w", encoding="utf-8", newline="\n") as f:
+            for p in kume:
+                f.write(json.dumps(p.sozluk(), ensure_ascii=False) + "\n")
 
     maddeler = [p for p in parcalar if p.tur in MADDE_TURLERI]
     q = statistics.quantiles(uzunluklar, n=10)
@@ -180,6 +215,13 @@ def main():
                           "p90": int(q[-1]), "max": max(uzunluklar),
                           "2000_ustu": sum(x > 2000 for x in uzunluklar)},
         "paragraf_hedefi": hedef,
+        "sabit_karsilastirma": {
+            "belge": len(madde_belgeleri),
+            "boyut": sabit_boyut,
+            "madde_kosulu_parca": len(mb_parcalari),
+            "sabit_kosulu_parca": sum(len(ps) for ps in sabit_parcalari.values()),
+            "toplam_parca": {"madde": len(parcalar), "sabit": len(sabit_kume)},
+        },
         "kaynak_turleri": dict(Counter(s["tur"] for s in kaynaklar)),
         "web_ogesi": web_ogesi,
         # aynı metni taşıyan farklı kaynaklar (aynı belge iki adreste olabilir)

@@ -57,7 +57,17 @@ metin ve parçalar koddan yeniden üretilebildiği için depoya girmez.
 
 **Açık nokta.** Belgeler üniversitenin kamuya açık resmî metinleri. Repo
 public yapılmadan önce yeniden dağıtımlarının serbest olduğu teyit edilecek.
-Bu henüz doğrulanmadı.
+
+**2026-10-17, kısmen doğrulandı.** 5846 sayılı Fikir ve Sanat Eserleri
+Kanunu m.31 (mevzuat.gov.tr metninden okundu): "Resmen yayımlanan veya ilan
+olunan kanun, Cumhurbaşkanlığı kararnamesi, yönetmelik, tebliğ, genelge ve
+kazai kararların çoğaltılması, yayılması, işlenmesi veya her hangi bir
+suretle bunlardan faydalanma serbesttir." Yönetmelikler bunun içinde.
+Yönerge, usul ve esaslar, rehberler ve web sayfaları listede açıkça yok.
+Hukuki görüş değil. Bu yüzden öneri metninde ([oneri.md](oneri.md)) public
+depo için plan: kod, sorular ve parça kimlikleri girer, dosyaların yerine
+indirme betiği. Private depoda PDF'ler kalıyor; karar repo public
+yapılırken kesinleşir.
 
 ## K-005: Cevap üretimindeki dil modeli, açık
 
@@ -136,13 +146,14 @@ yalnızca o katmanda adaptör yazılır.
 olduğundan iyi gösterir. Bu fark raporda "neden bu sayıya güvenilir" sorusunun
 cevabı olur. Proje tanımında böyle bir ayrım yok; öneri bize ait.
 
-## K-008: Kapsam ve bağlam, geçerli (2026-10-16)
+## K-008: Kapsam ve bağlam, değişti → K-023 (2026-10-16)
 
 - **Üniversite:** Gebze Teknik Üniversitesi.
-- **Bağlam:** NLP dersi projesi, **tek kişi**.
-- **Teslim:** yaklaşık 20-25 Aralık 2026. Plan en erken tarihe, **20
-  Aralık**'a göre yapılıyor. Hafta 1, 19 Ekim'de başlıyor; böylece tanımdaki
-  10 hafta 9'a iniyor.
+- **Bağlam:** NLP dersi projesi, **tek kişi**. *(K-023: ders 4 kişilik
+  takım öngörüyor; durum bilinmiyor.)*
+- ~~**Teslim:** yaklaşık 20-25 Aralık 2026. Plan en erken tarihe, **20
+  Aralık**'a göre yapılıyor.~~ *(K-023: final 17 Aralık.)* Hafta 1, 19
+  Ekim'de başlıyor.
 
 **Etkileri.**
 
@@ -232,6 +243,13 @@ Türkçe'ye özgü sorusu bu.
 bu yüzden ucuz. Aday araçlar `snowballstemmer` (Türkçe kök bulucu) ve
 `zeyrek` (Zemberek tabanlı lemmatizer); ikisi de henüz kurulup denenmedi.
 
+**2026-10-17.** `snowballstemmer` 3.1.1 kuruldu, `arama.py`'de `kok=True`
+seçeneği. Bilinen hataları: "devam" → "deva", "kanun" → "kan"
+([olcumler §10](olcumler.md)). Türk kanunları üzerindeki bir ölçümde aynı
+kök bulucu buna rağmen R@10'u göreli %12 artırmış (agirgol/turkish-legal-retrieval).
+Araştırma sorusu bu değil (K-022); ek ölçüm olarak kalıyor. `zeyrek`
+denenmedi.
+
 ## K-014: Satır düzeyinde çıkarma; parça kimliği test setinin dayanağı, geçerli (2026-10-16)
 
 - PDF metni satır düzeyinde çıkarılıyor ve satırlar kendi konumlarına göre
@@ -243,10 +261,14 @@ bu yüzden ucuz. Aday araçlar `snowballstemmer` (Türkçe kök bulucu) ve
   bu kimliklerle hesaplanacak.
 - **Sınır:** sabit uzunluklu parçalamada parçalar madde sınırına uymaz.
   Orada bir parçanın "doğru" sayılması için, dayanak maddenin metniyle
-  örtüşmesi gerekiyor. Ölçüt hafta 3'te, ilk Recall@k hesaplanmadan önce
-  yazılacak.
+  örtüşmesi gerekiyor. ~~Ölçüt hafta 3'te, ilk Recall@k hesaplanmadan önce
+  yazılacak.~~ Ölçüt yazıldı: kanıt alıntısı (K-022, 2026-10-17).
 
-## K-015: Sabit parçalama boyutu madde uzunluğuna göre seçilir, öneri
+## K-015: Sabit parçalama boyutu madde uzunluğuna göre seçilir, ~~öneri~~ değişti → K-022
+
+*(K-022: boyut parça sayısı eşit olacak şekilde, 721 karakter. Medyan
+artık 395; onunla 49 belgenin 640.849 karakteri en az ~1620 parça olurdu,
+madde koşulunda 923.)*
 
 Sabit ve madde bazlı parçalamanın karşılaştırması adil olsun diye sabit
 parça boyutu, madde uzunluğunun medyanı (365 karakter) etrafında seçilsin.
@@ -424,3 +446,88 @@ görünür ([soru-yazma.md](soru-yazma.md)).
 
 **Yenileme.** Duyurular hızla eskiyor. Bilgi tabanı dondurulduğunda (K-016)
 koleksiyonlar o günkü taramadan üretilir ve tarih kayda geçer.
+
+## K-022: Araştırma sorusu: madde sınırı mı, aynı sayıda sabit parça mı; öneri (2026-10-17)
+
+Dersin öneri şablonu tek, karşılaştırmalı, ölçülebilir, yanlışlanabilir,
+kontrollü ve açık bir soru istiyor; "hangi parçalama ve arama stratejisi en
+iyisi" bu değil. Proje tanımının merkezindeki seçim bu şekle indirildi.
+Hocaya gidecek metin: [oneri.md](oneri.md). Onay Ömer Can'ın.
+
+**Soru.** ≥150 elle yazılmış test sorusunda, madde yapılı 49 belgeyi madde
+sınırından bölmek, aynı sayıda sabit uzunluklu parçaya göre, cevabın geçtiği
+cümleyi ilk 5 sonuçta daha sık getiriyor mu? BM25 ve yoğun arama
+(multilingual-e5-base) için ayrı ayrı. **Hayır:** farkın (madde − sabit) %95
+eşleştirilmiş bootstrap aralığı sıfırı içeriyorsa.
+
+**Neden bu soru.**
+
+- Madde parçalayıcı projenin en çok emek giden parçası (11 başlık biçimi).
+  İşe yarayıp yaramadığı ölçülmeli.
+- Açık. En yakın ölçüm agirgol/turkish-legal-retrieval (Ağustos 2026,
+  GitHub, makale yok): 907 Türk kanunu, atıflardan üretilmiş 5010 sorgu.
+  Yoğun aramada bütün madde 400 tokenlık pencerelere kaybetti (R@10'da 570'e
+  karşı 669, McNemar p < 0.001), yapıya göre kesmek pencereden iyi değildi,
+  en büyük tek etki kanun adı önekiydi. Orada maddelerin %8.1'i 512 tokenı
+  aşıyor ve sorgular soru değil. Bizde maddeler kısa (medyan 395 karakter),
+  sorular öğrenci sorusu. Sonucun buraya taşınıp taşınmadığı bilinmiyor;
+  "hayır" gerçekten olası.
+- Dil modelinden bağımsız; K-005'i beklemeden ölçülür.
+
+**Kontrol: değişen tek şey parça sınırları** ([olcumler §10](olcumler.md)).
+
+- Yalnız madde yapılı 49 belge değişiyor; diğer 60 PDF iki koşulda aynı
+  paragraf parçaları.
+- Sabit boyut, parça sayısı eşit olacak şekilde: **721 karakter, 922'ye
+  karşı 923 parça**. Ortalama parça uzunluğu da böylece eşit. K-015'in
+  yerine geçti.
+- Örtüşme yok; madde parçaları da örtüşmüyor.
+- Belge adı iki koşulda da her parçanın önünde. Aynı başlıklı bölüm
+  belgelerini (15 ayrı staj esası gibi) ayıran bu; agirgol'da en büyük etki.
+  Sabit tutuluyor; kendi etkisi ayrıca ölçülebilir.
+- **Dizin yalnız PDF'ler.** Gösterim sorusunda SSS cevabı yönetmelik
+  maddesinin önüne geçti. Web içeriği iki koşulda aynı olduğu için
+  karşılaştırmaya bilgi katmıyor, yalnız mutlak sayıları bozuyor. Sistemde
+  ve demoda web içeriği kalıyor.
+- Taban sistem: sabit parça + BM25 (Türkçe küçük harf, kök bulmasız).
+
+**Doğru sayma: kanıt alıntısı** (K-014'ün açık bıraktığı ölçüt). Her
+dayanağa maddeden birebir kopyalanmış cevap cümlesi (`kanit`, testset.py).
+Bulundu = alıntının bütün karakterleri, altın belgeden getirilen ilk k
+parçanın birleşiminde. İki pencereye bölünen alıntı ikisini de ister. Başka
+belgedeki aynı metin sayılmaz; sistem kaynak gösterecek. Ölçüt
+parçalamadan bağımsız; LegalBench-RAG'in karakter aralığı etiketiyle aynı
+fikir. Kod: `degerlendirme.py`.
+
+**Gürültü.** Sorular üzerinden eşleştirilmiş bootstrap (10.000 örnek),
+kesin McNemar. Soruların ~%20'sinde koşullar ayrışırsa (varsayım, dev'de
+ölçülecek) n=150'de aralığın yarı genişliği ~7 puan; daha küçük farklar
+"ayırt edilemedi" diye raporlanır.
+
+**Ek ölçümler, soru değil:** kök bulma (K-013), belge adı öneki, başlık
+temizliği (K-012), cevap üretimi (K-005).
+
+**Değişirse:** takıma bir CSE 654 üyesi gelirse kutu 7'de ablasyon veya
+yayınlanmış taban karşılaştırması eklenir; soru aynı kalır.
+
+## K-023: Dersin takvimi ve takım kuralı, geçerli (2026-10-17)
+
+Kaynak: NLP_Syllabus_2026Fall.pdf ve öneri şablonu (hoca, Teams). K-008'in
+teslim tarihini ve "tek kişi" varsayımını değiştiriyor.
+
+| ne | ne zaman |
+|---|---|
+| öneri: `Team##_Proposal.pdf`, en fazla 2 sayfa; **her üye ayrıca teslim eder**, etmeyen sıfır alır | 21 Ekim Çarşamba 23:59 |
+| öneri sunumu: 5 dakika, en fazla 5 slayt, ilk slaytta araştırma sorusu | 22 Ekim Perşembe |
+| ara rapor: en az taban sistemin sayıları | 5 Kasım |
+| ara sınav | 19 Kasım |
+| final rapor ve kod | **17 Aralık** |
+| final sunumları | 17 ve 24 Aralık |
+
+- **Takım:** dört kişi; önerilen bileşim 1 CSE 654 + 3 CSE 484. Takımlar 1
+  Ekim'e kadar Teams kanalına kaydedilir; "Students not on a team by then
+  are assigned to one." Ömer Can'ın durumu **bilinmiyor**. Öneri taslağı
+  tek kişi varsayımıyla; takım numarası, üyeler ve roller boş bırakıldı.
+- **Yapay zekâ araçları** serbest, raporda kısa beyan zorunlu; öneri formunun
+  9. kutusu soruyor. Beyan edilmemiş kullanım akademik dürüstlük ihlali.
+- Plan 17 Aralık'a göre: [on-rapor §8](on-rapor.md).
