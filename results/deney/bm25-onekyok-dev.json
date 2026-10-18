@@ -1,0 +1,3634 @@
+{
+ "bilgi_tabani_surumu": "b3c7d85cce08",
+ "parca_surumu": "2b5af885972a",
+ "sabit_boyut": 721,
+ "konfigurasyon": {
+  "arama": "bm25",
+  "model": null,
+  "cihaz": null,
+  "kok": false,
+  "belge_adi_oneki": false,
+  "bolum": "dev",
+  "sorular": "data\\testset\\sorular.jsonl"
+ },
+ "zaman": "2026-10-19T02:40:40",
+ "sure_s": {
+  "dizin": 0.7,
+  "sorgular": 0.8
+ },
+ "soru_sayisi": {
+  "bolumde": 51,
+  "birincil": 37,
+  "tum_pdf": 37
+ },
+ "sonuclar": {
+  "birincil": {
+   "n": 37,
+   "k": [
+    1,
+    5,
+    10
+   ],
+   "ozet": {
+    "madde": {
+     "R@1": 0.0676,
+     "R@5": 0.1486,
+     "R@10": 0.2162,
+     "MRR@10": 0.0848
+    },
+    "sabit": {
+     "R@1": 0.027,
+     "R@5": 0.1757,
+     "R@10": 0.2162,
+     "MRR@10": 0.0723
+    }
+   },
+   "fark": {
+    "R@1": {
+     "fark": 0.04054054054054054,
+     "alt": 0.0,
+     "ust": 0.10810810810810811,
+     "n": 37
+    },
+    "R@5": {
+     "fark": -0.02702702702702703,
+     "alt": -0.16216216216216217,
+     "ust": 0.08108108108108109,
+     "n": 37
+    },
+    "R@10": {
+     "fark": 0.0,
+     "alt": -0.10810810810810811,
+     "ust": 0.10810810810810811,
+     "n": 37
+    },
+    "MRR@10": {
+     "fark": 0.012505362505362503,
+     "alt": -0.031854354354354346,
+     "ust": 0.06666666666666667,
+     "n": 37
+    }
+   },
+   "sorular": [
+    {
+     "id": "q001",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m32"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p5",
+       "staj-sss-harita/p39",
+       "staj-sss-muhendislik/p47",
+       "staj-sss-harita/p4",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-defteri-endustri-yonetim/p14",
+       "staj-sss-harita/p53",
+       "staj-sss-muhendislik/p131",
+       "staj-sss-harita/p107",
+       "eposta-kilavuzu/p2"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p5",
+       "staj-sss-harita/p39",
+       "staj-sss-muhendislik/p47",
+       "staj-sss-harita/p4",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-defteri-endustri-yonetim/p14",
+       "staj-sss-harita/p53",
+       "staj-sss-muhendislik/p131",
+       "staj-sss-harita/p107",
+       "eposta-kilavuzu/p2"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q002",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m25"
+     ],
+     "madde": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p59",
+       "yatay-gecis-sss-iktisat/p6",
+       "yo-0003/m5",
+       "lisans-yonetmelik/m25",
+       "muafiyet-sinavi/m2",
+       "yo-0086/p34",
+       "staj-bilgilendirme-harita/p1",
+       "azami-sure/m13",
+       "hazirlik-ogrenci-el-kitabi/p77",
+       "lisans-yonetmelik-2017-oncesi/m22"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 4
+     },
+     "sabit": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p59",
+       "lisans-yonetmelik/s25",
+       "yatay-gecis-sss-iktisat/p6",
+       "lisans-yonetmelik-2017-oncesi/s29",
+       "yo-0086/p34",
+       "staj-bilgilendirme-harita/p1",
+       "yo-0003/s2",
+       "hazirlik-ogrenci-el-kitabi/p77",
+       "staj-bilgilendirme-harita/p5",
+       "hazirlik-ogrenci-el-kitabi/p85"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 2
+     }
+    },
+    {
+     "id": "q003",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m29"
+     ],
+     "madde": {
+      "getirilen": [
+       "mazeret-esaslari-muhendislik/p11",
+       "mazeret-esaslari-muhendislik/p13",
+       "lisans-yonetmelik/m29",
+       "hazirlik/m10",
+       "staj-sss-muhendislik/p27",
+       "mazeret-esaslari-muhendislik/p9",
+       "staj-sss-muhendislik/p1",
+       "staj-sss-muhendislik/p15",
+       "muafiyet-sinavi/m2",
+       "staj-sss-harita/p76"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 3
+     },
+     "sabit": {
+      "getirilen": [
+       "mazeret-esaslari-muhendislik/p11",
+       "mazeret-esaslari-muhendislik/p13",
+       "staj-sss-muhendislik/p27",
+       "hazirlik/s9",
+       "hazirlik/s10",
+       "staj-sss-muhendislik/p1",
+       "mazeret-esaslari-muhendislik/p9",
+       "staj-sss-muhendislik/p15",
+       "lisans-yonetmelik-2017-oncesi/s29",
+       "staj-sss-harita/p76"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q004",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m5"
+     ],
+     "madde": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p67",
+       "yo-0037/m6",
+       "af-7592-uygulama-ilkeleri/p12",
+       "muafiyet-sinavi/m6",
+       "yatay-gecis-sss-iktisat/p4",
+       "yatay-gecis-sss-iktisat/p5",
+       "yo-0035/m22",
+       "hazirlik/m9",
+       "muafiyet-intibak/m7",
+       "yo-0037/m8"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p67",
+       "yo-0037/s3",
+       "af-7592-uygulama-ilkeleri/p12",
+       "yo-0005/s2",
+       "yo-0037/s1",
+       "yatay-gecis-sss-iktisat/p4",
+       "yatay-gecis-sss-iktisat/p5",
+       "lisans-yonetmelik-2017-oncesi/s22",
+       "muafiyet-sinavi/s5",
+       "lisans-yonetmelik/s25"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q005",
+     "tur": "tek",
+     "dayanak": [
+      "yatay-gecis/m4"
+     ],
+     "madde": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p3",
+       "yatay-gecis-sss-iktisat/p2",
+       "af-7592-uygulama-ilkeleri/p42",
+       "yok-gecis-yonetmeligi/m8",
+       "yatay-gecis/m6",
+       "yatay-gecis/m5",
+       "yok-gecis-yonetmeligi/m5",
+       "yok-gecis-yonetmeligi/m11",
+       "yatay-gecis/m14",
+       "yatay-gecis/m8"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p3",
+       "yatay-gecis-sss-iktisat/p2",
+       "yok-gecis-yonetmeligi/s31",
+       "yatay-gecis/s11",
+       "af-7592-uygulama-ilkeleri/p42",
+       "yatay-gecis/s9",
+       "yok-gecis-yonetmeligi/s10",
+       "yok-gecis-yonetmeligi/s17",
+       "yok-gecis-yonetmeligi/s26",
+       "yok-gecis-yonetmeligi/s30"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q006",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m33"
+     ],
+     "madde": {
+      "getirilen": [
+       "lisans-yonetmelik/m33",
+       "lisans-yonetmelik-2017-oncesi/m29",
+       "muafiyet-sinavi/m2",
+       "yo-0083/p79",
+       "hazirlik-ogrenci-el-kitabi/p76",
+       "bitirme-yazim-kilavuzu-kimya/p17",
+       "staj-sss-harita/p5",
+       "bitirme-yazim-kilavuzu-kimya/p34",
+       "staj-sss-harita/p42",
+       "staj-sss-muhendislik/p50"
+      ],
+      "kapsam": {
+       "1": 1.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 1
+     },
+     "sabit": {
+      "getirilen": [
+       "lisans-yonetmelik/s37",
+       "lisans-yonetmelik-2017-oncesi/s36",
+       "yo-0083/p79",
+       "hazirlik-ogrenci-el-kitabi/p76",
+       "lisans-yonetmelik/s36",
+       "bitirme-yazim-kilavuzu-kimya/p17",
+       "staj-sss-harita/p5",
+       "bitirme-yazim-kilavuzu-kimya/p34",
+       "muafiyet-sinavi/s2",
+       "lisans-yonetmelik-2017-oncesi/s30"
+      ],
+      "kapsam": {
+       "1": 1.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 1
+     }
+    },
+    {
+     "id": "q007",
+     "tur": "tek",
+     "dayanak": [
+      "staj-muhendislik/m12"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "staj-sss-harita/p6",
+       "staj-sss-muhendislik/p7",
+       "staj-sss-harita/p5",
+       "staj-bilgilendirme-harita/p6",
+       "staj-sss-muhendislik/p63",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-muhendislik/p141"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "staj-sss-harita/p6",
+       "staj-sss-muhendislik/p7",
+       "staj-sss-harita/p5",
+       "staj-bilgilendirme-harita/p6",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-muhendislik/p63",
+       "staj-sss-muhendislik/p141"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q008",
+     "tur": "cok",
+     "dayanak": [
+      "staj-muhendislik/m8",
+      "staj-muhendislik/m18"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p8",
+       "staj-sss-muhendislik/p69",
+       "staj-sss-harita/p8",
+       "staj-sss-muhendislik/p66",
+       "staj-sss-harita/p55",
+       "staj-sss-harita/p53",
+       "staj-sss-muhendislik/p62",
+       "staj-sss-harita/p7",
+       "staj-defteri-bilgisayar/p1",
+       "staj-sss-muhendislik/p23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p8",
+       "staj-sss-muhendislik/p69",
+       "staj-sss-harita/p8",
+       "staj-sss-muhendislik/p66",
+       "staj-sss-harita/p55",
+       "staj-sss-harita/p53",
+       "staj-sss-muhendislik/p62",
+       "staj-sss-harita/p7",
+       "staj-defteri-bilgisayar/p1",
+       "staj-sss-muhendislik/p23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q009",
+     "tur": "tek",
+     "dayanak": [
+      "staj-muhendislik/m9"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p3",
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-muhendislik/p58",
+       "yo-0085/m7",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "yo-0086/p38",
+       "yo-0088/p4",
+       "staj-sss-harita/p5"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p3",
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-muhendislik/p58",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "yo-0086/p38",
+       "yo-0088/p4",
+       "staj-sss-harita/p5",
+       "yo-0083/p18"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q010",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m15"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0110/m7",
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "yo-0083/p79",
+       "staj-sss-muhendislik/p163",
+       "yo-0016/m13",
+       "ogretim-plani-malzeme/p13",
+       "staj-sss-muhendislik/p19",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "staj-sss-muhendislik/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "yo-0083/p79",
+       "staj-sss-muhendislik/p163",
+       "lisans-yonetmelik-2017-oncesi/s27",
+       "ogretim-plani-malzeme/p13",
+       "staj-sss-muhendislik/p19",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q011",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m35"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p6",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p47",
+       "staj-sss-muhendislik/p55",
+       "staj-sss-harita/p2",
+       "staj-sss-muhendislik/p120",
+       "staj-sss-harita/p96",
+       "duzensiz-ogrenci-rehberi/p9",
+       "yatay-gecis-sss-iktisat/p2",
+       "staj-sss-harita/p23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p6",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p47",
+       "staj-sss-muhendislik/p55",
+       "staj-sss-harita/p2",
+       "staj-sss-muhendislik/p120",
+       "staj-sss-harita/p96",
+       "duzensiz-ogrenci-rehberi/p9",
+       "yatay-gecis-sss-iktisat/p2",
+       "staj-sss-harita/p23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q012",
+     "tur": "tek",
+     "dayanak": [
+      "hazirlik/m10"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0083/p71",
+       "yo-0083/p72",
+       "yatay-gecis-sss-iktisat/p18",
+       "yatay-gecis-sss-iktisat/p14",
+       "yo-0083/p73",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p61",
+       "staj-sss-muhendislik/p77"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yo-0083/p71",
+       "yo-0083/p72",
+       "yatay-gecis-sss-iktisat/p18",
+       "yatay-gecis-sss-iktisat/p14",
+       "yo-0083/p73",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p61",
+       "staj-sss-muhendislik/p77"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q013",
+     "tur": "tek",
+     "dayanak": [
+      "yatay-gecis/m6"
+     ],
+     "madde": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p3",
+       "yan-dal/m22",
+       "cift-anadal/m20",
+       "af-7592-uygulama-ilkeleri/p12",
+       "yatay-gecis-sss-iktisat/p9",
+       "yok-gecis-yonetmeligi/m9",
+       "yok-gecis-yonetmeligi/m14",
+       "yatay-gecis/m4",
+       "yok-gecis-yonetmeligi/m8",
+       "yok-gecis-yonetmeligi/m24"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yok-gecis-yonetmeligi/s17",
+       "yatay-gecis-sss-iktisat/p3",
+       "yok-gecis-yonetmeligi/s59",
+       "yok-gecis-yonetmeligi/s33",
+       "yok-gecis-yonetmeligi/s32",
+       "yok-gecis-yonetmeligi/s21",
+       "yok-gecis-yonetmeligi/s6",
+       "af-7592-uygulama-ilkeleri/p12",
+       "yatay-gecis-sss-iktisat/p9",
+       "yatay-gecis/s6"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q015",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m16"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p3",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "lisans-yonetmelik/m31",
+       "staj-sss-muhendislik/p22",
+       "staj-sss-harita/p3",
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "yo-0083/p76",
+       "staj-sss-muhendislik/p163"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p3",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "staj-sss-muhendislik/p22",
+       "staj-sss-harita/p3",
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "yaz-ogretimi/s7",
+       "yo-0083/p76",
+       "staj-rehberi-insaat/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q016",
+     "tur": "tek",
+     "dayanak": [
+      "danismanlik/m5"
+     ],
+     "madde": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p19",
+       "staj-sss-muhendislik/p8",
+       "yo-0037/m4",
+       "staj-defteri-bilgisayar/p1",
+       "staj-bilgilendirme-harita/p2",
+       "staj-sss-harita/p8",
+       "staj-sss-muhendislik/p23",
+       "staj-sss-muhendislik/p20",
+       "staj-defteri-endustri-yonetim/p16",
+       "staj-sss-muhendislik/p171"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p19",
+       "staj-sss-muhendislik/p8",
+       "staj-defteri-bilgisayar/p1",
+       "staj-bilgilendirme-harita/p2",
+       "staj-sss-harita/p8",
+       "staj-sss-muhendislik/p23",
+       "staj-sss-muhendislik/p20",
+       "staj-defteri-endustri-yonetim/p16",
+       "staj-sss-muhendislik/p171",
+       "staj-sss-muhendislik/p18"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q017",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m28"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0039/m27",
+       "program-disi-ogrenme/m8",
+       "lisans-yonetmelik/m37",
+       "yo-0016/m12",
+       "hazirlik/m11",
+       "lisans-yonetmelik-2017-oncesi/m31",
+       "yo-0005/m4",
+       "staj-sss-muhendislik/p8",
+       "lisans-yonetmelik/m28",
+       "yo-0037/m4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 1.0
+      },
+      "sira": 9
+     },
+     "sabit": {
+      "getirilen": [
+       "program-disi-ogrenme/s4",
+       "hazirlik/s11",
+       "yo-0039/s31",
+       "staj-sss-muhendislik/p8",
+       "lisans-yonetmelik-2017-oncesi/s38",
+       "yo-0016/s16",
+       "lisans-yonetmelik/s30",
+       "lisans-yonetmelik/s40",
+       "yo-0039/s32",
+       "staj-defteri-bilgisayar/p1"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 1.0
+      },
+      "sira": 7
+     }
+    },
+    {
+     "id": "q018",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m16"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p12",
+       "ogretim-plani-matematik/p5",
+       "lisans-yonetmelik/m16",
+       "kismi-zamanli/m8",
+       "staj-defteri-endustri-yonetim/p1",
+       "yatay-gecis-sss-iktisat/p11",
+       "staj-sss-muhendislik/p69",
+       "staj-sss-muhendislik/p89",
+       "staj-sss-harita/p111",
+       "staj-sss-muhendislik/p135"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 3
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p12",
+       "lisans-yonetmelik/s15",
+       "ogretim-plani-matematik/p5",
+       "kismi-zamanli/s5",
+       "lisans-yonetmelik/s22",
+       "staj-defteri-endustri-yonetim/p1",
+       "yatay-gecis-sss-iktisat/p11",
+       "staj-sss-muhendislik/p69",
+       "staj-sss-muhendislik/p89",
+       "staj-sss-harita/p111"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q019",
+     "tur": "tek",
+     "dayanak": [
+      "engelli-ogrenciler/m7"
+     ],
+     "madde": {
+      "getirilen": [
+       "engelli-ogrenciler/m7",
+       "engelli-ogrenciler/giris",
+       "engelli-ogrenciler/m10",
+       "engelli-ogrenciler/m1",
+       "yo-0001/m11",
+       "engelli-ogrenciler/m5",
+       "yo-0039/m36",
+       "yo-0001/m9",
+       "hazirlik-ogrenci-el-kitabi/p77",
+       "staj-sss-harita/p43"
+      ],
+      "kapsam": {
+       "1": 1.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 1
+     },
+     "sabit": {
+      "getirilen": [
+       "engelli-ogrenciler/s11",
+       "engelli-ogrenciler/s8",
+       "engelli-ogrenciler/s9",
+       "engelli-ogrenciler/s1",
+       "engelli-ogrenciler/s10",
+       "engelli-ogrenciler/s12",
+       "yo-0001/s11",
+       "yo-0001/s13",
+       "yok-gecis-yonetmeligi/s20",
+       "engelli-ogrenciler/s7"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 3
+     }
+    },
+    {
+     "id": "q021",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m19"
+     ],
+     "madde": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p11",
+       "kismi-zamanli/m8",
+       "ogretim-plani-elektronik/p17",
+       "hazirlik-ogrenci-el-kitabi/p65",
+       "ogretim-plani-elektronik/p14",
+       "staj-sss-harita/p111",
+       "staj-sss-muhendislik/p135",
+       "ogretim-plani-elektronik/p19",
+       "ogretim-plani-elektronik/p16",
+       "ogretim-plani-elektronik/p15"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p11",
+       "ogretim-plani-elektronik/p17",
+       "staj-sss-harita/p111",
+       "staj-sss-muhendislik/p135",
+       "hazirlik-ogrenci-el-kitabi/p65",
+       "ogretim-plani-elektronik/p14",
+       "ogretim-plani-elektronik/p19",
+       "ogretim-plani-elektronik/p16",
+       "ogretim-plani-elektronik/p15",
+       "ogretim-plani-elektronik/p20"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q023",
+     "tur": "cok",
+     "dayanak": [
+      "lisans-yonetmelik/m14",
+      "azami-sure/m7"
+     ],
+     "madde": {
+      "getirilen": [
+       "bitirme-yazim-kilavuzu-kimya/p40",
+       "yo-0080/p13",
+       "yo-0080/p29",
+       "yo-0003/m4",
+       "bitirme-yazim-kilavuzu-kimya/p2",
+       "yo-0080/p6",
+       "yo-0083/p77",
+       "bitirme-yazim-kilavuzu-kimya/p32",
+       "bitirme-yazim-kilavuzu-kimya/p26",
+       "yo-0006/m5"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "bitirme-yazim-kilavuzu-kimya/p40",
+       "yo-0080/p13",
+       "yo-0080/p29",
+       "yo-0018/s28",
+       "yo-0018/s29",
+       "yo-0003/s2",
+       "yo-0028/s6",
+       "bitirme-yazim-kilavuzu-kimya/p2",
+       "yo-0080/p6",
+       "yo-0083/p77"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q024",
+     "tur": "tek",
+     "dayanak": [
+      "kismi-zamanli/m8"
+     ],
+     "madde": {
+      "getirilen": [
+       "kismi-zamanli/m4",
+       "kismi-zamanli/m6",
+       "kismi-zamanli/m12",
+       "kismi-zamanli/m10",
+       "kismi-zamanli/m15",
+       "kismi-zamanli/m13",
+       "yo-0083/p15",
+       "kismi-zamanli/m16",
+       "kismi-zamanli/m8",
+       "kismi-zamanli/m17"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 1.0
+      },
+      "sira": 9
+     },
+     "sabit": {
+      "getirilen": [
+       "kismi-zamanli/s2",
+       "kismi-zamanli/s4",
+       "kismi-zamanli/s9",
+       "kismi-zamanli/s6",
+       "yo-0083/p15",
+       "kismi-zamanli/s11",
+       "kismi-zamanli/s5",
+       "kismi-zamanli/s8",
+       "staj-sss-harita/p31",
+       "staj-sss-muhendislik/p39"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 4
+     }
+    },
+    {
+     "id": "q025",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m36"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4",
+       "yo-0046/m9",
+       "staj-sss-harita/p5",
+       "staj-sss-muhendislik/p3",
+       "yo-0032/m13",
+       "yo-0110/m7"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4",
+       "staj-sss-harita/p5",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-harita/p59",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-muhendislik/p22"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q031",
+     "tur": "tek",
+     "dayanak": [
+      "yo-0024/m9"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p27",
+       "staj-sss-muhendislik/p1",
+       "staj-sss-muhendislik/p15",
+       "hazirlik-ogrenci-el-kitabi/p89",
+       "staj-sss-harita/p76",
+       "staj-sss-muhendislik/p100",
+       "staj-sss-harita/p1",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-sss-muhendislik/p97",
+       "staj-sss-harita/p19"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p27",
+       "staj-sss-muhendislik/p1",
+       "staj-sss-muhendislik/p15",
+       "hazirlik-ogrenci-el-kitabi/p89",
+       "staj-sss-harita/p76",
+       "staj-sss-muhendislik/p100",
+       "staj-sss-harita/p1",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-sss-muhendislik/p97",
+       "staj-sss-harita/p19"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q032",
+     "tur": "cok",
+     "dayanak": [
+      "lisans-yonetmelik/m23",
+      "lisans-yonetmelik/m32"
+     ],
+     "madde": {
+      "getirilen": [
+       "lisans-yonetmelik/m23",
+       "staj-bilgilendirme-harita/p1",
+       "lisans-yonetmelik/m24",
+       "yo-0016/m13",
+       "hazirlik-ogrenci-el-kitabi/p59",
+       "ogretim-plani-ybs/p9",
+       "hazirlik/m5",
+       "hazirlik-ogrenci-el-kitabi/p12",
+       "lisans-yonetmelik/m25",
+       "hazirlik/m9"
+      ],
+      "kapsam": {
+       "1": 0.5,
+       "5": 0.5,
+       "10": 0.5
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "lisans-yonetmelik/s24",
+       "staj-bilgilendirme-harita/p1",
+       "lisans-yonetmelik-2017-oncesi/s28",
+       "lisans-yonetmelik/s23",
+       "yo-0016/s17",
+       "hazirlik-ogrenci-el-kitabi/p59",
+       "ogretim-plani-ybs/p9",
+       "hazirlik-ogrenci-el-kitabi/p12",
+       "lisans-yonetmelik-2017-oncesi/s27",
+       "ogretim-plani-harita/p62"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.5,
+       "10": 0.5
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q033",
+     "tur": "cok",
+     "dayanak": [
+      "lisans-yonetmelik/m32",
+      "cift-anadal/m11"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p45",
+       "staj-sss-harita/p5",
+       "yo-0080/p17",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "yo-0086/p30",
+       "staj-sss-muhendislik/p7",
+       "staj-sss-muhendislik/p29"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p45",
+       "staj-sss-harita/p5",
+       "yo-0080/p17",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "yo-0086/p30",
+       "staj-sss-muhendislik/p7",
+       "staj-sss-muhendislik/p29"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q034",
+     "tur": "cok",
+     "dayanak": [
+      "cift-anadal/m1",
+      "yan-dal/m1"
+     ],
+     "madde": {
+      "getirilen": [
+       "duzensiz-ogrenci-rehberi/p9",
+       "yo-0083/p9",
+       "yo-0085/m9",
+       "yok-gecis-yonetmeligi/m18",
+       "yok-gecis-yonetmeligi/m20",
+       "staj-defteri-bilgisayar/p11",
+       "yo-0006/m5",
+       "staj-defteri-endustri-yonetim/p18",
+       "yok-gecis-yonetmeligi/m19",
+       "yok-gecis-yonetmeligi/m21"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "duzensiz-ogrenci-rehberi/p9",
+       "yo-0083/p9",
+       "yok-gecis-yonetmeligi/s46",
+       "yok-gecis-yonetmeligi/s48",
+       "staj-defteri-bilgisayar/p11",
+       "staj-defteri-endustri-yonetim/p18",
+       "yok-gecis-yonetmeligi/s47",
+       "yo-0006/s5",
+       "yo-0085/s4",
+       "yok-gecis-yonetmeligi/s49"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q035",
+     "tur": "tek",
+     "dayanak": [
+      "erasmus/m4"
+     ],
+     "madde": {
+      "getirilen": [
+       "duzensiz-ogrenci-rehberi/p11",
+       "bitirme-yazim-kilavuzu-kimya/p37",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4",
+       "bitirme-yazim-kilavuzu-kimya/p8",
+       "staj-sss-muhendislik/p3",
+       "yan-dal/m5",
+       "staj-sss-harita/p5",
+       "hazirlik-ogrenci-el-kitabi/p23",
+       "yan-dal/m4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yan-dal/s2",
+       "duzensiz-ogrenci-rehberi/p11",
+       "yok-gecis-yonetmeligi/s41",
+       "yok-gecis-yonetmeligi/s25",
+       "bitirme-yazim-kilavuzu-kimya/p37",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4",
+       "bitirme-yazim-kilavuzu-kimya/p8",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-harita/p5"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q036",
+     "tur": "tek",
+     "dayanak": [
+      "erasmus/m4"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0083/p75",
+       "yatay-gecis-sss-iktisat/p5",
+       "hazirlik-ogrenci-el-kitabi/p97",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-sss-harita/p5",
+       "hazirlik-ogrenci-el-kitabi/p13",
+       "staj-sss-harita/p4",
+       "yatay-gecis-sss-iktisat/p13",
+       "hazirlik-ogrenci-el-kitabi/p15",
+       "staj-sss-muhendislik/p3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yo-0083/p75",
+       "yatay-gecis-sss-iktisat/p5",
+       "erasmus/s12",
+       "erasmus/s6",
+       "hazirlik-ogrenci-el-kitabi/p97",
+       "erasmus/s14",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-sss-harita/p5",
+       "yatay-gecis-sss-iktisat/p13",
+       "staj-sss-harita/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 4
+     }
+    },
+    {
+     "id": "q037",
+     "tur": "tek",
+     "dayanak": [
+      "erasmus/m4"
+     ],
+     "madde": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p70",
+       "yatay-gecis-sss-iktisat/p4",
+       "af-7592-uygulama-ilkeleri/p54",
+       "yatay-gecis-sss-iktisat/p6",
+       "erasmus/m5",
+       "hazirlik-ogrenci-el-kitabi/p44",
+       "hazirlik-ogrenci-el-kitabi/p113",
+       "ogretim-plani-makine/p14",
+       "ogretim-plani-makine/p15",
+       "hazirlik/m3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "erasmus/s5",
+       "hazirlik-ogrenci-el-kitabi/p70",
+       "erasmus/s9",
+       "yatay-gecis-sss-iktisat/p4",
+       "af-7592-uygulama-ilkeleri/p54",
+       "yatay-gecis-sss-iktisat/p6",
+       "yok-gecis-yonetmeligi/s57",
+       "yok-gecis-yonetmeligi/s12",
+       "hazirlik/s2",
+       "hazirlik/s3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q038",
+     "tur": "tek",
+     "dayanak": [
+      "erasmus/m6"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p171",
+       "staj-sss-muhendislik/p23",
+       "staj-sss-harita/p17",
+       "kismi-zamanli/m15",
+       "erasmus/m2",
+       "yo-0082/p16",
+       "staj-sss-muhendislik/p170",
+       "staj-sss-harita/p137",
+       "staj-sss-harita/p138",
+       "yo-0110/m17"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "erasmus/s14",
+       "staj-sss-muhendislik/p171",
+       "staj-sss-muhendislik/p23",
+       "staj-sss-harita/p17",
+       "erasmus/s12",
+       "yo-0082/p16",
+       "staj-sss-muhendislik/p170",
+       "erasmus/s1",
+       "staj-sss-harita/p137",
+       "staj-sss-harita/p138"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 5
+     }
+    },
+    {
+     "id": "q040",
+     "tur": "tek",
+     "dayanak": [
+      "yo-0032/m7"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p76",
+       "staj-sss-muhendislik/p100",
+       "staj-sss-muhendislik/p15",
+       "hazirlik-ogrenci-el-kitabi/p1",
+       "staj-sss-harita/p12",
+       "yo-0032/m13",
+       "staj-bilgisayar/p17",
+       "yo-0080/p16",
+       "erasmus/m7",
+       "hazirlik-ogrenci-el-kitabi/p29"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p76",
+       "staj-sss-muhendislik/p100",
+       "staj-sss-muhendislik/p15",
+       "hazirlik-ogrenci-el-kitabi/p1",
+       "staj-sss-harita/p12",
+       "staj-bilgisayar/p17",
+       "yo-0080/p16",
+       "hazirlik-ogrenci-el-kitabi/p29",
+       "yo-0086/p42",
+       "danismanlik/s6"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q041",
+     "tur": "cok",
+     "dayanak": [
+      "yaz-ogretimi/m14",
+      "lisans-yonetmelik/m26"
+     ],
+     "madde": {
+      "getirilen": [
+       "muafiyet-sinavi/m6",
+       "azami-sure/m18",
+       "intibak-harita/p59",
+       "endustriyel-uygulamalar/m8",
+       "intibak-harita/p61",
+       "ogretim-plani-harita/p60",
+       "ogretim-plani-harita/p65",
+       "muafiyet-sinavi/m5",
+       "intibak-harita/p54",
+       "intibak-harita/p64"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "muafiyet-sinavi/s5",
+       "intibak-harita/p59",
+       "intibak-harita/p61",
+       "ogretim-plani-harita/p60",
+       "ogretim-plani-harita/p65",
+       "intibak-harita/p54",
+       "intibak-harita/p64",
+       "lisans-yonetmelik/s30",
+       "hazirlik-ogrenci-el-kitabi/p63",
+       "ogretim-plani-harita/p63"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q042",
+     "tur": "cok",
+     "dayanak": [
+      "yo-0049/m19",
+      "yo-0049/m13"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p68",
+       "hazirlik-ogrenci-el-kitabi/p33",
+       "af-7592-uygulama-ilkeleri/p12",
+       "yo-0006/m12",
+       "yo-0016/m15",
+       "staj-sss-harita/p64",
+       "staj-sss-muhendislik/p80",
+       "yo-0049/m19",
+       "yo-0049/m12",
+       "gtu101/m4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.5
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p68",
+       "hazirlik-ogrenci-el-kitabi/p33",
+       "af-7592-uygulama-ilkeleri/p12",
+       "staj-sss-harita/p64",
+       "staj-sss-muhendislik/p80",
+       "yo-0016/s19",
+       "gtu101/s3",
+       "yo-0006/s10",
+       "yo-0049/s17",
+       "yo-0049/s27"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.5
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q044",
+     "tur": "cok",
+     "dayanak": [
+      "muafiyet-intibak/m8",
+      "muafiyet-intibak/m6"
+     ],
+     "madde": {
+      "getirilen": [
+       "af-7592-uygulama-ilkeleri/p44",
+       "af-7592-uygulama-ilkeleri/p42",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "hazirlik-ogrenci-el-kitabi/p75",
+       "yok-gecis-yonetmeligi/giris",
+       "yo-0003/m1",
+       "yo-0003/m2",
+       "hazirlik/m2",
+       "af-7592-uygulama-ilkeleri/p29",
+       "ogretim-plani-biyomuhendislik/p27"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "af-7592-uygulama-ilkeleri/p44",
+       "af-7592-uygulama-ilkeleri/p42",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "hazirlik-ogrenci-el-kitabi/p75",
+       "yo-0006/s13",
+       "yo-0003/s1",
+       "yok-gecis-yonetmeligi/s54",
+       "af-7592-uygulama-ilkeleri/p29",
+       "ogretim-plani-biyomuhendislik/p27",
+       "af-7592-uygulama-ilkeleri/p35"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q046",
+     "tur": "cok",
+     "dayanak": [
+      "yaz-ogretimi/m5",
+      "lisans-yonetmelik/m16"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p58",
+       "yo-0085/m7",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-muhendislik/p4",
+       "yo-0088/p4",
+       "yo-0086/p38",
+       "yo-0083/p46",
+       "staj-sss-harita/p3",
+       "staj-sss-harita/p5"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p58",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-muhendislik/p4",
+       "yo-0088/p4",
+       "yo-0086/p38",
+       "staj-sss-harita/p5",
+       "yo-0083/p46",
+       "staj-sss-harita/p3",
+       "staj-sss-harita/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q047",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik-2017-oncesi/m14"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p58",
+       "yo-0085/m7",
+       "staj-sss-muhendislik/p3",
+       "intibak-elektronik/p78",
+       "staj-sss-muhendislik/p4",
+       "yo-0088/p4",
+       "yo-0086/p38",
+       "yo-0083/p46",
+       "staj-sss-harita/p3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p58",
+       "staj-sss-muhendislik/p3",
+       "intibak-elektronik/p78",
+       "staj-sss-muhendislik/p4",
+       "yo-0088/p4",
+       "yo-0086/p38",
+       "staj-sss-harita/p5",
+       "yo-0083/p46",
+       "staj-sss-harita/p3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q048",
+     "tur": "tek",
+     "dayanak": [
+      "yo-0084/m11"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0081/m6",
+       "yo-0086/p39",
+       "staj-sss-muhendislik/p7",
+       "yo-0083/p78",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "staj-sss-harita/p65",
+       "staj-sss-muhendislik/p81",
+       "yo-0083/p80",
+       "staj-sss-harita/p9"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yo-0086/p39",
+       "staj-sss-muhendislik/p7",
+       "yo-0083/p78",
+       "yo-0081/s5",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "staj-sss-harita/p65",
+       "staj-sss-muhendislik/p81",
+       "yo-0083/p80",
+       "staj-sss-harita/p9"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    }
+   ],
+   "mcnemar_R@5": {
+    "yalniz_a": 2,
+    "yalniz_b": 3,
+    "p": 1.0
+   },
+   "karsilastirma": "madde - sabit"
+  },
+  "tum_pdf": {
+   "n": 37,
+   "k": [
+    1,
+    5,
+    10
+   ],
+   "ozet": {
+    "madde": {
+     "R@1": 0.0676,
+     "R@5": 0.1486,
+     "R@10": 0.2162,
+     "MRR@10": 0.0848
+    },
+    "sabit": {
+     "R@1": 0.027,
+     "R@5": 0.1757,
+     "R@10": 0.2162,
+     "MRR@10": 0.0723
+    }
+   },
+   "fark": {
+    "R@1": {
+     "fark": 0.04054054054054054,
+     "alt": 0.0,
+     "ust": 0.10810810810810811,
+     "n": 37
+    },
+    "R@5": {
+     "fark": -0.02702702702702703,
+     "alt": -0.16216216216216217,
+     "ust": 0.08108108108108109,
+     "n": 37
+    },
+    "R@10": {
+     "fark": 0.0,
+     "alt": -0.10810810810810811,
+     "ust": 0.10810810810810811,
+     "n": 37
+    },
+    "MRR@10": {
+     "fark": 0.012505362505362503,
+     "alt": -0.031854354354354346,
+     "ust": 0.06666666666666667,
+     "n": 37
+    }
+   },
+   "sorular": [
+    {
+     "id": "q001",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m32"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p5",
+       "staj-sss-harita/p39",
+       "staj-sss-muhendislik/p47",
+       "staj-sss-harita/p4",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-defteri-endustri-yonetim/p14",
+       "staj-sss-harita/p53",
+       "staj-sss-muhendislik/p131",
+       "staj-sss-harita/p107",
+       "eposta-kilavuzu/p2"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p5",
+       "staj-sss-harita/p39",
+       "staj-sss-muhendislik/p47",
+       "staj-sss-harita/p4",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-defteri-endustri-yonetim/p14",
+       "staj-sss-harita/p53",
+       "staj-sss-muhendislik/p131",
+       "staj-sss-harita/p107",
+       "eposta-kilavuzu/p2"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q002",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m25"
+     ],
+     "madde": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p59",
+       "yatay-gecis-sss-iktisat/p6",
+       "yo-0003/m5",
+       "lisans-yonetmelik/m25",
+       "muafiyet-sinavi/m2",
+       "yo-0086/p34",
+       "staj-bilgilendirme-harita/p1",
+       "azami-sure/m13",
+       "hazirlik-ogrenci-el-kitabi/p77",
+       "lisans-yonetmelik-2017-oncesi/m22"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 4
+     },
+     "sabit": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p59",
+       "lisans-yonetmelik/s25",
+       "yatay-gecis-sss-iktisat/p6",
+       "lisans-yonetmelik-2017-oncesi/s29",
+       "yo-0086/p34",
+       "staj-bilgilendirme-harita/p1",
+       "yo-0003/s2",
+       "hazirlik-ogrenci-el-kitabi/p77",
+       "staj-bilgilendirme-harita/p5",
+       "hazirlik-ogrenci-el-kitabi/p85"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 2
+     }
+    },
+    {
+     "id": "q003",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m29"
+     ],
+     "madde": {
+      "getirilen": [
+       "mazeret-esaslari-muhendislik/p11",
+       "mazeret-esaslari-muhendislik/p13",
+       "lisans-yonetmelik/m29",
+       "hazirlik/m10",
+       "staj-sss-muhendislik/p27",
+       "mazeret-esaslari-muhendislik/p9",
+       "staj-sss-muhendislik/p1",
+       "staj-sss-muhendislik/p15",
+       "muafiyet-sinavi/m2",
+       "staj-sss-harita/p76"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 3
+     },
+     "sabit": {
+      "getirilen": [
+       "mazeret-esaslari-muhendislik/p11",
+       "mazeret-esaslari-muhendislik/p13",
+       "staj-sss-muhendislik/p27",
+       "hazirlik/s9",
+       "hazirlik/s10",
+       "staj-sss-muhendislik/p1",
+       "mazeret-esaslari-muhendislik/p9",
+       "staj-sss-muhendislik/p15",
+       "lisans-yonetmelik-2017-oncesi/s29",
+       "staj-sss-harita/p76"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q004",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m5"
+     ],
+     "madde": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p67",
+       "yo-0037/m6",
+       "af-7592-uygulama-ilkeleri/p12",
+       "muafiyet-sinavi/m6",
+       "yatay-gecis-sss-iktisat/p4",
+       "yatay-gecis-sss-iktisat/p5",
+       "yo-0035/m22",
+       "hazirlik/m9",
+       "muafiyet-intibak/m7",
+       "yo-0037/m8"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p67",
+       "yo-0037/s3",
+       "af-7592-uygulama-ilkeleri/p12",
+       "yo-0005/s2",
+       "yo-0037/s1",
+       "yatay-gecis-sss-iktisat/p4",
+       "yatay-gecis-sss-iktisat/p5",
+       "lisans-yonetmelik-2017-oncesi/s22",
+       "muafiyet-sinavi/s5",
+       "lisans-yonetmelik/s25"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q005",
+     "tur": "tek",
+     "dayanak": [
+      "yatay-gecis/m4"
+     ],
+     "madde": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p3",
+       "yatay-gecis-sss-iktisat/p2",
+       "af-7592-uygulama-ilkeleri/p42",
+       "yok-gecis-yonetmeligi/m8",
+       "yatay-gecis/m6",
+       "yatay-gecis/m5",
+       "yok-gecis-yonetmeligi/m5",
+       "yok-gecis-yonetmeligi/m11",
+       "yatay-gecis/m14",
+       "yatay-gecis/m8"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p3",
+       "yatay-gecis-sss-iktisat/p2",
+       "yok-gecis-yonetmeligi/s31",
+       "yatay-gecis/s11",
+       "af-7592-uygulama-ilkeleri/p42",
+       "yatay-gecis/s9",
+       "yok-gecis-yonetmeligi/s10",
+       "yok-gecis-yonetmeligi/s17",
+       "yok-gecis-yonetmeligi/s26",
+       "yok-gecis-yonetmeligi/s30"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q006",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m33"
+     ],
+     "madde": {
+      "getirilen": [
+       "lisans-yonetmelik/m33",
+       "lisans-yonetmelik-2017-oncesi/m29",
+       "muafiyet-sinavi/m2",
+       "yo-0083/p79",
+       "hazirlik-ogrenci-el-kitabi/p76",
+       "bitirme-yazim-kilavuzu-kimya/p17",
+       "staj-sss-harita/p5",
+       "bitirme-yazim-kilavuzu-kimya/p34",
+       "staj-sss-harita/p42",
+       "staj-sss-muhendislik/p50"
+      ],
+      "kapsam": {
+       "1": 1.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 1
+     },
+     "sabit": {
+      "getirilen": [
+       "lisans-yonetmelik/s37",
+       "lisans-yonetmelik-2017-oncesi/s36",
+       "yo-0083/p79",
+       "hazirlik-ogrenci-el-kitabi/p76",
+       "lisans-yonetmelik/s36",
+       "bitirme-yazim-kilavuzu-kimya/p17",
+       "staj-sss-harita/p5",
+       "bitirme-yazim-kilavuzu-kimya/p34",
+       "muafiyet-sinavi/s2",
+       "lisans-yonetmelik-2017-oncesi/s30"
+      ],
+      "kapsam": {
+       "1": 1.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 1
+     }
+    },
+    {
+     "id": "q007",
+     "tur": "tek",
+     "dayanak": [
+      "staj-muhendislik/m12"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "staj-sss-harita/p6",
+       "staj-sss-muhendislik/p7",
+       "staj-sss-harita/p5",
+       "staj-bilgilendirme-harita/p6",
+       "staj-sss-muhendislik/p63",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-muhendislik/p141"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "staj-sss-harita/p6",
+       "staj-sss-muhendislik/p7",
+       "staj-sss-harita/p5",
+       "staj-bilgilendirme-harita/p6",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-muhendislik/p63",
+       "staj-sss-muhendislik/p141"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q008",
+     "tur": "cok",
+     "dayanak": [
+      "staj-muhendislik/m8",
+      "staj-muhendislik/m18"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p8",
+       "staj-sss-muhendislik/p69",
+       "staj-sss-harita/p8",
+       "staj-sss-muhendislik/p66",
+       "staj-sss-harita/p55",
+       "staj-sss-harita/p53",
+       "staj-sss-muhendislik/p62",
+       "staj-sss-harita/p7",
+       "staj-defteri-bilgisayar/p1",
+       "staj-sss-muhendislik/p23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p8",
+       "staj-sss-muhendislik/p69",
+       "staj-sss-harita/p8",
+       "staj-sss-muhendislik/p66",
+       "staj-sss-harita/p55",
+       "staj-sss-harita/p53",
+       "staj-sss-muhendislik/p62",
+       "staj-sss-harita/p7",
+       "staj-defteri-bilgisayar/p1",
+       "staj-sss-muhendislik/p23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q009",
+     "tur": "tek",
+     "dayanak": [
+      "staj-muhendislik/m9"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p3",
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-muhendislik/p58",
+       "yo-0085/m7",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "yo-0086/p38",
+       "yo-0088/p4",
+       "staj-sss-harita/p5"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p3",
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-muhendislik/p58",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "yo-0086/p38",
+       "yo-0088/p4",
+       "staj-sss-harita/p5",
+       "yo-0083/p18"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q010",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m15"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0110/m7",
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "yo-0083/p79",
+       "staj-sss-muhendislik/p163",
+       "yo-0016/m13",
+       "ogretim-plani-malzeme/p13",
+       "staj-sss-muhendislik/p19",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "staj-sss-muhendislik/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "yo-0083/p79",
+       "staj-sss-muhendislik/p163",
+       "lisans-yonetmelik-2017-oncesi/s27",
+       "ogretim-plani-malzeme/p13",
+       "staj-sss-muhendislik/p19",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q011",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m35"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p6",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p47",
+       "staj-sss-muhendislik/p55",
+       "staj-sss-harita/p2",
+       "staj-sss-muhendislik/p120",
+       "staj-sss-harita/p96",
+       "duzensiz-ogrenci-rehberi/p9",
+       "yatay-gecis-sss-iktisat/p2",
+       "staj-sss-harita/p23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p6",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p47",
+       "staj-sss-muhendislik/p55",
+       "staj-sss-harita/p2",
+       "staj-sss-muhendislik/p120",
+       "staj-sss-harita/p96",
+       "duzensiz-ogrenci-rehberi/p9",
+       "yatay-gecis-sss-iktisat/p2",
+       "staj-sss-harita/p23"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q012",
+     "tur": "tek",
+     "dayanak": [
+      "hazirlik/m10"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0083/p71",
+       "yo-0083/p72",
+       "yatay-gecis-sss-iktisat/p18",
+       "yatay-gecis-sss-iktisat/p14",
+       "yo-0083/p73",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p61",
+       "staj-sss-muhendislik/p77"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yo-0083/p71",
+       "yo-0083/p72",
+       "yatay-gecis-sss-iktisat/p18",
+       "yatay-gecis-sss-iktisat/p14",
+       "yo-0083/p73",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-harita/p61",
+       "staj-sss-muhendislik/p77"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q013",
+     "tur": "tek",
+     "dayanak": [
+      "yatay-gecis/m6"
+     ],
+     "madde": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p3",
+       "yan-dal/m22",
+       "cift-anadal/m20",
+       "af-7592-uygulama-ilkeleri/p12",
+       "yatay-gecis-sss-iktisat/p9",
+       "yok-gecis-yonetmeligi/m9",
+       "yok-gecis-yonetmeligi/m14",
+       "yatay-gecis/m4",
+       "yok-gecis-yonetmeligi/m8",
+       "yok-gecis-yonetmeligi/m24"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yok-gecis-yonetmeligi/s17",
+       "yatay-gecis-sss-iktisat/p3",
+       "yok-gecis-yonetmeligi/s59",
+       "yok-gecis-yonetmeligi/s33",
+       "yok-gecis-yonetmeligi/s32",
+       "yok-gecis-yonetmeligi/s21",
+       "yok-gecis-yonetmeligi/s6",
+       "af-7592-uygulama-ilkeleri/p12",
+       "yatay-gecis-sss-iktisat/p9",
+       "yatay-gecis/s6"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q015",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m16"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p3",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "lisans-yonetmelik/m31",
+       "staj-sss-muhendislik/p22",
+       "staj-sss-harita/p3",
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "yo-0083/p76",
+       "staj-sss-muhendislik/p163"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p3",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "staj-sss-muhendislik/p22",
+       "staj-sss-harita/p3",
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "yaz-ogretimi/s7",
+       "yo-0083/p76",
+       "staj-rehberi-insaat/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q016",
+     "tur": "tek",
+     "dayanak": [
+      "danismanlik/m5"
+     ],
+     "madde": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p19",
+       "staj-sss-muhendislik/p8",
+       "yo-0037/m4",
+       "staj-defteri-bilgisayar/p1",
+       "staj-bilgilendirme-harita/p2",
+       "staj-sss-harita/p8",
+       "staj-sss-muhendislik/p23",
+       "staj-sss-muhendislik/p20",
+       "staj-defteri-endustri-yonetim/p16",
+       "staj-sss-muhendislik/p171"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p19",
+       "staj-sss-muhendislik/p8",
+       "staj-defteri-bilgisayar/p1",
+       "staj-bilgilendirme-harita/p2",
+       "staj-sss-harita/p8",
+       "staj-sss-muhendislik/p23",
+       "staj-sss-muhendislik/p20",
+       "staj-defteri-endustri-yonetim/p16",
+       "staj-sss-muhendislik/p171",
+       "staj-sss-muhendislik/p18"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q017",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m28"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0039/m27",
+       "program-disi-ogrenme/m8",
+       "lisans-yonetmelik/m37",
+       "yo-0016/m12",
+       "hazirlik/m11",
+       "lisans-yonetmelik-2017-oncesi/m31",
+       "yo-0005/m4",
+       "staj-sss-muhendislik/p8",
+       "lisans-yonetmelik/m28",
+       "yo-0037/m4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 1.0
+      },
+      "sira": 9
+     },
+     "sabit": {
+      "getirilen": [
+       "program-disi-ogrenme/s4",
+       "hazirlik/s11",
+       "yo-0039/s31",
+       "staj-sss-muhendislik/p8",
+       "lisans-yonetmelik-2017-oncesi/s38",
+       "yo-0016/s16",
+       "lisans-yonetmelik/s30",
+       "lisans-yonetmelik/s40",
+       "yo-0039/s32",
+       "staj-defteri-bilgisayar/p1"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 1.0
+      },
+      "sira": 7
+     }
+    },
+    {
+     "id": "q018",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m16"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p12",
+       "ogretim-plani-matematik/p5",
+       "lisans-yonetmelik/m16",
+       "kismi-zamanli/m8",
+       "staj-defteri-endustri-yonetim/p1",
+       "yatay-gecis-sss-iktisat/p11",
+       "staj-sss-muhendislik/p69",
+       "staj-sss-muhendislik/p89",
+       "staj-sss-harita/p111",
+       "staj-sss-muhendislik/p135"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 3
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p12",
+       "lisans-yonetmelik/s15",
+       "ogretim-plani-matematik/p5",
+       "kismi-zamanli/s5",
+       "lisans-yonetmelik/s22",
+       "staj-defteri-endustri-yonetim/p1",
+       "yatay-gecis-sss-iktisat/p11",
+       "staj-sss-muhendislik/p69",
+       "staj-sss-muhendislik/p89",
+       "staj-sss-harita/p111"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q019",
+     "tur": "tek",
+     "dayanak": [
+      "engelli-ogrenciler/m7"
+     ],
+     "madde": {
+      "getirilen": [
+       "engelli-ogrenciler/m7",
+       "engelli-ogrenciler/giris",
+       "engelli-ogrenciler/m10",
+       "engelli-ogrenciler/m1",
+       "yo-0001/m11",
+       "engelli-ogrenciler/m5",
+       "yo-0039/m36",
+       "yo-0001/m9",
+       "hazirlik-ogrenci-el-kitabi/p77",
+       "staj-sss-harita/p43"
+      ],
+      "kapsam": {
+       "1": 1.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 1
+     },
+     "sabit": {
+      "getirilen": [
+       "engelli-ogrenciler/s11",
+       "engelli-ogrenciler/s8",
+       "engelli-ogrenciler/s9",
+       "engelli-ogrenciler/s1",
+       "engelli-ogrenciler/s10",
+       "engelli-ogrenciler/s12",
+       "yo-0001/s11",
+       "yo-0001/s13",
+       "yok-gecis-yonetmeligi/s20",
+       "engelli-ogrenciler/s7"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 3
+     }
+    },
+    {
+     "id": "q021",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m19"
+     ],
+     "madde": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p11",
+       "kismi-zamanli/m8",
+       "ogretim-plani-elektronik/p17",
+       "hazirlik-ogrenci-el-kitabi/p65",
+       "ogretim-plani-elektronik/p14",
+       "staj-sss-harita/p111",
+       "staj-sss-muhendislik/p135",
+       "ogretim-plani-elektronik/p19",
+       "ogretim-plani-elektronik/p16",
+       "ogretim-plani-elektronik/p15"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yatay-gecis-sss-iktisat/p11",
+       "ogretim-plani-elektronik/p17",
+       "staj-sss-harita/p111",
+       "staj-sss-muhendislik/p135",
+       "hazirlik-ogrenci-el-kitabi/p65",
+       "ogretim-plani-elektronik/p14",
+       "ogretim-plani-elektronik/p19",
+       "ogretim-plani-elektronik/p16",
+       "ogretim-plani-elektronik/p15",
+       "ogretim-plani-elektronik/p20"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q023",
+     "tur": "cok",
+     "dayanak": [
+      "lisans-yonetmelik/m14",
+      "azami-sure/m7"
+     ],
+     "madde": {
+      "getirilen": [
+       "bitirme-yazim-kilavuzu-kimya/p40",
+       "yo-0080/p13",
+       "yo-0080/p29",
+       "yo-0003/m4",
+       "bitirme-yazim-kilavuzu-kimya/p2",
+       "yo-0080/p6",
+       "yo-0083/p77",
+       "bitirme-yazim-kilavuzu-kimya/p32",
+       "bitirme-yazim-kilavuzu-kimya/p26",
+       "yo-0006/m5"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "bitirme-yazim-kilavuzu-kimya/p40",
+       "yo-0080/p13",
+       "yo-0080/p29",
+       "yo-0018/s28",
+       "yo-0018/s29",
+       "yo-0003/s2",
+       "yo-0028/s6",
+       "bitirme-yazim-kilavuzu-kimya/p2",
+       "yo-0080/p6",
+       "yo-0083/p77"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q024",
+     "tur": "tek",
+     "dayanak": [
+      "kismi-zamanli/m8"
+     ],
+     "madde": {
+      "getirilen": [
+       "kismi-zamanli/m4",
+       "kismi-zamanli/m6",
+       "kismi-zamanli/m12",
+       "kismi-zamanli/m10",
+       "kismi-zamanli/m15",
+       "kismi-zamanli/m13",
+       "yo-0083/p15",
+       "kismi-zamanli/m16",
+       "kismi-zamanli/m8",
+       "kismi-zamanli/m17"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 1.0
+      },
+      "sira": 9
+     },
+     "sabit": {
+      "getirilen": [
+       "kismi-zamanli/s2",
+       "kismi-zamanli/s4",
+       "kismi-zamanli/s9",
+       "kismi-zamanli/s6",
+       "yo-0083/p15",
+       "kismi-zamanli/s11",
+       "kismi-zamanli/s5",
+       "kismi-zamanli/s8",
+       "staj-sss-harita/p31",
+       "staj-sss-muhendislik/p39"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 4
+     }
+    },
+    {
+     "id": "q025",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik/m36"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4",
+       "yo-0046/m9",
+       "staj-sss-harita/p5",
+       "staj-sss-muhendislik/p3",
+       "yo-0032/m13",
+       "yo-0110/m7"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p29",
+       "staj-sss-muhendislik/p2",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4",
+       "staj-sss-harita/p5",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-harita/p59",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-muhendislik/p22"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q031",
+     "tur": "tek",
+     "dayanak": [
+      "yo-0024/m9"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p27",
+       "staj-sss-muhendislik/p1",
+       "staj-sss-muhendislik/p15",
+       "hazirlik-ogrenci-el-kitabi/p89",
+       "staj-sss-harita/p76",
+       "staj-sss-muhendislik/p100",
+       "staj-sss-harita/p1",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-sss-muhendislik/p97",
+       "staj-sss-harita/p19"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p27",
+       "staj-sss-muhendislik/p1",
+       "staj-sss-muhendislik/p15",
+       "hazirlik-ogrenci-el-kitabi/p89",
+       "staj-sss-harita/p76",
+       "staj-sss-muhendislik/p100",
+       "staj-sss-harita/p1",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-sss-muhendislik/p97",
+       "staj-sss-harita/p19"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q032",
+     "tur": "cok",
+     "dayanak": [
+      "lisans-yonetmelik/m23",
+      "lisans-yonetmelik/m32"
+     ],
+     "madde": {
+      "getirilen": [
+       "lisans-yonetmelik/m23",
+       "staj-bilgilendirme-harita/p1",
+       "lisans-yonetmelik/m24",
+       "yo-0016/m13",
+       "hazirlik-ogrenci-el-kitabi/p59",
+       "ogretim-plani-ybs/p9",
+       "hazirlik/m5",
+       "hazirlik-ogrenci-el-kitabi/p12",
+       "lisans-yonetmelik/m25",
+       "hazirlik/m9"
+      ],
+      "kapsam": {
+       "1": 0.5,
+       "5": 0.5,
+       "10": 0.5
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "lisans-yonetmelik/s24",
+       "staj-bilgilendirme-harita/p1",
+       "lisans-yonetmelik-2017-oncesi/s28",
+       "lisans-yonetmelik/s23",
+       "yo-0016/s17",
+       "hazirlik-ogrenci-el-kitabi/p59",
+       "ogretim-plani-ybs/p9",
+       "hazirlik-ogrenci-el-kitabi/p12",
+       "lisans-yonetmelik-2017-oncesi/s27",
+       "ogretim-plani-harita/p62"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.5,
+       "10": 0.5
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q033",
+     "tur": "cok",
+     "dayanak": [
+      "lisans-yonetmelik/m32",
+      "cift-anadal/m11"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p45",
+       "staj-sss-harita/p5",
+       "yo-0080/p17",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "yo-0086/p30",
+       "staj-sss-muhendislik/p7",
+       "staj-sss-muhendislik/p29"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p45",
+       "staj-sss-harita/p5",
+       "yo-0080/p17",
+       "staj-sss-muhendislik/p6",
+       "staj-sss-muhendislik/p17",
+       "staj-sss-harita/p45",
+       "staj-sss-muhendislik/p53",
+       "yo-0086/p30",
+       "staj-sss-muhendislik/p7",
+       "staj-sss-muhendislik/p29"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q034",
+     "tur": "cok",
+     "dayanak": [
+      "cift-anadal/m1",
+      "yan-dal/m1"
+     ],
+     "madde": {
+      "getirilen": [
+       "duzensiz-ogrenci-rehberi/p9",
+       "yo-0083/p9",
+       "yo-0085/m9",
+       "yok-gecis-yonetmeligi/m18",
+       "yok-gecis-yonetmeligi/m20",
+       "staj-defteri-bilgisayar/p11",
+       "yo-0006/m5",
+       "staj-defteri-endustri-yonetim/p18",
+       "yok-gecis-yonetmeligi/m19",
+       "yok-gecis-yonetmeligi/m21"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "duzensiz-ogrenci-rehberi/p9",
+       "yo-0083/p9",
+       "yok-gecis-yonetmeligi/s46",
+       "yok-gecis-yonetmeligi/s48",
+       "staj-defteri-bilgisayar/p11",
+       "staj-defteri-endustri-yonetim/p18",
+       "yok-gecis-yonetmeligi/s47",
+       "yo-0006/s5",
+       "yo-0085/s4",
+       "yok-gecis-yonetmeligi/s49"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q035",
+     "tur": "tek",
+     "dayanak": [
+      "erasmus/m4"
+     ],
+     "madde": {
+      "getirilen": [
+       "duzensiz-ogrenci-rehberi/p11",
+       "bitirme-yazim-kilavuzu-kimya/p37",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4",
+       "bitirme-yazim-kilavuzu-kimya/p8",
+       "staj-sss-muhendislik/p3",
+       "yan-dal/m5",
+       "staj-sss-harita/p5",
+       "hazirlik-ogrenci-el-kitabi/p23",
+       "yan-dal/m4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yan-dal/s2",
+       "duzensiz-ogrenci-rehberi/p11",
+       "yok-gecis-yonetmeligi/s41",
+       "yok-gecis-yonetmeligi/s25",
+       "bitirme-yazim-kilavuzu-kimya/p37",
+       "staj-sss-muhendislik/p4",
+       "staj-sss-harita/p4",
+       "bitirme-yazim-kilavuzu-kimya/p8",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-harita/p5"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q036",
+     "tur": "tek",
+     "dayanak": [
+      "erasmus/m4"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0083/p75",
+       "yatay-gecis-sss-iktisat/p5",
+       "hazirlik-ogrenci-el-kitabi/p97",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-sss-harita/p5",
+       "hazirlik-ogrenci-el-kitabi/p13",
+       "staj-sss-harita/p4",
+       "yatay-gecis-sss-iktisat/p13",
+       "hazirlik-ogrenci-el-kitabi/p15",
+       "staj-sss-muhendislik/p3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yo-0083/p75",
+       "yatay-gecis-sss-iktisat/p5",
+       "erasmus/s12",
+       "erasmus/s6",
+       "hazirlik-ogrenci-el-kitabi/p97",
+       "erasmus/s14",
+       "yatay-gecis-sss-iktisat/p15",
+       "staj-sss-harita/p5",
+       "yatay-gecis-sss-iktisat/p13",
+       "staj-sss-harita/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 4
+     }
+    },
+    {
+     "id": "q037",
+     "tur": "tek",
+     "dayanak": [
+      "erasmus/m4"
+     ],
+     "madde": {
+      "getirilen": [
+       "hazirlik-ogrenci-el-kitabi/p70",
+       "yatay-gecis-sss-iktisat/p4",
+       "af-7592-uygulama-ilkeleri/p54",
+       "yatay-gecis-sss-iktisat/p6",
+       "erasmus/m5",
+       "hazirlik-ogrenci-el-kitabi/p44",
+       "hazirlik-ogrenci-el-kitabi/p113",
+       "ogretim-plani-makine/p14",
+       "ogretim-plani-makine/p15",
+       "hazirlik/m3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "erasmus/s5",
+       "hazirlik-ogrenci-el-kitabi/p70",
+       "erasmus/s9",
+       "yatay-gecis-sss-iktisat/p4",
+       "af-7592-uygulama-ilkeleri/p54",
+       "yatay-gecis-sss-iktisat/p6",
+       "yok-gecis-yonetmeligi/s57",
+       "yok-gecis-yonetmeligi/s12",
+       "hazirlik/s2",
+       "hazirlik/s3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q038",
+     "tur": "tek",
+     "dayanak": [
+      "erasmus/m6"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p171",
+       "staj-sss-muhendislik/p23",
+       "staj-sss-harita/p17",
+       "kismi-zamanli/m15",
+       "erasmus/m2",
+       "yo-0082/p16",
+       "staj-sss-muhendislik/p170",
+       "staj-sss-harita/p137",
+       "staj-sss-harita/p138",
+       "yo-0110/m17"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "erasmus/s14",
+       "staj-sss-muhendislik/p171",
+       "staj-sss-muhendislik/p23",
+       "staj-sss-harita/p17",
+       "erasmus/s12",
+       "yo-0082/p16",
+       "staj-sss-muhendislik/p170",
+       "erasmus/s1",
+       "staj-sss-harita/p137",
+       "staj-sss-harita/p138"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 1.0,
+       "10": 1.0
+      },
+      "sira": 5
+     }
+    },
+    {
+     "id": "q040",
+     "tur": "tek",
+     "dayanak": [
+      "yo-0032/m7"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p76",
+       "staj-sss-muhendislik/p100",
+       "staj-sss-muhendislik/p15",
+       "hazirlik-ogrenci-el-kitabi/p1",
+       "staj-sss-harita/p12",
+       "yo-0032/m13",
+       "staj-bilgisayar/p17",
+       "yo-0080/p16",
+       "erasmus/m7",
+       "hazirlik-ogrenci-el-kitabi/p29"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p76",
+       "staj-sss-muhendislik/p100",
+       "staj-sss-muhendislik/p15",
+       "hazirlik-ogrenci-el-kitabi/p1",
+       "staj-sss-harita/p12",
+       "staj-bilgisayar/p17",
+       "yo-0080/p16",
+       "hazirlik-ogrenci-el-kitabi/p29",
+       "yo-0086/p42",
+       "danismanlik/s6"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q041",
+     "tur": "cok",
+     "dayanak": [
+      "yaz-ogretimi/m14",
+      "lisans-yonetmelik/m26"
+     ],
+     "madde": {
+      "getirilen": [
+       "muafiyet-sinavi/m6",
+       "azami-sure/m18",
+       "intibak-harita/p59",
+       "endustriyel-uygulamalar/m8",
+       "intibak-harita/p61",
+       "ogretim-plani-harita/p60",
+       "ogretim-plani-harita/p65",
+       "muafiyet-sinavi/m5",
+       "intibak-harita/p54",
+       "intibak-harita/p64"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "muafiyet-sinavi/s5",
+       "intibak-harita/p59",
+       "intibak-harita/p61",
+       "ogretim-plani-harita/p60",
+       "ogretim-plani-harita/p65",
+       "intibak-harita/p54",
+       "intibak-harita/p64",
+       "lisans-yonetmelik/s30",
+       "hazirlik-ogrenci-el-kitabi/p63",
+       "ogretim-plani-harita/p63"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q042",
+     "tur": "cok",
+     "dayanak": [
+      "yo-0049/m19",
+      "yo-0049/m13"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-muhendislik/p68",
+       "hazirlik-ogrenci-el-kitabi/p33",
+       "af-7592-uygulama-ilkeleri/p12",
+       "yo-0006/m12",
+       "yo-0016/m15",
+       "staj-sss-harita/p64",
+       "staj-sss-muhendislik/p80",
+       "yo-0049/m19",
+       "yo-0049/m12",
+       "gtu101/m4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.5
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-muhendislik/p68",
+       "hazirlik-ogrenci-el-kitabi/p33",
+       "af-7592-uygulama-ilkeleri/p12",
+       "staj-sss-harita/p64",
+       "staj-sss-muhendislik/p80",
+       "yo-0016/s19",
+       "gtu101/s3",
+       "yo-0006/s10",
+       "yo-0049/s17",
+       "yo-0049/s27"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.5
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q044",
+     "tur": "cok",
+     "dayanak": [
+      "muafiyet-intibak/m8",
+      "muafiyet-intibak/m6"
+     ],
+     "madde": {
+      "getirilen": [
+       "af-7592-uygulama-ilkeleri/p44",
+       "af-7592-uygulama-ilkeleri/p42",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "hazirlik-ogrenci-el-kitabi/p75",
+       "yok-gecis-yonetmeligi/giris",
+       "yo-0003/m1",
+       "yo-0003/m2",
+       "hazirlik/m2",
+       "af-7592-uygulama-ilkeleri/p29",
+       "ogretim-plani-biyomuhendislik/p27"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "af-7592-uygulama-ilkeleri/p44",
+       "af-7592-uygulama-ilkeleri/p42",
+       "hazirlik-ogrenci-el-kitabi/p34",
+       "hazirlik-ogrenci-el-kitabi/p75",
+       "yo-0006/s13",
+       "yo-0003/s1",
+       "yok-gecis-yonetmeligi/s54",
+       "af-7592-uygulama-ilkeleri/p29",
+       "ogretim-plani-biyomuhendislik/p27",
+       "af-7592-uygulama-ilkeleri/p35"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q046",
+     "tur": "cok",
+     "dayanak": [
+      "yaz-ogretimi/m5",
+      "lisans-yonetmelik/m16"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p58",
+       "yo-0085/m7",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-muhendislik/p4",
+       "yo-0088/p4",
+       "yo-0086/p38",
+       "yo-0083/p46",
+       "staj-sss-harita/p3",
+       "staj-sss-harita/p5"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p58",
+       "staj-sss-muhendislik/p3",
+       "staj-sss-muhendislik/p4",
+       "yo-0088/p4",
+       "yo-0086/p38",
+       "staj-sss-harita/p5",
+       "yo-0083/p46",
+       "staj-sss-harita/p3",
+       "staj-sss-harita/p4"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q047",
+     "tur": "tek",
+     "dayanak": [
+      "lisans-yonetmelik-2017-oncesi/m14"
+     ],
+     "madde": {
+      "getirilen": [
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p58",
+       "yo-0085/m7",
+       "staj-sss-muhendislik/p3",
+       "intibak-elektronik/p78",
+       "staj-sss-muhendislik/p4",
+       "yo-0088/p4",
+       "yo-0086/p38",
+       "yo-0083/p46",
+       "staj-sss-harita/p3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "staj-sss-harita/p50",
+       "staj-sss-muhendislik/p58",
+       "staj-sss-muhendislik/p3",
+       "intibak-elektronik/p78",
+       "staj-sss-muhendislik/p4",
+       "yo-0088/p4",
+       "yo-0086/p38",
+       "staj-sss-harita/p5",
+       "yo-0083/p46",
+       "staj-sss-harita/p3"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    },
+    {
+     "id": "q048",
+     "tur": "tek",
+     "dayanak": [
+      "yo-0084/m11"
+     ],
+     "madde": {
+      "getirilen": [
+       "yo-0081/m6",
+       "yo-0086/p39",
+       "staj-sss-muhendislik/p7",
+       "yo-0083/p78",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "staj-sss-harita/p65",
+       "staj-sss-muhendislik/p81",
+       "yo-0083/p80",
+       "staj-sss-harita/p9"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     },
+     "sabit": {
+      "getirilen": [
+       "yo-0086/p39",
+       "staj-sss-muhendislik/p7",
+       "yo-0083/p78",
+       "yo-0081/s5",
+       "staj-sss-harita/p27",
+       "staj-sss-muhendislik/p35",
+       "staj-sss-harita/p65",
+       "staj-sss-muhendislik/p81",
+       "yo-0083/p80",
+       "staj-sss-harita/p9"
+      ],
+      "kapsam": {
+       "1": 0.0,
+       "5": 0.0,
+       "10": 0.0
+      },
+      "sira": null
+     }
+    }
+   ],
+   "mcnemar_R@5": {
+    "yalniz_a": 2,
+    "yalniz_b": 3,
+    "p": 1.0
+   },
+   "karsilastirma": "madde - sabit"
+  }
+ }
+}

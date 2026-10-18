@@ -714,3 +714,82 @@ da çalıştı): iki dizinin (3332 + 3331 parça) kodlanması **988 s**, sonra
 `.cache/gomme/`'den anında. Sorgu 0.3 s. Gösterim sorusunda e5 kanıtı iki
 koşulda da **1.** sıraya koydu (BM25: 3. ve 10.). Tek soru; yalnız boru
 hattının çalıştığını gösterir.
+
+---
+
+## 12. Dev setinde ilk karşılaştırma (2026-10-19)
+
+**Neden.** Ara rapor (5 Kasım) taban sistemin sayılarını istiyor ve deney
+hattı gerçek sorularla ilk kez uçtan uca çalışmalı. Bu bölüm araştırma
+sorusunun cevabı **değil**: test seti henüz yok (K-022).
+
+**Nasıl.** 51 dev sorusu (30 tek, 13 çok maddeli, 8 cevapsız), hepsini
+Ömer Can Soru Defteri'nde yazdı (`811ac80`). **Birincil küme 37 soru** (28
+tek, 9 çok): cevaplanabilir ve bütün dayanakları madde yapılı 49 belgede.
+Altısı dışarıda, çünkü dayanaklarından biri SSS (4), akademik takvim (1) ya
+da form kataloğu (1). Tüm-PDF kümesi de aynı 37 soru çıktı, ayrıca
+raporlanmadı. Dizin yalnız PDF: 3332 madde koşulunda, 3331 sabit. Kapsam:
+ilk k parçadan altın belgeye ait olanların birleşimi kanıt alıntısını
+örtüyor mu; çok dayanaklı soruda örtülen kanıtların oranı (0.5 gibi
+değerler bundan). McNemar ikili: bütün kanıtlar örtüldü mü. Bootstrap 10 000
+örnek. `scripts/deney.py`, dört çalıştırma, hepsi CPU →
+`results/deney/{bm25,bm25-kok,bm25-onekyok,e5}-dev.json`.
+
+**Sonuç.**
+
+| | madde R@5 | sabit R@5 | fark [%95 GA] | yalnız madde / yalnız sabit, p |
+|---|---|---|---|---|
+| BM25 | 0.149 | 0.176 | −0.027 [−0.162, +0.081] | 2 / 3, p = 1.00 |
+| BM25, kök bulmalı | 0.135 | 0.189 | −0.054 [−0.162, +0.054] | 1 / 3, p = 0.63 |
+| BM25, belge adı öneksiz | 0.149 | 0.176 | −0.027 [−0.162, +0.081] | 2 / 3, p = 1.00 |
+| **e5** | **0.595** | 0.365 | **+0.230 [+0.108, +0.378]** | **9 / 0, p = 0.004** |
+
+e5'in öteki ölçüleri (madde / sabit, fark [GA]): R@1 0.162 / 0.122, +0.041
+[−0.081, +0.176]; R@10 0.635 / 0.459, +0.176 [+0.054, +0.311]; MRR@10
+0.335 / 0.197, +0.137 [+0.040, +0.246]. BM25: R@1 0.068 / 0.027, R@10
+0.216 / 0.230, MRR@10 0.089 / 0.074. Süre: BM25 dizini 0.8 s; e5 dizini
+100.9 s (vektörler önbellekten; sürenin modeli yüklemeye mi gittiğini
+ayırmadım), 74 sorgu 8.0 s.
+
+**BM25'te koşulun ayırt edilememesinin bir nedeni ölçüldü.** BM25'in ilk
+5'indeki parçaların yalnız %31'i (madde) ve %29'u (sabit) iki koşulun
+farklı olduğu 49 belgeden; geri kalanı iki koşulda aynı olan paragraf
+parçaları (SSS ve el kitabı PDF'leri, öğretim planları). e5'te bu oran %58
+ve %60. Yani BM25'te karşılaştırılan şey getirilenin üçte birinden az.
+Altın belgeden gelen parça oranı: BM25 %12 / %14, e5 %27 / %34.
+
+**e5'te ayrışan 9 sorunun hepsini madde koşulu kazandı.** Bunların 4'ünde
+kanıt iki sabit pencereye bölünmüştü (q018, q021, q035, q048). Öteki 5'inde
+(q001, q019, q025, q031, q032) kanıt tek pencerenin içindeydi ama o pencere
+7., 8., 10. sırada ya da ilk 10'un dışındaydı. Bölünme tek açıklama değil;
+pencerenin komşu maddelerle karışması bir aday, ölçmedim. Sabit koşul altın
+belgeden daha çok parça getiriyor (%34'e %27) ama kanıtlı pencereyi daha az
+buluyor. Birincil kümedeki 46 kanıtın 10'u iki ya da daha çok sabit
+pencereye bölünüyor. BM25'te ayrışan 5 soru: madde q003, q018; sabit q024,
+q036, q038.
+
+**512 token sınırı dev setinde madde koşuluna zarar vermedi.** 46 kanıtın 9'u
+512 tokeni aşan bir maddede (§11); dokuzunda da kanıt sınırın içinde, en
+yakını sınırdan 118 karakter önce bitiyor (q009, `staj-muhendislik/m9`).
+
+**Eşit k, eşit metin değil.** e5'in ilk 5'i madde koşulunda ortalama 3577
+karakter, sabitte 2735 (medyan 2613 ve 2898): uzun maddeler geldiğinde
+madde koşulu daha çok metin döndürüyor. Parça sayısı eşit tutulduğu için
+ortalama parça boyu iki koşulda aynı; getirilen metin miktarı aynı değil.
+Final raporunda ayrıca verilmeli.
+
+**Ne anlama gelmiyor.**
+
+- **Dev seti.** Sorular deney hattı geliştirilirken yazıldı ve görüldü;
+  yazan ve dayanakları işaretleyen tek kişi (Ömer Can), uyuşma ölçülmedi.
+  Bu sonuca bakılarak parçalama, sabit boyut ya da istem değiştirilirse dev
+  artık bağımsız değil. Kararı dört yazarlı test seti verir.
+- **n = 37.** BM25'te "fark yok" değil, "bu örneklemde ayırt edilemiyor":
+  güven aralığı 24 puan genişliğinde. e5 farkının aralığı sıfırı dışarıda
+  bırakıyor ama alt sınırı +0.108: fark 11 puan kadar küçük de olabilir.
+- **Kanıt kapsamı bir arama ölçüsü.** Cevabın doğru olup olmadığını
+  söylemiyor; dil modeli henüz çalıştırılmadı.
+- **BM25'in mutlak düzeyi düşük** (R@5 ~0.15). Soruların günlük dili
+  ("agnom", "kulüp", "ff dersim") ile yönetmelik dili arasındaki fark ve
+  birbirine benzeyen birim yönergeleri olası nedenler; ölçülmedi, hata
+  analizi aracı bunun için.
