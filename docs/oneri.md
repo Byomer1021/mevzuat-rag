@@ -68,7 +68,7 @@ One dev query, BM25: "Derslere devam zorunluluğu yüzde kaç?" With article chu
 
 ## 7
 
-**Ahmet Eren İncir.** [Draft; Ahmet Eren revises and owns this box.] (1) Qu, Tu & Bao (Findings of NAACL 2025) find semantic chunking not worth its cost over fixed-size chunks for document and evidence retrieval. Their alternative to fixed windows is cutting by sentence similarity, not boundaries the document itself declares; ours is the article structure the author wrote. (2) Reuter et al. (arXiv 2510.06999, 2025) show that legal retrievers often return text from the wrong one of many similar documents, and reduce it by prepending a document summary to every chunk. They vary the context added to chunks; we hold it fixed (the document title) and vary only where chunks begin and end.
+**Ahmet Eren İncir.** (1) Qu, Tu & Bao (Findings of NAACL 2025) find semantic chunking not worth its cost over fixed-size chunks for document and evidence retrieval. Their alternative to fixed windows is cutting by sentence similarity, not boundaries the document itself declares; ours is the article structure the author wrote. (2) Reuter et al. (arXiv 2510.06999, 2025) show that legal retrievers often return text from the wrong one of many similar documents, and reduce it by prepending a document summary to every chunk. They vary the context added to chunks; we hold it fixed (the document title) and vary only where chunks begin and end.
 
 **Ablation:** drop the title prefix in both conditions. If article chunks win only with it, the gain comes from identifying the document, not from the boundaries.
 
