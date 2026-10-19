@@ -611,3 +611,28 @@ denetlenip `sorular.jsonl`'a girer.
 **Risk.** Tarayıcı verisi silinirse dışa aktarılmamış sorular gider; sayfa
 bunu her oturum sonunda dışa aktarmayı söyleyerek ve aktarılmamış soru
 sayısını göstererek azaltıyor, önlemiyor.
+
+## K-025: Demo kaynakları iki havuzdan seçer, önce belgeler, geçerli (2026-10-19)
+
+Demo (`app/demo.py`, `src/mevzuat_rag/demo.py`) test setini ve dil modelini
+beklemeden kuruldu (Ömer Can: "dil modeli vs bağımsız oluşturalım sonra
+entegrasyon"). Bütün bilgi tabanında, madde koşulunda arar; dil modeli
+`DEMO_URETICI` ile sonradan takılır.
+
+**Sorun.** Tek sıralamada genel sorularda ilk 5'in hepsi SSS çıktı. "Derslere
+devam zorunluluğu yüzde kaç?", "Kaç dönem kayıt dondurabilirim?", "Tek ders
+sınavına kimler girebilir?": üçünde de e5'te 5/5 web parçası, BM25'te de
+öyle. SSS'ler öğrencinin diliyle yazıldığı için soruya daha çok benziyor.
+Oysa sistemin vaadi madde ve sayfa göstermek; SSS'ler de bölümden bölüme
+farklı (İktisat, İşletme, Makine).
+
+**Karar.** Aynı sıralamadan önce ilk 3 belge parçası (yönetmelik, yönerge,
+takvim, form), sonra ilk 2 web parçası. Arayüzde iki başlık altında;
+sayılar kenar çubuğundan değişir. Bu üç soruda doğru madde artık ilk 3'te
+(e5: m23 1., m19 3., m33 1.).
+
+- Deneyi etkilemez: deneyin dizini yalnız PDF (K-022), demo kodu deneyde
+  kullanılmıyor.
+- Ölçülmedi: bu seçimin cevap kalitesine etkisi. Dil modeli bağlanınca dev
+  setinde tek liste ile karşılaştırılmalı.
+- Sayfa bağlantıları (`#page=N`) tarayıcıda açılarak denenmedi.

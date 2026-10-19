@@ -108,8 +108,19 @@ Test seti sorusu yazma aracı ([rehber](docs/soru-yazma.md)):
 uv run streamlit run app/soru_yaz.py
 ```
 
+Demo: soru sorulur, bulunan maddeler sayfa ve PDF bağlantısıyla gösterilir.
+Dil modeli henüz bağlı değil; bağlanınca cevap da kaynak numaralarıyla gelir
+(`DEMO_URETICI`, [src/mevzuat_rag/demo.py](src/mevzuat_rag/demo.py)).
+
+```powershell
+uv run python scripts/demo_dizin.py        # e5 dizini, bir kez (CPU'da uzun sürer)
+uv run streamlit run app/demo.py
+$env:DEMO_ARAMA = "bm25"; uv run streamlit run app/demo.py   # e5'siz, anında açılır
+```
+
 ```
 app/
+  demo.py            demo: soru → kaynaklar (→ dil modeli bağlanınca cevap)
   soru_yaz.py        test seti sorusu yazma aracı (Streamlit)
   soru_defteri.html  ekip için aynı araç, tarayıcıda, kurulumsuz (K-024)
 data/
@@ -130,6 +141,7 @@ scripts/
   soru_al.py         Soru Defteri'nden gelen soruları denetleyip test setine katar
   istem_paketi.py    cevap üretimi için Colab'a gidecek istem paketi (K-005)
   cevap_ozet.py      Colab'dan dönen cevapları ölçer, elle puanlama tablosu çıkarır
+  demo_dizin.py      demonun e5 dizinini önceden kurar
   soru_defteri_veri.py  Soru Defteri sayfasının parça verisi
   oneri_docx.py      docs/oneri.md'yi dersin öneri formuna (docx) yazar
   ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)
@@ -143,11 +155,12 @@ src/mevzuat_rag/
   deney.py           deneyin dizini, soru kümeleri, iki koşulun karşılaştırması
   uretim.py          cevap istemi, kaynak künyesi, cevaptan atıf ve "bilmiyorum" ayrıştırma
   cevap.py           üretilen cevapların ölçümü
-notebooks/
-  cevap_uret.ipynb   Colab'da açık modelle cevap üretimi
+  demo.py            demonun akışı: bütün bilgi tabanında arama, istem, takılabilir dil modeli
   degerlendirme.py   kanıt kapsamı, Recall@k, MRR, eşleştirilmiş bootstrap, McNemar
   testset.py         test seti şeması (kanıt alıntısı dahil), denetim, dağılım
   kisisel.py, formlar.py, web.py       kişisel veri taraması, form süzgeci, web metni
+notebooks/
+  cevap_uret.ipynb   Colab'da açık modelle cevap üretimi
 tests/
 ```
 
