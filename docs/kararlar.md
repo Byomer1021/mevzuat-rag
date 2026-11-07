@@ -319,7 +319,7 @@ Tek bir keyfi değer (ör. 1000) yerine iki üç değer denensin: medyan ve p90
 (1396) gibi. Aksi halde "madde bazlı daha iyi" sonucu "daha uzun parça daha
 iyi" sonucundan ayrılamaz.
 
-## K-016: Bilgi tabanı 1 Kasım'da dondurulur, öneri
+## K-016: Bilgi tabanı dondurulur, geçerli (donduruldu 2026-11-07)
 
 Belge eklemek teknik olarak kolay ([data/README.md](../data/README.md)),
 ama ölçümleri etkiliyor:
@@ -342,6 +342,22 @@ ama ölçümleri etkiliyor:
   tabloya konmaz.
 - Tanımın üst sınırı 15 belge; K-017 ile 22'ye, K-020 ile 114'e çıktı,
   gerekçeleri orada.
+
+**Dondurma (2026-11-07, planlanandan 6 gün geç).** Donan sürüm: bilgi
+tabanı `b3c7d85cce08`, parçalar `2b5af885972a`, 114 kaynak, 5537 parça;
+git etiketi `bilgi-tabani-b3c7d85cce08`. Test setinin ilk 100 sorusu bu
+sürüme göre (Soru Defteri'nin anlık görüntüsü) yazılmıştı; donan sürüm de
+bu oldu.
+
+- Ön işlem yeniden çalıştırıldı: iki sürüm aynı, parça dosyaları bayt bayt
+  aynı, denetimde sorun yok.
+- `kaynaklar.py kontrol`: 110 kaynak güncel, yalnız form kataloğu değişmiş
+  (iki personel formunun revizyonu, bir yeni form). Uygulanmadı, gerekçesi
+  [olcumler §13](olcumler.md). Çıktı `results/dondurma_kontrol_2026-11-07.txt`.
+- Web koleksiyonları 17 Ekim taramasında kaldı (K-021'deki yenileme
+  yapılmadı): yeniden taramak SSS parçalarını değiştirir, SSS'ye dayanan
+  test sorularının dayanağını bozabilirdi. O tarihten sonraki duyurular
+  bilgi tabanında yok.
 
 ## K-017: Sekiz belge eklendi, 22 kaynak, geçerli (2026-10-16)
 
@@ -487,8 +503,10 @@ koleksiyon.
 SSS'den aynen alınırsa arama, sorunun kendisini bulur ve olduğundan iyi
 görünür ([soru-yazma.md](soru-yazma.md)).
 
-**Yenileme.** Duyurular hızla eskiyor. Bilgi tabanı dondurulduğunda (K-016)
-koleksiyonlar o günkü taramadan üretilir ve tarih kayda geçer.
+~~**Yenileme.** Duyurular hızla eskiyor. Bilgi tabanı dondurulduğunda (K-016)
+koleksiyonlar o günkü taramadan üretilir ve tarih kayda geçer.~~
+**2026-11-07:** yapılmadı. Koleksiyonlar 17 Ekim taramasında kaldı, çünkü
+test soruları o anlık görüntüye göre yazılıyordu (K-016, dondurma).
 
 ## K-022: Araştırma sorusu: madde sınırı mı, aynı sayıda sabit parça mı; öneri (2026-10-17)
 

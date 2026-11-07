@@ -793,3 +793,38 @@ Final raporunda ayrıca verilmeli.
   ("agnom", "kulüp", "ff dersim") ile yönetmelik dili arasındaki fark ve
   birbirine benzeyen birim yönergeleri olası nedenler; ölçülmedi, hata
   analizi aracı bunun için.
+
+---
+
+## 13. Bilgi tabanının dondurulması (2026-11-07)
+
+**Neden.** K-016: test soruları donmuş bir bilgi tabanına göre yazılmalı,
+yoksa cevapsız sorular cevaplı hâle gelebilir ve parça kimlikleri kayar.
+Planlanan tarih 1 Kasım'dı; dondurma 7 Kasım'da yapıldı, ekip bu sırada
+100 test sorusu yazmıştı.
+
+**Nasıl.** (1) `kaynaklar.py kontrol`: Kalite Ofisi dizinindeki 56 belgenin
+revizyonu dizindekiyle, dizinde olmayan 55 belgenin metni kaynaktakiyle
+karşılaştırıldı; 3 web koleksiyonu bu kontrolün dışında. (2) `onisle.py`
+yeniden çalıştırıldı, çıktılar önceki dosyalarla karşılaştırıldı.
+
+**Sonuç.**
+
+| | değer |
+|---|---|
+| güncel kaynak | 110 / 111 kontrol edilebilen |
+| değişen | form kataloğu (683 → 684 satır) |
+| yeniden üretim | `b3c7d85cce08` / `2b5af885972a`, parça dosyaları bayt bayt aynı |
+| ön işlem denetimi | sorun yok |
+
+Form kataloğundaki değişiklik: FR-0528 ve FR-0576 (birim
+oryantasyon/rotasyon formları) R0'dan R1'e geçmiş, FR-0893 "Bölüm Başkanı
+Seçimi İçin Görüş Dilekçesi" eklenmiş. İlk ikisi öğrenci formu değil,
+bilgi tabanında yoklar. Üçüncüsünü öğrenci formu süzgeci (`formlar.py`)
+"dilekçe" kelimesi yüzünden kabul ediyor; bir yanlış pozitif, öğrenciyi
+ilgilendirmiyor. Bu yüzden katalog güncellenmedi, sürüm değişmedi.
+
+**Ne anlama gelmiyor.** Web koleksiyonları (SSS, konu sayfaları,
+duyurular) yeniden taranmadı; 17 Ekim'den sonra değişen ya da eklenen web
+içeriği bilinmiyor. Dev deneyinin sayıları (§12) aynı sürümde alındığı
+için geçerli; yeniden çalıştırmak gerekmiyor.
