@@ -52,6 +52,17 @@ def test_calistir_iki_kosulu_ayni_olcutle_puanlar():
     assert r["fark"]["R@1"]["fark"] == 0 and r["karsilastirma"] == "madde - sabit"
 
 
+def test_calistir_tek_kosul_karsilastirmasiz_aralikli():
+    # ara aşamada test setinde yalnız taban sistem çalışır
+    ss = [soru("q1", ["d/m2"], ["MADDE 2 ccc ddd"]), soru("q2", ["d/m1"], ["aaa bbb."])]
+    sahte = {"q1": ["d/s3", "d/s1", "d/s2"], "q2": ["d/s2", "d/s1"]}
+    r = calistir(ss, {"sabit": SABIT}, {"sabit": lambda s, k: sahte[s][:k]},
+                 {p["id"]: p for p in MADDE}, k_listesi=(1, 5))
+    assert list(r["ozet"]) == ["sabit"] and r["fark"] == {} and "mcnemar_R@5" not in r
+    a = r["aralik"]["sabit"]["R@1"]
+    assert a["ortalama"] == 0.5 and a["alt"] <= 0.5 <= a["ust"] and a["n"] == 2
+
+
 def test_calistir_bos():
     r = calistir([], {"madde": MADDE, "sabit": SABIT}, {}, {})
     assert r["n"] == 0 and r["ozet"] == {}

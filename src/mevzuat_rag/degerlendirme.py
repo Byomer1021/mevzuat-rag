@@ -113,6 +113,17 @@ def eslestirilmis_bootstrap(a: np.ndarray, b: np.ndarray, n: int = 10_000, tohum
     return {"fark": float(d.mean()), "alt": float(alt), "ust": float(ust), "n": len(d)}
 
 
+def bootstrap_araligi(a: np.ndarray, n: int = 10_000, tohum: int = 0, guven: float = 0.95) -> dict:
+    """Tek sistemin ortalaması ve yüzdelik güven aralığı; sorular yeniden örneklenir."""
+    a = np.asarray(a, float)
+    if a.ndim != 1 or len(a) == 0:
+        raise ValueError("a boş olmayan tek boyutlu bir dizi olmalı")
+    rng = np.random.default_rng(tohum)
+    ortalamalar = a[rng.integers(0, len(a), size=(n, len(a)))].mean(axis=1)
+    alt, ust = np.quantile(ortalamalar, [(1 - guven) / 2, 1 - (1 - guven) / 2])
+    return {"ortalama": float(a.mean()), "alt": float(alt), "ust": float(ust), "n": len(a)}
+
+
 def mcnemar(a: np.ndarray, b: np.ndarray) -> dict:
     """İkili sonuçlar (bulundu/bulunamadı) için kesin McNemar: yalnız a'nın ve
     yalnız b'nin bulduğu soru sayısı ve iki yönlü p."""

@@ -12,6 +12,7 @@ import numpy as np
 
 from mevzuat_rag.degerlendirme import (
     Kume,
+    bootstrap_araligi,
     eslestirilmis_bootstrap,
     ilk_tam_sira,
     kanitlar,
@@ -43,7 +44,8 @@ def soru_kumeleri(sorular: list[dict], madde_parcalari: list[dict]) -> dict[str,
 def calistir(sorular: list[dict], kumeler: dict[str, list[dict]], arayicilar: dict[str, Arayici],
              dayanak_parcalari: dict[str, dict], k_listesi: tuple[int, ...] = (1, 5, 10)) -> dict:
     """Her soruyu her koşulda arar, kanıt kapsamını ölçer. `kumeler` ve
-    `arayicilar` aynı anahtarları taşır; ilk iki anahtar karşılaştırılır (a − b)."""
+    `arayicilar` aynı anahtarları taşır; iki koşul varsa ilk ikisi karşılaştırılır
+    (a − b). Tek koşul: yalnız o koşulun ölçüleri ve güven aralıkları."""
     kume = {ad: Kume(ps) for ad, ps in kumeler.items()}
     kmax = max(k_listesi)
     satirlar = []
@@ -63,12 +65,16 @@ def calistir(sorular: list[dict], kumeler: dict[str, list[dict]], arayicilar: di
     def rr(ad: str) -> np.ndarray:
         return np.array([1 / r[ad]["sira"] if r[ad]["sira"] else 0.0 for r in satirlar])
 
-    sonuc = {"n": len(satirlar), "k": list(k_listesi), "ozet": {}, "fark": {}, "sorular": satirlar}
+    sonuc = {"n": len(satirlar), "k": list(k_listesi), "ozet": {}, "aralik": {}, "fark": {},
+             "sorular": satirlar}
     if not satirlar:
         return sonuc
     for ad in kumeler:
-        sonuc["ozet"][ad] = {**{f"R@{k}": round(float(dizi(ad, k).mean()), 4) for k in k_listesi},
-                             f"MRR@{kmax}": round(float(rr(ad).mean()), 4)}
+        olculer = {**{f"R@{k}": dizi(ad, k) for k in k_listesi}, f"MRR@{kmax}": rr(ad)}
+        sonuc["ozet"][ad] = {o: round(float(v.mean()), 4) for o, v in olculer.items()}
+        sonuc["aralik"][ad] = {o: bootstrap_araligi(v) for o, v in olculer.items()}
+    if len(kumeler) < 2:
+        return sonuc
     a, b = list(kumeler)[:2]
     for k in k_listesi:
         sonuc["fark"][f"R@{k}"] = eslestirilmis_bootstrap(dizi(a, k), dizi(b, k))

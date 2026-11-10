@@ -1,7 +1,9 @@
 import pytest
 
 from mevzuat_rag.testset import (
+    bolum_ozeti,
     dogrula,
+    dondurma_denetle,
     ekle,
     hepsini_yaz,
     iceri_al,
@@ -130,3 +132,15 @@ def test_hepsini_yaz_sirayi_ve_alanlari_korur(tmp_path):
     yol = tmp_path / "s.jsonl"
     hepsini_yaz(yol, [soru(), {**soru(id="q002"), "fazla": 1}])
     assert [s["id"] for s in oku(yol)] == ["q001", "q002"] and "fazla" not in oku(yol)[1]
+
+
+def test_dondurma_test_sorusu_degisince_bozulur():
+    ss = [soru(id="q001", bolum="test"), soru(id="q002", bolum="dev")]
+    kayit = {"tarih": "2026-11-10 20:00", "n": 1, "ozet": bolum_ozeti(ss, "test")}
+    assert dondurma_denetle(ss, kayit) is None
+    assert dondurma_denetle(list(reversed(ss)), kayit) is None  # sıra önemsiz
+    assert dondurma_denetle(ss + [soru(id="q003", bolum="dev")], kayit) is None  # dev serbest
+    assert "değil" in dondurma_denetle(ss + [soru(id="q003", bolum="test")], kayit)
+    duzenli = [soru(id="q001", bolum="test", referans_cevap="%25"), ss[1]]
+    assert "değil" in dondurma_denetle(duzenli, kayit)
+    assert "dondurulmadı" in dondurma_denetle(ss, None)

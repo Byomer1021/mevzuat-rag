@@ -10,6 +10,7 @@ metninden birebir. Sabit uzunluklu parçalar madde sınırına uymadığı için
 ile boşluk aynı sayılır.
 """
 
+import hashlib
 import json
 import re
 from collections import Counter
@@ -148,6 +149,26 @@ def iceri_al(mevcut: list[dict], gelenler: list[dict], parcalar: dict[str, str],
             sorular[konum[qid]] = {a: aday[a] for a in ALANLAR}
             rapor.append(f"{qid} güncellendi ({aday['yazan']})")
     return sorular, defter, rapor
+
+
+def bolum_ozeti(sorular: list[dict], bolum: str) -> str:
+    """Bir bölümün soruları değişti mi? Kimliğe göre sıralı, alan sırası sabit JSON'un sha256'sı."""
+    secili = sorted((s for s in sorular if s["bolum"] == bolum), key=lambda s: s["id"])
+    metin = "\n".join(json.dumps({k: s.get(k) for k in ALANLAR}, ensure_ascii=False) for s in secili)
+    return hashlib.sha256(metin.encode("utf-8")).hexdigest()
+
+
+def dondurma_denetle(sorular: list[dict], dondurma: dict | None) -> str | None:
+    """Test seti dondurulmuş ve dondurulduğu hâlinde mi? Sorun varsa açıklaması, yoksa None."""
+    if dondurma is None:
+        return "test seti dondurulmadı: önce scripts/test_dondur.py"
+    simdiki = bolum_ozeti(sorular, "test")
+    if simdiki != dondurma["ozet"]:
+        n = sum(s["bolum"] == "test" for s in sorular)
+        return (f"test seti dondurulduğu hâlinde değil: {dondurma['tarih']} tarihinde "
+                f"{dondurma['n']} soru, özet {dondurma['ozet'][:12]}; şimdi {n} soru, "
+                f"özet {simdiki[:12]}")
+    return None
 
 
 def ozet(sorular: list[dict]) -> dict:

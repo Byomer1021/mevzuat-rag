@@ -3,6 +3,7 @@ import pytest
 
 from mevzuat_rag.degerlendirme import (
     Kume,
+    bootstrap_araligi,
     eslestirilmis_bootstrap,
     ilk_tam_sira,
     kanitlar,
@@ -96,3 +97,13 @@ def test_mcnemar():
     r = mcnemar(a, b)
     assert (r["yalniz_a"], r["yalniz_b"]) == (10, 2) and r["p"] == pytest.approx(0.0386, abs=1e-3)
     assert mcnemar(a, a)["p"] == 1.0
+
+
+def test_bootstrap_araligi_tek_sistem():
+    a = np.array([1.0] * 30 + [0.0] * 70)
+    r = bootstrap_araligi(a)
+    assert r["ortalama"] == pytest.approx(0.3) and r["n"] == 100
+    assert 0.2 < r["alt"] < 0.3 < r["ust"] < 0.4
+    assert bootstrap_araligi(a) == r  # aynı tohum, aynı aralık
+    with pytest.raises(ValueError):
+        bootstrap_araligi(np.array([]))
