@@ -5,7 +5,8 @@
 BM25 ve e5 için scripts/deney.py --bolum test --kosul sabit çalışır, tablo
 results/tablo.md'ye yazılır. Yöntemin (madde) satırları boş kalır: onun test
 sonucu en sonda, bir kez alınır (deney.py --son). e5 vektörleri
-.cache/gomme/'de yoksa ilk çalıştırma CPU'da ~16 dk sürer.
+.cache/gomme/'de yoksa ilk çalıştırma CPU'da ~16 dk sürer. Temiz klonda
+data/processed/ yoksa önce scripts/onisle.py çalışır.
 """
 
 import json
@@ -26,6 +27,11 @@ def hucre(a: dict) -> str:
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
     ortam = {**os.environ, "CUDA_VISIBLE_DEVICES": ""}  # K-002
+    islenmis = KOK / "data" / "processed"
+    if not all((islenmis / f).exists() for f in ("parcalar_madde.jsonl", "parcalar_sabit.jsonl")):
+        # temiz klon: parçalar depoda değil (.gitignore), ham PDF'lerden yeniden üretilir
+        print("data/processed/ yok, önce ön işlem: scripts/onisle.py", flush=True)
+        subprocess.run([sys.executable, str(KOK / "scripts" / "onisle.py")], check=True, env=ortam, cwd=KOK)
     for _, arama in SISTEMLER:
         subprocess.run([sys.executable, str(KOK / "scripts" / "deney.py"), "--bolum", "test",
                         "--kosul", "sabit", "--arama", arama], check=True, env=ortam, cwd=KOK)
