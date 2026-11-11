@@ -1,0 +1,1464 @@
+{
+ "kaynak": "results\\deney\\bm25-sabit-test.json",
+ "kosul": "sabit",
+ "kume": "birincil",
+ "n": 106,
+ "sayim": {
+  "madde_disi": 37,
+  "benzer_belge": 9,
+  "dogru_belge": 16,
+  "bolunmus": 8,
+  "baska_belge": 4,
+  "cok_kismi": 6
+ },
+ "hatalar": [
+  {
+   "id": "q053",
+   "soru": "Güz dönemi derslerini seçiyorum. En fazla kaç AKTS alabiliyorum?",
+   "dayanak": [
+    "lisans-yonetmelik/m16"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "ogretim-plani-malzeme/p43",
+   "ilk_belge": "Malzeme Bilimi ve Mühendisliği Öğretim Planı (20.09.2026)",
+   "ilk5": [
+    "ogretim-plani-malzeme/p43",
+    "intibak-malzeme/p12",
+    "ogretim-plani-bilgisayar/p54",
+    "ogretim-plani-mbg/p25",
+    "staj-muhendislik/s14"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q054",
+   "soru": "Birinci sınıfa yeni başladım. İlk dönem normal kredi sınırını aşıp üstten ders alabilir miyim?",
+   "dayanak": [
+    "lisans-yonetmelik/m16"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "staj-sss-muhendislik/p29",
+   "ilk_belge": "Staj Sıkça Sorulan Sorular (Biyomühendislik, Kimya Müh.)",
+   "ilk5": [
+    "staj-sss-muhendislik/p29",
+    "intibak-elektronik/p108",
+    "lisans-yonetmelik-2017-oncesi/s17",
+    "yok-gecis-yonetmeligi/s11",
+    "hazirlik-ogrenci-el-kitabi/p60"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q055",
+   "soru": "Okula yeni kayıt oldum. Danışmanım ne zaman belli olur?",
+   "dayanak": [
+    "danismanlik/m5"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p49",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p49",
+    "staj-sss-muhendislik/p57",
+    "staj-sss-harita/p48",
+    "staj-sss-muhendislik/p56",
+    "staj-sss-harita/p45"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q056",
+   "soru": "Bir dersin ön koşulunu sağlamıyorum ama sistemden seçebiliyorum. Yine de alabilir miyim?",
+   "dayanak": [
+    "lisans-yonetmelik/m15"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-muhendislik/p22",
+   "ilk_belge": "Staj Sıkça Sorulan Sorular (Biyomühendislik, Kimya Müh.)",
+   "ilk5": [
+    "staj-sss-muhendislik/p22",
+    "yo-0083/p75",
+    "ogretim-plani-elektronik/p13",
+    "staj-sss-muhendislik/p29",
+    "staj-sss-muhendislik/p2"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q057",
+   "soru": "Başka üniversiteden ders almak istiyorum. GTÜ'de kimlerden onay almam gerekiyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m21"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0086/p42",
+   "ilk_belge": "Endüstri Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0086/p42",
+    "yo-0084/s11",
+    "staj-sss-harita/p8",
+    "staj-sss-muhendislik/p9",
+    "staj-sss-muhendislik/p74"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q058",
+   "soru": "Dönem başladıktan sonra ders ekleyip çıkarmak için ne kadar zamanımız var?",
+   "dayanak": [
+    "lisans-yonetmelik/m17"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-defteri-endustri-yonetim/p17",
+   "ilk_belge": "Endüstri Müh. Yönetim Stajı Defteri Rehberi",
+   "ilk5": [
+    "staj-defteri-endustri-yonetim/p17",
+    "staj-sss-muhendislik/p8",
+    "staj-sss-harita/p7",
+    "staj-sss-muhendislik/p6",
+    "yatay-gecis-sss-iktisat/p15"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q064",
+   "soru": "Lab ve uygulama derslerinde finale girebilmek için devam oranı kaç olmalı?",
+   "dayanak": [
+    "lisans-yonetmelik/m23"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "yo-0016/s17",
+   "ilk_belge": "Mimari Tasarım Dersleri Uygulama Esasları",
+   "ilk5": [
+    "yo-0016/s17",
+    "staj-sss-muhendislik/p140",
+    "lisans-yonetmelik/s24",
+    "staj-sss-harita/p47",
+    "staj-sss-muhendislik/p55"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q065",
+   "soru": "Devamsızlık sınırını aştım. Yine de finale girebilir miyim?",
+   "dayanak": [
+    "lisans-yonetmelik/m25"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "hazirlik-ogrenci-el-kitabi/p60",
+   "ilk_belge": "Yabancı Diller Bölümü Öğrenci El Kitabı (2026-2027)",
+   "ilk5": [
+    "hazirlik-ogrenci-el-kitabi/p60",
+    "hazirlik-ogrenci-el-kitabi/p58",
+    "hazirlik-ogrenci-el-kitabi/p56",
+    "hazirlik-ogrenci-el-kitabi/p61",
+    "staj-sss-muhendislik/p175"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q066",
+   "soru": "Hazırlıkta bir kurdaki derslerin yüzde kaçına girmek zorundayız?",
+   "dayanak": [
+    "hazirlik/m9"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0016/s8",
+   "ilk_belge": "Mimari Tasarım Dersleri Uygulama Esasları",
+   "ilk5": [
+    "yo-0016/s8",
+    "yok-gecis-yonetmeligi/s34",
+    "staj-defteri-bilgisayar/p13",
+    "sinav-uygulama-esaslari-muhendislik/p5",
+    "hazirlik-ogrenci-el-kitabi/p67"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q067",
+   "soru": "Hazırlıkta bu kur devamsızlık hakkımın hepsini kullanmadım. Kalan hakkım sonraki kura geçiyor mu?",
+   "dayanak": [
+    "hazirlik/m9"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "hazirlik-ogrenci-el-kitabi/p55",
+   "ilk_belge": "Yabancı Diller Bölümü Öğrenci El Kitabı (2026-2027)",
+   "ilk5": [
+    "hazirlik-ogrenci-el-kitabi/p55",
+    "staj-sss-harita/p5",
+    "hazirlik-ogrenci-el-kitabi/p61",
+    "hazirlik-ogrenci-el-kitabi/p56",
+    "hazirlik-ogrenci-el-kitabi/p60"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q068",
+   "soru": "Hastaydım, raporum olduğu için vizeye giremedim. Mazeret sınavı için raporu kaç gün içinde dekanlığa vermem lazım?",
+   "dayanak": [
+    "lisans-yonetmelik/m29"
+   ],
+   "kategori": "bolunmus",
+   "ilk": "lisans-yonetmelik-2017-oncesi/s30",
+   "ilk_belge": "Lisans Eğitim ve Öğretim Yönetmeliği (2017 Öncesi Girişli Öğrenciler İçin)",
+   "ilk5": [
+    "lisans-yonetmelik-2017-oncesi/s30",
+    "hazirlik/s10",
+    "lisans-yonetmelik/s31",
+    "mazeret-esaslari-muhendislik/p12",
+    "mazeret-esaslari-muhendislik/p1"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q069",
+   "soru": "Harf notumun yanlış girildiğini düşünüyorum. Açıklandıktan sonra kaç iş günü içinde itiraz etmem gerekiyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m28"
+   ],
+   "kategori": "bolunmus",
+   "ilk": "lisans-yonetmelik/s30",
+   "ilk_belge": "Ön Lisans ve Lisans Eğitim-Öğretim Yönetmeliği",
+   "ilk5": [
+    "lisans-yonetmelik/s30",
+    "hazirlik/s11",
+    "staj-sss-muhendislik/p9",
+    "yo-0039/s31",
+    "program-disi-ogrenme/s4"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q071",
+   "soru": "Büt notu direkt finalin yerine mi geçiyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m25"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "lisans-yonetmelik/s24",
+   "ilk_belge": "Ön Lisans ve Lisans Eğitim-Öğretim Yönetmeliği",
+   "ilk5": [
+    "lisans-yonetmelik/s24",
+    "yo-0064/p118",
+    "lisans-yonetmelik-2017-oncesi/s28",
+    "yo-0086/p39",
+    "yo-0086/p43"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q072",
+   "soru": "Devamsızlıktan NA aldığım dersin bütüne girebilir miyim?",
+   "dayanak": [
+    "lisans-yonetmelik/m25"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "yo-0110/s7",
+   "ilk_belge": "SGM 216 Mesleki Eğitim Dersi Yönergesi",
+   "ilk5": [
+    "yo-0110/s7",
+    "yo-0086/p42",
+    "lisans-yonetmelik/s37",
+    "endustriyel-uygulamalar/s8",
+    "muafiyet-sinavi/s2"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q076",
+   "soru": "Ortalamaya bağlı kalmadan bir dersten direkt geçmek için en az hangi harf notunu almak gerekiyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m27"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "yo-0064/p39",
+   "ilk_belge": "Bilişim Politikaları Yönergesi",
+   "ilk5": [
+    "yo-0064/p39",
+    "gtu110/s5",
+    "yo-0110/s5",
+    "lisans-yonetmelik-2017-oncesi/s24",
+    "ogretim-plani-insaat/p16"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q077",
+   "soru": "Bir dersin notu VF görünüyor, ne demek bu?",
+   "dayanak": [
+    "lisans-yonetmelik/m26"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "staj-defteri-bilgisayar/p12",
+   "ilk_belge": "Bilgisayar Müh. Staj Defteri Nasıl Doldurulur",
+   "ilk5": [
+    "staj-defteri-bilgisayar/p12",
+    "lisans-yonetmelik/s34",
+    "lisans-yonetmelik/s25",
+    "intibak-harita/p52",
+    "intibak-harita/p57"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q079",
+   "soru": "Derse devam ettim ama FF ile kaldım. Tekrar alınca yine devam zorunluluğu var mı?",
+   "dayanak": [
+    "lisans-yonetmelik/m32"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "lisans-yonetmelik/s24",
+   "ilk_belge": "Ön Lisans ve Lisans Eğitim-Öğretim Yönetmeliği",
+   "ilk5": [
+    "lisans-yonetmelik/s24",
+    "lisans-yonetmelik/s23",
+    "yo-0080/p17",
+    "yo-0086/p30",
+    "hazirlik-ogrenci-el-kitabi/p55"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q081",
+   "soru": "Bir dersi tekrar aldığımda ortalamaya son notum mu giriyor, eski notum da hesaba katılıyor mu?",
+   "dayanak": [
+    "lisans-yonetmelik/m32"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p113",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p113",
+    "staj-sss-harita/p17",
+    "staj-sss-harita/p15",
+    "staj-sss-muhendislik/p137",
+    "staj-sss-harita/p70"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q082",
+   "soru": "Kaldığım seçmeli ders artık müfredatta yok. Onun yerine hangi dersi almam gerekiyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m32"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "ogretim-plani-elektronik/p48",
+   "ilk_belge": "Elektronik Mühendisliği Öğretim Planı (20.09.2026)",
+   "ilk5": [
+    "ogretim-plani-elektronik/p48",
+    "ogretim-plani-makine/p20",
+    "ogretim-plani-makine/p12",
+    "ogretim-plani-bilgisayar/p50",
+    "ogretim-plani-insaat/p29"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q083",
+   "soru": "Ders muafiyetim kabul edildi. Transkriptte o dersin notu ne olarak görünecek?",
+   "dayanak": [
+    "lisans-yonetmelik/m26"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "lisans-yonetmelik-2017-oncesi/s28",
+   "ilk_belge": "Lisans Eğitim ve Öğretim Yönetmeliği (2017 Öncesi Girişli Öğrenciler İçin)",
+   "ilk5": [
+    "lisans-yonetmelik-2017-oncesi/s28",
+    "erasmus/s20",
+    "endustriyel-uygulamalar/s7",
+    "yatay-gecis-sss-iktisat/p17",
+    "mazeret-esaslari-muhendislik/p12"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q084",
+   "soru": "Ortalamam kaçın altına düşerse sınamalı oluyorum?",
+   "dayanak": [
+    "lisans-yonetmelik/m31"
+   ],
+   "kategori": "bolunmus",
+   "ilk": "lisans-yonetmelik/s34",
+   "ilk_belge": "Ön Lisans ve Lisans Eğitim-Öğretim Yönetmeliği",
+   "ilk5": [
+    "lisans-yonetmelik/s34",
+    "sinav-uygulama-esaslari-muhendislik/p14",
+    "lisans-yonetmelik-2017-oncesi/s32",
+    "program-disi-ogrenme/s1",
+    "yo-0064/p45"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q085",
+   "soru": "Sınamalıyken bir dönemde en fazla kaç AKTS alabiliyorum?",
+   "dayanak": [
+    "lisans-yonetmelik/m31"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0082/p10",
+   "ilk_belge": "Harita Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0082/p10",
+    "staj-muhendislik/s14",
+    "yo-0071/s6",
+    "staj-sss-harita/p5",
+    "staj-sss-harita/p43"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q087",
+   "soru": "Birinci sınıfın sonunda da ortalama yüzünden sınamalı duruma düşebiliyor muyuz?",
+   "dayanak": [
+    "lisans-yonetmelik/m31"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "lisans-yonetmelik-2017-oncesi/s32",
+   "ilk_belge": "Lisans Eğitim ve Öğretim Yönetmeliği (2017 Öncesi Girişli Öğrenciler İçin)",
+   "ilk5": [
+    "lisans-yonetmelik-2017-oncesi/s32",
+    "yo-0085/s3",
+    "duzensiz-ogrenci-rehberi/p14",
+    "yo-0064/p77",
+    "yo-0005/s2"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q089",
+   "soru": "Tek ders sınavında eski vize notum da hesaba katılıyor mu, sadece o sınavın notuna mı bakılıyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m33"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "mazeret-esaslari-muhendislik/p13",
+   "ilk_belge": "Mazeretlerin Kabulü ve Mazeret Sınavlarının Yapılış Esasları",
+   "ilk5": [
+    "mazeret-esaslari-muhendislik/p13",
+    "staj-sss-harita/p70",
+    "staj-sss-muhendislik/p93",
+    "yo-0083/p79",
+    "lisans-yonetmelik-2017-oncesi/s36"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q092",
+   "soru": "Mezun olmak için genel ortalamamın en az kaç olması lazım?",
+   "dayanak": [
+    "lisans-yonetmelik/m35"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0003/s2",
+   "ilk_belge": "Dereceye Giren Önlisans, Lisans Mezunlarının Tespitine İlişkin Yönerge",
+   "ilk5": [
+    "yo-0003/s2",
+    "staj-sss-harita/p43",
+    "staj-sss-muhendislik/p51",
+    "staj-sss-harita/p47",
+    "ogretim-plani-elektronik/p21"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q094",
+   "soru": "Mezuniyet için her şeyi tamamladım ama hemen mezun olmak istemiyorum. Mezuniyetimi erteletebiliyor muyum?",
+   "dayanak": [
+    "lisans-yonetmelik/m35"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0083/p75",
+   "ilk_belge": "Kimya Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0083/p75",
+    "ogretim-plani-iktisat/p9",
+    "yo-0003/s2",
+    "yo-0064/p90",
+    "staj-sss-harita/p47"
+   ],
+   "sira": 6
+  },
+  {
+   "id": "q095",
+   "soru": "Mezun oldum ama diplomam daha çıkmadı. Resmî bir yere vermek için diploma yerine hangi belgeyi alabilirim?",
+   "dayanak": [
+    "lisans-yonetmelik/m36"
+   ],
+   "kategori": "baska_belge",
+   "ilk": "yo-0083/p75",
+   "ilk_belge": "Kimya Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0083/p75",
+    "yo-0006/s8",
+    "staj-sss-muhendislik/p69",
+    "yok-gecis-yonetmeligi/s56",
+    "yok-gecis-yonetmeligi/s18"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q096",
+   "soru": "ÇAP yapmak istiyorum, ortalamam en az kaç olmalı?",
+   "dayanak": [
+    "cift-anadal/m4"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p114",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p114",
+    "staj-sss-harita/p97",
+    "staj-sss-muhendislik/p141",
+    "staj-sss-muhendislik/p121",
+    "staj-sss-harita/p47"
+   ],
+   "sira": 9
+  },
+  {
+   "id": "q097",
+   "soru": "ÇAP'a en erken ne zaman başvurabiliyorum? Başvurmak için geç kalmış sayılacağım bir dönem var mı?",
+   "dayanak": [
+    "cift-anadal/m4"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-muhendislik/p63",
+   "ilk_belge": "Staj Sıkça Sorulan Sorular (Biyomühendislik, Kimya Müh.)",
+   "ilk5": [
+    "staj-sss-muhendislik/p63",
+    "staj-sss-muhendislik/p8",
+    "staj-sss-harita/p45",
+    "staj-sss-muhendislik/p53",
+    "staj-sss-muhendislik/p141"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q099",
+   "soru": "ÇAP yaparken başka bir bölümde yandal da yapabilir miyim?",
+   "dayanak": [
+    "cift-anadal/m9"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p4",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p4",
+    "staj-sss-muhendislik/p4",
+    "yo-0086/p42",
+    "yo-0006/s5",
+    "staj-sss-muhendislik/p22"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q100",
+   "soru": "ÇAP'tan mezun olmak için ÇAP ortalamamın kaç olması gerekiyor?",
+   "dayanak": [
+    "cift-anadal/m16"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "cift-anadal/s7",
+   "ilk_belge": "Çift Anadal Programı (ÇAP) Yönergesi",
+   "ilk5": [
+    "cift-anadal/s7",
+    "duzensiz-ogrenci-rehberi/p9",
+    "cift-anadal/s11",
+    "cift-anadal/s10",
+    "cift-anadal/s1"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q101",
+   "soru": "andal için ortalamam en az kaç olmalı?",
+   "dayanak": [
+    "yan-dal/m6"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p47",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p47",
+    "staj-sss-muhendislik/p55",
+    "staj-sss-harita/p114",
+    "staj-sss-harita/p97",
+    "staj-sss-muhendislik/p141"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q102",
+   "soru": "Yandala başvurmak için en geç kaçıncı dönemde olmam lazım?",
+   "dayanak": [
+    "yan-dal/m4"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p28",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p28",
+    "staj-sss-muhendislik/p36",
+    "yo-0079/p9",
+    "staj-sss-harita/p90",
+    "yo-0089/s6"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q103",
+   "soru": "Yandalı kendi isteğimle bıraktım. Sonradan aynı yandala tekrar başvurabilir miyim?",
+   "dayanak": [
+    "yan-dal/m12"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p29",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p29",
+    "staj-sss-muhendislik/p37",
+    "staj-sss-harita/p41",
+    "staj-sss-muhendislik/p49",
+    "duzensiz-ogrenci-rehberi/p11"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q106",
+   "soru": "GTÜ içinde ortalamayla bölüm değiştirmek istiyorum. En erken hangi dönem başvurabilirim, en geç ne zamana kadar başvuru hakkım var?",
+   "dayanak": [
+    "yatay-gecis/m4"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "staj-sss-muhendislik/p8",
+   "ilk_belge": "Staj Sıkça Sorulan Sorular (Biyomühendislik, Kimya Müh.)",
+   "ilk5": [
+    "staj-sss-muhendislik/p8",
+    "staj-sss-harita/p90",
+    "staj-sss-muhendislik/p58",
+    "staj-sss-harita/p50",
+    "yatay-gecis-sss-iktisat/p17"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q108",
+   "soru": "Yıllar önce başka okulda geçtiğim dersler var. Aradan zaman geçti diye bunları saydırmamda sorun olur mu?",
+   "dayanak": [
+    "muafiyet-intibak/m5"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "bitirme-iktisat/p14",
+   "ilk_belge": "İktisat İKT490 Bitirme Çalışması Dersi Genel Esasları (2026)",
+   "ilk5": [
+    "bitirme-iktisat/p14",
+    "duzensiz-ogrenci-rehberi/p7",
+    "staj-defteri-endustri-yonetim/p14",
+    "staj-sss-harita/p15",
+    "yo-0046/s8"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q109",
+   "soru": "Muaf olduğum dersin notu ve kredisi transkripte nasıl yazılıyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m26"
+   ],
+   "kategori": "baska_belge",
+   "ilk": "muafiyet-intibak/s7",
+   "ilk_belge": "Lisans Muafiyet ve İntibak Yönergesi",
+   "ilk5": [
+    "muafiyet-intibak/s7",
+    "muafiyet-sinavi/s4",
+    "ogretim-plani-elektronik/p21",
+    "muafiyet-intibak/s8",
+    "muafiyet-sinavi/s5"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q110",
+   "soru": "Muafiyet başvurum için fakülte yönetim kurulu karar vermiş. Sonuç kaç iş günü içinde açıklanır?",
+   "dayanak": [
+    "muafiyet-intibak/m5"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "mazeret-esaslari-muhendislik/p12",
+   "ilk_belge": "Mazeretlerin Kabulü ve Mazeret Sınavlarının Yapılış Esasları",
+   "ilk5": [
+    "mazeret-esaslari-muhendislik/p12",
+    "yo-0039/s35",
+    "yo-0039/s8",
+    "muafiyet-intibak/s10",
+    "yo-0086/p12"
+   ],
+   "sira": 9
+  },
+  {
+   "id": "q113",
+   "soru": "Ortalamam 2.50 ile 2.99 arasında. Yazın üstten kaç ders alabiliyorum?",
+   "dayanak": [
+    "yaz-ogretimi/m11"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p111",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p111",
+    "staj-sss-muhendislik/p135",
+    "lisans-yonetmelik/s15",
+    "erasmus/s16",
+    "staj-sss-harita/p43"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q114",
+   "soru": "Sınamalı durumdayım. Yaz okulunda daha önce hiç almadığım bir dersi alabiliyor muyum?",
+   "dayanak": [
+    "yaz-ogretimi/m11"
+   ],
+   "kategori": "bolunmus",
+   "ilk": "ogretim-plani-mbg/p17",
+   "ilk_belge": "Moleküler Biyoloji ve Genetik Öğretim Planı (2025)",
+   "ilk5": [
+    "ogretim-plani-mbg/p17",
+    "yaz-ogretimi/s7",
+    "lisans-yonetmelik/s34",
+    "staj-sss-harita/p44",
+    "staj-sss-muhendislik/p52"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q116",
+   "soru": "Başka okuldan yaz dersi alacağım. Dersin dili GTÜ'dekiyle aynı mı olmak zorunda?",
+   "dayanak": [
+    "yaz-ogretimi/m11"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "yaz-ogretimi/s8",
+   "ilk_belge": "Yaz Öğretimi Yönetmeliği",
+   "ilk5": [
+    "yaz-ogretimi/s8",
+    "yo-0083/p76",
+    "af-7592-uygulama-ilkeleri/p54",
+    "yo-0083/p4",
+    "yo-0083/p8"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q117",
+   "soru": "Hazırlıkta en fazla kaç dönem okuyabiliyoruz?",
+   "dayanak": [
+    "lisans-yonetmelik/m14"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0003/s2",
+   "ilk_belge": "Dereceye Giren Önlisans, Lisans Mezunlarının Tespitine İlişkin Yönerge",
+   "ilk5": [
+    "yo-0003/s2",
+    "staj-sss-muhendislik/p139",
+    "staj-sss-harita/p47",
+    "staj-sss-muhendislik/p55",
+    "yo-0083/p20"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q118",
+   "soru": "Hazırlığı iki yılda da geçemezsem ne oluyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m5"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0083/p9",
+   "ilk_belge": "Kimya Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0083/p9",
+    "yo-0064/p40",
+    "duzensiz-ogrenci-rehberi/p5",
+    "staj-sss-muhendislik/p6",
+    "staj-bilgilendirme-harita/p6"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q119",
+   "soru": "Dört yıllık bölümü en fazla kaç yılda bitirmem gerekiyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m14"
+   ],
+   "kategori": "baska_belge",
+   "ilk": "yo-0006/s2",
+   "ilk_belge": "Mezuniyet Belgesi İle Diploma ve Diploma Defterinin Düzenlenmesinde Uyulacak Esaslara İlişkin Yönerge",
+   "ilk5": [
+    "yo-0006/s2",
+    "duzensiz-ogrenci-rehberi/p13",
+    "yok-gecis-yonetmeligi/s25",
+    "yok-gecis-yonetmeligi/s40",
+    "yo-0003/s2"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q120",
+   "soru": "Ek sınavlardan sonra tek dersim kaldı. Azami sürem de doldu, bu ders için kaç sınav hakkım var?",
+   "dayanak": [
+    "azami-sure/m8"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "yo-0083/p79",
+   "ilk_belge": "Kimya Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0083/p79",
+    "staj-sss-muhendislik/p5",
+    "lisans-yonetmelik/s37",
+    "azami-sure/s8",
+    "lisans-yonetmelik-2017-oncesi/s36"
+   ],
+   "sira": 9
+  },
+  {
+   "id": "q121",
+   "soru": "Bütün derslerim bitti, sadece staj kaldı ama azami sürem de doldu. Stajı tamamlamak için kaç dönem daha veriliyor?",
+   "dayanak": [
+    "azami-sure/m14"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0083/p79",
+   "ilk_belge": "Kimya Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0083/p79",
+    "staj-sss-harita/p29",
+    "staj-sss-muhendislik/p37",
+    "staj-sss-harita/p43",
+    "staj-sss-muhendislik/p51"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q124",
+   "soru": "Sağlık sorunları yüzünden ana bölümde kaydımı donduracağım. ÇAP ya da yandal kaydım da otomatik donuyor mu?",
+   "dayanak": [
+    "cift-anadal/m12"
+   ],
+   "kategori": "bolunmus",
+   "ilk": "duzensiz-ogrenci-rehberi/p9",
+   "ilk_belge": "Düzensiz (Irregular) Öğrenci Rehberi",
+   "ilk5": [
+    "duzensiz-ogrenci-rehberi/p9",
+    "cift-anadal/s8",
+    "cift-anadal/s11",
+    "cift-anadal/s10",
+    "cift-anadal/s5"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q125",
+   "soru": "Üçüncü sınıftayım, ortalamam 1.85. Yaz okulunda hem not yükseltmek için ders alıp hem de üstten yeni ders alabilir miyim?",
+   "dayanak": [
+    "yaz-ogretimi/m11"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p3",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p3",
+    "staj-sss-muhendislik/p3",
+    "staj-sss-harita/p27",
+    "staj-sss-muhendislik/p35",
+    "staj-rehberi-insaat/p3"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q128",
+   "soru": "ÇAP'taki dersimle kendi bölümümdeki ders çakışıyor. Danışman onay verirse ikisini de alabilir miyim? Ne kadar çakışmaya izin veriliyor?",
+   "dayanak": [
+    "lisans-yonetmelik/m32"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-muhendislik/p17",
+   "ilk_belge": "Staj Sıkça Sorulan Sorular (Biyomühendislik, Kimya Müh.)",
+   "ilk5": [
+    "staj-sss-muhendislik/p17",
+    "staj-sss-harita/p14",
+    "yo-0086/p40",
+    "staj-sss-muhendislik/p29",
+    "staj-sss-muhendislik/p2"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q129",
+   "soru": "Bir dersten devamsızlıktan kaldım, vizesine de girmemiştim. Mazeret sınavına ya da büte girme şansım var mı?",
+   "dayanak": [
+    "lisans-yonetmelik/m25"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "mazeret-esaslari-muhendislik/p13",
+   "ilk_belge": "Mazeretlerin Kabulü ve Mazeret Sınavlarının Yapılış Esasları",
+   "ilk5": [
+    "mazeret-esaslari-muhendislik/p13",
+    "hazirlik-ogrenci-el-kitabi/p76",
+    "mazeret-esaslari-muhendislik/p11",
+    "hazirlik-ogrenci-el-kitabi/p59",
+    "hazirlik/s10"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q130",
+   "soru": "Kendi bölümüm bitti ama ÇAP derslerim devam ediyor. Ana bölümün diplomasını alabiliyor muyum? ÇAP'ı bitirmek için ne kadar sürem kalıyor?",
+   "dayanak": [
+    "cift-anadal/m17"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "cift-anadal/s11",
+   "ilk_belge": "Çift Anadal Programı (ÇAP) Yönergesi",
+   "ilk5": [
+    "cift-anadal/s11",
+    "cift-anadal/s5",
+    "cift-anadal/s7",
+    "cift-anadal/s8",
+    "cift-anadal/s1"
+   ],
+   "sira": 7
+  },
+  {
+   "id": "q131",
+   "soru": "Ortalamayla GTÜ içinde bölüm değiştirdim. Eski bölümde geçtiğim seçmelileri yeni bölümde nasıl saydırabilirim? O notlar ortalamaya giriyor mu?",
+   "dayanak": [
+    "yatay-gecis/m7"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0018/s28",
+   "ilk_belge": "Mimarlık Fakültesi Lisans Eğitimi Staj Yönergesi",
+   "ilk5": [
+    "yo-0018/s28",
+    "yo-0083/p77",
+    "bitirme-yazim-kilavuzu-kimya/p2",
+    "intibak-harita/p1",
+    "yaz-ogretimi/s11"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q132",
+   "soru": "Azami sürem dolduğu için kaydım silinebilir ama stajım da duruyor. Stajı yapabilmek için ayrıca bir yere başvurmam gerekiyor mu?",
+   "dayanak": [
+    "azami-sure/m14"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-muhendislik/s17",
+   "ilk_belge": "Mühendislik Fakültesi Staj Yönergesi",
+   "ilk5": [
+    "staj-muhendislik/s17",
+    "staj-sss-muhendislik/p3",
+    "staj-sss-harita/p3",
+    "staj-sss-harita/p27",
+    "staj-sss-harita/p136"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q133",
+   "soru": "Güzden VF aldığım bir ders var ama baharda açılmıyor. Büte ya da D sınavına girebilir miyim, yoksa dersin tekrar açılmasını mı beklemem lazım?",
+   "dayanak": [
+    "lisans-yonetmelik/m25",
+    "lisans-yonetmelik/m32"
+   ],
+   "kategori": "cok_kismi",
+   "ilk": "yo-0086/p42",
+   "ilk_belge": "Endüstri Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0086/p42",
+    "hazirlik-ogrenci-el-kitabi/p76",
+    "lisans-yonetmelik/s25",
+    "staj-sss-harita/p4",
+    "staj-sss-muhendislik/p5"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q134",
+   "soru": "Mazeret sınavına girdim ama FF geldi. Büte de girebilir miyim, notum nasıl hesaplanır?",
+   "dayanak": [
+    "lisans-yonetmelik/m25"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "lisans-yonetmelik-2017-oncesi/s30",
+   "ilk_belge": "Lisans Eğitim ve Öğretim Yönetmeliği (2017 Öncesi Girişli Öğrenciler İçin)",
+   "ilk5": [
+    "lisans-yonetmelik-2017-oncesi/s30",
+    "hazirlik-ogrenci-el-kitabi/p76",
+    "mazeret-esaslari-muhendislik/p13",
+    "mazeret-esaslari-muhendislik/p11",
+    "hazirlik/s10"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q135",
+   "soru": "Azami sürem doldu. Hiç almadığım bir dersin ek sınavına girebiliyor muyum?",
+   "dayanak": [
+    "azami-sure/m7"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "azami-sure/s2",
+   "ilk_belge": "Azami Öğrenim Süresini Tamamlayan Ancak Mezun Olamayan Önlisans-Lisans Öğrencileri İçin Uygulama Usul ve Esasları",
+   "ilk5": [
+    "azami-sure/s2",
+    "azami-sure/s10",
+    "azami-sure/s9",
+    "azami-sure/s14",
+    "azami-sure/s8"
+   ],
+   "sira": 7
+  },
+  {
+   "id": "q136",
+   "soru": "ÇAP'ı bitiremezsem geçtiğim dersleri saydırıp aynı bölümden yandal sertifikası alabilir miyim?",
+   "dayanak": [
+    "cift-anadal/m16",
+    "yan-dal/m24"
+   ],
+   "kategori": "cok_kismi",
+   "ilk": "yo-0006/s5",
+   "ilk_belge": "Mezuniyet Belgesi İle Diploma ve Diploma Defterinin Düzenlenmesinde Uyulacak Esaslara İlişkin Yönerge",
+   "ilk5": [
+    "yo-0006/s5",
+    "duzensiz-ogrenci-rehberi/p9",
+    "cift-anadal/s10",
+    "yok-gecis-yonetmeligi/s8",
+    "yok-gecis-yonetmeligi/s46"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q137",
+   "soru": "Başka üniversitenin yaz okulundan ders alıp geçersem notum burada nasıl görünecek? Harf notu mu yazılıyor, muaf mı sayılıyorum? Ortalamamı etkiliyor mu?",
+   "dayanak": [
+    "yaz-ogretimi/m11",
+    "muafiyet-intibak/m9"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "yo-0086/p38",
+   "ilk_belge": "Endüstri Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0086/p38",
+    "staj-sss-muhendislik/p6",
+    "yo-0086/p7",
+    "staj-sss-harita/p17",
+    "muafiyet-sinavi/s4"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q138",
+   "soru": "Tek ders sınavından da FF aldım. Önümüzdeki dönem tekrar girebiliyor muyum, bunun bir sınırı var mı?",
+   "dayanak": [
+    "lisans-yonetmelik/m33"
+   ],
+   "kategori": "bolunmus",
+   "ilk": "staj-sss-muhendislik/p5",
+   "ilk_belge": "Staj Sıkça Sorulan Sorular (Biyomühendislik, Kimya Müh.)",
+   "ilk5": [
+    "staj-sss-muhendislik/p5",
+    "lisans-yonetmelik/s36",
+    "lisans-yonetmelik-2017-oncesi/s36",
+    "lisans-yonetmelik/s25",
+    "lisans-yonetmelik/s34"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q139",
+   "soru": "Erasmusla bir dönem yurt dışına gidersem oradaki derslerin devam durumu nasıl sayılıyor? Bir de aldığım notlar GTÜ'deki harf notlarına nasıl çevriliyor?",
+   "dayanak": [
+    "erasmus/m6"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "staj-defteri-bilgisayar/p16",
+   "ilk_belge": "Bilgisayar Müh. Staj Defteri Nasıl Doldurulur",
+   "ilk5": [
+    "staj-defteri-bilgisayar/p16",
+    "erasmus/s20",
+    "staj-defteri-bilgisayar/p17",
+    "erasmus/s21",
+    "staj-sss-harita/p12"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q141",
+   "soru": "kütüphaneden aldığım kitabı unuttum 2 aydır bende duruyo, kayıp mı sayılıyo artık?",
+   "dayanak": [
+    "yo-0032/m7"
+   ],
+   "kategori": "bolunmus",
+   "ilk": "yo-0086/p42",
+   "ilk_belge": "Endüstri Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0086/p42",
+    "hazirlik-ogrenci-el-kitabi/p102",
+    "yo-0032/s6",
+    "yo-0032/s5",
+    "yo-0006/s11"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q145",
+   "soru": "yaz okulunda ders alırken aynı yaz stajımı da yapabilir miyim?",
+   "dayanak": [
+    "staj-muhendislik/m9"
+   ],
+   "kategori": "benzer_belge",
+   "ilk": "staj-sss-muhendislik/p4",
+   "ilk_belge": "Staj Sıkça Sorulan Sorular (Biyomühendislik, Kimya Müh.)",
+   "ilk5": [
+    "staj-sss-muhendislik/p4",
+    "yo-0083/p74",
+    "staj-sss-harita/p4",
+    "staj-sss-harita/p3",
+    "staj-sss-harita/p5"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q150",
+   "soru": "5 senede mezun olursam yine de bölüm derecesine girebiliyo muyum?",
+   "dayanak": [
+    "yo-0003/m4"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-bilgisayar/p5",
+   "ilk_belge": "Bilgisayar Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "staj-bilgisayar/p5",
+    "staj-sss-muhendislik/p175",
+    "hazirlik-ogrenci-el-kitabi/p28",
+    "proje-tabanli-degisim/p5",
+    "staj-sss-harita/p43"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q152",
+   "soru": "kampüste sigarayı nerde içebiliyoz, fakültenin önünde içsem sorun olur mu?",
+   "dayanak": [
+    "yo-0102/m7"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0016/s8",
+   "ilk_belge": "Mimari Tasarım Dersleri Uygulama Esasları",
+   "ilk5": [
+    "yo-0016/s8",
+    "lisans-yonetmelik-2017-oncesi/s19",
+    "hazirlik-ogrenci-el-kitabi/p99",
+    "bitirme-iktisat/p13",
+    "staj-bilgisayar/p17"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q153",
+   "soru": "okulun bisikletlerinden birini alınca kaç gün kullanabiliyorum?",
+   "dayanak": [
+    "yo-0046/m9"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p111",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p111",
+    "staj-sss-muhendislik/p135",
+    "staj-muhendislik/s18",
+    "yatay-gecis-sss-iktisat/p11",
+    "yo-0039/s41"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q154",
+   "soru": "spor salonunda antrenman arası protein bar falan yiyebilir miyim?",
+   "dayanak": [
+    "yo-0073/m17"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "yo-0073/s6",
+   "ilk_belge": "Gebze Teknik Üniversitesi Spor Tesisleri İşletme Yönergesi",
+   "ilk5": [
+    "yo-0073/s6",
+    "sinav-uygulama-esaslari-muhendislik/p4",
+    "sinav-uygulama-esaslari-muhendislik/p2",
+    "ogretim-plani-mbg/p37",
+    "yo-0073/s21"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q156",
+   "soru": "ailem kocaelide oturuyo, okulun yurduna başvurabilir miyim?",
+   "dayanak": [
+    "yo-0039/m6"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "duzensiz-ogrenci-rehberi/p11",
+   "ilk_belge": "Düzensiz (Irregular) Öğrenci Rehberi",
+   "ilk5": [
+    "duzensiz-ogrenci-rehberi/p11",
+    "yan-dal/s2",
+    "staj-sss-harita/p4",
+    "staj-sss-muhendislik/p4",
+    "staj-sss-harita/p5"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q159",
+   "soru": "bölüm temsilcisi olmak istiyorum, adaylığımı en geç ne zaman açıklamam lazım?",
+   "dayanak": [
+    "yo-0035/m7"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-muhendislik/p63",
+   "ilk_belge": "Staj Sıkça Sorulan Sorular (Biyomühendislik, Kimya Müh.)",
+   "ilk5": [
+    "staj-sss-muhendislik/p63",
+    "staj-sss-harita/p45",
+    "staj-sss-muhendislik/p53",
+    "staj-sss-harita/p5",
+    "staj-muhendislik/s6"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q160",
+   "soru": "kasımda arkadaşlarla yeni bi kulüp açmak için başvursak onaylanır mı?",
+   "dayanak": [
+    "yo-0024/m9"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "hazirlik-ogrenci-el-kitabi/p89",
+   "ilk_belge": "Yabancı Diller Bölümü Öğrenci El Kitabı (2026-2027)",
+   "ilk5": [
+    "hazirlik-ogrenci-el-kitabi/p89",
+    "yo-0064/p127",
+    "staj-sss-muhendislik/p168",
+    "hazirlik-ogrenci-el-kitabi/p90",
+    "yo-0083/p76"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q167",
+   "soru": "diplomamı ben gidip alamıyorum, annem benim yerime alabilir mi?",
+   "dayanak": [
+    "yo-0006/m14"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "yo-0086/p39",
+   "ilk_belge": "Endüstri Mühendisliği Bölümü Staj Uygulama Esasları",
+   "ilk5": [
+    "yo-0086/p39",
+    "yo-0083/p28",
+    "yo-0083/p78",
+    "staj-bilgilendirme-harita/p4",
+    "duzensiz-ogrenci-rehberi/p15"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q173",
+   "soru": "kütüphaneden aynı anda kaç kitap alabiliyorum, süresi bitince uzatabiliyo muyum?",
+   "dayanak": [
+    "yo-0032/m4",
+    "yo-0032/m5"
+   ],
+   "kategori": "cok_kismi",
+   "ilk": "yo-0032/s7",
+   "ilk_belge": "Prof. Dr. Nejat GÖYÜNÇ Kütüphanesi Hizmetlerinden Yararlanma Yönergesi",
+   "ilk5": [
+    "yo-0032/s7",
+    "yo-0032/s2",
+    "staj-sss-harita/p43",
+    "staj-sss-muhendislik/p51",
+    "yo-0032/s8"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q174",
+   "soru": "geçen sene disiplin cezası aldım, kısmi zamanlı çalışabilir miyim? bi de başlayıp kendim bırakırsam aynı yıl tekrar başlayabilir miyim?",
+   "dayanak": [
+    "kismi-zamanli/m10",
+    "kismi-zamanli/m11"
+   ],
+   "kategori": "cok_kismi",
+   "ilk": "kismi-zamanli/s2",
+   "ilk_belge": "Kısmi Zamanlı Öğrenci Çalıştırma Yönergesi",
+   "ilk5": [
+    "kismi-zamanli/s2",
+    "kismi-zamanli/s6",
+    "kismi-zamanli/s8",
+    "staj-sss-harita/p29",
+    "staj-sss-muhendislik/p37"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q175",
+   "soru": "muafiyet sınavına girerken yanımda ne olmalı, hasta olup giremezsem mazeret sınavı var mı?",
+   "dayanak": [
+    "muafiyet-sinavi/m4",
+    "muafiyet-sinavi/m2"
+   ],
+   "kategori": "cok_kismi",
+   "ilk": "muafiyet-sinavi/s1",
+   "ilk_belge": "Ön Lisans/Lisans Programları Ders Muafiyet Sınavı Uygulama Esasları",
+   "ilk5": [
+    "muafiyet-sinavi/s1",
+    "hazirlik/s10",
+    "muafiyet-sinavi/s2",
+    "staj-sss-harita/p114",
+    "staj-sss-muhendislik/p141"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q176",
+   "soru": "GTU 101 dersi için 1. sınıfta katıldığım etkinlikleri de sayabiliyo muyum, kaç tane etkinlik lazım?",
+   "dayanak": [
+    "gtu101/m4",
+    "gtu101/m5"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "gtu101/s8",
+   "ilk_belge": "GTU 101 Müfredat Dışı Etkinlik Uygulama Esasları",
+   "ilk5": [
+    "gtu101/s8",
+    "gtu101/s5",
+    "gtu101/s7",
+    "gtu110/s2",
+    "gtu101/s3"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q191",
+   "soru": "okulu dondurduğum dönemler şu 7 yıllık azami süreden sayılıyo mu yoksa süre duruyo mu?",
+   "dayanak": [
+    "lisans-yonetmelik/m19"
+   ],
+   "kategori": "madde_disi",
+   "ilk": "staj-sss-harita/p134",
+   "ilk_belge": "Harita Mühendisliği Staj SSS",
+   "ilk5": [
+    "staj-sss-harita/p134",
+    "staj-sss-muhendislik/p161",
+    "staj-sss-harita/p15",
+    "staj-sss-muhendislik/p137",
+    "staj-sss-muhendislik/p18"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q193",
+   "soru": "kendi bölümüm bitti mezun olucam ama yandal derslerim daha bitmedi, yandalı tamamlamak için bana kaç dönem ek süre veriyolar",
+   "dayanak": [
+    "yan-dal/m19"
+   ],
+   "kategori": "baska_belge",
+   "ilk": "yok-gecis-yonetmeligi/s49",
+   "ilk_belge": "Yükseköğretim Kurumlarında Önlisans ve Lisans Düzeyindeki Programlar Arasında Geçiş, Çift Anadal, Yan Dal ile Kurumlar Arası Kredi Transferi Yapılması Esaslarına İlişkin Yönetmelik",
+   "ilk5": [
+    "yok-gecis-yonetmeligi/s49",
+    "staj-sss-muhendislik/p5",
+    "azami-sure/s10",
+    "azami-sure/s1",
+    "yo-0006/s5"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q194",
+   "soru": "bilgisayar mühendisliğinde ilk zorunlu stajı yapabilmek için kaçıncı sınıfı bitirmiş olmam lazım ya da hangi dersleri geçmiş olmak gerekiyo",
+   "dayanak": [
+    "staj-muhendislik/m9"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "staj-muhendislik/s17",
+   "ilk_belge": "Mühendislik Fakültesi Staj Yönergesi",
+   "ilk5": [
+    "staj-muhendislik/s17",
+    "yatay-gecis-sss-iktisat/p1",
+    "yo-0083/p4",
+    "yo-0083/p3",
+    "yo-0064/p63"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q197",
+   "soru": "başka ünide okuyan bi arkadaşım tez için bizim kütüphaneden kitap ödünç alabilir mi yoksa sadece içeride mi bakabiliyo",
+   "dayanak": [
+    "yo-0032/m3",
+    "yo-0032/m13"
+   ],
+   "kategori": "cok_kismi",
+   "ilk": "yo-0032/s7",
+   "ilk_belge": "Prof. Dr. Nejat GÖYÜNÇ Kütüphanesi Hizmetlerinden Yararlanma Yönergesi",
+   "ilk5": [
+    "yo-0032/s7",
+    "yo-0032/s2",
+    "yo-0032/s8",
+    "yo-0086/p39",
+    "staj-sss-harita/p27"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q198",
+   "soru": "kulüp yönetimindeyim de bizim topluluk hangi durumlarda kapatılır ya da etkinliklerimiz durdurulur?",
+   "dayanak": [
+    "yo-0024/m18"
+   ],
+   "kategori": "bolunmus",
+   "ilk": "yo-0024/s29",
+   "ilk_belge": "Öğrenci Toplulukları Kuruluş ve İşleyiş Yönergesi",
+   "ilk5": [
+    "yo-0024/s29",
+    "hazirlik-ogrenci-el-kitabi/p89",
+    "yo-0024/s27",
+    "hazirlik-ogrenci-el-kitabi/p51",
+    "kismi-zamanli/s8"
+   ],
+   "sira": null
+  },
+  {
+   "id": "q199",
+   "soru": "kampüse arabayla girmek için taşıt pulunu nerden çıkarıyoruz?",
+   "dayanak": [
+    "yo-0049/m13"
+   ],
+   "kategori": "dogru_belge",
+   "ilk": "yo-0049/s17",
+   "ilk_belge": "Güvenlik ve Trafik Uygulamaları Yönergesi",
+   "ilk5": [
+    "yo-0049/s17",
+    "yo-0049/s18",
+    "sinav-uygulama-esaslari-muhendislik/p5",
+    "yo-0039/s43",
+    "hazirlik-ogrenci-el-kitabi/p67"
+   ],
+   "sira": null
+  }
+ ]
+}

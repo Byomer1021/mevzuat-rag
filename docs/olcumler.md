@@ -828,3 +828,61 @@ ilgilendirmiyor. Bu yüzden katalog güncellenmedi, sürüm değişmedi.
 duyurular) yeniden taranmadı; 17 Ekim'den sonra değişen ya da eklenen web
 içeriği bilinmiyor. Dev deneyinin sayıları (§12) aynı sürümde alındığı
 için geçerli; yeniden çalıştırmak gerekmiyor.
+
+## 14. Test setinin dondurulması ve baseline (2026-11-11)
+
+**Ne.** 150 test sorusu donduruldu (`data/testset/dondurma.json`, özet
+`b4bae07e3a80`, 2026-11-11 15:18), ardından yalnız baseline (sabit
+pencereler) test setinde çalıştırıldı: `uv run python scripts/tablo.py`.
+Yöntem (madde parçaları) test setinde çalıştırılmadı; tek seferlik koşu
+sonda (`deney.py --son`).
+
+**Test seti.** 111 tek kanıtlı, 20 çok kanıtlı, 19 cevapsız. Yazanlar:
+Muhammed 86, Veysel 50, Ömer Can 14. Karşılaştırılan (birincil) küme:
+106 soru. Bilgi tabanı `b3c7d85cce08`, parçalar `2b5af885972a`.
+
+İçeri alırken yapılan düzeltmeler (betikler oturum karalama alanında,
+sonuçları bu dosyada):
+- Muhammed'in PDF'ten kopyalanmış 52 cevabı Ömer Can yeniden yazdı.
+- 49 referans cevabı Claude, kanıt cümlesiyle çelişen ya da maddede
+  olmayan bilgi içerdiği için düzeltti (15 + 27 + 7). Sorular ve kanıt
+  cümleleri ekibin.
+- Dayanak/kanıt düzeltmeleri: q121 ile q122'nin kanıtları yer
+  değiştirmişti; q087'nin kanıtı yanlış fıkradandı; q105 cevapsız
+  işaretlenmişti ama yatay geçiş SSS'inde cevabı var; q107, q192 ve
+  q200 ikinci parça eklenerek çok kanıtlı yapıldı.
+- 2 soru silindi (yönetmelikte açık cevabı olmayan bir soru ve bir tekrar).
+
+**Sonuç (birincil, n = 106, 95% bootstrap aralığı).**
+
+| sistem | R@1 | R@5 | R@10 | MRR@10 |
+|---|---|---|---|---|
+| BM25 + 721 karakter pencere | 0.142 [0.075, 0.208] | 0.274 [0.193, 0.358] | 0.335 [0.250, 0.425] | 0.186 [0.122, 0.256] |
+| e5 + 721 karakter pencere | 0.189 [0.118, 0.264] | 0.429 [0.340, 0.519] | 0.571 [0.472, 0.660] | 0.275 [0.207, 0.345] |
+
+Tüm PDF kümesinde (n = 123) R@5: BM25 0.289, e5 0.451.
+
+**Hatalar (R@5'te kaçan, `scripts/hata_analizi.py`).** BM25 80, e5 63.
+
+| kategori | BM25 | e5 |
+|---|---|---|
+| çok maddeli, kanıtın bir kısmı geldi | 6 | 5 |
+| kanıt iki pencereye bölünmüş, bir parça geldi | 8 | 9 |
+| doğru belge, yanlış pencere | 16 | 18 |
+| benzer belge (başka birim, eski sürüm) | 9 | 8 |
+| rehber, SSS, öğretim planı ilk 5'i dolduruyor | 37 | 16 |
+| başka konudaki kural | 4 | 7 |
+
+**Ne anlama geliyor.** BM25'in hatalarının yarısı (37/80) uzun SSS ve
+rehber PDF'lerinin paragraf parçalarından geliyor. Bu parçalar iki dizinde
+de aynı, madde parçalaması bunları değiştirmez; BM25'te küçük fark
+beklenir (C2). e5'in en sık hatası doğru belgede yanlış pencere (18/63):
+başlık öneki belgeyi buluyor, kuralı değil; yöntemin değiştirdiği yer
+burası. Bölünmüş kanıt (8 ve 9) ölçütün katılığından da geliyor: q084'te
+cevaptaki sayı gelen pencerede var ama cümle bir önceki pencerede
+başlıyor.
+
+**Ne anlama gelmiyor.** Dev setinden yüksek çıkması (dev R@5: BM25 0.176,
+e5 0.365, n = 37) baseline'ın iyileştiğini göstermez; sorular farklı
+kişilerce, farklı belgelere yazıldı. Yöntemle karşılaştırma için tek
+geçerli sayı sondaki koşu.
