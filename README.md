@@ -149,6 +149,7 @@ scripts/
   tablo.py           sonuç tablosu tek komutla (dondurulmuş test seti, baseline)
   hata_analizi.py    kaçan soruları kategorilere ayırır (results/hata/)
   uyum.py            etiket uyumu: 40 soruluk örneklem, ikinci etiketler, κ (K-026)
+  bolunme.py         madde kazancının ne kadarı kanıtın bölünmemesinden (olcumler §15)
   tara.py, envanter.py, web_secim.py   site taraması ve web içeriği (olcumler §7-8)
 src/mevzuat_rag/
   madde.py           madde başlığı tanıyıcı (11 biçim)

@@ -886,3 +886,84 @@ başlıyor.
 e5 0.365, n = 37) baseline'ın iyileştiğini göstermez; sorular farklı
 kişilerce, farklı belgelere yazıldı. Yöntemle karşılaştırma için tek
 geçerli sayı sondaki koşu.
+
+## 15. Madde kazancının ne kadarı bölünmeden geliyor? (2026-11-14, dev)
+
+**Soru.** Ara sunumda beklenen itiraz: ölçüt maddelerin lehine mi? Recall@k'de
+kanıt, getirilen parçaların birleşiminde tam yer almalı. Pencere sınırı kanıt
+cümlesini bölerse pencere koşulunda iki parça birden gerekir, madde koşulunda
+bir parça yeter.
+
+**Nasıl.** `scripts/bolunme.py`, deney sonucundaki getirilen listelerden,
+yeniden arama yapmadan. Gevşek ölçütte kanıtla örtüşen herhangi bir parça
+getirildiyse kanıt bulunmuş sayılır. Gevşek ölçüt iki koşula aynı uygulanır.
+Sıkı ölçüt sonuç dosyasındakiyle birebir yeniden hesaplanıp karşılaştırıldı.
+
+**Sonuç (birincil, n = 37, R@5).** 37 sorunun 10'unda kanıt pencere sınırında
+bölünüyor. Madde koşulunda bölünen yok.
+
+| | ölçüt | madde | pencere | fark [95%] | McNemar |
+|---|---|---|---|---|---|
+| e5 | sıkı | 0.595 | 0.365 | +0.230 [+0.108, +0.378] | 9 / 0, p = 0.004 |
+| e5 | gevşek | 0.595 | 0.392 | +0.203 [+0.081, +0.338] | 8 / 0, p = 0.008 |
+| BM25 | sıkı | 0.149 | 0.176 | -0.027 [-0.162, +0.081] | 2 / 3, p = 1.000 |
+| BM25 | gevşek | 0.149 | 0.230 | -0.081 [-0.189, +0.027] | 1 / 4, p = 0.375 |
+
+e5'te yalnız maddenin bulduğu 9 sorudan 4'ünde kanıt bölünmüş. Gevşek
+ölçütte bunlardan yalnız biri pencereye geçiyor. Bölünmüş 10 soruda pencere
+koşulu kanıtın bir parçasını bile 3 soruda getiriyor, madde koşulu 6 soruda
+buluyor. Bölünmemiş 27 soruda madde 16, pencere 11.
+
+**Ne anlama geliyor.** e5'teki 23 puanın yaklaşık 3'ü ölçütten. Kalan 20
+puan aramadan geliyor ve aralığı sıfırın üstünde. Kuralın yarısını taşıyan
+pencere soruya daha az benziyor, bu yüzden parçası bile getirilmiyor.
+BM25'te gevşek ölçüt pencereleri öne geçiriyor ama aralık sıfırı içeriyor.
+Bölünmemiş sorularda BM25 pencerede daha iyi (6'ya 3). Uzunluk
+normalleştirmesinin etkisi olabilir, ölçülmedi.
+
+**Ne anlama gelmiyor.** Dev verisi, n = 37, soruları tek kişi yazdı. Gevşek
+ölçüt pencerelere cömert: kuralın yarısı soruyu cevaplamaya yetmeyebilir.
+Test setinde aynı analiz yöntemin tek koşusundan sonra yapılacak.
+
+## 16. Ablasyon: belge adı öneki olmadan (2026-11-14, dev)
+
+**Soru.** Proposal'daki C3: e5'teki madde kazancı sınırlardan gelir, belgeyi
+tanımaktan değil. Öyleyse belge adı önekini iki koşuldan da kaldırınca
+kazanç sürmeli.
+
+**Nasıl.** `deney.py --onek-yok --bolum dev`, BM25 ve e5. Önek, iki koşulda
+da her parçanın önüne eklenen belge adı. Kaldırılınca tek fark yine parça
+sınırları. e5 iki dizini öneksiz yeniden kodladı (843 s, CPU).
+
+**Kontrol.** BM25'in R@5'i önekli koşuyla birebir aynı çıktı, e5'te de
+pencere koşulunun R@5'i (0.365). Seçeneğin çalışmadığından şüphelenildi,
+getirilen listeler karşılaştırıldı. e5'te 37 sorunun hiçbirinde ilk 5 aynı
+değil, BM25'te 13-14'ünde aynı. R@1, R@10 ve MRR farklı. R@5'teki eşitlik
+isabet sayılarının denk gelmesi.
+
+**Sonuç (birincil, n = 37, R@5).**
+
+| | önek | madde | pencere | fark [95%] | McNemar |
+|---|---|---|---|---|---|
+| e5 | var | 0.595 | 0.365 | +0.230 [+0.108, +0.378] | 9 / 0, p = 0.004 |
+| e5 | yok | 0.459 | 0.365 | +0.095 [-0.054, +0.243] | 6 / 2, p = 0.289 |
+| BM25 | var | 0.149 | 0.176 | -0.027 [-0.162, +0.081] | 2 / 3, p = 1.000 |
+| BM25 | yok | 0.149 | 0.176 | -0.027 [-0.162, +0.081] | 2 / 3, p = 1.000 |
+
+e5 öneksiz, diğer ölçüler: R@10 farkı +0.176 [+0.054, +0.324], MRR@10 farkı
++0.108 [+0.012, +0.212]. Gevşek ölçütte (§15) R@5 farkı +0.041 [-0.095,
++0.176].
+
+**Ne anlama geliyor.** Önek kaldırılınca maddeler 13.5 puan kaybediyor
+(0.595'ten 0.459'a), pencereler R@5'te kaybetmiyor. Kazancın yarıdan fazlası
+önekle birlikte ortaya çıkıyor. Birincil ölçüde (R@5) öneksiz fark sıfırdan
+ayırt edilemiyor. C3 dev'de desteklenmiyor. R@10 ve MRR'de fark sıfırın
+üstünde kalıyor, yani sınırların bir etkisi var ama ilk 5'e yetmiyor.
+Okuma: belge adı en çok, bütün bir kuralı taşıyan parçaya yardım ediyor.
+Pencerede ad, kuralın yarısının önünde duruyor.
+
+**Ne anlama gelmiyor.** Dev, n = 37, tek yazar. Test setindeki ablasyon
+yöntemin tek koşusuyla birlikte yapılacak (Project Card alan 8, ablasyon
+satırları). Raporda C3 test sonucuna göre "destekleniyor" ya da
+"desteklenmiyor" diye yazılacak; dev'deki bu sonuç ayarlama için
+kullanılmadı.

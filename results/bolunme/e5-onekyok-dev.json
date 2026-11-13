@@ -1,0 +1,569 @@
+{
+ "ozet": {
+  "kaynak": "results\\deney\\e5-onekyok-dev.json",
+  "kume": "birincil",
+  "k": 5,
+  "n": 37,
+  "bolunmus_sabit": 10,
+  "bolunmus_madde": 0,
+  "olcu": {
+   "siki": {
+    "madde": {
+     "ortalama": 0.4594594594594595,
+     "alt": 0.2972972972972973,
+     "ust": 0.6216216216216216,
+     "n": 37
+    },
+    "sabit": {
+     "ortalama": 0.36486486486486486,
+     "alt": 0.21621621621621623,
+     "ust": 0.527027027027027,
+     "n": 37
+    },
+    "fark": {
+     "fark": 0.0945945945945946,
+     "alt": -0.05405405405405406,
+     "ust": 0.24324324324324326,
+     "n": 37
+    },
+    "mcnemar": {
+     "yalniz_a": 6,
+     "yalniz_b": 2,
+     "p": 0.2890625
+    },
+    "yalniz_madde": [
+     "q003",
+     "q010",
+     "q021",
+     "q025",
+     "q037",
+     "q048"
+    ],
+    "yalniz_madde_bolunmus": [
+     "q003",
+     "q021",
+     "q037",
+     "q048"
+    ]
+   },
+   "gevsek": {
+    "madde": {
+     "ortalama": 0.4594594594594595,
+     "alt": 0.2972972972972973,
+     "ust": 0.6216216216216216,
+     "n": 37
+    },
+    "sabit": {
+     "ortalama": 0.4189189189189189,
+     "alt": 0.2702702702702703,
+     "ust": 0.581081081081081,
+     "n": 37
+    },
+    "fark": {
+     "fark": 0.04054054054054054,
+     "alt": -0.0945945945945946,
+     "ust": 0.17567567567567569,
+     "n": 37
+    },
+    "mcnemar": {
+     "yalniz_a": 4,
+     "yalniz_b": 2,
+     "p": 0.6875
+    },
+    "yalniz_madde": [
+     "q003",
+     "q010",
+     "q021",
+     "q025"
+    ],
+    "yalniz_madde_bolunmus": [
+     "q003",
+     "q021"
+    ]
+   }
+  }
+ },
+ "sorular": [
+  {
+   "id": "q001",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q002",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q003",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q004",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q005",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q006",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q007",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q008",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.5,
+    "gevsek": 0.5
+   }
+  },
+  {
+   "id": "q009",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q010",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q011",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q012",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q013",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q015",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q016",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q017",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q018",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q019",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q021",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q023",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q024",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q025",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q031",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q032",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q033",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q034",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q035",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q036",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q037",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q038",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q040",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q041",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q042",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q044",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q046",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 0.0
+   }
+  },
+  {
+   "id": "q047",
+   "bolunmus_sabit": false,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   }
+  },
+  {
+   "id": "q048",
+   "bolunmus_sabit": true,
+   "bolunmus_madde": false,
+   "madde": {
+    "siki": 1.0,
+    "gevsek": 1.0
+   },
+   "sabit": {
+    "siki": 0.0,
+    "gevsek": 1.0
+   }
+  }
+ ]
+}
