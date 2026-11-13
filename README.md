@@ -109,14 +109,23 @@ uv run streamlit run app/soru_yaz.py
 ```
 
 Demo: soru sorulur, bulunan maddeler sayfa ve PDF bağlantısıyla gösterilir.
-Dil modeli henüz bağlı değil; bağlanınca cevap da kaynak numaralarıyla gelir
-(`DEMO_URETICI`, [src/mevzuat_rag/demo.py](src/mevzuat_rag/demo.py)).
+Cevaplar Colab'da önceden üretilir (K-027). Paketteki sorular sorulunca cevap
+kaynak numaralarıyla gelir, başka sorularda yalnız kaynaklar gösterilir.
 
 ```powershell
 uv run python scripts/demo_dizin.py        # e5 dizini, bir kez (CPU'da uzun sürer)
 uv run streamlit run app/demo.py
 $env:DEMO_ARAMA = "bm25"; uv run streamlit run app/demo.py   # e5'siz, anında açılır
+
+# önceden üretilmiş cevaplarla (Colab'dan inen dosya results/cevap/ham/ altında)
+$env:DEMO_URETICI = "mevzuat_rag.hazir_cevap:uret"
+$env:DEMO_CEVAPLAR = "results/cevap/ham/dev-e5-demo__Qwen3-4B-Instruct-2507.jsonl"
+uv run streamlit run app/demo.py
 ```
+
+Cevap üretimi (Colab, K-005): `uv run python scripts/istem_paketi.py --arama e5
+--secim demo` paketi yazar, [notebooks/cevap_uret.ipynb](notebooks/cevap_uret.ipynb)
+Colab'da cevaplar, `uv run python scripts/cevap_ozet.py <paket> <cevaplar>` ölçer.
 
 ```
 app/

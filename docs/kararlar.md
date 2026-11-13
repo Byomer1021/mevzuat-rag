@@ -695,3 +695,21 @@ yazılır.
 - n = 40 küçük. κ'nın aralığı geniş çıkacak.
 
 Sonuç: `results/uyum.md`.
+
+## K-027: Demo cevapları önceden üretilir, istemin özetiyle eşlenir, geçerli (2026-11-14)
+
+K-005'te açık kalan karar. Colab'ın ücretsiz GPU'su garanti değil ve oturumu
+kısa. Canlı demo ona bağlanırsa sunum ortasında kopabilir.
+
+**Karar.** Cevaplar Colab'da önceden üretilir. Demo canlı arar, istemi kurar
+ve istemin özetini (sha256) önceden üretilmiş cevaplarda arar
+(`src/mevzuat_rag/hazir_cevap.py`). Bulursa cevabı kaynak numaralarıyla
+gösterir. Bulamazsa yalnız kaynakları gösterir ve bunu söyler.
+
+- İstem paketi demonun kodunu doğrudan çağırır (`istem_paketi.py --secim
+  demo`). Pilotta ölçülen istem, demoda kurulan istemin aynısı. Dev setinin
+  10 sorusunda özetler birebir aynı çıktı.
+- Demoda sorulacak soruların cevabı önceden üretilmeli. Bilgi tabanı ya da
+  arama değişirse istemler değişir, cevaplar yeniden üretilir.
+- Bedeli: demoda yeni bir soru sorulunca cevap gelmez, yalnız kaynaklar
+  gelir.

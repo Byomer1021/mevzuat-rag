@@ -1,0 +1,15 @@
+{
+ "ad": "dev-e5-demo",
+ "zaman": "2026-11-14T02:05:18",
+ "bilgi_tabani_surumu": "b3c7d85cce08",
+ "parca_surumu": "2b5af885972a",
+ "arama": "e5",
+ "model": "intfloat/multilingual-e5-base",
+ "kosul": "madde",
+ "dizin": "tum",
+ "secim": "demo",
+ "k_belge": 3,
+ "k_web": 2,
+ "bolum": "dev",
+ "soru": 51
+}
