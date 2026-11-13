@@ -1,0 +1,22 @@
+Muhammed için 20 soru. Talimat: docs/uyum-etiketleme.md
+
+1. q143  muafiyet sınavına girdim CB geldi, dersten muaf oluyo muyum?
+2. q144  bilgisayar mühendisliği stajımı bölümdeki bi hocanın labında yapsam sayılır mı?
+3. q145  yaz okulunda ders alırken aynı yaz stajımı da yapabilir miyim?
+4. q146  bitirmede ara toplantılardan birine gidemezsem ne oluyo, direkt NA mı alıyorum?
+5. q149  baharda kaydımı dondurmayı düşünüyorum, başvuruyu hangi tarihler arasında yapmam lazım?
+6. q150  5 senede mezun olursam yine de bölüm derecesine girebiliyo muyum?
+7. q153  okulun bisikletlerinden birini alınca kaç gün kullanabiliyorum?
+8. q156  ailem kocaelide oturuyo, okulun yurduna başvurabilir miyim?
+9. q157  görme engelliyim büyük puntolu kağıtla sınava giriyorum, ekstra süre veriliyo mu?
+10. q158  danışman hocam 1 yıllığına yurtdışına gitti, bana yeni danışman verilecek mi?
+11. q161  vizeye 40 dk geç kalırsam sınava alırlar mı?
+12. q163  okulun diş hekiminde implant yaptırabilir miyim?
+13. q164  4. sınıfta yazılım mühendisliği (SoE) alanını seçersem hangi dersleri almak zorundayım?
+14. q166  kulüp etkinliklerimin yazdığı o program dışı transkripti nereden görücem?
+15. q168  bilgisayar mühendisliğinde stajlar toplam kaç gün oluyo, raporu kaç puanla geçiyorum?
+16. q170  4. sınıfım, baharda ders kaydımı hangi tarihlerde yapıyorum, dersler ne zaman başlıyo?
+17. q179  algoritma dersini (CSE 321) almak için hangi dersleri geçmiş olmam lazım, DD ile geçtiysem sayılıyo mu?
+18. q187  bu bahar bilgisayar mühendisliğinde hangi CSE 4xx seçmelileri açılacak?
+19. q188  proje takımlarına okul yılda kaç TL bütçe ayırıyo?
+20. q189  öğrenci konseyi başkanına aylık maaş ya da burs veriliyo mu?

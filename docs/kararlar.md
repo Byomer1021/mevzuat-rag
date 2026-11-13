@@ -654,3 +654,44 @@ sayılar kenar çubuğundan değişir. Bu üç soruda doğru madde artık ilk 3'
 - Ölçülmedi: bu seçimin cevap kalitesine etkisi. Dil modeli bağlanınca dev
   setinde tek liste ile karşılaştırılmalı.
 - Sayfa bağlantıları (`#page=N`) tarayıcıda açılarak denenmedi.
+
+## K-026: Etiket uyumu, soruyu yazmamış biri 40 test sorusunu yeniden etiketler, geçerli (2026-11-14)
+
+Öneride (kutu 8) "ikimiz aynı 40 soruyu bağımsız etiketleyip uyumu raporlarız"
+yazıyor. Neyin ölçüleceği yazmıyordu. Bu kayıt, ikinci etiketler toplanmadan
+önce yazıldı.
+
+**Tasarım.** Veysel, Muhammed'in yazdığı 20 test sorusunu etiketler. Muhammed
+de Veysel'in 20 sorusunu. İkinci etiketçi altın etiketi görmez. Karşılaştırma
+dondurulmuş test setindeki etiketle yapılır. Örneklem yazara ve türe göre
+katmanlı, her etiketçiye 14 tek, 3 çok, 3 cevapsız soru düşer (tohum 0,
+`scripts/uyum.py ornek`). Test setinde türlerin oranı 74/13/13, örneklemde
+70/15/15. Çok maddeli ve cevapsız sorular κ tanımlı çıksın diye biraz fazla
+alındı.
+
+**Ölçülenler.**
+- Cevaplanabilirlik (cevaplı mı, cevapsız mı) için Cohen's κ.
+- Soru türü (tek, çok, cevapsız) için Cohen's κ.
+- İkisinin de cevaplı dediği sorularda üç oran: aynı madde kümesi, en az bir
+  ortak madde, en az bir ortak belge.
+- Ortak maddede aynı kanıt cümlesi. İki alıntıdan kısa olanın en az yarısı
+  örtüşürse aynı sayılır.
+- Hepsine 10 000 bootstrap ile %95 aralık, tohum 0.
+- Referans cevap serbest metin olduğu için ölçülmez.
+
+**Neden bunlar.** Recall@5 kanıt cümlesi üzerinden puanlanıyor. İkinci kişi
+aynı soruya başka bir madde gösteriyorsa altın etiket tek doğru değildir ve
+ölçüt bazı isabetleri kaçırıyor demektir. Bu raporda sınırlılık olarak
+yazılır.
+
+**Bilinen zayıflıklar.**
+- Altın etiket tek bir kişinin ham etiketi değil. Muhammed'in sorularının bir
+  kısmında dayanak, kanıt ya da tür içeri alınırken düzeltildi
+  ([olcumler §14](olcumler.md)). Ölçülen, "dondurulmuş etiket ile ikinci kişi"
+  arasındaki uyum.
+- Muhammed'in soruları ekipte dolaşan bir örnek soru listesinden esinlendi.
+  O listedeki madde önerilerine bakmak bağımsızlığı bozar, talimatta
+  yasaklandı ([uyum-etiketleme.md](uyum-etiketleme.md)).
+- n = 40 küçük. κ'nın aralığı geniş çıkacak.
+
+Sonuç: `results/uyum.md`.

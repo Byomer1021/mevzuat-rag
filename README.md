@@ -146,6 +146,9 @@ scripts/
   oneri_docx.py      docs/oneri.md'yi dersin öneri formuna (docx) yazar
   ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)
   testset_kontrol.py test setinin şema denetimi ve dağılımı
+  tablo.py           sonuç tablosu tek komutla (dondurulmuş test seti, baseline)
+  hata_analizi.py    kaçan soruları kategorilere ayırır (results/hata/)
+  uyum.py            etiket uyumu: 40 soruluk örneklem, ikinci etiketler, κ (K-026)
   tara.py, envanter.py, web_secim.py   site taraması ve web içeriği (olcumler §7-8)
 src/mevzuat_rag/
   madde.py           madde başlığı tanıyıcı (11 biçim)

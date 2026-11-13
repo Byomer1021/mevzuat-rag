@@ -1,0 +1,22 @@
+Veysel için 20 soru. Talimat: docs/uyum-etiketleme.md
+
+1. q055  Okula yeni kayıt oldum. Danışmanım ne zaman belli olur?
+2. q059  Aynı dönemde en fazla kaç dersten çekilebilirim?
+3. q060  Okul bitene kadar toplam kaç dersten çekilebiliyoruz?
+4. q061  Birinci sınıftayım. İlk iki dönemde dersten çekilme hakkımız var mı?
+5. q072  Devamsızlıktan NA aldığım dersin bütüne girebilir miyim?
+6. q082  Kaldığım seçmeli ders artık müfredatta yok. Onun yerine hangi dersi almam gerekiyor?
+7. q097  ÇAP'a en erken ne zaman başvurabiliyorum? Başvurmak için geç kalmış sayılacağım bir dönem var mı?
+8. q105  Merkezi yerleştirme puanımla GTÜ'ye geçmek istiyorum. Bu yatay geçiş hakkını toplam kaç kere kullanabiliyoruz?
+9. q107  Ortalamayla yatay geçiş yapmak için en az kaç ortalama lazım? GTÜ içinde bölüm değiştirmekle başka okuldan gelmek arasında fark var mı?
+10. q109  Muaf olduğum dersin notu ve kredisi transkripte nasıl yazılıyor?
+11. q111  Yaz okulu sınavlar hariç kaç hafta sürüyor?
+12. q115  Yaz okulunda ders seçtikten sonra değiştirebiliyor muyuz? Ekle çıkar ya da dersten çekilme oluyor mu?
+13. q118  Hazırlığı iki yılda da geçemezsem ne oluyor?
+14. q122  Sınırsız sınav hakkım var ama bir süre sınavlara giremeyeceğim. Kaç yıl girmezsem hakkım yanar? Aralıklı olarak girmediğim yıllar da sayılıyor mu?
+15. q125  Üçüncü sınıftayım, ortalamam 1.85. Yaz okulunda hem not yükseltmek için ders alıp hem de üstten yeni ders alabilir miyim?
+16. q133  Güzden VF aldığım bir ders var ama baharda açılmıyor. Büte ya da D sınavına girebilir miyim, yoksa dersin tekrar açılmasını mı beklemem lazım?
+17. q135  Azami sürem doldu. Hiç almadığım bir dersin ek sınavına girebiliyor muyum?
+18. q137  Başka üniversitenin yaz okulundan ders alıp geçersem notum burada nasıl görünecek? Harf notu mu yazılıyor, muaf mı sayılıyorum? Ortalamamı etkiliyor mu?
+19. q139  Erasmusla bir dönem yurt dışına gidersem oradaki derslerin devam durumu nasıl sayılıyor? Bir de aldığım notlar GTÜ'deki harf notlarına nasıl çevriliyor?
+20. q140  Mezun olunca okul mailim kapansın istemiyorum. Bunun için bilgi işleme ne zaman başvurmam lazım?
