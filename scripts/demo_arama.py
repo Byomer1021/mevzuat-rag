@@ -19,10 +19,10 @@ from pathlib import Path
 
 os.environ.setdefault("CUDA_VISIBLE_DEVICES", "")  # K-002
 
-from mevzuat_rag.degerlendirme import Kume, bootstrap_araligi, kanitlar  # noqa: E402
-from mevzuat_rag.demo import bilgi_tabani, dizin_kur, sec  # noqa: E402
-from mevzuat_rag.testset import oku  # noqa: E402
-from mevzuat_rag.uretim import istem  # noqa: E402
+from mevzuat_rag.degerlendirme import Kume, bootstrap_araligi, kanitlar
+from mevzuat_rag.demo import bilgi_tabani, dizin_kur, sec
+from mevzuat_rag.testset import oku
+from mevzuat_rag.uretim import istem
 
 KOK = Path(__file__).resolve().parents[1]
 RRF_K = 60
