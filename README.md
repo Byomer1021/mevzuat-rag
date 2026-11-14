@@ -152,6 +152,7 @@ scripts/
   cevap_ozet.py      Colab'dan dönen cevapları ölçer, elle puanlama tablosu çıkarır
   kor_puanlama.py    iki modelin cevaplarını model adı gizli, karışık sırada puanlatır
   demo_dizin.py      demonun e5 dizinini önceden kurar
+  demo_arama.py      demonun kaynak seçimi: doğru madde modele ne sıklıkla gidiyor (dev)
   soru_defteri_veri.py  Soru Defteri sayfasının parça verisi
   oneri_docx.py      docs/oneri.md'yi dersin öneri formuna (docx) yazar
   ortam_kontrol.py   ortam ve GPU ölçümü (olcumler §1)

@@ -1012,3 +1012,37 @@ verilen cevap yanlış olmak zorunda değil: aynı bilgi başka bir kaynakta
 `results/cevap/kor_puanlama.csv`, iki modelin 102 cevabı karışık, model
 adı gizli (`scripts/kor_puanlama.py`). Model seçimi onunla birlikte
 yapılacak.
+
+## 18. Demonun kaynak seçimi: doğru madde modele ne sıklıkla gidiyor? (2026-11-14, dev)
+
+**Soru.** Pilotta (§17) cevaplı 43 dev sorusunun yalnız 20'sinde kanıt
+modele verilen 5 kaynağın içindeydi. Yalnız demo için, deneyin düzenine
+(K-022) ve test setine dokunmadan. `scripts/demo_arama.py`.
+
+**Sonuç.** Kanıtın tamamı modele verilen kaynaklarda, 43 sorudan:
+
+| arama | belge + web | kanıt gidiyor | istem ort. / en uzun (karakter) |
+|---|---|---|---|
+| e5 | 3 + 2 (bugünkü) | 20 | 3 911 / 13 512 |
+| e5 | 5 + 2 | 25 | 5 327 / 15 776 |
+| e5 | 8 + 2 | 26 | 7 446 / 17 225 |
+| BM25 | 3 + 2 | 4 | 2 725 / 5 270 |
+| BM25 | 5 + 2 | 4 | 3 650 / 6 151 |
+| e5 + BM25 (RRF) | 3 + 2 | 14 | 3 545 / 10 775 |
+| e5 + BM25 (RRF) | 5 + 2 | 19 | 4 559 / 11 502 |
+| e5 + BM25 (RRF) | 8 + 2 | 21 | 6 374 / 17 778 |
+
+Kanıtın e5 sıralamasında (yalnız belge parçaları) ne kadar derinde olduğu:
+ilk 5'te 23, ilk 10'da 24, ilk 20'de 28, ilk 50'de 31, ilk 200'de 35. Sekiz
+soruda ilk 200'de yok.
+
+**Ne anlama geliyor.** Belge kaynağını 3'ten 5'e çıkarmak 5 soru kazandırıyor,
+istem %36 uzuyor. 8'e çıkarmak bir soru daha ekliyor, istem iki katına
+yaklaşıyor. BM25 bütün bilgi tabanında çok zayıf, füzyon e5'i aşağı çekiyor.
+Yeniden sıralayıcının tavanı ilk 20'deki 28 soru: en fazla 3-5 soru kazanç.
+Bunun için 2 GB'lık bir modeli CPU'da çalıştırmak değmez, denenmedi.
+
+**Ne anlama gelmiyor.** Kanıt modele gitmeyince cevap yanlış olmak zorunda
+değil, aynı bilgi başka kaynakta olabilir. Daha uzun istemde modelin
+cevabı kötüleşebilir; 5 + 2 seçilirse cevaplar yeniden üretilip ölçülmeli.
+n = 43, dev, tek yazar.
