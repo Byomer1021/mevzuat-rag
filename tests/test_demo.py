@@ -7,7 +7,7 @@ import pytest
 from streamlit.testing.v1 import AppTest
 
 from mevzuat_rag.arama import BM25Dizin
-from mevzuat_rag.demo import BilgiTabani, adres, cevapla, sec, uretici_yukle
+from mevzuat_rag.demo import K_BELGE, K_WEB, BilgiTabani, adres, cevapla, sec, uretici_yukle
 
 KOK = Path(__file__).resolve().parents[1]
 PARCALAR = KOK / "data" / "processed" / "parcalar_madde.jsonl"
@@ -97,7 +97,7 @@ def test_arayuz_ornek_soruyla_kaynaklari_gosterir(monkeypatch):
     assert not at.exception
     assert any("bağlı değil" in i.value for i in at.info)
     kaynaklar = [e for e in at.expander if e.label.startswith("[")]
-    assert len(kaynaklar) == 5  # 3 belge + 2 web
+    assert len(kaynaklar) == K_BELGE + K_WEB  # varsayılan: 5 belge + 2 web
     assert [h.value for h in at.main.subheader] == ["Yönetmelik ve yönergeler",
                                                     "Sık sorulan sorular ve birim sayfaları"]
     assert at.text_input(key="soru").value == "Derslere devam zorunluluğu yüzde kaç?"

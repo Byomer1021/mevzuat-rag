@@ -654,6 +654,9 @@ sayılar kenar çubuğundan değişir. Bu üç soruda doğru madde artık ilk 3'
 - Ölçülmedi: bu seçimin cevap kalitesine etkisi. Dil modeli bağlanınca dev
   setinde tek liste ile karşılaştırılmalı.
 - Sayfa bağlantıları (`#page=N`) tarayıcıda açılarak denenmedi.
+- **2026-11-14:** belge kaynağı 3'ten 5'e çıktı (5 + 2). Dev'de kanıt cevaplı
+  43 sorunun 20'si yerine 25'inde modele gidiyor, istem %36 uzuyor
+  ([olcumler §18](olcumler.md)). Sayılar tek yerde: `demo.K_BELGE`, `K_WEB`.
 
 ## K-026: Etiket uyumu, soruyu yazmamış biri 40 test sorusunu yeniden etiketler, geçerli (2026-11-14)
 

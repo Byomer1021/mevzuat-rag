@@ -30,6 +30,9 @@ from mevzuat_rag.uretim import SAYFALI, ayristir, istem
 
 Uretici = Callable[[list[dict]], str]
 KOK = Path(__file__).resolve().parents[2]
+# Modele giden kaynak sayısı (K-025). 2026-11-14'te belge 3'ten 5'e çıktı:
+# dev'de kanıt 43 cevaplı sorunun 20'sinden 25'inde modele gidiyor (olcumler §18).
+K_BELGE, K_WEB = 5, 2
 UYARI = ("Resmî danışmanlık değildir. Cevaplar GTÜ'nün yayımlanmış yönetmelik, yönerge ve "
          "sayfalarından derlenir; karar vermeden önce kaynağı açıp okuyun, gerekirse ilgili "
          "birime danışın.")
@@ -92,7 +95,7 @@ def sec(siralama: list[str], parca: dict[str, dict], k_belge: int, k_web: int) -
     return belge + web
 
 
-def cevapla(soru: str, dizin, bt: BilgiTabani, k_belge: int = 3, k_web: int = 2,
+def cevapla(soru: str, dizin, bt: BilgiTabani, k_belge: int = K_BELGE, k_web: int = K_WEB,
             uretici: Uretici | None = None) -> dict:
     """Arar, istemi kurar; üretici varsa cevabı alıp atıflarını ayrıştırır."""
     # Tam sıralama ucuz: iki aramada da bütün parçalar zaten puanlanıyor

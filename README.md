@@ -119,7 +119,7 @@ $env:DEMO_ARAMA = "bm25"; uv run streamlit run app/demo.py   # e5'siz, anında a
 
 # önceden üretilmiş cevaplarla (Colab'dan inen dosya results/cevap/ham/ altında)
 $env:DEMO_URETICI = "mevzuat_rag.hazir_cevap:uret"
-$env:DEMO_CEVAPLAR = "results/cevap/ham/dev-e5-demo__Qwen3-4B-Instruct-2507.jsonl"
+$env:DEMO_CEVAPLAR = "results/cevap/ham/dev-e5-demo-b5w2__Qwen3-4B-Instruct-2507.jsonl"
 uv run streamlit run app/demo.py
 ```
 

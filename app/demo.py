@@ -17,6 +17,8 @@ if not os.environ.get("DEMO_CIHAZ"):  # GPU'yu torch yüklenmeden gizle (K-002)
 import streamlit as st
 
 from mevzuat_rag.demo import (
+    K_BELGE,
+    K_WEB,
     KOK,
     UYARI,
     adres,
@@ -65,8 +67,8 @@ def sor(metin: str | None = None):
 
 with st.sidebar:
     st.subheader("Ayarlar")
-    k_belge = st.slider("Yönetmelik ve yönergelerden", 0, 8, 3)
-    k_web = st.slider("Web sayfalarından (SSS)", 0, 5, 2)
+    k_belge = st.slider("Yönetmelik ve yönergelerden", 0, 8, K_BELGE)
+    k_web = st.slider("Web sayfalarından (SSS)", 0, 5, K_WEB)
     st.caption(f"Arama: {ARAMA} · {len(bt.parcalar)} parça · {len(bt.kaynaklar)} kaynak")
     if bt.surum:
         st.caption(f"Bilgi tabanı {bt.surum['bilgi_tabani_surumu']} · "

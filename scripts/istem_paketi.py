@@ -6,7 +6,8 @@
     uv run python scripts/istem_paketi.py --arama e5 --secim demo   # demonun kaynak seçimi (K-025)
 
 --secim demo, demonun kodunu (src/mevzuat_rag/demo.py) olduğu gibi çağırır:
-bütün bilgi tabanı, madde koşulu, önce 3 belge sonra 2 web parçası. Pilot
+bütün bilgi tabanı, madde koşulu, önce K_BELGE belge sonra K_WEB web parçası
+(src/mevzuat_rag/demo.py; 2026-11-14 öncesi 3 + 2, sonrası 5 + 2). Pilot
 böylece demoda gösterilecek istemin aynısıyla yapılır.
 
 Çıktı: results/istem/<ad>.jsonl (satır başına bir soru: kaynak kimlikleri,
@@ -28,13 +29,12 @@ if "--cihaz" not in sys.argv:  # GPU'yu torch yüklenmeden gizle (K-002)
     os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 from mevzuat_rag.arama import E5, BM25Dizin, YogunDizin
-from mevzuat_rag.demo import bilgi_tabani, cevapla, dizin_kur
+from mevzuat_rag.demo import K_BELGE, K_WEB, bilgi_tabani, cevapla, dizin_kur
 from mevzuat_rag.deney import deney_parcalari
 from mevzuat_rag.testset import oku, parcalari_oku
 from mevzuat_rag.uretim import istem, kunye
 
 KOK = Path(__file__).resolve().parents[1]
-K_BELGE, K_WEB = 3, 2  # demonun varsayılanı (K-025)
 
 
 def main():
@@ -95,7 +95,7 @@ def demo_paketi(a):
     bt = bilgi_tabani()
     dizin = dizin_kur(a.arama, bt, cihaz=a.cihaz)
     sorular = [s for s in oku(a.sorular) if s["bolum"] == a.bolum]
-    ad = a.ad or f"{a.bolum}-{a.arama}-demo"
+    ad = a.ad or f"{a.bolum}-{a.arama}-demo-b{K_BELGE}w{K_WEB}"  # eski paketler (dev-e5-demo = 3 + 2) ezilmesin
     klasor = KOK / "results" / "istem"
     klasor.mkdir(parents=True, exist_ok=True)
     with (klasor / f"{ad}.jsonl").open("w", encoding="utf-8", newline="\n") as f:
