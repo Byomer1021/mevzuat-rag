@@ -1,0 +1,413 @@
+{
+ "tohum": 0,
+ "satirlar": {
+  "1": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q025"
+  },
+  "2": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q037"
+  },
+  "3": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q039"
+  },
+  "4": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q013"
+  },
+  "5": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q045"
+  },
+  "6": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q009"
+  },
+  "7": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q043"
+  },
+  "8": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q017"
+  },
+  "9": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q041"
+  },
+  "10": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q012"
+  },
+  "11": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q014"
+  },
+  "12": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q016"
+  },
+  "13": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q050"
+  },
+  "14": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q040"
+  },
+  "15": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q044"
+  },
+  "16": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q009"
+  },
+  "17": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q046"
+  },
+  "18": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q003"
+  },
+  "19": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q020"
+  },
+  "20": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q031"
+  },
+  "21": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q034"
+  },
+  "22": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q026"
+  },
+  "23": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q047"
+  },
+  "24": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q007"
+  },
+  "25": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q032"
+  },
+  "26": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q011"
+  },
+  "27": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q032"
+  },
+  "28": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q004"
+  },
+  "29": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q024"
+  },
+  "30": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q004"
+  },
+  "31": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q036"
+  },
+  "32": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q020"
+  },
+  "33": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q007"
+  },
+  "34": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q045"
+  },
+  "35": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q033"
+  },
+  "36": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q049"
+  },
+  "37": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q039"
+  },
+  "38": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q046"
+  },
+  "39": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q030"
+  },
+  "40": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q036"
+  },
+  "41": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q027"
+  },
+  "42": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q052"
+  },
+  "43": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q015"
+  },
+  "44": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q037"
+  },
+  "45": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q023"
+  },
+  "46": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q005"
+  },
+  "47": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q008"
+  },
+  "48": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q021"
+  },
+  "49": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q017"
+  },
+  "50": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q016"
+  },
+  "51": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q023"
+  },
+  "52": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q033"
+  },
+  "53": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q029"
+  },
+  "54": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q001"
+  },
+  "55": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q019"
+  },
+  "56": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q026"
+  },
+  "57": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q052"
+  },
+  "58": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q002"
+  },
+  "59": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q024"
+  },
+  "60": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q027"
+  },
+  "61": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q050"
+  },
+  "62": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q048"
+  },
+  "63": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q049"
+  },
+  "64": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q002"
+  },
+  "65": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q008"
+  },
+  "66": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q051"
+  },
+  "67": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q006"
+  },
+  "68": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q043"
+  },
+  "69": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q028"
+  },
+  "70": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q042"
+  },
+  "71": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q005"
+  },
+  "72": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q042"
+  },
+  "73": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q031"
+  },
+  "74": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q021"
+  },
+  "75": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q010"
+  },
+  "76": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q044"
+  },
+  "77": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q010"
+  },
+  "78": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q035"
+  },
+  "79": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q041"
+  },
+  "80": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q019"
+  },
+  "81": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q028"
+  },
+  "82": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q018"
+  },
+  "83": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q034"
+  },
+  "84": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q030"
+  },
+  "85": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q013"
+  },
+  "86": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q038"
+  },
+  "87": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q038"
+  },
+  "88": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q018"
+  },
+  "89": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q014"
+  },
+  "90": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q029"
+  },
+  "91": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q025"
+  },
+  "92": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q047"
+  },
+  "93": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q011"
+  },
+  "94": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q040"
+  },
+  "95": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q001"
+  },
+  "96": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q012"
+  },
+  "97": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q015"
+  },
+  "98": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q035"
+  },
+  "99": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q006"
+  },
+  "100": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q003"
+  },
+  "101": {
+   "model": "Qwen/Qwen3-8B",
+   "id": "q048"
+  },
+  "102": {
+   "model": "Qwen/Qwen3-4B-Instruct-2507",
+   "id": "q051"
+  }
+ }
+}

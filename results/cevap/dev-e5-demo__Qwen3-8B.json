@@ -1,0 +1,830 @@
+{
+ "paket": {
+  "ad": "dev-e5-demo",
+  "zaman": "2026-11-14T02:05:18",
+  "bilgi_tabani_surumu": "b3c7d85cce08",
+  "parca_surumu": "2b5af885972a",
+  "arama": "e5",
+  "model": "intfloat/multilingual-e5-base",
+  "kosul": "madde",
+  "dizin": "tum",
+  "secim": "demo",
+  "k_belge": 3,
+  "k_web": 2,
+  "bolum": "dev",
+  "soru": 51
+ },
+ "uretim": {
+  "model": "Qwen/Qwen3-8B",
+  "revizyon": null,
+  "dort_bit": true,
+  "max_yeni": 400,
+  "toplu": 4,
+  "paket": "dev-e5-demo (1).jsonl",
+  "gpu": "Tesla T4",
+  "torch": "2.14.1+cu130",
+  "transformers": "5.22.1",
+  "sure_s": 556,
+  "zaman": "2026-11-14T00:06:45"
+ },
+ "ozet": {
+  "soru": 51,
+  "eksik_cevap": 0,
+  "cevapsiz": 8,
+  "cevapsizda_bilmiyorum": 0.125,
+  "cevapli": 43,
+  "cevaplida_bilmiyorum": 0.0,
+  "kanit_varken_bilmiyorum": 0,
+  "atifsiz_cevap": 0.0,
+  "gecersiz_atifli_cevap": 0,
+  "atif_kaniti_kapsar": 0.279
+ },
+ "sorular": [
+  {
+   "id": "q001",
+   "tur": "tek",
+   "soru": "Önceden ff dersim var tekrar alınca yoklama zorunluluğum var mı",
+   "referans_cevap": "NA ise var FF ise yok",
+   "cevap": "Önceden FF notu alan bir dersi tekrar almak istiyorsanız, tekrar dersi için derse devam zorunluluğu yoktur. Ancak, ders bilgi formunda belirtilen diğer yükümlülükleri yerine getirmeniz gerekir. [4]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6325-31"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q002",
+   "tur": "tek",
+   "soru": "D sınavına girme şartı nedir",
+   "referans_cevap": "Finale girip FF almış olmalısın ,VF veya NA ise giremezsin.",
+   "cevap": "D sınavına girme şartı, öğrencinin yarıyıl sonu sınavına girdiği dersten FF notu almasıdır. Bu durumda, öğrencinin derse kayıtlı olduğu dönem için akademik takvimde belirtilen zamanda D sınavı yapılır ve sonucu harf notu olarak ilan edilir [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6395-15"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q003",
+   "tur": "tek",
+   "soru": "mazeret sınavına girmek için ne yapmam lazım",
+   "referans_cevap": "5 iş günü içinde bölüm başkanlığına dilekçe vermeli",
+   "cevap": "Mazeret sınavına girmek için sınav tarihinden itibaren 5 iş günü içerisinde mazeret dilekçelerini, görevlendirme yazısı, katılım durumunu kanıtlayıcı belge ve Mühendislik Fakültesi’nden aldığı izin yazısını birlikte vermelisiniz [1]. Mazeret sınavı, veren öğretim elemanının belirleyeceği gün ve saatte yapılacaktır [2]. Mazeret sınavına girebilecek öğrenci, sınav tarihinden itibaren 5 iş günü içinde başvuru yapmalıdır [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "mazeret-esaslari-muhendislik/p9",
+    "mazeret-esaslari-muhendislik/p13",
+    "web-sss/k6314-22"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q004",
+   "tur": "tek",
+   "soru": "Hazırlık sınavından kalırsam okuldan atılıyor muyum",
+   "referans_cevap": "2 sene içinde sınavları geçemezsen evet",
+   "cevap": "Hayır, hazırlık sınavından kalırsanız okuldan atılmazsınız. Hazırlık sınıfında devamsızlıktan kalmanız durumunda hazırlık eğitiminize devam edemezsiniz ve bir yıllık hazırlık eğitimi sonunda yapılan Haziran Yeterlik sınavına katılamazsınız. Ancak sınıfında tekrar edilen ikinci yıl düzenlenen yeterlik sınavlarına katılabilirsiniz ve başarılı olursanız bölümünüzde eğitime devam edebilirsiniz [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k5160-4"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q005",
+   "tur": "tek",
+   "soru": "GTÜ içinde yatay geçiş şartları neler?",
+   "referans_cevap": "Kurum içi yatay geçişler ön lisans için 2. yarıldan başlamak ve 3. yarıyıl dahil olmak üzer lisans için ise 3.yarıldan başlamak 5.yarıyıl dahil olmak üzere yapılır.",
+   "cevap": "GTÜ içinde yatay geçiş şartları şu şekildedir:  \n- Öğrencinin, kayıtlı olduğu programda bitirmiş olduğu dönemlerde bütün derslerini başarmış olması ve genel not ortalamasının en az 100 üzerinden 85, 4 üzerinden 3,5 olması gerekir [1].  \n- Merkezi yerleştirme puanıyla yatay geçiş yapmak isteyen öğrencilerin, kayıt olduğu yıldaki merkezi yerleştirme puanı, geçmek istediği üniversitenin diploma programının girdiği yıldaki taban puanına eşit veya yüksek olması gerekir [1].  \n- Aynı düzeydeki farklı diploma programları arasında yatay geçiş yapmak isteyen öğrencilerin, o tarihe değin aldığı tüm derslerde başarılı olması ve bu derslerde sağladığı ağırlıklı genel not ortalamasının 4 üzerinden en az 3,5 olması gerekir [3].  \n- Kurum içi yatay geçiş kontenjanları ve taban puan şartı, ilgili diploma programının son dört yıla ait taban puanları ve kurum içi yatay geçiş için belirlenen şartlarla birlikte ilan edilir [3].  \n- İkinci ana dal diploma programındaki öğrenciler, ana dal diploma programında kurum içi geçiş hükümlerine uygun koşulları sağladığında ikinci ana dal diploma programına yatay geçiş yapabilir [3].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "yatay-gecis/m6",
+    "yatay-gecis/m4"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q006",
+   "tur": "tek",
+   "soru": "bitirme projesinde tek ders sınavına girebilir miyim",
+   "referans_cevap": "bitirme için giremez.",
+   "cevap": "Bitirme projesinde tek ders sınavına giremezsiniz. Tek ders sınavı, proje, laboratuvar ve bitirme çalışması derslerinde uygulanmaz [5]. Bu durum, lisans eğitim-öğretim yönetmeliğine göre belirlenmiştir [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6317-101",
+    "web-sss/k6325-51"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q007",
+   "tur": "tek",
+   "soru": "staj defterini ne zaman teslim etmeliyim",
+   "referans_cevap": "Dönem başından itibaren en geç 1 hafta içinde.",
+   "cevap": "Staj defterini, stajı izleyen eğitim-öğretim yarıyılının ikinci haftası sonuna kadar dekanlığa teslim etmelisin. [1]  \nDönem içinde biten stajlar için ise staj bitiminden itibaren en geç 3 hafta içerisinde teslim edilmelidir. [1]  \nHarita Mühendisliği öğrencileri için staj defteri teslimi, staj bitiminden en geç bir hafta sonra yapılmalıdır. [3]  \nMakine Mühendisliği öğrencileri için staj defteri teslimi, yeni eğitim-öğretim döneminin başladığı ilk 2-3 hafta içinde yapılmalıdır. [4]  \nBazı fakültelerde staj defteri teslimi, staj bitiminden sonra da yapılabilir. [5]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "yo-0089/m12",
+    "staj-sss-harita/p76",
+    "web-sss/k6325-42",
+    "web-sayfalar/k3164-29"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q008",
+   "tur": "cok",
+   "soru": "staj başvurusu nasıl yaparım",
+   "referans_cevap": "Staj komisyonuna başvuru yapar belirli form ve belgeler doldurulur",
+   "cevap": "Staj başvurusu yapmak için ilgili bölüm sekreterliğiyle veya staj komisyonlarıyla iletişime geçerek başvurunuzu yapabilirsiniz [4]. Ayrıca, Dekanlık Staj sayfasındaki formlar kısmından (Staj fişini) doldurarak da başvuruda bulunabilirsiniz [3].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6317-119",
+    "staj-sss-harita/p54"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q009",
+   "tur": "tek",
+   "soru": "stajım varken yaz okulu alabilir miyim",
+   "referans_cevap": "Hayır alamazsın",
+   "cevap": "Hayır, staj yaparken yaz okulu alamazsın. Yaz okulu tarihlerinde staj yapılamaz. [4]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6450-14"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q010",
+   "tur": "tek",
+   "soru": "önkoşullu dersin koşulunu sağlayamazsam dersi yinede alabilir miyim",
+   "referans_cevap": "Hayır, önşartı sağlamadığın derse kayıt yaptıramazsın.",
+   "cevap": "Hayır, önkoşullu dersin koşulunu sağlayamazsanız dersi alamazsınız. Ders ekleme-çıkarma günleri içerisinde kayıt yaptırıldığında, dersin gereklilikleri konusunda herhangi bir muafiyet sağlanmaz [2]. Ayrıca, bir dersin alınabilmesi için gerekli olan ön koşul dersinin eksik olması durumunda, ilgili dersin sistem üzerinden eklenememesi sorunu yaşanabilir [1].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "lisans-yonetmelik/m17",
+    "duzensiz-ogrenci-rehberi/p6"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q011",
+   "tur": "tek",
+   "soru": "mezuniyet şartları nelerdir",
+   "referans_cevap": "2.00 üstü agno ve kredi yükünü tamamlamak",
+   "cevap": "Mezuniyet şartları şu şekildedir:  \n- Öğrenci bağlı bulunduğu programın öğretim planında yer alan tüm kredi yükünü ve çalışmaları başarı ile tamamlamalı [2].  \n- Ağırlıklı genel not ortalaması en az 2,00’a ulaşmalı [2].  \n- Kayıtlı olduğu programdaki toplam kredi yükünün en az yarısını GTÜ’de almış olmalı [2].  \n- Stajını dönem sonu sınav tarihinin son günü mesai sonuna kadar tamamlamış olmalı [1].  \n- Bahar yarıyılı dönem sonu sınavlarının bitiminde hesaplanan ağırlıklı genel not ortalamasına göre mezuniyet hakkı kazanmış olmalı [1].  \n- Uyarma ve kınama cezası hariç, disiplin cezası almamış olmalı [1].  \n- Mezun olmak için stajlar hariç olmak üzere en fazla 20 AKTS tamamlamak zorunda olmalı [3].  \n- Kayıtlı olduğu programdaki toplam kredi yükünün en az yarısını GTÜ’de almış olmalı [2].  \n- Haftalık ders programında en az 3 gün boş olmamalı [3].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "lisans-yonetmelik/m35",
+    "yo-0003/m4",
+    "staj-sss-muhendislik/p55"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q012",
+   "tur": "tek",
+   "soru": "Hazırlıkta vizeye girmedim ne yapmalıyım.",
+   "referans_cevap": "sınav tarihinden itibaren 5 iş gün içinde dilekçeni YDB başkanlığına teslim etmelisin.",
+   "cevap": "Hazırlıkta vizeye girmedinizse, bu durumun aksatıcı olmaması için mektup ve vize işlemlerinin ilgili konsolosluk taleplerini karşılayarak ilerlemelisiniz. Mektup, vize işlemlerinde ilgili konsolosluğun taleplerini de karşılamalıdır [4]. Yeşil pasaportlu öğrencilerin de hareketlilikleri için vize almaları zorunludur. Aksi yönde hareket edildiği takdirde tüm sorumluluk öğrenciye aittir [5].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6314-102",
+    "web-sss/k5960-49"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q013",
+   "tur": "tek",
+   "soru": "Başka okuldan yata geçiş şartı nedir",
+   "referans_cevap": "100 üzerinden 85,4 üzerinden 3.5 gno lazım",
+   "cevap": "Başka okuldan yatay geçiş şartı, öğrencinin kayıt olduğu yıldaki merkezi yerleştirme puanının, geçmek istediği diploma programının taban puanına eşit veya yüksek olmasıdır. Bu durumda herhangi bir başarı şartı aranmaz [4]. Ayrıca, diğer yükseköğretim kurumlarından yatay geçiş yapacak öğrenciler, bu Yönetmelik hükümlerine uygun olarak başvurabilirler [1].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6523-12",
+    "yok-gecis-yonetmeligi/m13"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q014",
+   "tur": "cok",
+   "soru": "çakışan dersleri alabilir miyim birinde yoklama zorunluluğum yok",
+   "referans_cevap": "Bölüme göre istisna var ama genel durum alınamaz. Danışmana sorulmalı",
+   "cevap": "Çakışan dersleri alabilirsiniz. Ancak, ders saatlerinin çakışması durumunda, bu derslerin her ikisinin de alındığına izin verilmez. Yönetmelik gereği çakışan dersler alınamaz [1]. Ayrıca, alt dönemden kalan dersin harf notu NA değilse çakışmalara izin verilir, ancak NA ile kalınan derslerde çakışma izin verilmez [5]. Bu durumda, sadece bir dersin alındığına izin verilir.",
+   "bilmiyorum": false,
+   "atiflar": [
+    "duzensiz-ogrenci-rehberi/p7",
+    "web-sss/k6315-10"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q015",
+   "tur": "tek",
+   "soru": "40 akts üstü ders alabilir miyim",
+   "referans_cevap": "Normalde 35; AGNO ≥2,50 ise ya da AGNO ≥2,00 ve 160 AKTS tamamlanmışsa danışman onayıyla 40; 40'ın üstü yalnızca ÇAP ve yan dalda alabilirsin.",
+   "cevap": "Evet, 40 AKTS üstü ders alabilirsiniz. Ancak, bu durum genel not ortalamanızın ve ders seçimlerinizin belirli kriterlere uygun olmasına bağlıdır. Genel not ortalaması en az 2,50 olan öğrenciler için azami kredi yükü 40 AKTS krediye çıkarılabilir [5]. Ayrıca, ders seçimlerindeki kredi yükünü aşmamak ve derslerin önkoşullarını da göz önünde bulundurmanız gerekir.",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6315-8"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q016",
+   "tur": "tek",
+   "soru": "danışmanımı nasıl değiştiririm",
+   "referans_cevap": "İstisnai koşullar harici değiştirilmez",
+   "cevap": "Danışmanımı değiştirmek istiyorsanız, başvuru yaparak değiştirebilirsiniz [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6317-232"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q017",
+   "tur": "tek",
+   "soru": "notuma nasıl itiraz ederim",
+   "referans_cevap": "5 iş günü içinde Bölüm Başkanlığına yazılı itiraz yapılabilir",
+   "cevap": "Notuna itiraz etmek için, notun ilan edilmesinden itibaren **5 iş günü** içinde, ilgili **bölüm başkanlığına** yazılı olarak başvurmalısınız. İtirazı alan öğretim elemanı, öğrencinin notuna katkısı bulunan bütün çalışmaları tekrar inceleyerek itirazı **5 iş gün içinde** değerlendirir ve sonucu bölüm başkanlığına bildirir [2].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "lisans-yonetmelik/m28"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q018",
+   "tur": "tek",
+   "soru": "agnom 2nin altında kaç kredi ders alabilirim",
+   "referans_cevap": "30 alabilirsin",
+   "cevap": "Ağrı Üniversitesi (AGM) 2. sınıf öğrencisiyse, lisans öğrencileri için yarıyıl kredi yükü kuralına göre, 20 AKTS'ün altında kredi ders almak isteyen öğrenciler, genel not ortalamasının 2,50 ve üzerinde olması durumunda azami kredi yükü 40 AKTS'a çıkarılabilir. Ancak, bu durum AGM için geçerli olmayabilir. [1]  \n\nBilgi verilmediğine göre, AGM için bu durumun geçerli olup olmadığı belirsizdir. [2]  \n\nBİLMİYORUM: Bu bilgi elimdeki belgelerde yok.",
+   "bilmiyorum": false,
+   "atiflar": [
+    "lisans-yonetmelik/m16",
+    "ogretim-plani-biyomuhendislik/p28"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q019",
+   "tur": "tek",
+   "soru": "engelli öğrenciler için ayrı sınav yapılıyor mu",
+   "referans_cevap": "talep edilmesi halinde evet yapılır",
+   "cevap": "Evet, engelli öğrenciler için sınav uygulamaları özel ihtiyaçlarına göre düzenlenir ve bu durumda sınavlar, gerekirse ayrı ortamlarda veya özel düzenlemelerle yapılabilir. Özellikle engel durumu nedeniyle sınav sırasında ek hizmetlere ihtiyaç duyulan öğrenciler, sınav görevlileri tarafından desteklenerek sınavlara girebilirler. Bu sınavlar, normal sınav salonlarından ayrı, diğer öğrencilerin rahatsız olmaması ve sınav görevlilerinin de destekleyici görevi yapması gibi koşullar altında yapılabilir. [3]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "engelli-ogrenciler/m7"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q020",
+   "tur": "tek",
+   "soru": "kayıt dondurma için ne yapmalıyım",
+   "referans_cevap": "İlgili formu doldurup gerekli belgeleri belirtilen şekilde teslim et.",
+   "cevap": "Kayıt dondurma yapmak için, ilgili bölümün veya programın yönetimi tarafından belirlenen prosedürleri takip etmeniz gerekir. Genellikle bu işlem, öğrenci işleri daire başkanlığı tarafından koordinasyonla yürütülür. Kayıt dondurma, öğrencinin öğrenim süresini geçici olarak durdurarak, daha sonra devam etmesini sağlar. Bu durumda, kayıt dondurma süresi, öğrenim süresine dahil edilmez [5].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6317-81"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q021",
+   "tur": "tek",
+   "soru": "kaç dönem kayıt dondurabilirim",
+   "referans_cevap": "önlisans 2 yarıyıl lisans tekte 2 en fazla 4 yarıyıl olabilir. Belli istisnalar ile yk tarafından uzatılabilir.",
+   "cevap": "Kayıt dondurma, bir seferde en fazla iki yarıyıl, toplamda dört yarıyıl süreyle yapılabilir. Kayıt dondurulan dönemler, geçirilen süre ile kayıt dondurulan dönemler bu sürelere dâhil edilmez [1]. Ayrıca, kayıt dondurulan süre, öğrenim süresinden sayılmaz [5].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "duzensiz-ogrenci-rehberi/p8",
+    "web-sss/k6317-81"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q023",
+   "tur": "cok",
+   "soru": "bölümde 7.senem bitince atılıyor muyum",
+   "referans_cevap": "Atılmazsın ama 7 yıl sonrası 2 ek sınav hakkın olur sonrasında kalan ders sayına ek süre yada sınırsız sınav hakkı alabilirsin",
+   "cevap": "Bölümden 7. senem bitince atılırsınız. [3]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "intibak-elektronik/p35"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q024",
+   "tur": "tek",
+   "soru": "kısmi zamanlı çalışmaya nasıl başvurcam",
+   "referans_cevap": "Atılan mail duyurusu ile ekim ayında Sağlık Kültür ve Spor dairesine başvurunu yapabilirsin.",
+   "cevap": "Kısmi zamanlı çalışmaya başvurmak için, ilgili birim tarafından yapılan genel duyuruya göre, ekim ayı içinde Sağlık Kültür ve Spor Dairesi Başkanlığına başvuru yapılır [1]. Başvurular, Eğitim-Öğretim döneminin ilk haftasında birim talepleri resmi yazı ile alınarak başlar ve ikinci haftasında duyurulur. Öğrenci talepleri alınıp, mevcut Eğitim-Öğretim dönemi boyunca kapatılmaktadır [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "kismi-zamanli/m8",
+    "web-sss/k6316-29"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q025",
+   "tur": "tek",
+   "soru": "diplomamı kaybettim yenisini alabilir miyim",
+   "referans_cevap": "evet 2. nüshasını alabilirsin.",
+   "cevap": "Evet, diplomamı kaybettim yenisini alabilirsiniz. Mezuniyet belgesini kaybedenlere, ikinci nüshası talep edilmesi halinde verilir [1]. Ayrıca, diploma ve sertifikaların kaybı halinde belgenin yenisi hazırlanır ve üzerine ikinci nüsha ibaresi konulur [3].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "yo-0006/m5",
+    "lisans-yonetmelik/m36"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q026",
+   "tur": "tek",
+   "soru": "kütüphaneden dolap aldım ama teslim süresi geçti ceza var mı",
+   "referans_cevap": "evet geciktirilen süre x 2 cezası var",
+   "cevap": "Evet, dolap aldığınızda teslim süresi geçtiğinde ceza uygulanır. Dolap anahtarı ödünç verildiği zaman itibaren 9 saat geçer ve bu süreyi aştığınızda, geciktirilen süre x 2 oranında ceza uygulanır [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6333-9"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q027",
+   "tur": "cevapsiz",
+   "soru": "hangi seçmeli dersi almalıyım",
+   "referans_cevap": "",
+   "cevap": "Seçmeli ders alırken, öğrencinin tabi olduğu öğretim planındaki ilgili seçmeli ders grubundan ders seçmesi gerekmektedir. Mezuniyet aşamasındaki öğrenciler, Öğrenci Bilgi Sisteminde “Müfredat Durumu” bölümünü kontrol ederek hangi seçmeli ders gruplarında eksiklerinin olduğunu belirlemelidir [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6325-21"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": null,
+   "atif_kaniti_kapsar": null
+  },
+  {
+   "id": "q028",
+   "tur": "cevapsiz",
+   "soru": "fizik 1 için hangi hoca daha iyi",
+   "referans_cevap": "",
+   "cevap": "BİLMİYORUM: Bu bilgi elimdeki belgelerde yok.",
+   "bilmiyorum": true,
+   "atiflar": [],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": null,
+   "atif_kaniti_kapsar": null
+  },
+  {
+   "id": "q029",
+   "tur": "cevapsiz",
+   "soru": "kyk'm kesildi neden",
+   "referans_cevap": "",
+   "cevap": "KYK'ye kaydınız kesildi ise bu durumun nedeni, lisans eğitim ve öğretim yönetmeliğine göre aşağıdaki durumlardan biri olabilir:  \n- Kaydınızın silinmesini yazılı olarak istemiş olmanız [1].  \n- İlgili mevzuat hükümlerine göre yükseköğretim kurumundan çıkarma cezası almanız [1].  \n\nBu durum, lisans mevzuatına göre öğrencinin üniversitelerle ilişkisinin kesilmesine neden olur.",
+   "bilmiyorum": false,
+   "atiflar": [
+    "lisans-yonetmelik-2017-oncesi/m33"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": null,
+   "atif_kaniti_kapsar": null
+  },
+  {
+   "id": "q030",
+   "tur": "cevapsiz",
+   "soru": "ring saatleri neler",
+   "referans_cevap": "",
+   "cevap": "Kapalı Spor Salonu hafta içi 09.00-22.00, hafta sonu 09.00-16.00 açık olmaktadır [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6316-36"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": null,
+   "atif_kaniti_kapsar": null
+  },
+  {
+   "id": "q031",
+   "tur": "tek",
+   "soru": "kulüp kurmak için ne yapmam lazım",
+   "referans_cevap": "En az 15 öğrenciden oluşan Girişimciler Kurulunun  adı-soyadı, kayıtlı oldukları fakülte/enstitü, öğrenci\nnumarası, açık ikametgâh adresi, telefon numarası ve imzalarını içeren liste eki ile sunacağı dilekçe,,öğretim elemanının topluluk akademik liderliğini/akademik lider yardımcılığını kabul dilekçesi, kurmak\nistenilen topluluğun tüzüğü ve topluluk logosu,topluluğun adı,Topluluğun amacı yer almalıdır.",
+   "cevap": "Kulüp kurmak için, gerekli belgeleri toplamak ve başvuru yapmak gerekir. Öncelikle, en az 15 öğrenciyle bir girişimciler kurulu oluşturmanız gerekir. Bu kurulun üyeleri, adı-soyadı, kayıtlı oldukları fakülte/enstitü, öğrenci numarası, açık ikametgâh adresi, telefon numarası ve imzalarını içeren liste eki ile dilekçe sunmalıdır [2]. Ayrıca, öğretim elemanının topluluk akademik liderliğini kabul ettiği dilekçe ve topluluk tüzüğü, logosu da eklenmelidir [2]. Topluluk adı ve amacı da belgeler arasında yer almalıdır. Bu belgeler, akademik liderin onayladığı şekilde Komisyon’a sunulur. Komisyon, girişimciler kurulu üyelerinin GTÜ öğrencisi olup olmadığı, disiplin cezası alıp almadığı ve aynı amaçlı başka topluluk olup olmadığına dikkat eder [2]. Topluluk, Komisyon’un onayı alındıktan sonra kurulabilir. Ayrıca, topluluk kurulumu için gerekli belgelerin tamamlanması ve Sağlık Kültür ve Spor Daire Başkanlığı’nda onay alınması gerekir [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "yo-0024/m9",
+    "web-sss/k6316-32"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q032",
+   "tur": "cok",
+   "soru": "Devam oranı ve tekrar edilen derste devam oranı nedir",
+   "referans_cevap": "Teorik derslerde en az %70, laboratuvar ve uygulamalı derslerde en az %80\ndevam zorunluluğu aranır.Eğer tekrar aldığın ders ise NA veya U değilse harf notun devamsızlık şartın bulunmaz ama staj lab,proje ,bitirme derslerinde bütün yükümlülükleri yerine getirmelisin.",
+   "cevap": "Devam oranı, teorik derslerde en az %70, laboratuvar ve uygulamalı derslerde en az %80 olmalıdır [4]. Tekrar edilen derslerde devam oranı, 32. maddesinin dördüncü fıkrasına göre değerlendirilir [2].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6325-3",
+    "lisans-yonetmelik/m23"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q033",
+   "tur": "cok",
+   "soru": "Çap yaparken çakışan dersleri alabilir miyim ve çapım ne zaman iptal olur",
+   "referans_cevap": "evet %34ü aşmayacak şekilde danışmanının uygun bulması ile alabilirsin ve ortalaman en düşük 2.50ye kadar düşebilir, 2 kez 2.72nin altına düşerse çaptan kaydın silinir.",
+   "cevap": "Çap yaparken çakışan dersleri alamazsınız. Ders kaydında ders programı çakışmayan derslerin seçilmesi esastır. [5]  \nÇap, ders saatlerinde çakışma olmaması şartıyla yapılabilir. Çap, ders programında çakışmayan derslerin seçilmesi esasına dayanır. [5]  \nÇap, ders saatlerinde çakışma olmaması şartıyla yapılabilir. Çap, ders programında çakışmayan derslerin seçilmesi esasına dayanır. [5]  \nÇap, ders saatlerinde çakışma olmaması şartıyla yapılabilir. Çap, ders programında çakışmayan derslerin seçil'de. [5]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6325-12"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q034",
+   "tur": "cok",
+   "soru": "çap ve yandal farkları neler",
+   "referans_cevap": "Çapta ikinci bir dalda ön lisans yada lisans diploması almak için yapılır yanda ise başka bir da bilgilenirsin.",
+   "cevap": "Çap ve yandal, lisans programlarında öğrencinin ikinci bir programı tamamlayarak kazandığı farklı eğitim modelleridir. Bu iki kavram arasında temel farklar şu şekildedir:\n\n- **Çap**, öğrencinin iki farklı lisans programını tamamlayarak mezun olmasına imkan tanır. Bu durumda öğrencinin her iki programında da mezuniyeti olur. [1]  \n- **Yandal**, öğrencinin bir ana lisans programına ek olarak bir başka lisans programını tamamlayarak sadece bu ikinci program için sertifika almasıdır. Yandal programında mezun olunmaz, sadece başarı belgesi (yandal sertifikası) verilir. [3]  \n\nBu fark, mezuniyet durumları ve programın doğasında yer alır.",
+   "bilmiyorum": false,
+   "atiflar": [
+    "yok-gecis-yonetmeligi/m19",
+    "yok-gecis-yonetmeligi/m18"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q035",
+   "tur": "tek",
+   "soru": "Ortalamam 2.50 altı erasmusa başvurabilir miyim",
+   "referans_cevap": "Her dönem için hazırlanan Erasmus Uygulama El Kitabında belirtilen ortalamaya göre bakman lazım.",
+   "cevap": "Hayır, 2.50 altı ortalamayla Erasmus'a başvuramazsınız. Lisans öğrencileri için Erasmus'a başvurmak için gerekli ortalama 2.50'dir [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k5960-17"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q036",
+   "tur": "tek",
+   "soru": "erasmusu kazandım ama hibe çıkmadı bir sonraki sene kullanabilir miyim.",
+   "referans_cevap": "Hayır devredemezsin.",
+   "cevap": "Evet, Erasmus hibesi yurtdışında kaldığınız süre boyunca yeterli olur. Ancak hibe çıkmadığında, bir sonraki akademik yıl için tekrar başvuru yapmanız gerekir. Hibesiz Erasmus öğrencisi olarak da değişim yapabilirsiniz. Hibesiz öğrenciler de diğer başvurularla birlikte genel değerlendirmeye tabi tutulur ve hibeli öğrencilerle aynı süreçte yer alırlar. Fakat hibesiz öğrencilerin bütçeye dahil edilmemesi ve kendilerine ödeme yapılmaması gibi bazı farklar vardır [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k5960-67"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q037",
+   "tur": "tek",
+   "soru": "Erasmus sınavı minimum yabancı dil şartı kaç",
+   "referans_cevap": "GTÜ yabancı diller bölümü tarafından yapılan sınava göre 100 üstünden en az 70 yada ÖSYM tarafından yapılan ve eşdeğerliği olan bir sınavdan 70 muadili bir puan alman lazım.",
+   "cevap": "Erasmus sınavı minimum yabancı dil şartı 70 puandır. Bu puan, GTÜ Yabancı Diller Bölümü tarafından yapılan sınavdan veya eşdeğer kabul edilen sınavlardan (örneğin TOEFL IBT) alınan puanlardır [4]. Ayrıca, son üç yıl içinde YDS/E-YDS/YÖKDİL/E-YÖKDİL sınavlarından en az 70 puan ve muadili sınavlardan eşdeğer puan alan öğrenciler, bu belgeleri ibraz etmeleri halinde sınavdan muaf tutulurlar [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sayfalar/k5951-15"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q038",
+   "tur": "tek",
+   "soru": "Erasmus hibesi nasıl ödenir",
+   "referans_cevap": "%80ini program başlamadan kalan %20sini program bittikten sonra teslim edilen katılım sertifikana göre alırsın.",
+   "cevap": "Erasmus hibesi, Ulusal Ajans tarafından her proje dönemi için belirlenen tarihlerde, miktarlarda ve usullerde Koordinatörlüğe tahsis edilen bütçeden ödeme yapılır. Toplam hibe miktarının %80’i hareketlilik öncesinde ödenir. Kalan hibe miktarı, dönüşte teslim edilen katılım sertifikasına istinaden hesaplanır [1].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "erasmus/m6"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q039",
+   "tur": "cevapsiz",
+   "soru": "marmaray saatleri ne",
+   "referans_cevap": "",
+   "cevap": "Marmaray saatleri belirtilmemiştir. BİLMİYORUM: Bu bilgi elimdeki belgelerde yok.",
+   "bilmiyorum": false,
+   "atiflar": [],
+   "gecersiz_atif": [],
+   "atifsiz": true,
+   "kanit_getirildi": null,
+   "atif_kaniti_kapsar": null
+  },
+  {
+   "id": "q040",
+   "tur": "tek",
+   "soru": "kütüphaneden aldığım kitabı zamanın götürmezsem ne olur",
+   "referans_cevap": "30 günlük Gecikme cezası , kitabın güncel piyasa fiyatı ve kayıp işlem bedelinin toplamını ödersin",
+   "cevap": "Kütüphaneden aldığınız kitabı zamanında iade etmeyerek gecikme yaparsanız, gecikme cezası ödemekle yükümlüsünüz. Gecikme cezası, sürenin bitişini izleyen her gün için uygulanır [2]. Ayrıca, gecikme cezası ve gecikmiş kitap bulunan kullanıcılar, süre uzatma yapamaz [1]. Kullanıcının gecikmiş kitapları varsa, bu durum süresi uzatma taleplerini etkiler. Gecikme cezaları kesinlikle iptal edilmez [2].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "yo-0032/m7",
+    "yo-0032/m5"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q041",
+   "tur": "cok",
+   "soru": "Yaz okulunda aldığım dersin harf notu agnomu nasıl etkiler",
+   "referans_cevap": "4lük not sistemine göre ortalamana etki eder.",
+   "cevap": "Yaz okulunda aldığım dersin harf notu, agnom (yani geçerli ders sayısına göre hesaplanan başarı durumu) üzerinde etkisi vardır. Yaz okulunda alınan dersler, genel akademik yılın diğer dönemlerinde alınan derslerle birlikte agnom hesaplanır. Bu durum, [4] numaralı kaynağa göre yaz okulunun \"yaz öğretimi\" olarak görünmesiyle ilişkilidir. Ancak, harf notunun agnom üzerindeki etkisi, [1] ve [2] numaralı kaynaklarda belirtilen başarı durumu ve not hesaplama kurallarına göre değişebilir.",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6317-117",
+    "hazirlik-ogrenci-el-kitabi/p63",
+    "yo-0110/m8"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q042",
+   "tur": "cok",
+   "soru": "kampüste hız yaptım bu yüzden okuldan atılır mıyım",
+   "referans_cevap": "Hayır ama bir yılda 2 kez 100 ceza puanını aşarsan plaka tanıma üyeliğin iptal edilir ve hız cezası 30 puandır",
+   "cevap": "Kampüste hız yapmak, trafik kurallarına ve kampüs seyir kurallarına uymamak anlamına gelir. Bu tür davranışlar, kampüs içinde yayaların ve diğer sürücülerin hayatını tehlikeye sokabilecek şekilde araç kullanmaktan ibarettir ve bu, **yasaktır** [2]. Ancak, bu tür bir ihlal sonucunda **okuldan atılma** gibi ciddi bir ceza verilmesi, mevzuatta açıkça belirtilmemiştir. Bu durumda, **okuldan atılma** gibi bir sonuç doğmasa da, **idari cezalar** veya **kayıt durumu değişiklikleri** gibi etkiler olabilir. Ancak, bu tür bir durumda hangi cezaların uygulanacağını belirleyen özel bir kural bulunmamaktadır. Bu nedenle, **okuldan atılma** gibi ciddi bir sonuçla karşılaşılmaması gerekir.  \n\nBİLMİYORUM: Bu bilgi elimdeki belgelerde yok.",
+   "bilmiyorum": false,
+   "atiflar": [
+    "yo-0049/m12"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q043",
+   "tur": "cok",
+   "soru": "hazırlığı yarıyılda geçebilir miyim geçersem ders alabilir miyim",
+   "referans_cevap": "Evet ÖLİYS sınavında 100 üzerinden en 60 alırsan hazırlıkta başarılı olmuş sayılıp bölümden ders alabilirsin.",
+   "cevap": "Hazırlık yarıyılında geçebilirsiniz. Ancak, devamsızlıktan kalırsanız, hazırlık eğitiminize devam edemez ve bir yıllık hazırlık eğitimi sonunda yapılan Haziran Yeterlik sınavına katılamazsınız. Ancak sınıfında tekrar edilen ikinci yıl düzenlenen yeterlik sınavlarına katılabilirsiniz ve başarılı olursanız bölümünüzde eğitime devam edebilirsiniz [4]. Ayrıca, birinci sınıf öğrencileri, kendi öğretim planında belirtilen dersleri almak zorundadırlar ve üst sınıflardan ders almak esastan uzaklaşır [5].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k5160-4",
+    "web-sss/k6325-20"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q044",
+   "tur": "cok",
+   "soru": "Dgs ile gelip önlisans derslerini saydırınca kaçıncı sınıftan başlarım",
+   "referans_cevap": "Sabit bir sınıf yok sayıılan derslerinden muaf olursun hangi sınıfa intibak olduğun muafiyet ve intibak komisyonlarının ve yönetim kurullarının kararlarına bağlıdır.",
+   "cevap": "DGS ile gelip önlisans derslerini saydırınca 1. sınıftan başlarsınız. [4]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6317-72"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q045",
+   "tur": "cevapsiz",
+   "soru": "sınav sonucuna itiraz edince notumun düşme ihtimali var mı",
+   "referans_cevap": "",
+   "cevap": "Evet, sınav sonucuna itiraz edince notunuz düşme ihtimali vardır. Öğrenci, sınav sonuçlarına itiraz ettiğinde, ilgili öğretim elemanı sınav belgelerini tekrar inceleyerek öğrencinin itirazını 5 iş günü içerisinde değerlendirir ve sonucu bölüm başkanlığına bildirir [1]. Bu değerlendirme sürecinde, notunuzun düşmesi veya değişmesi mümkündür. Ayrıca, itiraz sonucunda not değişikliği veya düzeltmeler, ilgili yönetim kurulunca karara bağlanabilir [1].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "lisans-yonetmelik/m28"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": null,
+   "atif_kaniti_kapsar": null
+  },
+  {
+   "id": "q046",
+   "tur": "cok",
+   "soru": "okulu 3.5 senede bitirebilir miyim",
+   "referans_cevap": "Evet yaz okulunda üstten ders alıp ve not ortalamanı 2.50 üstünde tutup 40 akts alarak yapabilme imkanın var",
+   "cevap": "Evet, okulunu 3.5 senede bitirebilirsin. Bu durum, 3. yıl sonunda en az 75 krediyi tamamlamış ve genel not ortalaması en az 3.00 olan öğrencilerin, 8 yarıyıldan daha kısa sürede mezun olabilmesine izin veren kurallarla uyumlu. [1]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "lisans-yonetmelik-2017-oncesi/m14"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q047",
+   "tur": "tek",
+   "soru": "2016 girişliyim okulu 3.5 senede bitirebilir miyim",
+   "referans_cevap": "evet 2017 öncesine göre birinci yıl sonunda 35 ikide en az 75 krediyi tamamladyıysa ve ortalaman en az 3.00 ise en fazla kredi alma sınırını aşıp 8 yarı yıldan kısa sürede mezun olabilirsin",
+   "cevap": "Eğer 2016 yılında giriş yapmış ve lisans programında okuyorsan, 3.5 senede bitirmen mümkün olabilir. Bu, 32 krediyi 3.5 yılda tamamlayarak, 3.5 yılda 32 krediyi tamamlayabildiğin durumda mümkündür. Ancak bu durum, 2017 öncesi girişli öğrenciler için geçerli olan kurallara göre, 3.5 senede 32 krediyi tamamlamak suretiyle 3.5 senede bitirme imkanına sahip olabilirsin. [3]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "lisans-yonetmelik-2017-oncesi/m13"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q048",
+   "tur": "tek",
+   "soru": "zorunlu staj defterini doldururken sadece mavi tükenmez kalem mi kullanmalıyım",
+   "referans_cevap": "Hayır Makine mühendisliği için teknik resim ,yazı ve çizim kurallarına uygun şekilde mürekkeple,tükenmez kalemle ve bilgisayarla doldurabilirsin.",
+   "cevap": "Hayır, zorunlu staj defterini doldururken sadece mavi tükenmez kalem kullanmak zorunda değilsiniz. Staj defteri Türkçe veya İngilizce (yurtdışında yapılması durumunda İngilürce) olarak, mürekkeple, tükenmez kalemle veya bilgisayarla doldurulabilir [1].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "yo-0084/m11"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": true,
+   "atif_kaniti_kapsar": true
+  },
+  {
+   "id": "q049",
+   "tur": "cevapsiz",
+   "soru": "marmaraydan kampüse giden ringlerin saatleri neler",
+   "referans_cevap": "",
+   "cevap": "Marmaray'dan kampüse giden ringlerin saatleri, verilen kaynaklarda belirtilmemiştir. BİLMİYORUM: Bu bilgi elimdeki belgelerde yok.",
+   "bilmiyorum": false,
+   "atiflar": [],
+   "gecersiz_atif": [],
+   "atifsiz": true,
+   "kanit_getirildi": null,
+   "atif_kaniti_kapsar": null
+  },
+  {
+   "id": "q050",
+   "tur": "cok",
+   "soru": "ders ekle-bırak için son gün tarihi ne zaman",
+   "referans_cevap": "birinci dönem için 02 ekim 2026 ikinci dönem için 26 şubat 2027",
+   "cevap": "Ders ekleme ve çıkarma işlemleri, derslerin ikinci haftasında, Akademik Takvim'deki \"Ders Ekleme ve Çıkarma\" satırında belirtilen tarihlerde yapılır [4]. Bu tarih, 2026-2027 akademik yılında bahar dönemi sonu tek ders başvurularının son günü olan 09 Temmuz 2027 tarihine denk gelmektedir [3]. Ders ekleme ve çıkarma işlemleri, derslerin ikinci haftasında, Akademik Takvim'deki \"Ders Ekleme ve Çıkarma\" satırında belirtilen tarihlerde yapılır [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6314-15",
+    "akademik-takvim/r136"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q051",
+   "tur": "cok",
+   "soru": "tek ders sınavına girmek için hangi dilekçeyi doldurmalıyım",
+   "referans_cevap": "FR-0188 tek ders sınav dilekçesini doldurduktan sonra fakülte yönetim kurulunun kararıyla sınava girebilirsin",
+   "cevap": "Tek ders sınavına girmek için dilekçeyi doldururken, öğrencinin ilgili bölüme veya fakülte yönetim kurulu kararıyla başvurduğunu belirtmesi gerekir. Dilekçe, transkript ve başvuru talebi içeren e-posta ile Yabancı Diller Bölüm Başkanlığına (yabancidillerogrenci@gtu.edu.tr) gönderilmelidir [1]. Ayrıca, başvuru sırasında tek ders sınavına girebilecek durumu kanıtlayan belgeler de eklenmelidir [4].",
+   "bilmiyorum": false,
+   "atiflar": [
+    "hazirlik-ogrenci-el-kitabi/p53",
+    "web-sss/k6317-96"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": false,
+   "atif_kaniti_kapsar": false
+  },
+  {
+   "id": "q052",
+   "tur": "cevapsiz",
+   "soru": "Not itirazında kağıdı hocayla yan yana inceleme hakkım var mı",
+   "referans_cevap": "",
+   "cevap": "Hayır, not itirazında kağıdı hocayla yan yana inceleme hakkı yoktur. Not itiraz sürecinde, öğrencinin itirazını öğretim elemanı tekrar inceleyerek değerlendirir, ancak bu değerlendirme sürecinde öğrencinin kağıdı hocayla birlikte incelemesi söz konusu değildir. [4]",
+   "bilmiyorum": false,
+   "atiflar": [
+    "web-sss/k6325-24"
+   ],
+   "gecersiz_atif": [],
+   "atifsiz": false,
+   "kanit_getirildi": null,
+   "atif_kaniti_kapsar": null
+  }
+ ]
+}

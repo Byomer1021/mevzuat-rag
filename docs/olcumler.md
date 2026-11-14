@@ -967,3 +967,40 @@ yöntemin tek koşusuyla birlikte yapılacak (Project Card alan 8, ablasyon
 satırları). Raporda C3 test sonucuna göre "destekleniyor" ya da
 "desteklenmiyor" diye yazılacak; dev'deki bu sonuç ayarlama için
 kullanılmadı.
+
+## 17. Dil modeli pilotu: Qwen3-4B-Instruct-2507 ve Qwen3-8B (2026-11-14, dev)
+
+**Ne.** K-005 pilotu. Paket `results/istem/dev-e5-demo.jsonl`: dev setinin
+51 sorusu (43 cevaplı, 8 cevapsız), demonun kaynak seçimiyle (e5, bütün
+bilgi tabanı, 3 belge ve 2 web parçası, K-025, K-027). Colab, Tesla T4,
+torch 2.14.1+cu130, transformers 5.22.1, açgözlü üretim, en fazla 400 token.
+4B fp16, 8B 4 bit, düşünme kapalı. Ölçüm `scripts/cevap_ozet.py`.
+
+**Sonuç.**
+
+| | 4B-Instruct-2507 | 8B (4 bit) |
+|---|---|---|
+| süre, 51 soru | 789 s | 556 s |
+| boş ya da anlamsız cevap | 0 | 0 |
+| 400 token sınırında kesilen | 3 | 0 |
+| cevapsızda "bilmiyorum" | 4 / 8 | 1 / 8 |
+| kanıt kaynaklardayken "bilmiyorum" | 1 / 20 | 0 / 20 |
+| kanıt kaynaklardayken atıf kanıtı gösteriyor | 13 / 19 konuşan | 12 / 20 konuşan |
+| kanıt kaynaklarda yokken "bilmiyorum" | 5 / 23 | 0 / 23 |
+| atıfsız ya da geçersiz numaralı cevap | 0 | 0 |
+
+İki modelin "bilmiyorum" kararı 51 sorunun 42'sinde aynı.
+
+**Ne anlama geliyor.** En büyük kayıp aramada: cevaplı 43 sorunun yalnız
+20'sinde kanıt modele verilen 5 kaynağın içinde. Kanıt verilince iki model
+benzer (atıf 13/19 ve 12/20). Fark cevaplamamada: 4B cevapsız soruların
+yarısında "bilmiyorum" diyor, 8B sekizde birinde. 8B kanıt yokken de hep
+cevap veriyor, uydurma riski orada. Bu sayılar 4B'yi gösteriyor ama
+cevapsız soru 8 tane, fark (4/8 ile 1/8) tek başına güvenilir değil.
+
+**Ne anlama gelmiyor.** Doğruluk henüz ölçülmedi. Kanıt verilmediği hâlde
+verilen cevap yanlış olmak zorunda değil: aynı bilgi başka bir kaynakta
+(SSS, web) olabilir. Doğruluk elle puanlanacak:
+`results/cevap/kor_puanlama.csv`, iki modelin 102 cevabı karışık, model
+adı gizli (`scripts/kor_puanlama.py`). Model seçimi onunla birlikte
+yapılacak.
