@@ -150,7 +150,7 @@ scripts/
   soru_al.py         Soru Defteri'nden gelen soruları denetleyip test setine katar
   istem_paketi.py    cevap üretimi için Colab'a gidecek istem paketi (K-005)
   cevap_ozet.py      Colab'dan dönen cevapları ölçer, elle puanlama tablosu çıkarır
-  kor_puanlama.py    iki modelin cevaplarını model adı gizli, karışık sırada puanlatır
+  kor_puanlama.py    cevapları model ve düzen adı gizli, karışık sırada Excel'de puanlatır
   demo_dizin.py      demonun e5 dizinini önceden kurar
   demo_arama.py      demonun kaynak seçimi: doğru madde modele ne sıklıkla gidiyor (dev)
   soru_defteri_veri.py  Soru Defteri sayfasının parça verisi

@@ -1009,7 +1009,7 @@ cevapsız soru 8 tane, fark (4/8 ile 1/8) tek başına güvenilir değil.
 **Ne anlama gelmiyor.** Doğruluk henüz ölçülmedi. Kanıt verilmediği hâlde
 verilen cevap yanlış olmak zorunda değil: aynı bilgi başka bir kaynakta
 (SSS, web) olabilir. Doğruluk elle puanlanacak:
-`results/cevap/kor_puanlama.csv`, iki modelin 102 cevabı karışık, model
+`results/cevap/kor_puanlama.xlsx`, iki modelin 102 cevabı ve 5 + 2 düzeninin 51 cevabı karışık, model ve düzen
 adı gizli (`scripts/kor_puanlama.py`). Model seçimi onunla birlikte
 yapılacak.
 

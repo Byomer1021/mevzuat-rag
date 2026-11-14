@@ -2,412 +2,769 @@
  "tohum": 0,
  "satirlar": {
   "1": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q025"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q029",
+   "tur": "cevapsiz"
   },
   "2": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q037"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q038",
+   "tur": "tek"
   },
   "3": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q039"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q042",
+   "tur": "cok"
   },
   "4": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q013"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q021",
+   "tur": "tek"
   },
   "5": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q045"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q017",
+   "tur": "tek"
   },
   "6": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q009"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q005",
+   "tur": "tek"
   },
   "7": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q043"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q052",
+   "tur": "cevapsiz"
   },
   "8": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q017"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q013",
+   "tur": "tek"
   },
   "9": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q041"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q023",
+   "tur": "cok"
   },
   "10": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q012"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q015",
+   "tur": "tek"
   },
   "11": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q014"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q013",
+   "tur": "tek"
   },
   "12": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q016"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q018",
+   "tur": "tek"
   },
   "13": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q050"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q011",
+   "tur": "tek"
   },
   "14": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q040"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q047",
+   "tur": "tek"
   },
   "15": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q044"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q038",
+   "tur": "tek"
   },
   "16": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q009"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q009",
+   "tur": "tek"
   },
   "17": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q046"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q049",
+   "tur": "cevapsiz"
   },
   "18": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q003"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q034",
+   "tur": "cok"
   },
   "19": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q020"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q048",
+   "tur": "tek"
   },
   "20": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q031"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q036",
+   "tur": "tek"
   },
   "21": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q034"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q031",
+   "tur": "tek"
   },
   "22": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q026"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q007",
+   "tur": "tek"
   },
   "23": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q047"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q001",
+   "tur": "tek"
   },
   "24": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q007"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q014",
+   "tur": "cok"
   },
   "25": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q032"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q007",
+   "tur": "tek"
   },
   "26": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q011"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q003",
+   "tur": "tek"
   },
   "27": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q032"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q048",
+   "tur": "tek"
   },
   "28": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q004"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q040",
+   "tur": "tek"
   },
   "29": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q024"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q017",
+   "tur": "tek"
   },
   "30": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q004"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q004",
+   "tur": "tek"
   },
   "31": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q036"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q020",
+   "tur": "tek"
   },
   "32": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q020"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q021",
+   "tur": "tek"
   },
   "33": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q007"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q033",
+   "tur": "cok"
   },
   "34": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q045"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q024",
+   "tur": "tek"
   },
   "35": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q033"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q052",
+   "tur": "cevapsiz"
   },
   "36": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q049"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q043",
+   "tur": "cok"
   },
   "37": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q039"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q008",
+   "tur": "cok"
   },
   "38": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q046"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q024",
+   "tur": "tek"
   },
   "39": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q030"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q034",
+   "tur": "cok"
   },
   "40": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q036"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q047",
+   "tur": "tek"
   },
   "41": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q027"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q045",
+   "tur": "cevapsiz"
   },
   "42": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q052"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q047",
+   "tur": "tek"
   },
   "43": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q015"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q018",
+   "tur": "tek"
   },
   "44": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q037"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q023",
+   "tur": "cok"
   },
   "45": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q023"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q041",
+   "tur": "cok"
   },
   "46": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q005"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q003",
+   "tur": "tek"
   },
   "47": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q008"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q036",
+   "tur": "tek"
   },
   "48": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q021"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q046",
+   "tur": "cok"
   },
   "49": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q017"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q004",
+   "tur": "tek"
   },
   "50": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q016"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q010",
+   "tur": "tek"
   },
   "51": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q023"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q010",
+   "tur": "tek"
   },
   "52": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q033"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q045",
+   "tur": "cevapsiz"
   },
   "53": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q029"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q050",
+   "tur": "cok"
   },
   "54": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q001"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q045",
+   "tur": "cevapsiz"
   },
   "55": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q019"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q006",
+   "tur": "tek"
   },
   "56": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q026"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q005",
+   "tur": "tek"
   },
   "57": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q052"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q016",
+   "tur": "tek"
   },
   "58": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q002"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q017",
+   "tur": "tek"
   },
   "59": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q024"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q026",
+   "tur": "tek"
   },
   "60": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q027"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q041",
+   "tur": "cok"
   },
   "61": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q050"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q003",
+   "tur": "tek"
   },
   "62": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q048"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q025",
+   "tur": "tek"
   },
   "63": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q049"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q002",
+   "tur": "tek"
   },
   "64": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q002"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q048",
+   "tur": "tek"
   },
   "65": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q008"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q025",
+   "tur": "tek"
   },
   "66": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q051"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q052",
+   "tur": "cevapsiz"
   },
   "67": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q006"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q046",
+   "tur": "cok"
   },
   "68": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q043"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q031",
+   "tur": "tek"
   },
   "69": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q028"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q051",
+   "tur": "cok"
   },
   "70": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q042"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q037",
+   "tur": "tek"
   },
   "71": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q005"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q018",
+   "tur": "tek"
   },
   "72": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q042"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q038",
+   "tur": "tek"
   },
   "73": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q031"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q027",
+   "tur": "cevapsiz"
   },
   "74": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q021"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q044",
+   "tur": "cok"
   },
   "75": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q010"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q039",
+   "tur": "cevapsiz"
   },
   "76": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q044"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q050",
+   "tur": "cok"
   },
   "77": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q010"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q034",
+   "tur": "cok"
   },
   "78": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q035"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q016",
+   "tur": "tek"
   },
   "79": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q041"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q035",
+   "tur": "tek"
   },
   "80": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q019"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q012",
+   "tur": "tek"
   },
   "81": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q028"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q040",
+   "tur": "tek"
   },
   "82": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q018"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q014",
+   "tur": "cok"
   },
   "83": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q034"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q012",
+   "tur": "tek"
   },
   "84": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q030"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q015",
+   "tur": "tek"
   },
   "85": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q013"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q026",
+   "tur": "tek"
   },
   "86": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q038"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q050",
+   "tur": "cok"
   },
   "87": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q038"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q027",
+   "tur": "cevapsiz"
   },
   "88": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q018"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q007",
+   "tur": "tek"
   },
   "89": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q014"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q019",
+   "tur": "tek"
   },
   "90": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q029"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q032",
+   "tur": "cok"
   },
   "91": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q025"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q032",
+   "tur": "cok"
   },
   "92": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q047"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q030",
+   "tur": "cevapsiz"
   },
   "93": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q011"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q039",
+   "tur": "cevapsiz"
   },
   "94": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q040"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q037",
+   "tur": "tek"
   },
   "95": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q001"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q009",
+   "tur": "tek"
   },
   "96": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q012"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q008",
+   "tur": "cok"
   },
   "97": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q015"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q043",
+   "tur": "cok"
   },
   "98": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q035"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q044",
+   "tur": "cok"
   },
   "99": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q006"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q033",
+   "tur": "cok"
   },
   "100": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q003"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q044",
+   "tur": "cok"
   },
   "101": {
-   "model": "Qwen/Qwen3-8B",
-   "id": "q048"
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q013",
+   "tur": "tek"
   },
   "102": {
-   "model": "Qwen/Qwen3-4B-Instruct-2507",
-   "id": "q051"
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q025",
+   "tur": "tek"
+  },
+  "103": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q001",
+   "tur": "tek"
+  },
+  "104": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q031",
+   "tur": "tek"
+  },
+  "105": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q036",
+   "tur": "tek"
+  },
+  "106": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q051",
+   "tur": "cok"
+  },
+  "107": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q004",
+   "tur": "tek"
+  },
+  "108": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q028",
+   "tur": "cevapsiz"
+  },
+  "109": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q001",
+   "tur": "tek"
+  },
+  "110": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q051",
+   "tur": "cok"
+  },
+  "111": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q043",
+   "tur": "cok"
+  },
+  "112": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q012",
+   "tur": "tek"
+  },
+  "113": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q002",
+   "tur": "tek"
+  },
+  "114": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q020",
+   "tur": "tek"
+  },
+  "115": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q046",
+   "tur": "cok"
+  },
+  "116": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q008",
+   "tur": "cok"
+  },
+  "117": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q035",
+   "tur": "tek"
+  },
+  "118": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q049",
+   "tur": "cevapsiz"
+  },
+  "119": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q009",
+   "tur": "tek"
+  },
+  "120": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q006",
+   "tur": "tek"
+  },
+  "121": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q011",
+   "tur": "tek"
+  },
+  "122": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q020",
+   "tur": "tek"
+  },
+  "123": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q028",
+   "tur": "cevapsiz"
+  },
+  "124": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q015",
+   "tur": "tek"
+  },
+  "125": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q032",
+   "tur": "cok"
+  },
+  "126": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q029",
+   "tur": "cevapsiz"
+  },
+  "127": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q042",
+   "tur": "cok"
+  },
+  "128": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q010",
+   "tur": "tek"
+  },
+  "129": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q041",
+   "tur": "cok"
+  },
+  "130": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q033",
+   "tur": "cok"
+  },
+  "131": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q019",
+   "tur": "tek"
+  },
+  "132": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q035",
+   "tur": "tek"
+  },
+  "133": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q019",
+   "tur": "tek"
+  },
+  "134": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q027",
+   "tur": "cevapsiz"
+  },
+  "135": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q030",
+   "tur": "cevapsiz"
+  },
+  "136": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q039",
+   "tur": "cevapsiz"
+  },
+  "137": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q014",
+   "tur": "cok"
+  },
+  "138": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q026",
+   "tur": "tek"
+  },
+  "139": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q040",
+   "tur": "tek"
+  },
+  "140": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q023",
+   "tur": "cok"
+  },
+  "141": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q037",
+   "tur": "tek"
+  },
+  "142": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q029",
+   "tur": "cevapsiz"
+  },
+  "143": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q005",
+   "tur": "tek"
+  },
+  "144": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q042",
+   "tur": "cok"
+  },
+  "145": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q021",
+   "tur": "tek"
+  },
+  "146": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q028",
+   "tur": "cevapsiz"
+  },
+  "147": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q002",
+   "tur": "tek"
+  },
+  "148": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q024",
+   "tur": "tek"
+  },
+  "149": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q030",
+   "tur": "cevapsiz"
+  },
+  "150": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q016",
+   "tur": "tek"
+  },
+  "151": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q011",
+   "tur": "tek"
+  },
+  "152": {
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q006",
+   "tur": "tek"
+  },
+  "153": {
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q049",
+   "tur": "cevapsiz"
   }
  }
 }
