@@ -962,6 +962,14 @@ ayırt edilemiyor. C3 dev'de desteklenmiyor. R@10 ve MRR'de fark sıfırın
 Okuma: belge adı en çok, bütün bir kuralı taşıyan parçaya yardım ediyor.
 Pencerede ad, kuralın yarısının önünde duruyor.
 
+**Neden (kayıplara bakış).** e5 madde koşulunda önekle bulunup öneksiz
+kaçırılan soru 6, tersi 1. Altısından beşinde öneksiz aramanın ilk 5'inde
+doğru belgeden tek parça yok. Arama öğretim planlarına, staj SSS'lerine,
+hazırlık el kitabına kayıyor. Örnek q018 (Lisans Yönetmeliği): önekle doğru
+madde 1. sırada, öneksiz ilk 5'in hepsi farklı bölümlerin öğretim planı.
+Önek aramaya belgeyi buldurmuş. Pencere koşulunun R@5'inin neden
+değişmediği ölçülmedi.
+
 **Ne anlama gelmiyor.** Dev, n = 37, tek yazar. Test setindeki ablasyon
 yöntemin tek koşusuyla birlikte yapılacak (Project Card alan 8, ablasyon
 satırları). Raporda C3 test sonucuna göre "destekleniyor" ya da
