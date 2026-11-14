@@ -1046,3 +1046,39 @@ Bunun için 2 GB'lık bir modeli CPU'da çalıştırmak değmez, denenmedi.
 değil, aynı bilgi başka kaynakta olabilir. Daha uzun istemde modelin
 cevabı kötüleşebilir; 5 + 2 seçilirse cevaplar yeniden üretilip ölçülmeli.
 n = 43, dev, tek yazar.
+
+## 19. Demo 5 + 2 kaynakla: Qwen3-4B cevapları (2026-11-14, dev)
+
+**Ne.** §18'deki seçimin cevaba etkisi. Paket `dev-e5-demo-b5w2` (5 belge,
+2 web), Qwen3-4B-Instruct-2507, Colab T4, defter ve ayarlar §17 ile aynı.
+Karşılaştırma aynı modelin 3 + 2 cevaplarıyla, soru soru.
+
+| | 3 + 2 | 5 + 2 |
+|---|---|---|
+| kanıt modele gidiyor (cevaplı 43) | 20 | 25 |
+| kanıt varken "bilmiyorum" | 1 | 2 |
+| kanıt varken atıf kanıtı gösteriyor | 13 | 15 |
+| kanıt yokken "bilmiyorum" | 5 / 23 | 3 / 18 |
+| cevapsızda "bilmiyorum" | 4 / 8 | 4 / 8 |
+| süre (Colab, aynı koşul değil) | 789 s | 562 s |
+
+Kanıtı yeni giden 5 sorunun 2'sinde atıf artık kanıtı gösteriyor. Önce
+doğru atıf yapılıp artık yapılmayan 2 soru var. Cevapsızda sayı aynı ama
+dört sorunun kararı değişti (iki yönde ikişer): bu sınırdaki sorularda
+modelin kararı oynak.
+
+**Soru soru okuma (otomatik ölçünün kaçırdıkları).**
+- q051: 5 + 2 doğru ("FR-0188"). Ölçü kaçırmış sayıyor, çünkü altın iki
+  kaynak istiyor (form ve m33), model formu gösterdi.
+- q025: iki düzende de doğru, ama model diploma yönergesini (yo-0006/m15)
+  gösterdi, altın lisans-yonetmelik/m36. Bir sorunun birden çok doğru kaynağı
+  olabiliyor (K-026 bunu ölçüyor).
+- q032: 5 + 2 daha iyi, tekrar edilen dersin kuralı geliyor, yanında ilgisiz
+  bir mimari tasarım kuralı var.
+- q047: geriledi. 3 + 2 doğru cevap veriyordu, 5 + 2 "bilmiyorum" diyor.
+- q014: ikisi de yanlış.
+
+**Ne anlama geliyor.** Kazanç beklenenden küçük. Kaynak 5 soru fazla gidiyor,
+atıf ölçüsüyle net 2 soru. Okumayla q051 ve q032 iyileşti, q047 geriledi.
+Uzun istem küçük modeli bazen şaşırtıyor. Atıf ölçüsü doğruluğu ölçmüyor,
+altın tek kaynak varsayıyor. Karar elle puanlamayla netleşir.
