@@ -6,7 +6,7 @@ gibi etiketleyeceksin. Amaç şu: iki kişi aynı soruya aynı maddeyi ve aynı
 cümleyi gösteriyor mu? Sonuç raporda veri setinin güvenilirliği olarak
 yazılacak ([K-026](kararlar.md)).
 
-Son tarih **21 Kasım**. Bir oturumda bitmezse sorun değil, defter kaydeder.
+Son tarih **30 Kasım** (ilk tarih 21 Kasım'dı, uzatıldı). Bir oturumda bitmezse sorun değil, defter kaydeder.
 
 ## Yapma
 
@@ -16,7 +16,8 @@ Son tarih **21 Kasım**. Bir oturumda bitmezse sorun değil, defter kaydeder.
 
 ## Her soru için
 
-1. Soru Defteri'ni aç. Sağ üstten adını seç.
+1. Soru Defteri'ni aç (https://claude.ai/artifact/5weJKDRsC19fpv1ivUkVLT,
+   soru yazarken kullandığın sayfa). Sağ üstten adını seç.
 2. Listedeki soruyu Soru kutusuna olduğu gibi yapıştır, değiştirme.
 3. Etiketlerin altındaki "başka etiket" kutusuna sorunun kimliğini yaz (`q055`
    gibi) ve Enter'a bas. Bu olmadan sorunu eşleştiremem.
