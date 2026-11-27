@@ -1125,3 +1125,11 @@ bir kazanç.
 **Ne anlama gelmiyor.** Tek puanlayıcı, puanlayıcı soruların yazarı,
 n = 43 ve 8, dev. Otomatik atıf ölçüsü (§17, §19) doğruluğu ölçmüyor, bu
 tablo onu doğruluyor.
+
+**Sonra (2026-11-27): 8B 5 + 2 ile.** Paket `dev-e5-demo-b5w2`, Colab T4,
+602 s, bozuk cevap yok, 400 tokende kesilen 2. Kanıt modele 25/43 soruda
+gidiyor, atıf kanıtı 11'inde gösteriyor (3 + 2'de 20 ve 12). Cevapsızda
+temiz "bilmiyorum" 1/8, cevap verip sonda "bilmiyorum" 0. Elle puanlanmadı.
+Atıf ölçüsü doğruluğu ölçmediği için (4B'de atıf +2, doğru +4) 5 + 2'nin
+8B'ye etkisi bilinmiyor. Demo bu cevaplarla kuruldu (README).
+
