@@ -12,7 +12,7 @@ veya başarısız denemenin hafızadan yeniden kurulması gerekmesin.
 | [kararlar.md](kararlar.md) | her tasarım kararında | K-NNN: karar, seçenekler, gerekçe, neyle değişir |
 | [on-rapor.md](on-rapor.md) | hafta 2 sonunda kesinleşir | kapsam, kısıtlar, plan, açık sorular |
 | [proje-tanimi.md](proje-tanimi.md) | değişmez | başlangıçta verilen tanım |
-| `raporlar/` | ara ve final rapor | ileride |
+| [raporlar/final.md](raporlar/final.md) | final teslimine kadar | final rapor taslağı (İngilizce, kısa araştırma makalesi); her sayı olcumler.md'den |
 
 Ölçümlerin ham çıktısı `results/` altına JSON/CSV olarak kaydedilir;
 `olcumler.md` onların okunur özetidir.
