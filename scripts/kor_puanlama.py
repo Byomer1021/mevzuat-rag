@@ -109,22 +109,28 @@ def olustur(yollar: list[Path], tablo: Path = TABLO, anahtar_yolu: Path = ANAHTA
 def hesapla(tablo: Path = TABLO, anahtar_yolu: Path = ANAHTAR) -> dict:
     anahtar = json.loads(anahtar_yolu.read_text(encoding="utf-8"))["satirlar"]
     ws = load_workbook(tablo, read_only=True)["puanla"]
-    sayim, bos, gecersiz = {}, [], []
+    sayim, bos, gecersiz, satirlar = {}, [], [], []
     for no, *_, puan, _not in ws.iter_rows(min_row=2, values_only=True):
         if no is None:
             continue
-        p = PUANLAR.get(str(puan or "").strip().lower())
-        if not str(puan or "").strip():
+        if isinstance(puan, bool):
+            # Türkçe Excel "doğru" ve "yanlış" yazılınca hücreyi DOĞRU / YANLIŞ mantıksal değerine çeviriyor
+            p = "dogru" if puan else "yanlis"
+        elif puan is None or not str(puan).strip():
             bos.append(no)
             continue
-        if p is None:
-            gecersiz.append((no, puan))
-            continue
+        else:
+            p = PUANLAR.get(str(puan).strip().lower())
+            if p is None:
+                gecersiz.append((no, puan))
+                continue
         a = anahtar[str(no)]
         tur = "cevapsiz" if a["tur"] == "cevapsiz" else "cevapli"
         sayim.setdefault(a["kaynak"], {"cevapli": Counter(), "cevapsiz": Counter()})[tur][p] += 1
+        satirlar.append({"no": no, "kaynak": a["kaynak"], "id": a["id"], "tur": a["tur"], "puan": p,
+                         "not": _not or ""})
     sonuc = {k: {t: dict(c) for t, c in v.items()} for k, v in sorted(sayim.items())}
-    cikti = {"sonuc": sonuc, "bos": bos, "gecersiz": gecersiz}
+    cikti = {"sonuc": sonuc, "bos": bos, "gecersiz": gecersiz, "satirlar": satirlar}
     (tablo.parent / "kor_sonuc.json").write_text(json.dumps(cikti, ensure_ascii=False, indent=1) + "\n",
                                                  encoding="utf-8")
     for k, v in sonuc.items():

@@ -50,3 +50,18 @@ def test_hesapla_gecersiz_ve_bos(tmp_path):
     wb.save(tablo)
     sonuc = kp.hesapla(tablo, anahtar)
     assert sonuc["gecersiz"] == [(1, "belki")] and sonuc["bos"] == [2]
+
+
+def test_hesapla_turkce_excel_mantiksal_degerleri(tmp_path):
+    # Türkçe Excel "doğru" / "yanlış" yazılınca hücreyi DOĞRU / YANLIŞ (True / False) yapıyor
+    s = [{"id": f"q{i}", "tur": "tek", "soru": "S", "referans_cevap": "R", "cevap": "C"} for i in range(3)]
+    a = ozet_dosyasi(tmp_path / "a.json", "M1", "p", s)
+    tablo, anahtar = tmp_path / "kor.xlsx", tmp_path / "anahtar.json"
+    kp.olustur([a], tablo, anahtar)
+    wb = load_workbook(tablo)
+    for hucre, deger in zip(("E2", "E3", "E4"), (True, False, "kısmen"), strict=True):
+        wb["puanla"][hucre].value = deger
+    wb.save(tablo)
+    sonuc = kp.hesapla(tablo, anahtar)
+    assert not sonuc["bos"] and not sonuc["gecersiz"]
+    assert sonuc["sonuc"]["M1 | p"]["cevapli"] == {"dogru": 1, "yanlis": 1, "kismen": 1}

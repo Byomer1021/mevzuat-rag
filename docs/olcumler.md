@@ -1005,6 +1005,7 @@ benzer (atıf 13/19 ve 12/20). Fark cevaplamamada: 4B cevapsız soruların
 yarısında "bilmiyorum" diyor, 8B sekizde birinde. 8B kanıt yokken de hep
 cevap veriyor, uydurma riski orada. Bu sayılar 4B'yi gösteriyor ama
 cevapsız soru 8 tane, fark (4/8 ile 1/8) tek başına güvenilir değil.
+**Sonradan (2026-11-27):** elle puanlama bu okumayı tersine çevirdi, bkz. §20.
 
 **Ne anlama gelmiyor.** Doğruluk henüz ölçülmedi. Kanıt verilmediği hâlde
 verilen cevap yanlış olmak zorunda değil: aynı bilgi başka bir kaynakta
@@ -1082,3 +1083,45 @@ modelin kararı oynak.
 atıf ölçüsüyle net 2 soru. Okumayla q051 ve q032 iyileşti, q047 geriledi.
 Uzun istem küçük modeli bazen şaşırtıyor. Atıf ölçüsü doğruluğu ölçmüyor,
 altın tek kaynak varsayıyor. Karar elle puanlamayla netleşir.
+
+## 20. Elle doğruluk puanlaması: 8B, 4B'den doğru (2026-11-27, dev)
+
+**Ne.** §17 ve §19'daki üç cevap seti, 153 cevap, tek tabloda karışık
+sırada, model ve düzen adı gizli (`scripts/kor_puanlama.py`). Puanlayan
+Ömer Can (dev sorularını ve referans cevaplarını da o yazdı), tek kişi.
+Puan: doğru 1, kısmen 0.5, yanlış 0. Aralıklar soru üzerinden 10 000
+bootstrap, tohum 0. Türkçe Excel "doğru" ve "yanlış" yazılınca hücreyi
+mantıksal DOĞRU / YANLIŞ değerine çeviriyor. Betik bunu tanıyor, ilk
+hesapta 47 "yanlış" boş sayılmıştı.
+
+**Sonuç, cevaplı 43 soru.**
+
+| | 4B, 3 + 2 | 4B, 5 + 2 | 8B, 3 + 2 |
+|---|---|---|---|
+| puan | 0.535 [0.419, 0.651] | 0.581 [0.453, 0.709] | 0.686 [0.558, 0.802] |
+| doğru / kısmen / yanlış | 16 / 14 / 13 | 20 / 10 / 13 | 25 / 9 / 9 |
+| kanıt modele gitmişken tam doğru | 10 / 20 | 15 / 25 | 17 / 20 |
+| kanıt gitmemişken tam doğru | 6 / 23 | 5 / 18 | 8 / 23 |
+
+Cevapsız 8 soruda doğru davranış ("bilmiyorum"): 4B 3 + 2 5, 4B 5 + 2 4,
+8B 2 (bir de kısmen).
+
+Eşleştirilmiş farklar (cevaplı, puan):
+- 8B − 4B (3 + 2): +0.151 [+0.035, +0.267]. Tam doğruda yalnız 8B 11, yalnız
+  4B 2, McNemar p = 0.022.
+- 4B 5 + 2 − 4B 3 + 2: +0.047 [-0.070, +0.163], 8 / 4, p = 0.388.
+- 8B 3 + 2 − 4B 5 + 2: +0.105 [-0.035, +0.244], 9 / 4, p = 0.267.
+
+**Ne anlama geliyor.** Doğrulukta 8B önde ve fark sıfırdan ayrılıyor. En
+büyük fark kanıt modele gittiğinde: 8B kanıtı kullanıyor (17/20), 4B
+yarısında kullanamıyor (10/20). §17'deki "4B önde" okuması yalnız
+"bilmiyorum" oranına bakıyordu ve yanlıştı. 4B'nin tek üstünlüğü
+cevapsızda (5'e 2), n = 8. 5 + 2 düzeni 4B'de küçük ve ayırt edilemeyen
+bir kazanç.
+
+**Karar önerisi.** Demo için 8B, 5 + 2 düzeniyle. 8B 5 + 2'de henüz
+çalıştırılmadı. Cevapsızda uydurma raporda sınırlılık.
+
+**Ne anlama gelmiyor.** Tek puanlayıcı, puanlayıcı soruların yazarı,
+n = 43 ve 8, dev. Otomatik atıf ölçüsü (§17, §19) doğruluğu ölçmüyor, bu
+tablo onu doğruluyor.

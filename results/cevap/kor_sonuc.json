@@ -1,0 +1,1266 @@
+{
+ "sonuc": {
+  "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo": {
+   "cevapli": {
+    "kismen": 14,
+    "yanlis": 13,
+    "dogru": 16
+   },
+   "cevapsiz": {
+    "yanlis": 3,
+    "dogru": 5
+   }
+  },
+  "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2": {
+   "cevapli": {
+    "dogru": 20,
+    "kismen": 10,
+    "yanlis": 13
+   },
+   "cevapsiz": {
+    "yanlis": 4,
+    "dogru": 4
+   }
+  },
+  "Qwen/Qwen3-8B | dev-e5-demo": {
+   "cevapli": {
+    "dogru": 25,
+    "kismen": 9,
+    "yanlis": 9
+   },
+   "cevapsiz": {
+    "yanlis": 5,
+    "kismen": 1,
+    "dogru": 2
+   }
+  }
+ },
+ "bos": [],
+ "gecersiz": [],
+ "satirlar": [
+  {
+   "no": 1,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q029",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 2,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q038",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 3,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q042",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 4,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q021",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 5,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q017",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 6,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q005",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 7,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q052",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 8,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q013",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 9,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q023",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 10,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q015",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 11,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q013",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 12,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q018",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 13,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q011",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 14,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q047",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 15,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q038",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 16,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q009",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 17,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q049",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 18,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q034",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 19,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q048",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 20,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q036",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 21,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q031",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 22,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q007",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 23,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q001",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 24,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q014",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 25,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q007",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 26,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q003",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 27,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q048",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 28,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q040",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 29,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q017",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 30,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q004",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 31,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q020",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 32,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q021",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 33,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q033",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 34,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q024",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 35,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q052",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 36,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q043",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 37,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q008",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 38,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q024",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 39,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q034",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 40,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q047",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 41,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q045",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 42,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q047",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 43,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q018",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 44,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q023",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 45,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q041",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 46,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q003",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 47,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q036",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 48,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q046",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 49,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q004",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 50,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q010",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 51,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q010",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 52,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q045",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 53,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q050",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 54,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q045",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 55,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q006",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 56,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q005",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 57,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q016",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 58,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q017",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 59,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q026",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 60,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q041",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 61,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q003",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 62,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q025",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 63,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q002",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 64,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q048",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 65,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q025",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 66,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q052",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 67,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q046",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 68,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q031",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 69,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q051",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 70,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q037",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 71,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q018",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 72,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q038",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 73,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q027",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 74,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q044",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 75,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q039",
+   "tur": "cevapsiz",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 76,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q050",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 77,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q034",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 78,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q016",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 79,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q035",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 80,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q012",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 81,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q040",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 82,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q014",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 83,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q012",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 84,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q015",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 85,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q026",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 86,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q050",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 87,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q027",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 88,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q007",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 89,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q019",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 90,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q032",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 91,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q032",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 92,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q030",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 93,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q039",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 94,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q037",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 95,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q009",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 96,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q008",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 97,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q043",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 98,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q044",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 99,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q033",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 100,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q044",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 101,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q013",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 102,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q025",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 103,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q001",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 104,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q031",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 105,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q036",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 106,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q051",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 107,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q004",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 108,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q028",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 109,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q001",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 110,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q051",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 111,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q043",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 112,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q012",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 113,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q002",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 114,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q020",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 115,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q046",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 116,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q008",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 117,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q035",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 118,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q049",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 119,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q009",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 120,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q006",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 121,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q011",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 122,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q020",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 123,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q028",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 124,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q015",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 125,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q032",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 126,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q029",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 127,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q042",
+   "tur": "cok",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 128,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q010",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 129,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q041",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 130,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q033",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 131,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q019",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 132,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q035",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 133,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q019",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 134,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q027",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 135,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q030",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 136,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q039",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 137,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q014",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 138,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q026",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 139,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q040",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 140,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q023",
+   "tur": "cok",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 141,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q037",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 142,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q029",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 143,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q005",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 144,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q042",
+   "tur": "cok",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 145,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q021",
+   "tur": "tek",
+   "puan": "kismen",
+   "not": ""
+  },
+  {
+   "no": 146,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q028",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 147,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q002",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 148,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q024",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 149,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q030",
+   "tur": "cevapsiz",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 150,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q016",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 151,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo",
+   "id": "q011",
+   "tur": "tek",
+   "puan": "dogru",
+   "not": ""
+  },
+  {
+   "no": 152,
+   "kaynak": "Qwen/Qwen3-4B-Instruct-2507 | dev-e5-demo-b5w2",
+   "id": "q006",
+   "tur": "tek",
+   "puan": "yanlis",
+   "not": ""
+  },
+  {
+   "no": 153,
+   "kaynak": "Qwen/Qwen3-8B | dev-e5-demo",
+   "id": "q049",
+   "tur": "cevapsiz",
+   "puan": "dogru",
+   "not": ""
+  }
+ ]
+}
